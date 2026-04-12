@@ -1,20 +1,34 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Omkar Pawar
 
-# Run and deploy your AI Studio app
+Standalone Vite + React website for **Omkar Pawar / Freedom Innerwellbeing**.
 
-This contains everything you need to run your app locally.
+## Stack
 
-View your app in AI Studio: https://ai.studio/apps/5bfa52be-e24b-48bd-8ea4-02f27a47fda8
+- Vite + React 19 + TypeScript
+- Tailwind CSS v4
+- Docker + Nginx production runtime
+- `/api/lead` proxy into `naya-api`
+- GitHub Actions validation and `production` deploy
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
+## Local Development
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
+   `npm ci`
+2. Start the dev server:
    `npm run dev`
+3. Run validation:
+   - `npm test`
+   - `npm run lint`
+   - `npm run verify:assets`
+   - `npm run build`
+
+## Deployment
+
+- Live host: `omkarpawar.com`
+- `production` branch auto-deploys through `.github/workflows/deploy-production.yml`
+- Container health endpoint: `/healthz`
+
+## Notes
+
+- Lead capture posts to `/api/lead` and is proxied to `naya-api`
+- Naya project ownership, notifications, and portal visibility are configured on the live platform side

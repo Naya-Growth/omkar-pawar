@@ -1,5 +1,7 @@
 import { motion } from 'motion/react';
 import { Mail, MessageCircle, MapPin, ArrowRight } from 'lucide-react';
+import InquiryForm from '../components/InquiryForm';
+import { buildWhatsAppUrl, siteConfig } from '../lib/site-config';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -61,7 +63,7 @@ export default function Contact() {
                 <p className="text-white/90 font-light mb-8 text-lg">
                   Have a quick question before applying? Send me a direct message on WhatsApp for the fastest response.
                 </p>
-                <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" className="bg-white text-[#128C7E] px-8 py-4 rounded-full text-sm font-bold tracking-wide hover:bg-gray-100 transition-colors inline-flex items-center gap-2">
+                <a href={buildWhatsAppUrl('Hi Omkar, I would like to know more about working with you.')} target="_blank" rel="noopener noreferrer" className="bg-white text-[#128C7E] px-8 py-4 rounded-full text-sm font-bold tracking-wide hover:bg-gray-100 transition-colors inline-flex items-center gap-2">
                   Message Now <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
@@ -74,9 +76,9 @@ export default function Contact() {
                 <p className="text-white/80 font-light mb-8">
                   Ready to dive in? Schedule your free 45-minute discovery call to see if we're a fit for a 1:1 container.
                 </p>
-                <button className="bg-[#8C7A6B] text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide hover:bg-[#7A6A5B] transition-colors inline-flex items-center gap-2">
-                  Open Calendar <ArrowRight className="w-4 h-4" />
-                </button>
+                <a href={buildWhatsAppUrl('Hi Omkar, I would like to request a discovery call.')} target="_blank" rel="noopener noreferrer" className="bg-[#8C7A6B] text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide hover:bg-[#7A6A5B] transition-colors inline-flex items-center gap-2">
+                  Request a Call <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
             </motion.div>
 
@@ -87,7 +89,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-[#8C7A6B] mb-1">Email</p>
-                  <p className="text-[#2A2A2A] font-medium">hello@omkarpawar.com</p>
+                  <p className="text-[#2A2A2A] font-medium">{siteConfig.email}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -111,29 +113,7 @@ export default function Contact() {
             className="lg:col-span-7 bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-black/5"
           >
             <h3 className="font-serif text-3xl text-[#2A2A2A] mb-8">Send an Inquiry</h3>
-            <form className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-3">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#8C7A6B]">First Name</label>
-                  <input type="text" className="w-full bg-[#FAF9F6] border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-[#8C7A6B] outline-none transition-shadow" placeholder="Jane" />
-                </div>
-                <div className="space-y-3">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#8C7A6B]">Last Name</label>
-                  <input type="text" className="w-full bg-[#FAF9F6] border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-[#8C7A6B] outline-none transition-shadow" placeholder="Doe" />
-                </div>
-              </div>
-              <div className="space-y-3">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-[#8C7A6B]">Email Address</label>
-                <input type="email" className="w-full bg-[#FAF9F6] border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-[#8C7A6B] outline-none transition-shadow" placeholder="jane@example.com" />
-              </div>
-              <div className="space-y-3">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-[#8C7A6B]">How can I help you?</label>
-                <textarea rows={6} className="w-full bg-[#FAF9F6] border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-[#8C7A6B] outline-none resize-none transition-shadow" placeholder="Tell me a bit about what you're looking for..."></textarea>
-              </div>
-              <button type="button" className="w-full bg-[#2A2A2A] text-white px-8 py-5 rounded-full text-sm font-bold tracking-wide hover:bg-[#8C7A6B] transition-colors mt-4">
-                Send Message
-              </button>
-            </form>
+            <InquiryForm />
           </motion.div>
 
         </div>
