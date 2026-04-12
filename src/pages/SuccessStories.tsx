@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
 import { Quote, Star } from 'lucide-react';
 
+import { useLeadWizard } from '../components/LeadWizardProvider';
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] } }
@@ -17,6 +19,7 @@ const staggerContainer = {
 };
 
 export default function SuccessStories() {
+  const { openLeadWizard } = useLeadWizard();
   const stories = [
     {
       category: "Anxiety Reduction",
@@ -133,9 +136,13 @@ export default function SuccessStories() {
             Take the first step towards emotional freedom. Book a discovery call to see if we're a fit.
           </motion.p>
           <motion.div variants={fadeUp}>
-            <a href="/contact" className="bg-white text-[#2A2A2A] px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:bg-[#8C7A6B] hover:text-white transition-colors inline-block">
+            <button
+              type="button"
+              onClick={() => openLeadWizard()}
+              className="inline-block rounded-full bg-white px-10 py-4 text-sm font-bold tracking-wide text-[#2A2A2A] transition-colors hover:bg-[#8C7A6B] hover:text-white"
+            >
               Apply to Join
-            </a>
+            </button>
           </motion.div>
         </motion.div>
       </section>

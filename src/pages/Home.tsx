@@ -1,10 +1,22 @@
-import { motion } from 'motion/react';
-import { ArrowRight, Sparkles, BrainCircuit, HeartHandshake } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { motion } from "motion/react";
+import {
+  ArrowRight,
+  BrainCircuit,
+  Globe2,
+  HeartHandshake,
+  MapPin,
+  Sparkles,
+} from "lucide-react";
+import { Link } from "react-router-dom";
+
+import InquiryForm from "../components/InquiryForm";
+import ShareWebsiteButton from "../components/ShareWebsiteButton";
+import { useLeadWizard } from "../components/LeadWizardProvider";
+import { buildWhatsAppUrl, siteConfig } from "../lib/site-config";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] } }
+  visible: { opacity: 1, y: 0, transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1] } },
 };
 
 const staggerContainer = {
@@ -12,155 +24,232 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15
-    }
-  }
+      staggerChildren: 0.12,
+    },
+  },
 };
 
 export default function Home() {
+  const { openLeadWizard } = useLeadWizard();
+
   return (
     <div className="overflow-x-hidden bg-[#FAF9F6] text-[#2A2A2A]">
-      {/* Hero Section - Editorial & Airy */}
-      <section className="relative min-h-[90vh] flex items-center pt-20 pb-32 px-6 md:px-12 max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
-          
-          <motion.div 
+      <section className="mx-auto flex min-h-[92vh] max-w-[1400px] items-center px-6 pb-28 pt-14 md:px-12">
+        <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="lg:col-span-7 z-10"
+            className="lg:col-span-7"
           >
-            <motion.div variants={fadeUp} className="flex items-center gap-4 mb-8">
-              <div className="h-[1px] w-12 bg-[#8C7A6B]"></div>
-              <span className="text-[10px] uppercase tracking-[0.3em] text-[#8C7A6B] font-bold">
-                Omkar Pawar • Freedom Innerwellbeing
+            <motion.div variants={fadeUp} className="mb-8 flex flex-wrap items-center gap-3">
+              <span className="rounded-full bg-[#EFE6DA] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.24em] text-[#8C7A6B]">
+                {siteConfig.roleLabel}
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">
+                <MapPin className="h-3.5 w-3.5" />
+                {siteConfig.locationLabel}
               </span>
             </motion.div>
-            
-            <motion.h1 variants={fadeUp} className="font-serif text-5xl md:text-7xl lg:text-[6.5rem] leading-[1.05] mb-8">
-              Master Your <br />
-              <span className="italic text-[#8C7A6B]">Emotions.</span><br />
-              Transform Life.
+
+            <motion.h1
+              variants={fadeUp}
+              className="font-serif text-5xl leading-[1.02] md:text-7xl lg:text-[6.2rem]"
+            >
+              Emotional mastery for
+              <br />
+              <span className="italic text-[#8C7A6B]">calmer, clearer living.</span>
             </motion.h1>
-            
-            <motion.p variants={fadeUp} className="text-lg md:text-xl font-light leading-relaxed max-w-lg text-gray-600 mb-12">
-              Helping high-performers break free from anxiety, overthinking, and emotional patterns rooted in the past.
+
+            <motion.p
+              variants={fadeUp}
+              className="mt-8 max-w-2xl text-lg font-light leading-relaxed text-gray-600 md:text-xl"
+            >
+              Omkar Pawar helps people heal anxiety, regulate emotional overwhelm, and understand
+              the root patterns that keep repeating beneath high-functioning outer lives.
             </motion.p>
-            
-            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-6">
-              <Link to="/contact" className="bg-[#2A2A2A] text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide hover:bg-[#8C7A6B] transition-all duration-300 flex items-center gap-3 group">
-                Book a Discovery Call
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+
+            <motion.div variants={fadeUp} className="mt-10 flex flex-wrap gap-4">
+              <button
+                type="button"
+                onClick={() => openLeadWizard()}
+                className="inline-flex items-center gap-3 rounded-full bg-[#2A2A2A] px-8 py-4 text-sm font-bold tracking-[0.14em] text-white transition-colors hover:bg-[#8C7A6B]"
+              >
+                Take the guided fit check
+                <ArrowRight className="h-4 w-4" />
+              </button>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-3 rounded-full border border-black/5 bg-white px-8 py-4 text-sm font-bold tracking-[0.14em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
+              >
+                Book a discovery call
               </Link>
+              <ShareWebsiteButton
+                className="inline-flex items-center gap-3 rounded-full border border-black/5 bg-white px-8 py-4 text-sm font-bold tracking-[0.14em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
+                label="Share website"
+              />
+            </motion.div>
+
+            <motion.div variants={fadeUp} className="mt-10 flex flex-wrap gap-3">
+              <div className="rounded-[1.6rem] border border-black/5 bg-white px-5 py-4 shadow-sm">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8C7A6B]">
+                  Experience
+                </p>
+                <p className="mt-2 text-lg font-semibold">{siteConfig.socialProof.years}</p>
+              </div>
+              <div className="rounded-[1.6rem] border border-black/5 bg-white px-5 py-4 shadow-sm">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8C7A6B]">
+                  Impact
+                </p>
+                <p className="mt-2 text-lg font-semibold">{siteConfig.socialProof.clients}</p>
+              </div>
+              <div className="rounded-[1.6rem] border border-black/5 bg-white px-5 py-4 shadow-sm">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8C7A6B]">
+                  Sessions
+                </p>
+                <p className="mt-2 text-lg font-semibold">{siteConfig.languages.join(" · ")}</p>
+              </div>
             </motion.div>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, filter: 'blur(20px)' }}
-            animate={{ opacity: 1, filter: 'blur(0px)' }}
-            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5 relative"
+          <motion.div
+            initial={{ opacity: 0, filter: "blur(16px)", y: 18 }}
+            animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+            className="relative lg:col-span-5"
           >
-            <div className="aspect-[3/4] md:aspect-[4/5] rounded-t-full rounded-b-[3rem] overflow-hidden relative shadow-2xl shadow-[#8C7A6B]/10">
-              <img 
-                src="https://lh3.googleusercontent.com/aida/ADBb0uiy4Zba779LsLJxKHWtnicw9dRZP2keh2XOFyys2EGKUoFvXzMjr4XHPvv3BN5EbilT0fYnWaUN8t67MIMI5MPMbyxAw9cWvTjBc-K7m_4ZtxWjybc8NX8Jw3b0t0nTrRbiPo-DbYRAoC902Jm0gCCwjcMuUaLpHSwNnroP2ZG9cGwLuDmJRtzlTfx5JgXQRUBitzR2YkJ3yavtKvpeA9stzC8bwuHLdYm8RrVhNWQp00S9eJ4nySdyNbmRWayDvHaI0jJYxuDJ" 
-                alt="Omkar Pawar" 
-                className="w-full h-full object-cover"
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] border border-white/60 bg-[#E6DACB] shadow-[0_24px_90px_rgba(84,61,34,0.14)]">
+              <img
+                src={siteConfig.image.heroPortrait}
+                alt="Omkar Pawar standing outdoors"
+                className="h-full w-full object-cover object-[center_20%]"
+                loading="eager"
+                decoding="async"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F6]/40 to-transparent mix-blend-overlay"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1E1914]/12 via-transparent to-[#FAF9F6]/12" />
             </div>
-            
-            {/* Floating Badge */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1 }}
-              className="absolute -left-8 md:-left-16 bottom-12 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-xl max-w-[260px] border border-white/20"
+
+            <motion.div
+              initial={{ opacity: 0, x: -14, y: 12 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 1, delay: 0.8 }}
+              className="absolute -left-4 bottom-8 max-w-[250px] rounded-[1.8rem] border border-white/70 bg-white/88 p-5 shadow-xl backdrop-blur-md md:-left-12"
             >
-              <p className="font-serif italic text-lg text-[#2A2A2A] mb-2 leading-snug">
-                "Be gentle with your thoughts and emotions."
+              <p className="font-serif text-xl leading-snug text-[#2A2A2A]">
+                “Be gentle with your thoughts and emotions.”
               </p>
-              <p className="text-[9px] uppercase tracking-[0.2em] text-[#8C7A6B] font-bold">
+              <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#8C7A6B]">
                 — Omkar Pawar
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 16, y: 12 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 1, delay: 0.95 }}
+              className="absolute -bottom-8 right-0 max-w-[250px] rounded-[1.8rem] border border-white/60 bg-[#2A2A2A] p-5 text-white shadow-2xl md:-right-8"
+            >
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#D8C0A1]">
+                <Globe2 className="h-3.5 w-3.5" />
+                Online worldwide
+              </div>
+              <p className="mt-4 text-sm leading-7 text-white/74">
+                Discovery calls, guided enquiries, and 1:1 support rooted in emotional healing,
+                practical awareness, and calm follow-through.
               </p>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* The Core Philosophy - Minimalist Quote */}
-      <section className="py-32 bg-white">
-        <motion.div 
+      <section className="bg-white py-28">
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="max-w-4xl mx-auto px-6 text-center"
+          className="mx-auto max-w-4xl px-6 text-center"
         >
-          <motion.div variants={fadeUp} className="w-12 h-12 mx-auto bg-[#FAF9F6] rounded-full flex items-center justify-center mb-8">
-            <Sparkles className="w-5 h-5 text-[#8C7A6B]" />
+          <motion.div
+            variants={fadeUp}
+            className="mx-auto mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-[#FAF4EA] text-[#8C7A6B]"
+          >
+            <Sparkles className="h-5 w-5" />
           </motion.div>
-          <motion.h2 variants={fadeUp} className="font-serif text-3xl md:text-5xl leading-tight text-[#2A2A2A] mb-8">
-            "For every surface-level behavior, there is a <span className="italic text-[#8C7A6B]">deep-rooted reason.</span> We don't just cope; we heal from the root."
+          <motion.h2 variants={fadeUp} className="font-serif text-3xl leading-tight text-[#2A2A2A] md:text-5xl">
+            “For every surface-level behavior, there is a
+            <span className="italic text-[#8C7A6B]"> deep-rooted reason.</span> We do not just cope.
+            We heal from the root.”
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-gray-500 font-light tracking-wide uppercase text-xs">
-            The Freedom Innerwellbeing Approach
+          <motion.p variants={fadeUp} className="mt-6 text-xs font-bold uppercase tracking-[0.28em] text-gray-500">
+            The Freedom Innerwellbeing approach
           </motion.p>
         </motion.div>
       </section>
 
-      {/* The Invisible Struggles - Clean List Layout */}
-      <section className="py-32 px-6 md:px-12 max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          <motion.div 
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12">
+        <div className="grid gap-16 lg:grid-cols-12">
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
             className="lg:col-span-5"
           >
-            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl mb-6">The Invisible Battles</motion.h2>
-            <motion.p variants={fadeUp} className="text-gray-600 font-light leading-relaxed text-lg mb-8">
-              You appear successful to the world, but internally you are fighting battles no one sees. The constant pressure to be perfect, the fear of judgment, the unsaid expectations. You are not broken; you are just carrying unhealed patterns.
+            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl">
+              The invisible battles
+            </motion.h2>
+            <motion.p variants={fadeUp} className="mt-6 text-lg font-light leading-relaxed text-gray-600">
+              You may look composed on the outside and still feel exhausted by overthinking,
+              emotional pressure, fear of judgment, and patterns that seem to return no matter how
+              much you understand them intellectually.
             </motion.p>
-            <motion.div variants={fadeUp}>
-              <Link to="/about" className="inline-flex items-center gap-2 text-[#8C7A6B] font-bold text-sm uppercase tracking-widest hover:text-[#2A2A2A] transition-colors">
-                Read My Story <ArrowRight className="w-4 h-4" />
+            <motion.div variants={fadeUp} className="mt-8">
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-[#8C7A6B] transition-colors hover:text-[#2A2A2A]"
+              >
+                Read Omkar’s story
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </motion.div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="lg:col-span-7 grid gap-8"
+            className="grid gap-6 lg:col-span-7"
           >
             {[
               {
-                title: "Anxiety & Overthinking",
-                desc: "Constant mental chatter, self-doubt, and the inability to switch off. We work to break these loops and build emotional control.",
-                icon: <BrainCircuit className="w-6 h-6" />
+                title: "Anxiety & overthinking",
+                desc: "Constant internal noise, mental looping, self-doubt, and the difficulty of truly switching off.",
+                icon: <BrainCircuit className="h-6 w-6" />,
               },
               {
-                title: "Inner Child Wounds",
-                desc: "Childhood trauma and unresolved past experiences that manifest as emotional triggers, sudden outbursts, and self-sabotage today.",
-                icon: <Sparkles className="w-6 h-6" />
+                title: "Inner child wounds",
+                desc: "Past emotional experiences that still shape present reactions, triggers, self-protection, and shutdown.",
+                icon: <Sparkles className="h-6 w-6" />,
               },
               {
-                title: "Relationship Patterns",
-                desc: "Difficulty connecting deeply, fear of vulnerability, or repeating toxic cycles. We build self-awareness for secure, peaceful relationships.",
-                icon: <HeartHandshake className="w-6 h-6" />
-              }
-            ].map((item, i) => (
-              <motion.div key={i} variants={fadeUp} className="flex gap-6 p-8 rounded-3xl bg-white border border-black/5 hover:shadow-lg transition-shadow duration-500">
-                <div className="w-14 h-14 rounded-full bg-[#FAF9F6] flex items-center justify-center text-[#8C7A6B] shrink-0">
+                title: "Relationship patterns",
+                desc: "Fear of vulnerability, repeated cycles, emotional reactivity, and difficulty feeling secure in connection.",
+                icon: <HeartHandshake className="h-6 w-6" />,
+              },
+            ].map((item) => (
+              <motion.div
+                key={item.title}
+                variants={fadeUp}
+                className="flex gap-5 rounded-[2rem] border border-black/5 bg-white p-8 shadow-sm transition-shadow duration-500 hover:shadow-lg"
+              >
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#FAF4EA] text-[#8C7A6B]">
                   {item.icon}
                 </div>
                 <div>
-                  <h3 className="font-serif text-2xl mb-3">{item.title}</h3>
-                  <p className="text-gray-500 font-light leading-relaxed">{item.desc}</p>
+                  <h3 className="font-serif text-2xl text-[#2A2A2A]">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-gray-600">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -168,66 +257,129 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Eclectic Approach Section */}
-      <section className="py-32 bg-[#2A2A2A] text-white px-6 md:px-12">
-        <div className="max-w-[1400px] mx-auto">
-          <motion.div 
+      <section className="bg-[#2A2A2A] px-6 py-28 text-white md:px-12">
+        <div className="mx-auto max-w-[1400px]">
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="text-center max-w-3xl mx-auto mb-20"
+            className="mx-auto mb-16 max-w-3xl text-center"
           >
-            <motion.span variants={fadeUp} className="text-[10px] uppercase tracking-[0.3em] text-white/50 font-bold mb-6 block">
-              Clinical Expertise
+            <motion.span variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#D8C0A1]">
+              Clinical expertise
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl mb-6">An Eclectic Approach to Healing</motion.h2>
-            <motion.p variants={fadeUp} className="text-white/70 font-light text-lg">
-              Every individual is unique. I integrate multiple proven modalities to find the exact root cause of your distress and facilitate profound, lasting change.
+            <motion.h2 variants={fadeUp} className="mt-4 font-serif text-4xl md:text-5xl">
+              An eclectic approach to healing
+            </motion.h2>
+            <motion.p variants={fadeUp} className="mt-5 text-lg font-light text-white/72">
+              Omkar draws from multiple therapeutic and awareness-based modalities to understand the
+              actual root of what is happening instead of staying only at symptom level.
             </motion.p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-4"
           >
             {[
               "Inner Child Healing",
               "Cognitive Hypnotic Psychotherapy",
-              "Neuro-Linguistic Programming (NLP)",
-              "Mindfulness-Based CBT"
-            ].map((modality, i) => (
-              <motion.div key={i} variants={fadeUp} className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors">
-                <div className="text-3xl font-serif text-[#8C7A6B] mb-6">0{i + 1}</div>
-                <h4 className="text-lg font-medium tracking-wide">{modality}</h4>
+              "Neuro-Linguistic Programming",
+              "Mindfulness-Based CBT",
+            ].map((modality, index) => (
+              <motion.div
+                key={modality}
+                variants={fadeUp}
+                className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-sm"
+              >
+                <p className="text-3xl font-serif text-[#D8C0A1]">0{index + 1}</p>
+                <h3 className="mt-5 text-lg font-semibold tracking-wide">{modality}</h3>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-32 px-6 text-center">
-        <motion.div 
+      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-12">
+        <div className="grid gap-10 overflow-hidden rounded-[3rem] border border-black/5 bg-white p-8 shadow-[0_24px_90px_rgba(94,75,43,0.08)] md:p-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8C7A6B]">
+              Prefer writing before a call?
+            </p>
+            <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">
+              Send a grounded enquiry and let the right next step become clear.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-gray-600">
+              Use the form below if you want to explain what you are currently navigating in your own
+              words. The same live Naya lead system handles this enquiry flow too, so your message is
+              captured properly and routed for follow-up.
+            </p>
+
+            <div className="mt-8">
+              <InquiryForm sourceCta="home-inline-form" />
+            </div>
+          </div>
+
+          <div className="relative rounded-[2.5rem] bg-[#F7F1E8] p-5">
+            <div className="overflow-hidden rounded-[2rem]">
+              <img
+                src={siteConfig.image.homeFormAside}
+                alt="Omkar Pawar in a reflective outdoor portrait"
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div className="mt-5 rounded-[1.8rem] bg-white p-6 shadow-sm">
+              <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#8C7A6B]">
+                Good for
+              </p>
+              <ul className="mt-4 space-y-3 text-sm leading-7 text-gray-600">
+                <li>People who want to describe their situation before speaking live</li>
+                <li>Discovery-call requests and guided program fit checks</li>
+                <li>Private enquiries for anxiety, emotional healing, and inner-child work</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-28 text-center md:px-12">
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="max-w-3xl mx-auto"
+          className="mx-auto max-w-3xl"
         >
-          <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-6xl mb-8 leading-tight text-[#2A2A2A]">
-            Ready to stop surviving and start <span className="italic text-[#8C7A6B]">living?</span>
+          <motion.h2 variants={fadeUp} className="font-serif text-4xl leading-tight text-[#2A2A2A] md:text-6xl">
+            Ready to stop surviving and start
+            <span className="italic text-[#8C7A6B]"> living?</span>
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-gray-500 mb-12 text-lg font-light max-w-xl mx-auto">
-            Book a free discovery call to discuss your struggles and see how we can work together to build a peaceful, powerful life.
+          <motion.p variants={fadeUp} className="mx-auto mt-6 max-w-2xl text-lg font-light text-gray-500">
+            Start with the guided fit check, send an enquiry, or message directly on WhatsApp and
+            take the first honest step toward steadier emotional wellbeing.
           </motion.p>
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/contact" className="bg-[#2A2A2A] text-white px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:bg-[#8C7A6B] transition-colors">
-              Book a Free Discovery Call
-            </Link>
+          <motion.div variants={fadeUp} className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+            <button
+              type="button"
+              onClick={() => openLeadWizard()}
+              className="rounded-full bg-[#2A2A2A] px-10 py-4 text-sm font-bold tracking-[0.16em] text-white transition-colors hover:bg-[#8C7A6B]"
+            >
+              Open guided fit check
+            </button>
+            <a
+              href={buildWhatsAppUrl("Hi Omkar, I would like to connect with you on WhatsApp.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-black/5 bg-white px-10 py-4 text-sm font-bold tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
+            >
+              Message on WhatsApp
+            </a>
           </motion.div>
         </motion.div>
       </section>

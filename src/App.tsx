@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
+import { LeadWizardProvider } from './components/LeadWizardProvider';
+import SeoController from './components/SeoController';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Services from './pages/Services';
@@ -15,19 +17,22 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="services" element={<Services />} />
-          <Route path="about" element={<About />} />
-          <Route path="stories" element={<SuccessStories />} />
-          <Route path="content" element={<Content />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="terms-of-service" element={<TermsOfService />} />
-          <Route path="faq" element={<Faq />} />
-        </Route>
-      </Routes>
+      <LeadWizardProvider>
+        <SeoController />
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="services" element={<Services />} />
+            <Route path="about" element={<About />} />
+            <Route path="stories" element={<SuccessStories />} />
+            <Route path="content" element={<Content />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="terms-of-service" element={<TermsOfService />} />
+            <Route path="faq" element={<Faq />} />
+          </Route>
+        </Routes>
+      </LeadWizardProvider>
     </BrowserRouter>
   );
 }
