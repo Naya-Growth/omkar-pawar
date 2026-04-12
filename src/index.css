@@ -55,6 +55,27 @@
   --font-label: "Manrope", sans-serif;
 }
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-on-background);
+    font-family: var(--font-body);
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: rgba(210, 180, 140, 0.4);
+    color: var(--color-on-background);
+  }
+}
+
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;

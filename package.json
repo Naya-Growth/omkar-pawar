@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
-    "test": "node --test --import tsx src/lib/lead-form.test.ts",
+    "test": "node --test --import tsx src/lib/lead-form.test.ts src/lib/route-seo.test.ts",
     "verify:assets": "node scripts/verify-public-assets.mjs"
   },
   "dependencies": {
