@@ -1,7 +1,10 @@
+import { useMemo, useState } from 'react';
 import { motion } from 'motion/react';
 import { BookOpen, Video, PlayCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Content() {
+  const [activeFilter, setActiveFilter] = useState('All');
   const insights = [
     {
       category: 'Anxiety',
@@ -32,6 +35,14 @@ export default function Content() {
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmE2Meem68dIm2IYwPkLm-jQ3Q9IIfh95kaywla84KFzG1WEshBUkgo1buh-iefdQypIi4JreHOaTsqJdIUnxXD7I2S9BBjRVPzckz9LHys-WorIoSyjm-UKXEuFY9ExJYEw4VhcVbm_42YegydWFf7ZHoIvtTklSlA5EhVuNvOmpEvP9dI8DVVi_K6KLADWAgXdU3CitMRNQsMOiBP-j8iJlHA1G8Iz9EfcuQg8mJKthRBCRbsdVsHJkWi7WFGoDJofTigACuwjdO'
     }
   ];
+  const filters = ['All', 'Anxiety', 'Emotional Mastery', 'Inner Child Healing', 'Mindfulness'];
+  const filteredInsights = useMemo(() => {
+    if (activeFilter === 'All') {
+      return insights;
+    }
+
+    return insights.filter((item) => item.category === activeFilter);
+  }, [activeFilter]);
 
   return (
     <div className="overflow-x-hidden">
@@ -55,10 +66,12 @@ export default function Content() {
       {/* Content Grid */}
       <section className="max-w-7xl mx-auto px-6 md:px-12 py-24">
         <div className="flex flex-wrap gap-4 mb-12 justify-center">
-          {['All', 'Anxiety', 'Emotional Mastery', 'Inner Child Healing', 'Mindfulness'].map((filter, i) => (
+          {filters.map((filter, i) => (
             <button 
               key={filter}
-              className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-colors ${i === 0 ? 'bg-[#60523f] text-white' : 'bg-white border border-black/10 text-gray-500 hover:border-[#60523f] hover:text-[#60523f]'}`}
+              type="button"
+              onClick={() => setActiveFilter(filter)}
+              className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-colors ${activeFilter === filter ? 'bg-[#60523f] text-white' : 'bg-white border border-black/10 text-gray-500 hover:border-[#60523f] hover:text-[#60523f]'}`}
             >
               {filter}
             </button>
@@ -66,7 +79,7 @@ export default function Content() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {insights.map((item, index) => (
+          {filteredInsights.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -91,6 +104,12 @@ export default function Content() {
               </h3>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link to="/contact" className="inline-flex items-center rounded-full bg-[#2A2A2A] px-8 py-4 text-sm font-bold tracking-wide text-white transition-colors hover:bg-[#8C7A6B]">
+            Ask About the Right Program
+          </Link>
         </div>
       </section>
     </div>

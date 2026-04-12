@@ -1,7 +1,11 @@
+import { buildWhatsAppUrl } from '../../lib/site-config';
+
 export default function WhatsAppFab() {
   return (
     <a
-      href="#"
+      href={buildWhatsAppUrl('Hi Omkar, I would like to connect with you.')}
+      target="_blank"
+      rel="noopener noreferrer"
       className="fixed bottom-28 md:bottom-8 right-6 md:right-8 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl z-40 hover:scale-110 active:scale-95 transition-all duration-300"
       aria-label="WhatsApp Support"
     >
