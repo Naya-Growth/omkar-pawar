@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   contactCopy,
+  faqItems,
   heroStats,
   socialLinks,
   supportPathLabels,
@@ -90,4 +91,12 @@ test("supportPathLabels keep the lead payload aligned with the visible choices",
   );
   assert.equal(supportPathLabels["structured-28-day-program"], "Structured 28-Day Program");
   assert.equal(supportPathLabels["not-sure-yet"], "Not Sure Yet");
+});
+
+test("faqItems keep structured data aligned with the FAQ page", () => {
+  assert.equal(faqItems.length, 3);
+  assert.deepEqual(
+    faqItems.map((item) => item.question),
+    ["How Do I Begin?", "Are Sessions Online?", "Is Pricing Public?"],
+  );
 });

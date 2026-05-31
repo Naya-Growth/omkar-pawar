@@ -19,6 +19,7 @@ assertFile("public/site.webmanifest");
 assertFile("public/robots.txt");
 assertFile("public/sitemap.xml");
 assertFile("public/llms.txt");
+assertFile("public/omkar-pawar.md");
 assertFile("public/media/hero-portrait.webp");
 assertFile("public/media/og-cover.jpg");
 
@@ -29,6 +30,10 @@ if (!indexHtml.includes("Omkar Pawar | Freedom Innerwellbeing")) {
 
 if (!indexHtml.includes("og:image")) {
   throw new Error("index.html is missing the open graph image metadata");
+}
+
+if (!indexHtml.includes("rel=\"alternate\" type=\"text/plain\"")) {
+  throw new Error("index.html is missing the llms.txt alternate link");
 }
 
 console.log("omkar pawar public asset checks passed");

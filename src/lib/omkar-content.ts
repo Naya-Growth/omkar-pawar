@@ -85,3 +85,21 @@ export const socialLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/coach-omkarpawar/" },
   { label: "YouTube", href: "https://www.youtube.com/@omkarpawar1407" },
 ] as const;
+
+export const faqItems = [
+  {
+    question: "How Do I Begin?",
+    answer:
+      "Start with the quick clarity check, enquiry form, or a WhatsApp message. The team will help you understand the right next step.",
+  },
+  {
+    question: "Are Sessions Online?",
+    answer:
+      "Yes. Sessions are conducted online so support can be offered across locations in a calm and flexible format.",
+  },
+  {
+    question: "Is Pricing Public?",
+    answer:
+      "Pricing is discussed privately after understanding your needs and the format that fits you best.",
+  },
+] as const;

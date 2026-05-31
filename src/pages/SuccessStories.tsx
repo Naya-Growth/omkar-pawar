@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
-import { Quote, Star } from 'lucide-react';
 
 import { useLeadWizard } from '../components/LeadWizardProvider';
+import StoryCarousel, { type StorySlide } from '../components/StoryCarousel';
 import { Button } from '../components/ui/button';
 import { wizardContent } from '../lib/omkar-content';
 
@@ -22,7 +22,7 @@ const staggerContainer = {
 
 export default function SuccessStories() {
   const { openLeadWizard } = useLeadWizard();
-  const stories = [
+  const stories: StorySlide[] = [
     {
       category: "Anxiety Reduction",
       quote: "I was constantly living in my head, overthinking every small detail at work and home. After the 28-day program, I finally know what peace feels like. I can actually switch off.",
@@ -64,62 +64,28 @@ export default function SuccessStories() {
   return (
     <div className="overflow-x-hidden bg-[#FAF9F6] text-[#2A2A2A]">
       {/* Hero Section */}
-      <section className="relative pt-24 pb-20 px-6 md:px-12 max-w-[1400px] mx-auto text-center">
+      <section className="relative pt-16 pb-10 px-6 md:px-12 max-w-[1400px] mx-auto text-center">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
           className="max-w-4xl mx-auto"
         >
-          <motion.span variants={fadeUp} className="text-[10px] uppercase tracking-[0.3em] text-[#8C7A6B] font-bold mb-6 block">
+          <motion.span variants={fadeUp} className="text-[10px] uppercase tracking-[0.3em] text-[#8C7A6B] font-bold mb-4 block">
             Client Transformations
           </motion.span>
-          <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-8">
+          <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6">
             Stories Of <span className="italic text-[#8C7A6B]">Healing</span> <br />And Mastery
           </motion.h1>
-          <motion.p variants={fadeUp} className="text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto text-gray-600">
+          <motion.p variants={fadeUp} className="text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto text-gray-600">
             Real experiences from high-performers who chose to break free from their invisible battles and reclaim their peace.
           </motion.p>
         </motion.div>
       </section>
 
       {/* Testimonials Grid */}
-      <section className="py-20 px-6 md:px-12 max-w-[1400px] mx-auto">
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {stories.map((story, i) => (
-            <motion.div 
-              key={i} 
-              variants={fadeUp} 
-              className="bg-white p-10 rounded-lg shadow-sm border border-black/5 hover:shadow-xl transition-shadow duration-500 flex flex-col h-full"
-            >
-              <div className="flex justify-between items-start mb-8">
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[#8C7A6B] font-bold bg-[#FAF9F6] px-3 py-1 rounded-full">
-                  {story.category}
-                </span>
-                <div className="flex gap-1">
-                  {[...Array(story.rating)].map((_, j) => (
-                    <Star key={j} className="w-4 h-4 fill-[#8C7A6B] text-[#8C7A6B]" />
-                  ))}
-                </div>
-              </div>
-              <div className="mb-8 flex-grow">
-                <Quote className="w-8 h-8 text-[#8C7A6B]/20 mb-4" />
-                <p className="text-gray-600 font-light leading-relaxed text-lg italic">
-                  "{story.quote}"
-                </p>
-              </div>
-              <div className="pt-6 border-t border-black/5">
-                <p className="font-bold text-[#2A2A2A]">{story.author}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+      <section className="py-12 px-6 md:px-12 max-w-[1400px] mx-auto">
+        <StoryCarousel stories={stories} />
       </section>
 
       {/* CTA Section */}

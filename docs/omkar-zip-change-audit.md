@@ -70,7 +70,7 @@ Local visual QA screenshots generated under `visual-qa/`:
 Verification completed before deployment:
 
 ```bash
-npm test                 # 10 passing
+npm test                 # 13 passing
 npm run lint             # TypeScript passed
 npm run verify:assets    # public asset checks passed
 npm audit --omit=dev     # 0 vulnerabilities
@@ -78,3 +78,5 @@ npm run build            # passed; Vite chunk-size warning only
 ```
 
 Playwright layout checks completed for `/`, `/about`, `/services`, `/stories`, `/content`, `/contact`, and `/faq` at desktop, wide desktop, and mobile viewport sizes with no horizontal overflow failures.
+
+Additional UI/SEO/GEO proof is documented in `docs/omkar-ui-seo-enhancement-audit.md`.

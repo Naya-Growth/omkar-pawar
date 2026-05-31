@@ -17,6 +17,12 @@ import { Link } from "react-router-dom";
 
 import InquiryForm from "../components/InquiryForm";
 import { useLeadWizard } from "../components/LeadWizardProvider";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../components/ui/accordion";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { heroStats, wizardContent } from "../lib/omkar-content";
@@ -56,10 +62,22 @@ const painPoints = [
 ];
 
 const modalities = [
-  "Inner Child Healing",
-  "Cognitive Hypnotic Psychotherapy",
-  "Neuro-Linguistic Programming",
-  "Mindfulness-Based CBT",
+  {
+    title: "Inner Child Healing",
+    desc: "For old experiences that still shape present reactions, triggers, self-protection, and shutdown.",
+  },
+  {
+    title: "Cognitive Hypnotic Psychotherapy",
+    desc: "Root-level work for the deeper reason beneath surface-level behavior and emotional loops.",
+  },
+  {
+    title: "Neuro-Linguistic Programming",
+    desc: "Practical reframing support for confidence, self-doubt, emotional responses, and repeated patterns.",
+  },
+  {
+    title: "Mindfulness-Based CBT",
+    desc: "Calm awareness and grounded regulation for overthinking, overwhelm, and clearer follow-through.",
+  },
 ];
 
 const claritySteps = [
@@ -107,6 +125,24 @@ export default function Home() {
               Omkar Pawar helps people heal anxiety, regulate emotional overwhelm, and understand
               the root patterns that keep repeating beneath high-functioning outer lives.
             </motion.p>
+
+            <motion.div variants={fadeUp} className="mt-6 grid max-w-2xl gap-2 sm:grid-cols-3">
+              {[
+                { label: "Anxiety & Overthinking", icon: <BrainCircuit className="h-4 w-4" /> },
+                { label: "Emotional Overwhelm", icon: <HeartHandshake className="h-4 w-4" /> },
+                { label: "Inner Child Healing", icon: <Sparkles className="h-4 w-4" /> },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="group flex items-center gap-3 rounded-lg border border-[#252724]/8 bg-white/70 px-3 py-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_12px_28px_rgba(60,73,64,0.12)]"
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#E7EDE6] text-[#53665A]">
+                    {item.icon}
+                  </span>
+                  <span className="text-xs font-bold leading-5 text-[#252724]">{item.label}</span>
+                </div>
+              ))}
+            </motion.div>
 
             <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button type="button" onClick={() => openLeadWizard()} size="lg" className="sm:w-auto">
@@ -307,16 +343,68 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4"
+            className="mt-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr]"
           >
-            {modalities.map((modality, index) => (
-              <motion.div key={modality} variants={fadeUp}>
-                <Card className="h-full border-white/10 bg-white/[0.06] p-6 text-white shadow-none">
-                  <p className="font-serif text-3xl text-[#D9E2D8]">0{index + 1}</p>
-                  <h3 className="mt-5 text-base font-semibold leading-7">{modality}</h3>
-                </Card>
-              </motion.div>
-            ))}
+            <motion.div variants={fadeUp} className="relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.06] p-3 shadow-[0_24px_90px_rgba(0,0,0,0.18)]">
+              <img
+                src={siteConfig.image.servicesPortrait}
+                alt="Omkar Pawar portrait for therapeutic support"
+                className="aspect-[4/3] w-full rounded-md object-cover object-[center_18%] opacity-95"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="grid gap-3 p-4">
+                {claritySteps.map((step, index) => (
+                  <div key={step} className="flex items-center gap-3">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white/10 text-xs font-bold text-[#D9E2D8]">
+                      {index + 1}
+                    </span>
+                    <span className="text-sm leading-6 text-white/74">{step}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <Card className="h-full border-white/10 bg-white/[0.06] p-6 text-white shadow-none md:p-8">
+                <div className="mb-6 flex flex-wrap gap-2">
+                  {modalities.map((modality) => (
+                    <span
+                      key={modality.title}
+                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#D9E2D8]"
+                    >
+                      {modality.title}
+                    </span>
+                  ))}
+                </div>
+
+                <Accordion type="single" defaultValue="modality-0" collapsible>
+                  {modalities.map((modality, index) => (
+                    <AccordionItem key={modality.title} value={`modality-${index}`} className="border-white/10">
+                      <AccordionTrigger className="text-white hover:text-[#D9E2D8]">
+                        <span className="flex items-center gap-4">
+                          <span className="font-serif text-2xl text-[#D9E2D8]">0{index + 1}</span>
+                          {modality.title}
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-white/74">
+                        {modality.desc}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <Button type="button" variant="inverted" size="lg" onClick={() => openLeadWizard()}>
+                    {wizardContent.triggerLabel}
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                  <Button asChild variant="ghost" size="lg" className="border border-white/12 text-white hover:bg-white/10">
+                    <Link to="/services">Explore Support</Link>
+                  </Button>
+                </div>
+              </Card>
+            </motion.div>
           </motion.div>
         </div>
       </section>

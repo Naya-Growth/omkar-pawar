@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import { getCanonicalUrl, getRouteSeo, structuredData } from "../lib/route-seo";
+import { buildRouteStructuredData, getCanonicalUrl, getRouteSeo } from "../lib/route-seo";
 import { absoluteSiteUrl, siteConfig } from "../lib/site-config";
 
 function upsertMeta(selector: string, attributes: Record<string, string>) {
@@ -27,7 +27,7 @@ function upsertLink(rel: string, href: string) {
   node.href = href;
 }
 
-function upsertStructuredData() {
+function upsertStructuredData(pathname: string) {
   let node = document.head.querySelector("#omkar-structured-data") as HTMLScriptElement | null;
   if (!node) {
     node = document.createElement("script");
@@ -36,7 +36,7 @@ function upsertStructuredData() {
     document.head.appendChild(node);
   }
 
-  node.textContent = JSON.stringify(structuredData);
+  node.textContent = JSON.stringify(buildRouteStructuredData(pathname));
 }
 
 export default function SeoController() {
@@ -50,11 +50,17 @@ export default function SeoController() {
 
     upsertMeta('meta[name="description"]', { name: "description", content: seo.description });
     upsertMeta('meta[name="keywords"]', { name: "keywords", content: seo.keywords });
+    upsertMeta('meta[name="author"]', { name: "author", content: siteConfig.projectName });
+    upsertMeta('meta[name="application-name"]', {
+      name: "application-name",
+      content: `${siteConfig.projectName} | ${siteConfig.practiceName}`,
+    });
     upsertMeta('meta[property="og:title"]', { property: "og:title", content: seo.title });
     upsertMeta('meta[property="og:description"]', { property: "og:description", content: seo.description });
     upsertMeta('meta[property="og:url"]', { property: "og:url", content: canonical });
     upsertMeta('meta[property="og:type"]', { property: "og:type", content: "website" });
     upsertMeta('meta[property="og:site_name"]', { property: "og:site_name", content: siteConfig.projectName });
+    upsertMeta('meta[property="og:locale"]', { property: "og:locale", content: "en_IN" });
     upsertMeta('meta[property="og:image"]', {
       property: "og:image",
       content: absoluteSiteUrl(siteConfig.image.shareCard),
@@ -70,12 +76,17 @@ export default function SeoController() {
       name: "twitter:image",
       content: absoluteSiteUrl(siteConfig.image.shareCard),
     });
+    upsertMeta('meta[name="twitter:image:alt"]', {
+      name: "twitter:image:alt",
+      content: `${siteConfig.projectName} | ${siteConfig.roleLabel}`,
+    });
     upsertMeta('meta[name="robots"]', {
       name: "robots",
       content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     });
     upsertLink("canonical", canonical);
-    upsertStructuredData();
+    upsertLink("sitemap", absoluteSiteUrl("/sitemap.xml"));
+    upsertStructuredData(location.pathname);
   }, [location.pathname]);
 
   return null;
