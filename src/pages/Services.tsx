@@ -71,7 +71,7 @@ export default function Services() {
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="aspect-[4/5] overflow-hidden rounded-[3rem] shadow-2xl shadow-[#8C7A6B]/10">
+            <div className="aspect-[4/5] overflow-hidden rounded-lg shadow-2xl shadow-[#8C7A6B]/10">
               <img
                 src={siteConfig.image.servicesPortrait}
                 alt="Omkar Pawar portrait for services page"
@@ -92,8 +92,7 @@ export default function Services() {
           variants={staggerContainer}
           className="grid gap-8 lg:grid-cols-2"
         >
-          <motion.div variants={fadeUp} className="group relative flex flex-col overflow-hidden rounded-[3rem] border border-black/5 bg-white p-12 shadow-sm transition-all duration-500 hover:shadow-xl">
-            <div className="absolute right-0 top-0 h-64 w-64 rounded-bl-full bg-gradient-to-bl from-[#FAF4EA] to-transparent opacity-60 transition-transform duration-700 group-hover:scale-110" />
+          <motion.div variants={fadeUp} className="group relative flex flex-col overflow-hidden rounded-lg border border-black/5 bg-white p-12 shadow-sm transition-all duration-500 hover:shadow-xl">
             <div className="relative z-10 flex-grow">
               <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-[#FAF4EA] text-[#8C7A6B]">
                 <Leaf className="h-6 w-6" />
@@ -122,7 +121,7 @@ export default function Services() {
           </motion.div>
 
           <div className="flex flex-col gap-8">
-            <motion.div variants={fadeUp} className="rounded-[3rem] bg-[#8C7A6B] p-12 text-white shadow-sm transition-all duration-500 hover:shadow-xl">
+            <motion.div variants={fadeUp} className="rounded-lg bg-[#8C7A6B] p-12 text-white shadow-sm transition-all duration-500 hover:shadow-xl">
               <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white">
                 <Zap className="h-6 w-6" />
               </div>
@@ -141,7 +140,7 @@ export default function Services() {
               </button>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="rounded-[3rem] bg-[#2A2A2A] p-12 text-white shadow-sm transition-all duration-500 hover:shadow-xl">
+            <motion.div variants={fadeUp} className="rounded-lg bg-[#2A2A2A] p-12 text-white shadow-sm transition-all duration-500 hover:shadow-xl">
               <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white">
                 <Users className="h-6 w-6" />
               </div>

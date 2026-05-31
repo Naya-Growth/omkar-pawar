@@ -207,7 +207,7 @@ export default function InquiryForm({
           name="serviceInterest"
           value={values.serviceInterest}
           onChange={handleChange}
-          className="h-14 w-full rounded-full border border-[#262421]/8 bg-white px-5 text-sm text-[#262421] outline-none transition-shadow focus:ring-2 focus:ring-[#53665A]"
+          className="h-14 w-full rounded-lg border border-[#262421]/8 bg-white px-5 text-sm text-[#262421] outline-none transition-shadow focus:ring-2 focus:ring-[#53665A]"
         >
           {serviceOptions.map((option) => (
             <option key={option.value} value={option.value}>
@@ -251,7 +251,7 @@ export default function InquiryForm({
         <p
           role="status"
           aria-live="polite"
-          className={`mt-6 rounded-[1.5rem] px-5 py-4 text-sm leading-7 ${
+          className={`mt-6 rounded-lg px-5 py-4 text-sm leading-7 ${
             status.tone === "success"
               ? "border border-emerald-400/30 bg-emerald-500/8 text-emerald-700"
               : "border border-rose-400/30 bg-rose-500/8 text-rose-700"

@@ -21,14 +21,14 @@ const staggerContainer = {
 export default function About() {
   return (
     <div className="overflow-x-hidden bg-[#FAF9F6] text-[#2A2A2A]">
-      <section className="relative mx-auto max-w-[1400px] px-6 pb-12 pt-16 md:px-12">
+      <section className="relative mx-auto max-w-[1400px] px-6 pb-8 pt-12 md:px-12">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
           className="mx-auto max-w-4xl text-center"
         >
-          <motion.span variants={fadeUp} className="mb-6 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C7A6B]">
+          <motion.span variants={fadeUp} className="mb-3 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C7A6B]">
             The Origin Story
           </motion.span>
           <motion.h1 variants={fadeUp} className="font-serif text-4xl leading-[1.1] md:text-6xl lg:text-7xl">
@@ -40,7 +40,7 @@ export default function About() {
             initial={{ opacity: 0, filter: "blur(10px)" }}
             animate={{ opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="relative mb-8 mt-8 aspect-[16/9] overflow-hidden rounded-[2rem] shadow-2xl shadow-[#8C7A6B]/10"
+            className="relative mb-6 mt-6 aspect-[21/9] overflow-hidden rounded-lg shadow-2xl shadow-[#8C7A6B]/10"
           >
             <img
               src={siteConfig.image.aboutBanner}
@@ -51,18 +51,18 @@ export default function About() {
             />
           </motion.div>
           <motion.div variants={fadeUp} className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-[1.8rem] border border-black/5 bg-white px-5 py-5 shadow-sm">
+            <div className="rounded-lg border border-black/5 bg-white px-5 py-5 shadow-sm">
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">Practice</p>
               <p className="mt-2 text-lg font-semibold">{siteConfig.practiceName}</p>
             </div>
-            <div className="rounded-[1.8rem] border border-black/5 bg-white px-5 py-5 shadow-sm">
+            <div className="rounded-lg border border-black/5 bg-white px-5 py-5 shadow-sm">
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">Based In</p>
               <p className="mt-2 inline-flex items-center gap-2 text-lg font-semibold">
                 <MapPin className="h-4 w-4 text-[#8C7A6B]" />
                 {siteConfig.location}
               </p>
             </div>
-            <div className="rounded-[1.8rem] border border-black/5 bg-white px-5 py-5 shadow-sm">
+            <div className="rounded-lg border border-black/5 bg-white px-5 py-5 shadow-sm">
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">Languages</p>
               <p className="mt-2 inline-flex items-center gap-2 text-lg font-semibold">
                 <Globe2 className="h-4 w-4 text-[#8C7A6B]" />
@@ -73,7 +73,7 @@ export default function About() {
         </motion.div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 pb-20 pt-10 md:px-12">
+      <section className="mx-auto max-w-3xl px-6 pb-20 pt-4 md:px-12">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -199,7 +199,7 @@ export default function About() {
             <motion.div
               key={cred.title}
               variants={fadeUp}
-              className="flex flex-col items-center rounded-[2rem] border border-black/5 bg-white p-8 text-center shadow-sm transition-shadow duration-500 hover:shadow-xl"
+              className="flex flex-col items-center rounded-lg border border-black/5 bg-white p-8 text-center shadow-sm transition-shadow duration-500 hover:shadow-xl"
             >
               <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#FAF4EA] text-[#8C7A6B]">
                 {cred.icon}

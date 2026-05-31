@@ -90,7 +90,7 @@ export default function TopNav() {
                 key={item.path}
                 to={item.path}
                 onClick={closeMenu}
-                className={`rounded-2xl px-4 py-3 text-sm font-bold uppercase tracking-[0.18em] transition-colors ${
+                className={`rounded-lg px-4 py-3 text-sm font-bold uppercase tracking-[0.18em] transition-colors ${
                   location.pathname === item.path
                     ? "bg-[#8C7A6B]/10 text-[#8C7A6B]"
                     : "text-gray-500 hover:bg-white hover:text-[#2A2A2A]"

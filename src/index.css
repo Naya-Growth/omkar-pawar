@@ -96,13 +96,9 @@
     scrollbar-width: none;
   }
   .bg-hero-gradient {
-    background:
-      radial-gradient(circle at 15% 10%, rgba(83, 102, 90, 0.12), transparent 32%),
-      linear-gradient(135deg, #fbfaf7 0%, #f0e7da 52%, #eef3ec 100%);
+    background: linear-gradient(135deg, #fbfaf7 0%, #f4f7f1 52%, #eef3ec 100%);
   }
   .soft-paper {
-    background:
-      radial-gradient(circle at top left, rgba(220, 199, 167, 0.34), transparent 34%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(251, 250, 247, 0.88));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(247, 248, 245, 0.9));
   }
 }

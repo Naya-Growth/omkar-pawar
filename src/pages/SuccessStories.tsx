@@ -96,7 +96,7 @@ export default function SuccessStories() {
             <motion.div 
               key={i} 
               variants={fadeUp} 
-              className="bg-white p-10 rounded-[2rem] shadow-sm border border-black/5 hover:shadow-xl transition-shadow duration-500 flex flex-col h-full"
+              className="bg-white p-10 rounded-lg shadow-sm border border-black/5 hover:shadow-xl transition-shadow duration-500 flex flex-col h-full"
             >
               <div className="flex justify-between items-start mb-8">
                 <span className="text-[10px] uppercase tracking-[0.2em] text-[#8C7A6B] font-bold bg-[#FAF9F6] px-3 py-1 rounded-full">
@@ -129,7 +129,7 @@ export default function SuccessStories() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="max-w-3xl mx-auto bg-[#2A2A2A] text-white p-16 md:p-24 rounded-[3rem]"
+          className="max-w-3xl mx-auto bg-[#2A2A2A] text-white p-16 md:p-24 rounded-lg"
         >
           <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl mb-8 leading-tight">
             Ready To Write Your Own <span className="italic text-[#8C7A6B]">Success Story?</span>

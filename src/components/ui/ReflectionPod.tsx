@@ -7,9 +7,8 @@ export default function ReflectionPod({ quote, author, role, initials }: { quote
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="bg-surface p-8 md:p-16 rounded-[2rem] md:rounded-[3rem] relative overflow-hidden text-center border border-outline-variant/15 max-w-5xl mx-auto shadow-xl"
+      className="bg-surface p-8 md:p-16 rounded-lg relative overflow-hidden text-center border border-outline-variant/15 max-w-5xl mx-auto shadow-xl"
     >
-      <div className="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 bg-primary-container/10 rounded-full blur-3xl -mr-24 -mt-24 md:-mr-48 md:-mt-48"></div>
       <Quote className="text-primary/40 w-12 h-12 md:w-16 md:h-16 mb-6 md:mb-10 mx-auto fill-current relative z-10" />
       <p className="font-headline text-2xl md:text-4xl italic leading-relaxed text-on-surface mb-8 md:mb-12 relative z-10">
         "{quote}"

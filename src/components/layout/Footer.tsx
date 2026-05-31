@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer className="mt-20 w-full">
       <div className="bg-[#2A2A2A] px-6 py-20 text-white md:px-12">
-        <div className="mx-auto grid max-w-[1400px] gap-10 rounded-[2.5rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(210,180,140,0.24),transparent_38%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-10 shadow-[0_24px_90px_rgba(0,0,0,0.22)] md:grid-cols-[1.15fr_0.85fr] md:p-14">
+        <div className="mx-auto grid max-w-[1400px] gap-10 rounded-lg border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02))] p-10 shadow-[0_24px_90px_rgba(0,0,0,0.22)] md:grid-cols-[1.15fr_0.85fr] md:p-14">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#D8C0A1]">
               Calm, Practical Emotional Support

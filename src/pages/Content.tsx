@@ -4,6 +4,7 @@ import { ArrowRight, BookOpen, Instagram, Linkedin, PlayCircle, Video, Youtube }
 
 import { useLeadWizard } from "../components/LeadWizardProvider";
 import { Button } from "../components/ui/button";
+import { Card } from "../components/ui/card";
 import { wizardContent } from "../lib/omkar-content";
 import { siteConfig } from "../lib/site-config";
 
@@ -67,33 +68,40 @@ export default function Content() {
             nervous system, and reconnect with emotional steadiness.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <a
+            <Button
+              asChild
+              variant="secondary"
+              size="md"
+            >
+              <a
               href={siteConfig.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
             >
               <Instagram className="h-4 w-4" />
               Instagram
-            </a>
-            <a
+              </a>
+            </Button>
+            <Button asChild variant="secondary" size="md">
+              <a
               href={siteConfig.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
             >
               <Linkedin className="h-4 w-4" />
               LinkedIn
-            </a>
-            <a
+              </a>
+            </Button>
+            <Button asChild variant="secondary" size="md">
+              <a
               href={siteConfig.youtubeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
             >
               <Youtube className="h-4 w-4" />
               YouTube
-            </a>
+              </a>
+            </Button>
           </div>
         </motion.div>
       </section>
@@ -124,7 +132,7 @@ export default function Content() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group cursor-pointer rounded-[2rem] border border-black/5 bg-white p-7 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
+              className="group cursor-pointer rounded-lg border border-black/5 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(60,73,64,0.12)]"
             >
               <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#F5F1EA] px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-[#1a1a1a]">
                 {item.icon}
@@ -140,7 +148,7 @@ export default function Content() {
           ))}
         </div>
 
-        <div className="mt-16 rounded-[2.5rem] border border-black/5 bg-white p-8 text-center shadow-sm md:p-12">
+        <Card className="mt-16 p-8 text-center md:p-12">
           <h3 className="font-serif text-3xl text-[#1A1A1A] md:text-4xl">Need Help Finding The Right Support Path?</h3>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-gray-600">
             If the content resonates but you want clarity on what to do next, the quick clarity check is
@@ -150,7 +158,7 @@ export default function Content() {
             {wizardContent.triggerLabel}
             <ArrowRight className="h-4 w-4" />
           </Button>
-        </div>
+        </Card>
       </section>
     </div>
   );

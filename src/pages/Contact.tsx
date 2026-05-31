@@ -56,7 +56,7 @@ export default function Contact() {
             variants={staggerContainer}
             className="flex flex-col gap-8 lg:col-span-5"
           >
-            <motion.div variants={fadeUp} className="overflow-hidden rounded-[3rem] border border-black/5 bg-white shadow-sm">
+            <motion.div variants={fadeUp} className="overflow-hidden rounded-lg border border-black/5 bg-white shadow-sm">
               <div className="aspect-[4/5] overflow-hidden bg-[#EFE6DA]">
                 <img
                   src={siteConfig.image.contactPortrait}
@@ -90,7 +90,7 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="rounded-[2.5rem] bg-[#25D366] p-10 text-white shadow-lg shadow-[#25D366]/20">
+            <motion.div variants={fadeUp} className="rounded-lg bg-[#25D366] p-10 text-white shadow-lg shadow-[#25D366]/20">
               <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-white/20 text-white">
                 <MessageCircle className="h-6 w-6" />
               </div>
@@ -110,7 +110,7 @@ export default function Contact() {
               </a>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="grid gap-6 rounded-[2.5rem] border border-black/5 bg-white p-8 shadow-sm">
+            <motion.div variants={fadeUp} className="grid gap-6 rounded-lg border border-black/5 bg-white p-8 shadow-sm">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FAF4EA] text-[#8C7A6B]">
                   <Mail className="h-5 w-5" />
@@ -166,7 +166,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-[3rem] border border-black/5 bg-white p-10 shadow-sm lg:col-span-7 md:p-14"
+            className="rounded-lg border border-black/5 bg-white p-10 shadow-sm lg:col-span-7 md:p-14"
           >
             <h3 className="font-serif text-3xl text-[#2A2A2A]">Send An Enquiry</h3>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-gray-600">

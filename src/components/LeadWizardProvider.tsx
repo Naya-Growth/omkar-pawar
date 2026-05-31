@@ -218,7 +218,7 @@ function LeadWizardModal({
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 22, scale: 0.97 }}
                 transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-                className="fixed left-1/2 top-1/2 z-[101] flex max-h-[calc(100vh-1.5rem)] w-[calc(100vw-1rem)] max-w-[860px] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-[1.75rem] border border-white/60 bg-[#FBFAF7] shadow-[0_32px_90px_rgba(24,22,19,0.34)] focus:outline-none"
+                className="fixed left-1/2 top-1/2 z-[101] flex max-h-[calc(100vh-1.5rem)] w-[calc(100vw-1rem)] max-w-[860px] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-lg border border-white/60 bg-[#FBFAF7] shadow-[0_32px_90px_rgba(24,22,19,0.34)] focus:outline-none"
               >
                 <div className="border-b border-[#262421]/8 bg-[radial-gradient(circle_at_top_left,rgba(220,199,167,0.36),transparent_42%),linear-gradient(180deg,#FFFDF9,#F9F6EF)] px-5 pb-3 pt-4 md:px-8 md:pb-4 md:pt-5">
                   <div className="flex items-start justify-between gap-4">
@@ -387,7 +387,7 @@ function LeadWizardModal({
                           role="status"
                           aria-live="polite"
                           className={cn(
-                            "mt-5 rounded-[1.25rem] border px-4 py-3 text-sm leading-6",
+                            "mt-5 rounded-lg border px-4 py-3 text-sm leading-6",
                             status.tone === "success"
                               ? "border-emerald-300 bg-emerald-50 text-emerald-700"
                               : "border-rose-300 bg-rose-50 text-rose-700",
@@ -404,7 +404,15 @@ function LeadWizardModal({
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex flex-wrap items-center gap-3">
                       {step > 0 ? (
-                        <Button type="button" variant="secondary" size="sm" onClick={() => setStep(step - 1)}>
+                        <Button
+                          type="button"
+                          variant="secondary"
+                          size="sm"
+                          onClick={() => {
+                            setStatus({ tone: "idle", message: "" });
+                            setStep((current) => Math.max(0, current - 1));
+                          }}
+                        >
                           <ArrowLeft className="h-4 w-4" />
                           Back
                         </Button>
@@ -426,7 +434,11 @@ function LeadWizardModal({
                         type="button"
                         size="md"
                         className="h-11 md:h-12"
-                        onClick={() => setStep(step + 1)}
+                        onClick={(event) => {
+                          event.preventDefault();
+                          setStatus({ tone: "idle", message: "" });
+                          setStep((current) => Math.min(2, current + 1));
+                        }}
                         disabled={!canContinue}
                       >
                         Continue

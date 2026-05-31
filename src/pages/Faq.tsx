@@ -30,7 +30,7 @@ export default function Faq() {
         </h1>
         <div className="max-w-3xl grid gap-6">
           {faqs.map((item) => (
-            <article key={item.question} className="rounded-[2rem] border border-black/5 bg-white p-8">
+            <article key={item.question} className="rounded-lg border border-black/5 bg-white p-8">
               <h2 className="font-serif text-2xl mb-3">{item.question}</h2>
               <p className="text-gray-600 leading-relaxed">{item.answer}</p>
             </article>
