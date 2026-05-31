@@ -8,14 +8,30 @@ import {
   useState,
 } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowLeft, ArrowRight, CheckCircle2, Sparkles, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, MessageCircle, Sparkles, X } from "lucide-react";
 
+import { Button } from "./ui/button";
+import { Checkbox } from "./ui/checkbox";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+} from "./ui/dialog";
+import { Input } from "./ui/input";
+import { Progress } from "./ui/progress";
+import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import {
   buildInquiryLeadPayload,
   getLeadSourceHost,
   type InquiryFormValues,
 } from "../lib/lead-form";
+import { contactCopy, supportPathLabels, wizardContent } from "../lib/omkar-content";
 import { buildWhatsAppUrl, siteConfig } from "../lib/site-config";
+import { cn } from "../lib/utils";
 
 type LeadWizardContextValue = {
   openLeadWizard: () => void;
@@ -23,23 +39,6 @@ type LeadWizardContextValue = {
 };
 
 const LeadWizardContext = createContext<LeadWizardContextValue | null>(null);
-
-const challengeOptions = [
-  "Anxiety & overthinking",
-  "Emotional overwhelm",
-  "Inner child healing",
-  "Relationship patterns",
-  "Confidence & self-worth",
-  "I need help figuring it out",
-];
-
-const supportOptions = [
-  { value: "discovery-call", label: "Discovery Call" },
-  { value: "anxiety-reset", label: "1:1 Anxiety Reset" },
-  { value: "inner-child-healing", label: "Inner Child Healing" },
-  { value: "28-day-anxiety-transformation", label: "28 Days Anxiety Transformation" },
-  { value: "general-guidance", label: "General Guidance" },
-];
 
 type WizardValues = {
   challenge: string;
@@ -77,9 +76,13 @@ function LeadWizardModal({
   const [values, setValues] = useState(initialValues);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<SubmissionStatus>({ tone: "idle", message: "" });
-  const formId = "omkar-guided-enquiry-form";
+  const formId = "omkar-quick-clarity-check-form";
 
   const utmValues = useMemo(() => {
+    if (typeof window === "undefined") {
+      return {};
+    }
+
     const params = new URLSearchParams(window.location.search);
     return {
       utmSource: params.get("utm_source") ?? undefined,
@@ -95,7 +98,7 @@ function LeadWizardModal({
       setValues(initialValues);
       setStatus({ tone: "idle", message: "" });
       setIsSubmitting(false);
-    }, 250);
+    }, 200);
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -103,6 +106,15 @@ function LeadWizardModal({
     const nextValue = target.type === "checkbox" ? target.checked : target.value;
     setValues((current) => ({ ...current, [target.name]: nextValue }));
   };
+
+  const setConsent = (checked: boolean | "indeterminate") => {
+    setValues((current) => ({ ...current, consent: checked === true }));
+  };
+
+  const canContinue =
+    (step === 0 && Boolean(values.challenge)) ||
+    (step === 1 && Boolean(values.support)) ||
+    step === 2;
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -122,7 +134,7 @@ function LeadWizardModal({
       phone: values.phone,
       serviceInterest: values.support,
       message: `Primary challenge: ${values.challenge || "Not specified yet"}. Support requested: ${
-        supportOptions.find((option) => option.value === values.support)?.label ?? values.support
+        supportPathLabels[values.support] ?? values.support
       }.`,
       consent: values.consent,
     };
@@ -131,7 +143,7 @@ function LeadWizardModal({
       values: formValues,
       sourceHost: getLeadSourceHost(),
       sourcePage: window.location.href,
-      sourceCta: "guided-wizard",
+      sourceCta: "quick-clarity-check",
       utm: utmValues,
     });
 
@@ -158,7 +170,7 @@ function LeadWizardModal({
 
       setStatus({
         tone: "success",
-        message: "You're in. Omkar's team will reach out shortly with the right next step.",
+        message: "Your response is in. Omkar will get back to you with the right next step.",
       });
 
       window.setTimeout(() => {
@@ -177,248 +189,263 @@ function LeadWizardModal({
     }
   };
 
+  const progressValue = ((step + 1) / wizardContent.steps.length) * 100;
+
   return (
-    <AnimatePresence>
-      {isOpen ? (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6"
-          onClick={resetAndClose}
-        >
-          <div className="absolute inset-0 bg-[#1E1A17]/65 backdrop-blur-xl" />
+    <Dialog
+      open={isOpen}
+      onOpenChange={(nextOpen) => {
+        if (!nextOpen) {
+          resetAndClose();
+        }
+      }}
+    >
+      <AnimatePresence>
+        {isOpen ? (
+          <DialogPortal forceMount>
+            <DialogOverlay asChild forceMount>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-[100] bg-[#181613]/70 backdrop-blur-lg"
+              />
+            </DialogOverlay>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 24, scale: 0.96 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            onClick={(event) => event.stopPropagation()}
-            className="relative w-full max-w-[620px] overflow-hidden rounded-[2rem] border border-white/50 bg-[#FBFAF7] shadow-[0_32px_80px_rgba(37,28,16,0.22)]"
-          >
-            <button
-              type="button"
-              onClick={resetAndClose}
-              className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-black/5 bg-white/80 text-[#2A2A2A] transition-colors hover:bg-white"
-              aria-label="Close guided enquiry"
-            >
-              <X className="h-5 w-5" />
-            </button>
+            <DialogContent asChild forceMount>
+              <motion.div
+                initial={{ opacity: 0, y: 22, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 22, scale: 0.97 }}
+                transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+                className="fixed left-1/2 top-1/2 z-[101] flex max-h-[calc(100vh-1.5rem)] w-[calc(100vw-1rem)] max-w-[860px] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-[1.75rem] border border-white/60 bg-[#FBFAF7] shadow-[0_32px_90px_rgba(24,22,19,0.34)] focus:outline-none"
+              >
+                <div className="border-b border-[#262421]/8 bg-[radial-gradient(circle_at_top_left,rgba(220,199,167,0.36),transparent_42%),linear-gradient(180deg,#FFFDF9,#F9F6EF)] px-5 pb-3 pt-4 md:px-8 md:pb-4 md:pt-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex min-w-0 items-center gap-3">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EDE2D4] text-[#8B715E] md:h-11 md:w-11">
+                        <Sparkles className="h-5 w-5" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8B715E]">
+                          {wizardContent.eyebrow}
+                        </p>
+                        <DialogTitle className="font-serif text-[1.65rem] leading-[0.98] text-[#262421] md:text-4xl md:leading-tight">
+                          {wizardContent.title}
+                        </DialogTitle>
+                      </div>
+                    </div>
 
-            <div className="border-b border-black/5 bg-[radial-gradient(circle_at_top_left,rgba(210,180,140,0.28),transparent_52%),linear-gradient(180deg,#fffdf9,rgba(255,255,255,0.85))] px-7 pb-6 pt-7 md:px-10">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#8C7A6B]/12 text-[#8C7A6B]">
-                  <Sparkles className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8C7A6B]">
-                    Guided enquiry
-                  </p>
-                  <h3 className="font-serif text-2xl text-[#2A2A2A]">Let's find the right first step</h3>
-                </div>
-              </div>
-
-              <div className="flex gap-2">
-                {[0, 1, 2].map((index) => (
-                  <div key={index} className="h-1.5 flex-1 overflow-hidden rounded-full bg-black/5">
-                    <motion.div
-                      className="h-full rounded-full bg-[#8C7A6B]"
-                      initial={false}
-                      animate={{ width: step > index ? "100%" : step === index ? "52%" : "0%" }}
-                      transition={{ duration: 0.28 }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="px-7 py-8 md:px-10 md:py-10">
-              {step === 0 ? (
-                <div>
-                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#8C7A6B]">
-                    Step 1
-                  </p>
-                  <h4 className="font-serif text-3xl text-[#2A2A2A]">What feels most present right now?</h4>
-                  <p className="mt-3 text-sm leading-7 text-gray-600">
-                    Choose the challenge that best matches what you want support with.
-                  </p>
-                  <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                    {challengeOptions.map((challenge) => {
-                      const selected = values.challenge === challenge;
-                      return (
-                        <button
-                          key={challenge}
-                          type="button"
-                          onClick={() => setValues((current) => ({ ...current, challenge }))}
-                          className={`rounded-[1.6rem] border px-5 py-4 text-left transition-all ${
-                            selected
-                              ? "border-[#8C7A6B]/40 bg-[#8C7A6B]/10 text-[#2A2A2A] shadow-sm"
-                              : "border-black/5 bg-white text-gray-600 hover:border-[#8C7A6B]/20 hover:bg-[#fbf6ee]"
-                          }`}
-                        >
-                          <span className="text-sm font-semibold leading-6">{challenge}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              ) : null}
-
-              {step === 1 ? (
-                <div>
-                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#8C7A6B]">
-                    Step 2
-                  </p>
-                  <h4 className="font-serif text-3xl text-[#2A2A2A]">What kind of support are you seeking?</h4>
-                  <p className="mt-3 text-sm leading-7 text-gray-600">
-                    This helps Omkar reply with the right format instead of a generic follow-up.
-                  </p>
-                  <div className="mt-8 space-y-3">
-                    {supportOptions.map((option) => {
-                      const selected = values.support === option.value;
-                      return (
-                        <button
-                          key={option.value}
-                          type="button"
-                          onClick={() => setValues((current) => ({ ...current, support: option.value }))}
-                          className={`flex w-full items-center justify-between rounded-[1.6rem] border px-5 py-4 text-left transition-all ${
-                            selected
-                              ? "border-[#8C7A6B]/40 bg-[#8C7A6B]/10 text-[#2A2A2A] shadow-sm"
-                              : "border-black/5 bg-white text-gray-600 hover:border-[#8C7A6B]/20 hover:bg-[#fbf6ee]"
-                          }`}
-                        >
-                          <span className="text-sm font-semibold">{option.label}</span>
-                          {selected ? <CheckCircle2 className="h-5 w-5 text-[#8C7A6B]" /> : null}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              ) : null}
-
-              {step === 2 ? (
-                <form id={formId} onSubmit={handleSubmit} noValidate>
-                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#8C7A6B]">
-                    Step 3
-                  </p>
-                  <h4 className="font-serif text-3xl text-[#2A2A2A]">Where should Omkar reach you?</h4>
-                  <p className="mt-3 text-sm leading-7 text-gray-600">
-                    We'll only use these details to respond to this enquiry.
-                  </p>
-
-                  <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-                    <input
-                      name="firstName"
-                      value={values.firstName}
-                      onChange={handleChange}
-                      required
-                      placeholder="First name"
-                      className="rounded-[1.4rem] border border-black/5 bg-[#FAF9F6] px-5 py-4 text-sm outline-none transition-shadow focus:ring-2 focus:ring-[#8C7A6B]"
-                    />
-                    <input
-                      name="lastName"
-                      value={values.lastName}
-                      onChange={handleChange}
-                      placeholder="Last name"
-                      className="rounded-[1.4rem] border border-black/5 bg-[#FAF9F6] px-5 py-4 text-sm outline-none transition-shadow focus:ring-2 focus:ring-[#8C7A6B]"
-                    />
-                    <input
-                      name="email"
-                      type="email"
-                      value={values.email}
-                      onChange={handleChange}
-                      required
-                      placeholder="Email address"
-                      className="rounded-[1.4rem] border border-black/5 bg-[#FAF9F6] px-5 py-4 text-sm outline-none transition-shadow focus:ring-2 focus:ring-[#8C7A6B]"
-                    />
-                    <input
-                      name="phone"
-                      type="tel"
-                      value={values.phone}
-                      onChange={handleChange}
-                      required
-                      placeholder={siteConfig.whatsappDisplay}
-                      className="rounded-[1.4rem] border border-black/5 bg-[#FAF9F6] px-5 py-4 text-sm outline-none transition-shadow focus:ring-2 focus:ring-[#8C7A6B]"
-                    />
+                    <DialogClose asChild>
+                      <button
+                        type="button"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#262421]/8 bg-white/70 text-[#262421] transition-colors hover:bg-white"
+                        aria-label="Close quick clarity check"
+                      >
+                        <X className="h-5 w-5" />
+                      </button>
+                    </DialogClose>
                   </div>
 
-                  <label className="mt-5 flex items-start gap-3 text-sm leading-6 text-gray-600">
-                    <input
-                      type="checkbox"
-                      name="consent"
-                      checked={values.consent}
-                      onChange={handleChange}
-                      className="mt-1 h-4 w-4 rounded border border-black/10 accent-[#8C7A6B]"
-                    />
-                    <span>I agree to be contacted by Omkar Pawar about this enquiry.</span>
-                  </label>
+                  <DialogDescription className="sr-only">
+                    Answer three short questions so Omkar can respond with the right next step.
+                  </DialogDescription>
 
-                  {status.message ? (
-                    <p
-                      role="status"
-                      aria-live="polite"
-                      className={`mt-5 rounded-[1.4rem] px-4 py-3 text-sm ${
-                        status.tone === "success"
-                          ? "border border-emerald-300 bg-emerald-50 text-emerald-700"
-                          : "border border-rose-300 bg-rose-50 text-rose-700"
-                      }`}
-                    >
-                      {status.message}
-                    </p>
+                  <div className="mt-2.5 grid grid-cols-3 gap-2 md:mt-4">
+                    {wizardContent.steps.map((item, index) => (
+                      <Progress key={item.eyebrow} value={step >= index ? progressValue : 0} />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4 md:px-8 md:py-7">
+                  {step === 0 ? (
+                    <div>
+                      <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#8B715E]">
+                        {wizardContent.steps[0].eyebrow}
+                      </p>
+                      <h4 className="font-serif text-2xl leading-tight text-[#262421] md:text-5xl">
+                        {wizardContent.steps[0].heading}
+                      </h4>
+                      <p className="mt-2 text-sm leading-6 text-[#5E6876] md:mt-3 md:text-base md:leading-7">
+                        {wizardContent.steps[0].subtext}
+                      </p>
+                      <RadioGroup
+                        value={values.challenge}
+                        onValueChange={(challenge) =>
+                          setValues((current) => ({ ...current, challenge }))
+                        }
+                        className="mt-4 grid gap-2 sm:grid-cols-2 md:mt-6 md:gap-3"
+                      >
+                        {wizardContent.steps[0].options.map((option) => (
+                          <RadioGroupItem key={option.value} value={option.value}>
+                            <span className="text-sm font-bold leading-5 md:leading-6">{option.label}</span>
+                          </RadioGroupItem>
+                        ))}
+                      </RadioGroup>
+                    </div>
                   ) : null}
-                </form>
-              ) : null}
 
-              <div className="mt-8 flex flex-col gap-3 border-t border-black/5 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex items-center gap-3">
-                  {step > 0 ? (
-                    <button
-                      type="button"
-                      onClick={() => setStep((current) => current - 1)}
-                      className="inline-flex items-center gap-2 rounded-full border border-black/5 px-4 py-3 text-sm font-semibold text-[#2A2A2A] transition-colors hover:bg-[#F6F1E8]"
-                    >
-                      <ArrowLeft className="h-4 w-4" />
-                      Back
-                    </button>
+                  {step === 1 ? (
+                    <div>
+                      <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#8B715E]">
+                        {wizardContent.steps[1].eyebrow}
+                      </p>
+                      <h4 className="font-serif text-2xl leading-tight text-[#262421] md:text-5xl">
+                        {wizardContent.steps[1].heading}
+                      </h4>
+                      <p className="mt-2 text-sm leading-6 text-[#5E6876] md:mt-3 md:text-base md:leading-7">
+                        {wizardContent.steps[1].subtext}
+                      </p>
+                      <RadioGroup
+                        value={values.support}
+                        onValueChange={(support) =>
+                          setValues((current) => ({ ...current, support }))
+                        }
+                        className="mt-4 md:mt-6"
+                      >
+                        {wizardContent.steps[1].options.map((option) => (
+                          <RadioGroupItem key={option.value} value={option.value}>
+                            <span className="flex items-center justify-between gap-4">
+                              <span>
+                                <span className="block text-sm font-bold leading-6">
+                                  {option.label}
+                                </span>
+                                <span className="mt-0.5 block text-xs font-medium leading-4 text-[#6B7280] md:mt-1 md:leading-5">
+                                  {option.description}
+                                </span>
+                              </span>
+                              {values.support === option.value ? (
+                                <CheckCircle2 className="h-5 w-5 shrink-0 text-[#53665A]" />
+                              ) : null}
+                            </span>
+                          </RadioGroupItem>
+                        ))}
+                      </RadioGroup>
+                    </div>
                   ) : null}
-                  <a
-                    href={buildWhatsAppUrl("Hi Omkar, I would like to connect with you on WhatsApp.")}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-black/5 px-4 py-3 text-sm font-semibold text-[#2A2A2A] transition-colors hover:bg-[#F6F1E8]"
-                  >
-                    WhatsApp instead
-                  </a>
+
+                  {step === 2 ? (
+                    <form id={formId} onSubmit={handleSubmit} noValidate>
+                      <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#8B715E]">
+                        {wizardContent.steps[2].eyebrow}
+                      </p>
+                      <h4 className="font-serif text-2xl leading-tight text-[#262421] md:text-5xl">
+                        {contactCopy.heading}
+                      </h4>
+                      <p className="mt-2 text-sm leading-6 text-[#5E6876] md:mt-3 md:text-base md:leading-7">
+                        {contactCopy.subtext}
+                      </p>
+
+                      <div className="mt-4 grid grid-cols-1 gap-3 md:mt-6 md:grid-cols-2">
+                        <Input
+                          name="firstName"
+                          value={values.firstName}
+                          onChange={handleChange}
+                          required
+                          placeholder="First Name"
+                          autoComplete="given-name"
+                        />
+                        <Input
+                          name="lastName"
+                          value={values.lastName}
+                          onChange={handleChange}
+                          placeholder="Last Name"
+                          autoComplete="family-name"
+                        />
+                        <Input
+                          name="email"
+                          type="email"
+                          value={values.email}
+                          onChange={handleChange}
+                          required
+                          placeholder="Email Address"
+                          autoComplete="email"
+                        />
+                        <Input
+                          name="phone"
+                          type="tel"
+                          value={values.phone}
+                          onChange={handleChange}
+                          required
+                          placeholder={siteConfig.phonePlaceholder}
+                          autoComplete="tel"
+                        />
+                      </div>
+
+                      <label className="mt-5 flex items-start gap-3 text-sm leading-6 text-[#485364]">
+                        <Checkbox checked={values.consent} onCheckedChange={setConsent} />
+                        <span>{contactCopy.consentLabel}</span>
+                      </label>
+
+                      <p className="mt-3 text-xs font-semibold text-[#8B715E]">
+                        {contactCopy.trustLine}
+                      </p>
+
+                      {status.message ? (
+                        <p
+                          role="status"
+                          aria-live="polite"
+                          className={cn(
+                            "mt-5 rounded-[1.25rem] border px-4 py-3 text-sm leading-6",
+                            status.tone === "success"
+                              ? "border-emerald-300 bg-emerald-50 text-emerald-700"
+                              : "border-rose-300 bg-rose-50 text-rose-700",
+                          )}
+                        >
+                          {status.message}
+                        </p>
+                      ) : null}
+                    </form>
+                  ) : null}
                 </div>
 
-                {step < 2 ? (
-                  <button
-                    type="button"
-                    onClick={() => setStep((current) => current + 1)}
-                    disabled={(step === 0 && !values.challenge) || (step === 1 && !values.support)}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2A2A2A] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#8C7A6B] disabled:cursor-not-allowed disabled:opacity-50"
-                  >
-                    Continue
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                ) : (
-                  <button
-                    type="submit"
-                    form={formId}
-                    disabled={isSubmitting}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2A2A2A] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#8C7A6B] disabled:cursor-not-allowed disabled:opacity-50"
-                  >
-                    {isSubmitting ? "Sending..." : "Submit enquiry"}
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-      ) : null}
-    </AnimatePresence>
+                <div className="border-t border-[#262421]/8 bg-[#FBFAF7] px-5 py-3 md:px-8 md:py-4">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex flex-wrap items-center gap-3">
+                      {step > 0 ? (
+                        <Button type="button" variant="secondary" size="sm" onClick={() => setStep(step - 1)}>
+                          <ArrowLeft className="h-4 w-4" />
+                          Back
+                        </Button>
+                      ) : null}
+                      <Button asChild type="button" variant="secondary" size="sm">
+                        <a
+                          href={buildWhatsAppUrl("Hi Omkar, I would like to connect with you on WhatsApp.")}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <MessageCircle className="h-4 w-4" />
+                          WhatsApp Instead
+                        </a>
+                      </Button>
+                    </div>
+
+                    {step < 2 ? (
+                      <Button
+                        type="button"
+                        size="md"
+                        className="h-11 md:h-12"
+                        onClick={() => setStep(step + 1)}
+                        disabled={!canContinue}
+                      >
+                        Continue
+                        <ArrowRight className="h-4 w-4" />
+                      </Button>
+                    ) : (
+                      <Button type="submit" form={formId} disabled={isSubmitting} className="h-11 md:h-12">
+                        {isSubmitting ? "Sending..." : contactCopy.submitLabel}
+                        <ArrowRight className="h-4 w-4" />
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            </DialogContent>
+          </DialogPortal>
+        ) : null}
+      </AnimatePresence>
+    </Dialog>
   );
 }
 

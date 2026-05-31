@@ -40,7 +40,8 @@ export type InquiryLeadPayload = {
 };
 
 const serviceLabels: Record<string, string> = {
-  "discovery-call": "Discovery Call",
+  ...supportPathLabels,
+  "discovery-call": "Clarity Session",
   "anxiety-reset": "1:1 Emotional Healing & Anxiety Reset Program",
   "inner-child-healing": "Inner Child Healing Sessions",
   "28-day-anxiety-transformation": "28 Days Anxiety Transformation",
@@ -68,7 +69,7 @@ export function buildInquiryLeadPayload(input: BuildLeadPayloadInput): InquiryLe
     fullName,
     email: input.values.email.trim(),
     phone: input.values.phone.trim(),
-    companyName: "Omkar Pawar Discovery Call Enquiry",
+    companyName: "Omkar Pawar Clarity Session Enquiry",
     companyType: "other",
     websiteUrl: "",
     serviceInterest: [input.values.serviceInterest || "general-guidance"],
@@ -99,3 +100,4 @@ export function getLeadSourceHost() {
 
   return "omkarpawar.com";
 }
+import { supportPathLabels } from "./omkar-content";

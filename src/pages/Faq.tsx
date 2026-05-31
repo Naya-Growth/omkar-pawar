@@ -2,17 +2,17 @@ import Section from "../components/ui/Section";
 
 const faqs = [
   {
-    question: "How do I begin?",
+    question: "How Do I Begin?",
     answer:
-      "Start with the enquiry form or a WhatsApp message. The team will help you understand the right next step.",
+      "Start with the quick clarity check, enquiry form, or a WhatsApp message. The team will help you understand the right next step.",
   },
   {
-    question: "Are sessions online?",
+    question: "Are Sessions Online?",
     answer:
       "Yes. Sessions are conducted online so support can be offered across locations in a calm and flexible format.",
   },
   {
-    question: "Is pricing public?",
+    question: "Is Pricing Public?",
     answer:
       "Pricing is discussed privately after understanding your needs and the format that fits you best.",
   },

@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { ArrowRight, Leaf, Users, Zap } from "lucide-react";
 
 import { useLeadWizard } from "../components/LeadWizardProvider";
+import { wizardContent } from "../lib/omkar-content";
 import { buildWhatsAppUrl, siteConfig } from "../lib/site-config";
 
 const fadeUp = {
@@ -33,12 +34,12 @@ export default function Services() {
             className="max-w-xl"
           >
             <motion.span variants={fadeUp} className="mb-6 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C7A6B]">
-              Work with Omkar
+              Work With Omkar
             </motion.span>
             <motion.h1 variants={fadeUp} className="font-serif text-5xl leading-[1.05] md:text-7xl">
               Transformation
               <br />
-              <span className="italic text-[#8C7A6B]">pathways</span>
+              <span className="italic text-[#8C7A6B]">Pathways</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="mt-8 text-lg font-light leading-relaxed text-gray-600">
               These offerings are designed for people who want grounded, emotionally intelligent
@@ -51,7 +52,7 @@ export default function Services() {
                 onClick={() => openLeadWizard()}
                 className="rounded-full bg-[#2A2A2A] px-8 py-4 text-sm font-bold tracking-[0.16em] text-white transition-colors hover:bg-[#8C7A6B]"
               >
-                Start with the guided fit check
+                Start With The {wizardContent.triggerLabel}
               </button>
               <a
                 href={buildWhatsAppUrl("Hi Omkar, I would like to know which program is right for me.")}
@@ -59,7 +60,7 @@ export default function Services() {
                 rel="noopener noreferrer"
                 className="rounded-full border border-black/5 bg-white px-8 py-4 text-sm font-bold tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
               >
-                Ask on WhatsApp
+                Ask On WhatsApp
               </a>
             </motion.div>
           </motion.div>
@@ -98,7 +99,7 @@ export default function Services() {
                 <Leaf className="h-6 w-6" />
               </div>
               <h3 className="font-serif text-3xl md:text-4xl">
-                1:1 emotional healing & anxiety reset
+                1:1 Emotional Healing & Anxiety Reset
               </h3>
               <p className="mt-6 text-gray-500 leading-8">
                 A personalized support container for high-performers who feel anxious, emotionally
@@ -125,7 +126,7 @@ export default function Services() {
               <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white">
                 <Zap className="h-6 w-6" />
               </div>
-              <h3 className="font-serif text-3xl">Inner child healing sessions</h3>
+              <h3 className="font-serif text-3xl">Inner Child Healing Sessions</h3>
               <p className="mt-5 leading-8 text-white/80">
                 Intensive healing sessions for people who know their past experiences still shape their
                 present triggers, reactions, self-image, and relationships.
@@ -144,7 +145,7 @@ export default function Services() {
               <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white">
                 <Users className="h-6 w-6" />
               </div>
-              <h3 className="font-serif text-3xl">28 days anxiety transformation</h3>
+              <h3 className="font-serif text-3xl">28 Days Anxiety Transformation</h3>
               <p className="mt-5 leading-8 text-white/80">
                 A structured program for people who need a tighter, time-bound intervention to break
                 anxiety loops, reduce overwhelm, and build a steadier internal rhythm.
@@ -171,10 +172,10 @@ export default function Services() {
           className="mb-20 text-center"
         >
           <motion.span variants={fadeUp} className="mb-4 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C7A6B]">
-            The process
+            The Process
           </motion.span>
           <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl">
-            How it <span className="italic text-[#8C7A6B]">works</span>
+            How It <span className="italic text-[#8C7A6B]">Works</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="mx-auto mt-5 max-w-2xl text-lg font-light text-gray-500">
             The process is designed to keep things simple, human, and clear from the first enquiry.
@@ -191,17 +192,17 @@ export default function Services() {
           {[
             {
               step: "1",
-              title: "Guided enquiry",
+              title: "Guided Enquiry",
               desc: "Start with the fit-check wizard or send a direct enquiry so the right context is captured properly.",
             },
             {
               step: "2",
-              title: "Discovery & clarity",
-              desc: "A discovery conversation helps map what you are carrying, what is repeating, and what kind of support fits.",
+              title: "Clarity Session",
+              desc: "A clarity conversation helps map what you are carrying, what is repeating, and what kind of support fits.",
             },
             {
               step: "3",
-              title: "Intentional support",
+              title: "Intentional Support",
               desc: "If it is the right fit, the next phase becomes a more structured healing container with steady follow-through.",
             },
           ].map((item) => (

@@ -1,9 +1,10 @@
-import { Instagram, Linkedin, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Instagram, Linkedin, Mail, MapPin, MessageCircle, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { BrandLockup } from "../BrandMark";
 import { useLeadWizard } from "../LeadWizardProvider";
-import ShareWebsiteButton from "../ShareWebsiteButton";
+import { Button } from "../ui/button";
+import { wizardContent } from "../../lib/omkar-content";
 import { buildWhatsAppUrl, siteConfig } from "../../lib/site-config";
 
 export default function Footer() {
@@ -15,10 +16,10 @@ export default function Footer() {
         <div className="mx-auto grid max-w-[1400px] gap-10 rounded-[2.5rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(210,180,140,0.24),transparent_38%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-10 shadow-[0_24px_90px_rgba(0,0,0,0.22)] md:grid-cols-[1.15fr_0.85fr] md:p-14">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#D8C0A1]">
-              Calm, practical emotional support
+              Calm, Practical Emotional Support
             </p>
             <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">
-              Ready to feel clearer, steadier, and more like yourself again?
+              Ready To Feel Clearer, Steadier, And More Like Yourself Again?
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-white/72">
               If you are navigating anxiety, emotional overwhelm, or old patterns that keep repeating,
@@ -33,7 +34,7 @@ export default function Footer() {
               onClick={() => openLeadWizard()}
               className="rounded-full bg-white px-6 py-4 text-sm font-bold uppercase tracking-[0.18em] text-[#2A2A2A] transition-colors hover:bg-[#D8C0A1]"
             >
-              Open guided fit check
+              {wizardContent.triggerLabel}
             </button>
             <a
               href={buildWhatsAppUrl("Hi Omkar, I would like to connect with you on WhatsApp.")}
@@ -41,18 +42,20 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="rounded-full border border-white/14 px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white/10"
             >
-              Message on WhatsApp
+              Message On WhatsApp
             </a>
             <Link
               to="/contact"
               className="rounded-full border border-white/14 px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white/10"
             >
-              Send an enquiry
+              Send An Enquiry
             </Link>
-            <ShareWebsiteButton
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/14 px-6 py-4 text-sm font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white/10"
-              label="Share website"
-            />
+            <Button asChild variant="inverted" size="md" className="border border-white/14 bg-transparent text-white hover:bg-white/10">
+              <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer">
+                <Instagram className="h-4 w-4" />
+                Instagram
+              </a>
+            </Button>
           </div>
         </div>
       </div>
@@ -83,9 +86,9 @@ export default function Footer() {
             <div className="mt-5 flex flex-col gap-3 text-sm text-gray-600">
               <Link to="/" className="transition-colors hover:text-[#2A2A2A]">Home</Link>
               <Link to="/about" className="transition-colors hover:text-[#2A2A2A]">About Omkar</Link>
-              <Link to="/services" className="transition-colors hover:text-[#2A2A2A]">Programs & support</Link>
-              <Link to="/stories" className="transition-colors hover:text-[#2A2A2A]">Client stories</Link>
-              <Link to="/content" className="transition-colors hover:text-[#2A2A2A]">Content library</Link>
+              <Link to="/services" className="transition-colors hover:text-[#2A2A2A]">Programs & Support</Link>
+              <Link to="/stories" className="transition-colors hover:text-[#2A2A2A]">Client Stories</Link>
+              <Link to="/content" className="transition-colors hover:text-[#2A2A2A]">Content Library</Link>
               <Link to="/contact" className="transition-colors hover:text-[#2A2A2A]">Contact</Link>
             </div>
           </div>
@@ -128,6 +131,15 @@ export default function Footer() {
                 >
                   <Linkedin className="h-4 w-4" />
                   LinkedIn
+                </a>
+                <a
+                  href={siteConfig.youtubeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
+                >
+                  <Youtube className="h-4 w-4" />
+                  YouTube
                 </a>
               </div>
             </div>

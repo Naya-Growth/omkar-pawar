@@ -10,19 +10,19 @@ export type RouteSeoEntry = {
 export const defaultKeywords = [
   "Omkar Pawar",
   "Freedom Innerwellbeing",
-  "anxiety healer Pune",
+  "psychologist Pune",
   "inner child healing",
   "emotional healing coach",
   "cognitive hypnotic psychotherapist",
   "NLP master practitioner Pune",
-  "discovery call coach",
+  "clarity session",
 ].join(", ");
 
 export const routeSeo: Record<string, RouteSeoEntry> = {
   "/": {
     title: "Omkar Pawar | Emotional Mastery, Anxiety Healing & Inner Child Work",
     description:
-      "Work with Omkar Pawar of Freedom Innerwellbeing for anxiety healing, emotional mastery, inner child work, and a calmer, clearer life.",
+      "Work with Omkar Pawar of Freedom Innerwellbeing for psychology-led emotional mastery, inner child work, and a calmer, clearer life.",
     keywords: defaultKeywords,
     path: "/",
   },
@@ -36,7 +36,7 @@ export const routeSeo: Record<string, RouteSeoEntry> = {
   "/services": {
     title: "Programs & 1:1 Support | Omkar Pawar",
     description:
-      "Explore discovery calls, 1:1 emotional healing, inner child healing, and anxiety transformation programs with Omkar Pawar.",
+      "Explore clarity sessions, 1:1 emotional healing, inner child healing, and structured support programs with Omkar Pawar.",
     keywords: `${defaultKeywords}, 1:1 emotional healing, anxiety transformation program`,
     path: "/services",
   },
@@ -55,10 +55,10 @@ export const routeSeo: Record<string, RouteSeoEntry> = {
     path: "/content",
   },
   "/contact": {
-    title: "Book a Discovery Call | Omkar Pawar",
+    title: "Book a Clarity Session | Omkar Pawar",
     description:
-      "Reach out to Omkar Pawar for a discovery call, WhatsApp conversation, or inquiry about emotional healing and inner child work.",
-    keywords: `${defaultKeywords}, book discovery call, contact Omkar Pawar`,
+      "Reach out to Omkar Pawar for a clarity session, WhatsApp conversation, or inquiry about emotional healing and inner child work.",
+    keywords: `${defaultKeywords}, book clarity session, contact Omkar Pawar`,
     path: "/contact",
   },
   "/privacy-policy": {
@@ -78,7 +78,7 @@ export const routeSeo: Record<string, RouteSeoEntry> = {
   "/faq": {
     title: "FAQ | Omkar Pawar",
     description:
-      "Find answers about Omkar Pawar's discovery calls, healing programs, and how online sessions work.",
+      "Find answers about Omkar Pawar's clarity sessions, healing programs, and how online sessions work.",
     keywords: `${defaultKeywords}, FAQ, online therapy questions`,
     path: "/faq",
   },
@@ -103,7 +103,7 @@ export const structuredData = {
       jobTitle: siteConfig.roleLabel,
       url: siteConfig.websiteUrl,
       image: absoluteSiteUrl(siteConfig.image.shareCard),
-      sameAs: [siteConfig.instagramUrl, siteConfig.linkedinUrl],
+      sameAs: [siteConfig.instagramUrl, siteConfig.linkedinUrl, siteConfig.youtubeUrl],
       knowsLanguage: siteConfig.languages,
       homeLocation: {
         "@type": "Place",
@@ -116,7 +116,7 @@ export const structuredData = {
       name: `${siteConfig.projectName} | ${siteConfig.practiceName}`,
       image: absoluteSiteUrl(siteConfig.image.shareCard),
       description:
-        "Emotional healing, anxiety support, inner child work, and discovery-call based coaching by Omkar Pawar.",
+        "Psychology-led emotional healing, anxiety support, inner child work, and clarity-session based coaching by Omkar Pawar.",
       areaServed: "Worldwide",
       address: {
         "@type": "PostalAddress",
@@ -129,7 +129,7 @@ export const structuredData = {
       founder: {
         "@id": `${siteConfig.websiteUrl}#person`,
       },
-      sameAs: [siteConfig.instagramUrl, siteConfig.linkedinUrl],
+      sameAs: [siteConfig.instagramUrl, siteConfig.linkedinUrl, siteConfig.youtubeUrl],
       url: siteConfig.websiteUrl,
     },
     {

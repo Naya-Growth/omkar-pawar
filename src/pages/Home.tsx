@@ -4,14 +4,17 @@ import {
   BrainCircuit,
   Globe2,
   HeartHandshake,
+  Instagram,
   MapPin,
   Sparkles,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import InquiryForm from "../components/InquiryForm";
-import ShareWebsiteButton from "../components/ShareWebsiteButton";
 import { useLeadWizard } from "../components/LeadWizardProvider";
+import { Button } from "../components/ui/button";
+import { Card } from "../components/ui/card";
+import { heroStats, wizardContent } from "../lib/omkar-content";
 import { buildWhatsAppUrl, siteConfig } from "../lib/site-config";
 
 const fadeUp = {
@@ -34,7 +37,7 @@ export default function Home() {
 
   return (
     <div className="overflow-x-hidden bg-[#FAF9F6] text-[#2A2A2A]">
-      <section className="mx-auto flex min-h-[92vh] max-w-[1400px] items-center px-6 pb-28 pt-14 md:px-12">
+      <section className="mx-auto flex min-h-[88vh] max-w-[1400px] items-center px-6 pb-24 pt-12 md:px-12">
         <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
           <motion.div
             initial="hidden"
@@ -54,61 +57,46 @@ export default function Home() {
 
             <motion.h1
               variants={fadeUp}
-              className="font-serif text-5xl leading-[1.02] md:text-7xl lg:text-[6.2rem]"
+              className="font-serif text-4xl leading-[1.02] sm:text-5xl md:text-7xl lg:text-[6.2rem]"
             >
-              Emotional mastery for
+              Emotional Mastery For
               <br />
-              <span className="italic text-[#8C7A6B]">calmer, clearer living.</span>
+              <span className="italic text-[#8C7A6B]">Calmer, Clearer Living.</span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="mt-8 max-w-2xl text-lg font-light leading-relaxed text-gray-600 md:text-xl"
+              className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-gray-600 md:mt-8 md:text-xl"
             >
               Omkar Pawar helps people heal anxiety, regulate emotional overwhelm, and understand
               the root patterns that keep repeating beneath high-functioning outer lives.
             </motion.p>
 
-            <motion.div variants={fadeUp} className="mt-10 flex flex-wrap gap-4">
-              <button
-                type="button"
-                onClick={() => openLeadWizard()}
-                className="inline-flex items-center gap-3 rounded-full bg-[#2A2A2A] px-8 py-4 text-sm font-bold tracking-[0.14em] text-white transition-colors hover:bg-[#8C7A6B]"
-              >
-                Take the guided fit check
+            <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4 md:mt-10">
+              <Button type="button" onClick={() => openLeadWizard()} size="lg">
+                {wizardContent.triggerLabel}
                 <ArrowRight className="h-4 w-4" />
-              </button>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-3 rounded-full border border-black/5 bg-white px-8 py-4 text-sm font-bold tracking-[0.14em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
-              >
-                Book a discovery call
-              </Link>
-              <ShareWebsiteButton
-                className="inline-flex items-center gap-3 rounded-full border border-black/5 bg-white px-8 py-4 text-sm font-bold tracking-[0.14em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
-                label="Share website"
-              />
+              </Button>
+              <Button asChild variant="secondary" size="lg">
+                <Link to="/contact">Book A Clarity Session</Link>
+              </Button>
+              <Button asChild variant="instagram" size="lg">
+                <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer">
+                  <Instagram className="h-4 w-4" />
+                  Connect With Me On Instagram
+                </a>
+              </Button>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="mt-10 flex flex-wrap gap-3">
-              <div className="rounded-[1.6rem] border border-black/5 bg-white px-5 py-4 shadow-sm">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8C7A6B]">
-                  Experience
-                </p>
-                <p className="mt-2 text-lg font-semibold">{siteConfig.socialProof.years}</p>
-              </div>
-              <div className="rounded-[1.6rem] border border-black/5 bg-white px-5 py-4 shadow-sm">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8C7A6B]">
-                  Impact
-                </p>
-                <p className="mt-2 text-lg font-semibold">{siteConfig.socialProof.clients}</p>
-              </div>
-              <div className="rounded-[1.6rem] border border-black/5 bg-white px-5 py-4 shadow-sm">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8C7A6B]">
-                  Sessions
-                </p>
-                <p className="mt-2 text-lg font-semibold">{siteConfig.languages.join(" · ")}</p>
-              </div>
+            <motion.div variants={fadeUp} className="mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+              {heroStats.map((stat) => (
+                <Card key={stat.label} className="rounded-[1.4rem] px-5 py-4">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8B715E]">
+                    {stat.label}
+                  </p>
+                  <p className="mt-2 text-lg font-semibold leading-tight">{stat.value}</p>
+                </Card>
+              ))}
             </motion.div>
           </motion.div>
 
@@ -136,7 +124,7 @@ export default function Home() {
               className="absolute -left-4 bottom-8 max-w-[250px] rounded-[1.8rem] border border-white/70 bg-white/88 p-5 shadow-xl backdrop-blur-md md:-left-12"
             >
               <p className="font-serif text-xl leading-snug text-[#2A2A2A]">
-                “Be gentle with your thoughts and emotions.”
+                “Be Gentle With Your Thoughts And Emotions.”
               </p>
               <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#8C7A6B]">
                 — Omkar Pawar
@@ -154,7 +142,7 @@ export default function Home() {
                 Online worldwide
               </div>
               <p className="mt-4 text-sm leading-7 text-white/74">
-                Discovery calls, guided enquiries, and 1:1 support rooted in emotional healing,
+                Clarity sessions, guided enquiries, and 1:1 support rooted in emotional healing,
                 practical awareness, and calm follow-through.
               </p>
             </motion.div>
@@ -177,9 +165,9 @@ export default function Home() {
             <Sparkles className="h-5 w-5" />
           </motion.div>
           <motion.h2 variants={fadeUp} className="font-serif text-3xl leading-tight text-[#2A2A2A] md:text-5xl">
-            “For every surface-level behavior, there is a
-            <span className="italic text-[#8C7A6B]"> deep-rooted reason.</span> We do not just cope.
-            We heal from the root.”
+            “For Every Surface-Level Behavior, There Is A
+            <span className="italic text-[#8C7A6B]"> Deep-Rooted Reason.</span> We Do Not Just Cope.
+            We Heal From The Root.”
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-6 text-xs font-bold uppercase tracking-[0.28em] text-gray-500">
             The Freedom Innerwellbeing approach
@@ -197,7 +185,7 @@ export default function Home() {
             className="lg:col-span-5"
           >
             <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl">
-              The invisible battles
+              The Invisible Battles
             </motion.h2>
             <motion.p variants={fadeUp} className="mt-6 text-lg font-light leading-relaxed text-gray-600">
               You may look composed on the outside and still feel exhausted by overthinking,
@@ -224,17 +212,17 @@ export default function Home() {
           >
             {[
               {
-                title: "Anxiety & overthinking",
+                title: "Anxiety & Overthinking",
                 desc: "Constant internal noise, mental looping, self-doubt, and the difficulty of truly switching off.",
                 icon: <BrainCircuit className="h-6 w-6" />,
               },
               {
-                title: "Inner child wounds",
+                title: "Inner Child Wounds",
                 desc: "Past emotional experiences that still shape present reactions, triggers, self-protection, and shutdown.",
                 icon: <Sparkles className="h-6 w-6" />,
               },
               {
-                title: "Relationship patterns",
+                title: "Relationship Patterns",
                 desc: "Fear of vulnerability, repeated cycles, emotional reactivity, and difficulty feeling secure in connection.",
                 icon: <HeartHandshake className="h-6 w-6" />,
               },
@@ -267,10 +255,10 @@ export default function Home() {
             className="mx-auto mb-16 max-w-3xl text-center"
           >
             <motion.span variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#D8C0A1]">
-              Clinical expertise
+              Clinical Expertise
             </motion.span>
             <motion.h2 variants={fadeUp} className="mt-4 font-serif text-4xl md:text-5xl">
-              An eclectic approach to healing
+              An Eclectic Approach To Healing
             </motion.h2>
             <motion.p variants={fadeUp} className="mt-5 text-lg font-light text-white/72">
               Omkar draws from multiple therapeutic and awareness-based modalities to understand the
@@ -308,10 +296,10 @@ export default function Home() {
         <div className="grid gap-10 overflow-hidden rounded-[3rem] border border-black/5 bg-white p-8 shadow-[0_24px_90px_rgba(94,75,43,0.08)] md:p-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8C7A6B]">
-              Prefer writing before a call?
+              Prefer Writing Before A Call?
             </p>
             <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">
-              Send a grounded enquiry and let the right next step become clear.
+              Send A Grounded Enquiry And Let The Right Next Step Become Clear.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-gray-600">
               Use the form below if you want to explain what you are currently navigating in your own
@@ -357,11 +345,11 @@ export default function Home() {
           className="mx-auto max-w-3xl"
         >
           <motion.h2 variants={fadeUp} className="font-serif text-4xl leading-tight text-[#2A2A2A] md:text-6xl">
-            Ready to stop surviving and start
-            <span className="italic text-[#8C7A6B]"> living?</span>
+            Ready To Stop Surviving And Start
+            <span className="italic text-[#8C7A6B]"> Living?</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="mx-auto mt-6 max-w-2xl text-lg font-light text-gray-500">
-            Start with the guided fit check, send an enquiry, or message directly on WhatsApp and
+            Start with the quick clarity check, send an enquiry, or message directly on WhatsApp and
             take the first honest step toward steadier emotional wellbeing.
           </motion.p>
           <motion.div variants={fadeUp} className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
@@ -370,7 +358,7 @@ export default function Home() {
               onClick={() => openLeadWizard()}
               className="rounded-full bg-[#2A2A2A] px-10 py-4 text-sm font-bold tracking-[0.16em] text-white transition-colors hover:bg-[#8C7A6B]"
             >
-              Open guided fit check
+              {wizardContent.triggerLabel}
             </button>
             <a
               href={buildWhatsAppUrl("Hi Omkar, I would like to connect with you on WhatsApp.")}

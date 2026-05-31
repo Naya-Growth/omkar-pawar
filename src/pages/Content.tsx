@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react";
 import { motion } from "motion/react";
-import { BookOpen, Instagram, Linkedin, PlayCircle, Video } from "lucide-react";
+import { ArrowRight, BookOpen, Instagram, Linkedin, PlayCircle, Video, Youtube } from "lucide-react";
 
 import { useLeadWizard } from "../components/LeadWizardProvider";
+import { Button } from "../components/ui/button";
+import { wizardContent } from "../lib/omkar-content";
 import { siteConfig } from "../lib/site-config";
 
 export default function Content() {
@@ -12,31 +14,27 @@ export default function Content() {
   const insights = [
     {
       category: "Anxiety",
-      title: "The hidden cost of high-functioning anxiety",
+      title: "The Hidden Cost Of High-Functioning Anxiety",
       type: "Article",
       icon: <BookOpen className="h-4 w-4" />,
-      image: siteConfig.image.contentAnxiety,
     },
     {
       category: "Emotional Mastery",
-      title: "Why you cannot think your way out of a trigger",
+      title: "Why You Cannot Think Your Way Out Of A Trigger",
       type: "Video",
       icon: <Video className="h-4 w-4" />,
-      image: siteConfig.image.contentEmotionalMastery,
     },
     {
       category: "Inner Child Healing",
-      title: "Re-parenting: the key to adult relationships",
+      title: "Re-Parenting: The Key To Adult Relationships",
       type: "Article",
       icon: <BookOpen className="h-4 w-4" />,
-      image: siteConfig.image.contentInnerChild,
     },
     {
       category: "Mindfulness",
-      title: "A 5-minute somatic reset for overwhelm",
+      title: "A 5-Minute Somatic Reset For Overwhelm",
       type: "Reel",
       icon: <PlayCircle className="h-4 w-4" />,
-      image: siteConfig.image.contentMindfulness,
     },
   ];
 
@@ -62,7 +60,7 @@ export default function Content() {
             Library
           </span>
           <h1 className="font-serif text-4xl leading-[1.08] text-[#1a1a1a] md:text-6xl lg:text-7xl">
-            Insights for your <span className="italic text-[#9c8257]">emotional growth</span>
+            Insights For Your <span className="italic text-[#9c8257]">Emotional Growth</span>
           </h1>
           <p className="mx-auto mt-8 max-w-2xl text-lg font-light leading-relaxed text-gray-600 md:text-xl">
             Articles, videos, and practices designed to help you understand your mind, regulate your
@@ -86,6 +84,15 @@ export default function Content() {
             >
               <Linkedin className="h-4 w-4" />
               LinkedIn
+            </a>
+            <a
+              href={siteConfig.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
+            >
+              <Youtube className="h-4 w-4" />
+              YouTube
             </a>
           </div>
         </motion.div>
@@ -117,20 +124,11 @@ export default function Content() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group cursor-pointer"
+              className="group cursor-pointer rounded-[2rem] border border-black/5 bg-white p-7 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="relative mb-6 aspect-[16/9] overflow-hidden rounded-[2rem] bg-gray-100">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-white/92 px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-[#1a1a1a] backdrop-blur-sm">
-                  {item.icon}
-                  {item.type}
-                </div>
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#F5F1EA] px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-[#1a1a1a]">
+                {item.icon}
+                {item.type}
               </div>
               <span className="mb-3 block text-xs font-bold uppercase tracking-widest text-[#9c8257]">
                 {item.category}
@@ -143,18 +141,15 @@ export default function Content() {
         </div>
 
         <div className="mt-16 rounded-[2.5rem] border border-black/5 bg-white p-8 text-center shadow-sm md:p-12">
-          <h3 className="font-serif text-3xl text-[#1A1A1A] md:text-4xl">Need help finding the right support path?</h3>
+          <h3 className="font-serif text-3xl text-[#1A1A1A] md:text-4xl">Need Help Finding The Right Support Path?</h3>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-gray-600">
-            If the content resonates but you want clarity on what to do next, the guided fit check is
+            If the content resonates but you want clarity on what to do next, the quick clarity check is
             the fastest way to start without guessing.
           </p>
-          <button
-            type="button"
-            onClick={() => openLeadWizard()}
-            className="mt-8 rounded-full bg-[#2A2A2A] px-8 py-4 text-sm font-bold tracking-[0.16em] text-white transition-colors hover:bg-[#8C7A6B]"
-          >
-            Open guided fit check
-          </button>
+          <Button type="button" onClick={() => openLeadWizard()} className="mt-8" size="lg">
+            {wizardContent.triggerLabel}
+            <ArrowRight className="h-4 w-4" />
+          </Button>
         </div>
       </section>
     </div>

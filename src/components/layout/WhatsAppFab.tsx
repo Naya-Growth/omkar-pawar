@@ -6,7 +6,7 @@ export default function WhatsAppFab() {
       href={buildWhatsAppUrl('Hi Omkar, I would like to connect with you.')}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-28 md:bottom-8 right-6 md:right-8 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl z-40 hover:scale-110 active:scale-95 transition-all duration-300"
+      className="fixed bottom-8 right-8 z-40 hidden h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 md:flex"
       aria-label="WhatsApp Support"
     >
       <svg className="w-7 h-7 md:w-8 md:h-8 fill-current" viewBox="0 0 24 24">

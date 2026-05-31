@@ -1,18 +1,20 @@
 export const siteConfig = {
   projectName: "Omkar Pawar",
   practiceName: "Freedom Innerwellbeing",
-  leadCompanyName: "Omkar Pawar Discovery Call Enquiry",
+  leadCompanyName: "Omkar Pawar Clarity Session Enquiry",
   websiteUrl: "https://omkarpawar.com",
   email: "ompawar1407@gmail.com",
   whatsappNumber: "917020455546",
-  whatsappDisplay: "+91 70204 55546",
-  roleLabel: "Anxiety & Inner Child Healer",
+  whatsappDisplay: "WhatsApp Chat",
+  phonePlaceholder: "+91 XXXXX XXXXX",
+  roleLabel: "Psychologist & Inner Child Healer",
   location: "Pune, Maharashtra",
   locationLabel: "Pune, Maharashtra · Online worldwide",
   languages: ["English", "Hindi", "Marathi"],
   socialProof: {
-    years: "8+ years",
-    clients: "500+ lives impacted",
+    years: "7+ years",
+    clients: "15k+ Lives Impacted",
+    oneOnOneSessions: "2000+",
   },
   credentials: [
     "Cognitive Hypnotic Psychotherapist",
@@ -34,6 +36,7 @@ export const siteConfig = {
   },
   instagramUrl: "https://instagram.com/lifecoachomkar",
   linkedinUrl: "https://www.linkedin.com/in/coach-omkarpawar/",
+  youtubeUrl: "https://www.youtube.com/@omkarpawar1407",
 } as const;
 
 export function buildWhatsAppUrl(message?: string) {

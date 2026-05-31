@@ -2,6 +2,8 @@ import { motion } from 'motion/react';
 import { Quote, Star } from 'lucide-react';
 
 import { useLeadWizard } from '../components/LeadWizardProvider';
+import { Button } from '../components/ui/button';
+import { wizardContent } from '../lib/omkar-content';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -73,7 +75,7 @@ export default function SuccessStories() {
             Client Transformations
           </motion.span>
           <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-8">
-            Stories of <span className="italic text-[#8C7A6B]">Healing</span> <br />and Mastery
+            Stories Of <span className="italic text-[#8C7A6B]">Healing</span> <br />And Mastery
           </motion.h1>
           <motion.p variants={fadeUp} className="text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto text-gray-600">
             Real experiences from high-performers who chose to break free from their invisible battles and reclaim their peace.
@@ -130,19 +132,20 @@ export default function SuccessStories() {
           className="max-w-3xl mx-auto bg-[#2A2A2A] text-white p-16 md:p-24 rounded-[3rem]"
         >
           <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl mb-8 leading-tight">
-            Ready to write your own <span className="italic text-[#8C7A6B]">success story?</span>
+            Ready To Write Your Own <span className="italic text-[#8C7A6B]">Success Story?</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-white/70 mb-12 text-lg font-light max-w-xl mx-auto">
-            Take the first step towards emotional freedom. Book a discovery call to see if we're a fit.
+            Take the first step towards emotional freedom. Start with a clarity session to see if we're a fit.
           </motion.p>
           <motion.div variants={fadeUp}>
-            <button
+            <Button
               type="button"
               onClick={() => openLeadWizard()}
-              className="inline-block rounded-full bg-white px-10 py-4 text-sm font-bold tracking-wide text-[#2A2A2A] transition-colors hover:bg-[#8C7A6B] hover:text-white"
+              variant="inverted"
+              size="lg"
             >
-              Apply to Join
-            </button>
+              {wizardContent.triggerLabel}
+            </Button>
           </motion.div>
         </motion.div>
       </section>

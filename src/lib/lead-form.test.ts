@@ -31,3 +31,26 @@ test("buildInquiryLeadPayload maps the enquiry into the Naya lead contract", () 
   assert.match(payload.problemSummary, /Inner Child Healing Sessions/);
   assert.equal(payload.utmCampaign, "spring-launch");
 });
+
+test("buildInquiryLeadPayload names the requested support path from the clarity wizard", () => {
+  const payload = buildInquiryLeadPayload({
+    values: {
+      firstName: "Asha",
+      lastName: "",
+      email: "asha@example.com",
+      phone: "+91 90000 00000",
+      serviceInterest: "quick-clarity-call",
+      message: "",
+      consent: true,
+    },
+    sourceHost: "omkarpawar.com",
+    sourcePage: "https://omkarpawar.com/",
+    sourceCta: "quick-clarity-check",
+    utm: {},
+  });
+
+  assert.equal(payload.fullName, "Asha");
+  assert.deepEqual(payload.serviceInterest, ["quick-clarity-call"]);
+  assert.match(payload.problemSummary, /Quick Clarity Call \(15-20 Mins\)/);
+  assert.match(payload.problemSummary, /visitor wants to understand the right next step/);
+});

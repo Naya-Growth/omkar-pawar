@@ -21,7 +21,7 @@ const staggerContainer = {
 export default function About() {
   return (
     <div className="overflow-x-hidden bg-[#FAF9F6] text-[#2A2A2A]">
-      <section className="relative mx-auto max-w-[1400px] px-6 pb-20 pt-24 md:px-12">
+      <section className="relative mx-auto max-w-[1400px] px-6 pb-12 pt-16 md:px-12">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -29,18 +29,18 @@ export default function About() {
           className="mx-auto max-w-4xl text-center"
         >
           <motion.span variants={fadeUp} className="mb-6 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C7A6B]">
-            The origin story
+            The Origin Story
           </motion.span>
           <motion.h1 variants={fadeUp} className="font-serif text-4xl leading-[1.1] md:text-6xl lg:text-7xl">
-            From chasing perfection
+            From Chasing Perfection
             <br />
-            to <span className="italic text-[#8C7A6B]">facilitating peace.</span>
+            To <span className="italic text-[#8C7A6B]">Facilitating Peace.</span>
           </motion.h1>
           <motion.div
             initial={{ opacity: 0, filter: "blur(10px)" }}
             animate={{ opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="relative mb-12 mt-12 aspect-[16/9] overflow-hidden rounded-[2rem] shadow-2xl shadow-[#8C7A6B]/10"
+            className="relative mb-8 mt-8 aspect-[16/9] overflow-hidden rounded-[2rem] shadow-2xl shadow-[#8C7A6B]/10"
           >
             <img
               src={siteConfig.image.aboutBanner}
@@ -56,14 +56,14 @@ export default function About() {
               <p className="mt-2 text-lg font-semibold">{siteConfig.practiceName}</p>
             </div>
             <div className="rounded-[1.8rem] border border-black/5 bg-white px-5 py-5 shadow-sm">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">Based in</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">Based In</p>
               <p className="mt-2 inline-flex items-center gap-2 text-lg font-semibold">
                 <MapPin className="h-4 w-4 text-[#8C7A6B]" />
                 {siteConfig.location}
               </p>
             </div>
             <div className="rounded-[1.8rem] border border-black/5 bg-white px-5 py-5 shadow-sm">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">Sessions</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">Languages</p>
               <p className="mt-2 inline-flex items-center gap-2 text-lg font-semibold">
                 <Globe2 className="h-4 w-4 text-[#8C7A6B]" />
                 {siteConfig.languages.join(" · ")}
@@ -73,7 +73,7 @@ export default function About() {
         </motion.div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-20 md:px-12">
+      <section className="mx-auto max-w-3xl px-6 pb-20 pt-10 md:px-12">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -82,7 +82,7 @@ export default function About() {
           className="space-y-20"
         >
           <motion.div variants={fadeUp}>
-            <h3 className="mb-6 font-serif text-3xl text-[#8C7A6B]">01. The burden of perfection</h3>
+            <h3 className="mb-6 font-serif text-3xl text-[#8C7A6B]">01. The Burden Of Perfection</h3>
             <div className="space-y-6 text-lg font-light leading-relaxed text-gray-600">
               <p>
                 Omkar was born in the village of Whatambare in Solapur, Maharashtra. On the outside,
@@ -99,7 +99,7 @@ export default function About() {
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <h3 className="mb-6 font-serif text-3xl text-[#8C7A6B]">02. The collapse and the calling</h3>
+            <h3 className="mb-6 font-serif text-3xl text-[#8C7A6B]">02. The Collapse And The Calling</h3>
             <div className="space-y-6 text-lg font-light leading-relaxed text-gray-600">
               <p>
                 The turning point came after failure in competitive exams. With a background in
@@ -115,7 +115,7 @@ export default function About() {
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <h3 className="mb-6 font-serif text-3xl text-[#8C7A6B]">03. The transformation</h3>
+            <h3 className="mb-6 font-serif text-3xl text-[#8C7A6B]">03. The Transformation</h3>
             <div className="space-y-6 text-lg font-light leading-relaxed text-gray-600">
               <p>
                 Transitioning from engineering into psychology was not simple. There were doubts,
@@ -145,8 +145,8 @@ export default function About() {
             <Quote className="h-12 w-12 text-white/30" />
           </motion.div>
           <motion.h2 variants={fadeUp} className="font-serif text-3xl leading-tight md:text-5xl">
-            “Every behavior has a positive intention. My work is to help you understand the root of
-            that intention, so healing and growth become possible.”
+            “Every Behavior Has A Positive Intention. My Work Is To Help You Understand The Root Of
+            That Intention, So Healing And Growth Become Possible.”
           </motion.h2>
         </motion.div>
       </section>
@@ -163,7 +163,7 @@ export default function About() {
             Expertise
           </motion.span>
           <motion.h3 variants={fadeUp} className="font-serif text-4xl text-[#2A2A2A] md:text-5xl">
-            Professional foundation
+            Professional Foundation
           </motion.h3>
         </motion.div>
 

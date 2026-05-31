@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, MessageCircle, X } from "lucide-react";
+import { Instagram, Menu, MessageCircle, X } from "lucide-react";
 
 import { BrandLockup } from "../BrandMark";
-import ShareWebsiteButton from "../ShareWebsiteButton";
 import { useLeadWizard } from "../LeadWizardProvider";
-import { buildWhatsAppUrl } from "../../lib/site-config";
+import { Button } from "../ui/button";
+import { wizardContent } from "../../lib/omkar-content";
+import { buildWhatsAppUrl, siteConfig } from "../../lib/site-config";
 
 export default function TopNav() {
   const location = useLocation();
@@ -50,17 +51,15 @@ export default function TopNav() {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
-          <ShareWebsiteButton
-            className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-3 text-xs font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
-            label="Share"
-          />
-          <button
-            type="button"
-            onClick={() => openLeadWizard()}
-            className="inline-flex items-center gap-2 rounded-full bg-[#2A2A2A] px-6 py-3 text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-[#8C7A6B]"
-          >
-            Guided fit check
-          </button>
+          <Button asChild variant="secondary" size="sm">
+            <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer">
+              <Instagram className="h-4 w-4" />
+              Instagram
+            </a>
+          </Button>
+          <Button type="button" onClick={() => openLeadWizard()} size="sm">
+            {wizardContent.triggerLabel}
+          </Button>
         </div>
 
         <div className="flex items-center gap-3 md:hidden">
@@ -69,7 +68,7 @@ export default function TopNav() {
             onClick={() => openLeadWizard()}
             className="inline-flex h-11 items-center rounded-full bg-[#2A2A2A] px-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white"
           >
-            Start
+            Clarity
           </button>
           <button
             type="button"
@@ -111,12 +110,17 @@ export default function TopNav() {
               }}
               className="inline-flex items-center justify-center rounded-full bg-[#2A2A2A] px-5 py-4 text-xs font-bold uppercase tracking-[0.18em] text-white"
             >
-              Open guided fit check
+              {wizardContent.triggerLabel}
             </button>
-            <ShareWebsiteButton
+            <a
+              href={siteConfig.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-black/5 bg-white px-5 py-4 text-xs font-bold uppercase tracking-[0.18em] text-[#2A2A2A]"
-              label="Share website"
-            />
+            >
+              <Instagram className="h-4 w-4" />
+              Instagram
+            </a>
             <a
               href={buildWhatsAppUrl("Hi Omkar, I would like to know more about working with you.")}
               target="_blank"

@@ -1,9 +1,10 @@
 import { motion } from "motion/react";
-import { ArrowRight, Instagram, Linkedin, Mail, MapPin, MessageCircle } from "lucide-react";
+import { ArrowRight, Instagram, Linkedin, Mail, MapPin, MessageCircle, Youtube } from "lucide-react";
 
 import InquiryForm from "../components/InquiryForm";
-import ShareWebsiteButton from "../components/ShareWebsiteButton";
 import { useLeadWizard } from "../components/LeadWizardProvider";
+import { Button } from "../components/ui/button";
+import { wizardContent } from "../lib/omkar-content";
 import { buildWhatsAppUrl, siteConfig } from "../lib/site-config";
 
 const fadeUp = {
@@ -37,7 +38,7 @@ export default function Contact() {
             Connect
           </motion.span>
           <motion.h1 variants={fadeUp} className="font-serif text-4xl leading-[1.1] md:text-6xl lg:text-7xl">
-            Start your <span className="italic text-[#8C7A6B]">healing journey</span>
+            Start Your <span className="italic text-[#8C7A6B]">Healing Journey</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="mx-auto mt-8 max-w-2xl text-lg font-light leading-relaxed text-gray-600 md:text-xl">
             Whether you are ready to apply for support or simply want to ask a thoughtful question,
@@ -66,23 +67,25 @@ export default function Contact() {
                 />
               </div>
               <div className="space-y-4 p-8">
-                <h3 className="font-serif text-3xl">Choose the easiest next step</h3>
+                <h3 className="font-serif text-3xl">Choose The Easiest Next Step</h3>
                 <p className="text-sm leading-7 text-gray-600">
-                  Start with the guided fit check, message directly on WhatsApp, or use the enquiry
+                  Start with the quick clarity check, message directly on WhatsApp, or use the enquiry
                   form if you want to explain things in your own words first.
                 </p>
                 <div className="grid gap-3 sm:grid-cols-2">
-                  <button
+                  <Button
                     type="button"
                     onClick={() => openLeadWizard()}
-                    className="rounded-full bg-[#2A2A2A] px-5 py-4 text-sm font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[#8C7A6B]"
+                    size="md"
                   >
-                    Guided fit check
-                  </button>
-                  <ShareWebsiteButton
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-black/5 bg-white px-5 py-4 text-sm font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
-                    label="Share website"
-                  />
+                    {wizardContent.triggerLabel}
+                  </Button>
+                  <Button asChild variant="instagram" size="md">
+                    <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer">
+                      <Instagram className="h-4 w-4" />
+                      Instagram
+                    </a>
+                  </Button>
                 </div>
               </div>
             </motion.div>
@@ -91,7 +94,7 @@ export default function Contact() {
               <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-white/20 text-white">
                 <MessageCircle className="h-6 w-6" />
               </div>
-              <h3 className="font-serif text-3xl">Chat on WhatsApp</h3>
+              <h3 className="font-serif text-3xl">Chat On WhatsApp</h3>
               <p className="mt-4 text-lg font-light text-white/90">
                 If you want the quickest reply before filling anything out, WhatsApp is the fastest
                 route.
@@ -102,7 +105,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold tracking-[0.16em] text-[#128C7E] transition-colors hover:bg-gray-100"
               >
-                Message now
+                Message Now
                 <ArrowRight className="h-4 w-4" />
               </a>
             </motion.div>
@@ -145,6 +148,15 @@ export default function Contact() {
                   <Linkedin className="h-4 w-4" />
                   LinkedIn
                 </a>
+                <a
+                  href={siteConfig.youtubeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-[#FAF9F6] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
+                >
+                  <Youtube className="h-4 w-4" />
+                  YouTube
+                </a>
               </div>
             </motion.div>
           </motion.div>
@@ -156,7 +168,7 @@ export default function Contact() {
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="rounded-[3rem] border border-black/5 bg-white p-10 shadow-sm lg:col-span-7 md:p-14"
           >
-            <h3 className="font-serif text-3xl text-[#2A2A2A]">Send an enquiry</h3>
+            <h3 className="font-serif text-3xl text-[#2A2A2A]">Send An Enquiry</h3>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-gray-600">
               This form is connected to the live Naya lead system, so your enquiry is stored,
               routed, and visible inside the client workspace without disappearing into a broken
