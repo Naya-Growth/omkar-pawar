@@ -311,9 +311,18 @@ export function MetricCard({ label, value, icon: Icon, inverse = false }: Metric
       <div className="flex items-start justify-between gap-4">
         <div>
           <Eyebrow inverse={inverse}>{label}</Eyebrow>
-          <p className={cn("mt-2 text-xl font-semibold leading-tight", inverse ? "text-white" : "text-[#1A1A1A]")}>
+          <motion.p
+            initial={{ opacity: 0, rotateX: -72, y: 8 }}
+            whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
+            className={cn(
+              "mt-2 origin-bottom text-xl font-semibold leading-tight [transform-style:preserve-3d]",
+              inverse ? "text-white" : "text-[#1A1A1A]",
+            )}
+          >
             {value}
-          </p>
+          </motion.p>
         </div>
         {Icon ? <IconBadge icon={<Icon className="h-4 w-4" />} inverse={inverse} className="h-10 w-10" /> : null}
       </div>

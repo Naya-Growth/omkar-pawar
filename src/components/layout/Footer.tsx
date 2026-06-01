@@ -1,61 +1,86 @@
-import { Instagram, Linkedin, Mail, MapPin, MessageCircle, Youtube } from "lucide-react";
+import { ArrowRight, Instagram, Linkedin, Mail, MapPin, MessageCircle, Send, ShieldCheck, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 
 import { BrandLockup } from "../BrandMark";
 import { useLeadWizard } from "../LeadWizardProvider";
-import { Button } from "../ui/button";
-import { wizardContent } from "../../lib/omkar-content";
 import { buildWhatsAppUrl, siteConfig } from "../../lib/site-config";
+
+const directionCtaLabel = "Find My Next Step";
 
 export default function Footer() {
   const { openLeadWizard } = useLeadWizard();
 
   return (
     <footer className="mt-20 w-full">
-      <div className="bg-[#2A2A2A] px-6 py-20 text-white md:px-12">
-        <div className="mx-auto grid max-w-[1400px] gap-10 rounded-lg border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02))] p-10 shadow-[0_24px_90px_rgba(0,0,0,0.22)] md:grid-cols-[1.15fr_0.85fr] md:p-14">
-          <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#D8C0A1]">
-              Calm, Practical Emotional Support
-            </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">
-              Ready To Feel Clearer, Steadier, And More Like Yourself Again?
-            </h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-white/72">
-              If you are navigating anxiety, emotional overwhelm, or old patterns that keep repeating,
-              we can start with a guided enquiry or a direct WhatsApp conversation and find the right
-              next step without pressure.
-            </p>
+      <div className="bg-[#252423] px-6 py-20 text-white md:px-12">
+        <div className="mx-auto grid max-w-[1400px] gap-8 rounded-lg border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.025))] p-8 shadow-[0_24px_90px_rgba(0,0,0,0.24)] md:grid-cols-[1.05fr_0.95fr] md:p-12">
+          <div className="flex flex-col justify-between gap-8">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#D8C0A1]">
+                Calm, Practical Emotional Support
+              </p>
+              <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
+                Ready To Feel Clearer, Steadier, And More Like Yourself Again?
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-white/72">
+                Start with one clean next step: a guided direction check, a private enquiry, or a
+                direct WhatsApp message.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {[
+                "Private first response",
+                "Online worldwide",
+                "No pressure to commit",
+              ].map((item) => (
+                <div key={item} className="rounded-md border border-white/10 bg-white/[0.05] px-4 py-3">
+                  <ShieldCheck className="h-4 w-4 text-[#EFD95E]" />
+                  <p className="mt-2 text-xs font-bold leading-5 text-white/76">{item}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="grid gap-3 self-start sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
-            <button
+          <div className="grid gap-3 self-stretch sm:grid-cols-2">
+            <motion.button
               type="button"
               onClick={() => openLeadWizard()}
-              className="rounded-full bg-white px-6 py-4 text-sm font-bold uppercase tracking-[0.18em] text-[#2A2A2A] transition-colors hover:bg-[#D8C0A1]"
+              whileHover={{ y: -3, rotateX: 4 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex min-h-[142px] flex-col justify-between rounded-lg bg-white p-6 text-left text-[#1A1A1A] shadow-[0_18px_50px_rgba(0,0,0,0.2)]"
             >
-              {wizardContent.triggerLabel}
-            </button>
-            <a
+              <Send className="h-6 w-6 text-[#8C6A44]" />
+              <span className="font-serif text-2xl font-semibold leading-tight">{directionCtaLabel}</span>
+              <ArrowRight className="h-4 w-4" />
+            </motion.button>
+            <motion.a
               href={buildWhatsAppUrl("Hi Omkar, I would like to connect with you on WhatsApp.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-white/14 px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white/10"
+              whileHover={{ y: -3, rotateX: 4 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex min-h-[142px] flex-col justify-between rounded-lg border border-[#25D366]/24 bg-[#25D366]/10 p-6 text-left text-white"
             >
-              Message On WhatsApp
-            </a>
+              <MessageCircle className="h-6 w-6 text-[#25D366]" />
+              <span className="font-serif text-2xl font-semibold leading-tight">Message On WhatsApp</span>
+              <ArrowRight className="h-4 w-4" />
+            </motion.a>
             <Link
               to="/contact"
-              className="rounded-full border border-white/14 px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white/10"
+              className="rounded-lg border border-white/12 bg-white/[0.05] px-6 py-5 text-sm font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-white/10"
             >
               Send An Enquiry
             </Link>
-            <Button asChild variant="inverted" size="md" className="border border-white/14 bg-transparent text-white hover:bg-white/10">
-              <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer">
-                <Instagram className="h-4 w-4" />
-                Instagram
-              </a>
-            </Button>
+            <a
+              href={siteConfig.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-[#D62976]/24 bg-[#D62976]/10 px-6 py-5 text-sm font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[#D62976]/16"
+            >
+              <Instagram className="h-4 w-4 text-[#FEDA75]" />
+              Instagram
+            </a>
           </div>
         </div>
       </div>

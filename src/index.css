@@ -127,6 +127,14 @@
       radial-gradient(circle at 82% 18%, rgba(235, 200, 91, 0.24), transparent 34%),
       linear-gradient(135deg, #fff9ef 0%, #f8ecd9 48%, #f2dfc3 100%);
   }
+  .bg-warm-pattern {
+    background-image:
+      linear-gradient(rgba(140, 106, 68, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(140, 106, 68, 0.06) 1px, transparent 1px);
+    background-position: center;
+    background-size: 44px 44px;
+    mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.8), transparent 82%);
+  }
   .soft-paper {
     background: linear-gradient(180deg, rgba(255, 250, 242, 0.96), rgba(248, 236, 217, 0.9));
   }

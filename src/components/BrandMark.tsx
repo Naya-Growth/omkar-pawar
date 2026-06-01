@@ -50,14 +50,13 @@ export function BrandLockup({
   const metaTone = tone === "light" ? "text-white/65" : "text-[#8C6A44]";
 
   return (
-    <div className={`flex items-center gap-4 ${className}`}>
-      <div
-        className={`flex h-12 w-12 items-center justify-center rounded-full ${
-          tone === "light" ? "bg-white/10 text-white" : "bg-[#F2E4CE] text-[#8C6A44]"
+    <div className={`flex items-center gap-3 ${className}`}>
+      <span
+        className={`h-10 w-1.5 rounded-full ${
+          tone === "light" ? "bg-white/40" : "bg-[#8C6A44]"
         }`}
-      >
-        <BrandMark className="h-9 w-9" />
-      </div>
+        aria-hidden="true"
+      />
       <div className="min-w-0">
         <p className={`font-serif text-xl font-semibold leading-none ${textTone}`}>{siteConfig.projectName}</p>
         <p className={`mt-1 text-[10px] font-bold uppercase tracking-[0.24em] ${metaTone}`}>

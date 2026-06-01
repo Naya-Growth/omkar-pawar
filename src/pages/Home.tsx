@@ -25,7 +25,7 @@ import {
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { MetricCard } from "../components/ui/premium";
-import { heroStats, wizardContent } from "../lib/omkar-content";
+import { heroStats } from "../lib/omkar-content";
 import { buildWhatsAppUrl, siteConfig } from "../lib/site-config";
 
 const fadeUp = {
@@ -108,23 +108,25 @@ const approachPrinciples = [
 ];
 
 const heroStatIcons = [Clock3, HeartHandshake, Globe2, CheckCircle2];
+const directionCtaLabel = "Find My Next Step";
 
 export default function Home() {
   const { openLeadWizard } = useLeadWizard();
 
   return (
     <div className="overflow-x-hidden bg-[#FBF4E6] text-[#1A1A1A]">
-      <section className="relative isolate overflow-hidden bg-[#FBF4E6] px-5 py-10 sm:px-8 lg:min-h-[calc(100svh-82px)] lg:px-14 lg:py-14 xl:px-20 2xl:px-24">
+      <section className="relative isolate overflow-hidden bg-[#FBF4E6] px-5 py-10 sm:px-8 lg:min-h-[calc(100svh-100px)] lg:px-14 lg:py-8 xl:px-20 2xl:px-24">
         <img
           src={siteConfig.image.homeHeroHorizontal}
           alt=""
           aria-hidden="true"
-          className="absolute inset-y-0 right-0 z-0 hidden h-full w-[56%] object-cover object-center lg:block"
+          className="absolute inset-y-0 right-0 z-0 hidden h-full w-[56%] object-cover object-[100%_center] lg:block"
           loading="eager"
           decoding="async"
         />
         <div className="absolute inset-0 z-0 hidden bg-[linear-gradient(90deg,#FBF4E6_0%,#FBF4E6_41%,rgba(251,244,230,0.9)_56%,rgba(251,244,230,0.25)_74%,rgba(251,244,230,0.04)_100%)] lg:block" />
         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_82%_22%,rgba(235,200,91,0.28),transparent_36%),linear-gradient(135deg,#FFF9EF_0%,#F8ECD9_52%,#F2DFC3_100%)] lg:hidden" />
+        <div className="bg-warm-pattern absolute inset-0 z-0 opacity-[0.18]" aria-hidden="true" />
         <img
           src={siteConfig.image.heroPortrait}
           alt=""
@@ -133,7 +135,7 @@ export default function Home() {
           loading="eager"
           decoding="async"
         />
-        <div className="relative z-10 mx-auto grid max-w-[1400px] items-center gap-9 lg:min-h-[calc(100svh-194px)] lg:grid-cols-[minmax(0,0.6fr)_minmax(0,0.4fr)] xl:grid-cols-[minmax(0,0.69fr)_minmax(0,0.31fr)]">
+        <div className="relative z-10 mx-auto grid max-w-[1440px] items-center gap-9 lg:min-h-[calc(100svh-174px)] lg:grid-cols-[minmax(0,0.7fr)_minmax(0,0.3fr)] xl:grid-cols-[minmax(0,0.76fr)_minmax(0,0.24fr)]">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -144,9 +146,20 @@ export default function Home() {
               <span className="rounded-full bg-[#EBC85B] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#2A210B] shadow-[0_10px_24px_rgba(235,200,91,0.22)]">
                 Emotional Mastery
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#1A1A1A]/8 bg-white/82 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6F5438]">
-                <MapPin className="h-3.5 w-3.5" />
-                {siteConfig.locationLabel}
+              <span className="inline-flex items-center gap-2 overflow-hidden rounded-full border border-[#1A1A1A]/8 bg-white/84 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6F5438] shadow-[0_10px_25px_rgba(88,62,34,0.08)]">
+                <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-[#F2E4CE] text-[#8C6A44]">
+                  <span className="absolute h-4 w-4 rounded-full border border-[#25D366]/60 opacity-75 [animation:ping_1.7s_cubic-bezier(0,0,0.2,1)_infinite]" />
+                  <Globe2 className="relative h-3.5 w-3.5" />
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin className="h-3.5 w-3.5" />
+                  Pune, Maharashtra
+                </span>
+                <span className="h-1 w-1 rounded-full bg-[#8C6A44]/45" />
+                <span className="inline-flex items-center gap-1.5 text-[#128C4A]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#25D366]" />
+                  Online Worldwide
+                </span>
               </span>
             </motion.div>
             <motion.div
@@ -164,7 +177,7 @@ export default function Home() {
 
             <motion.h1
               variants={fadeUp}
-              className="mt-7 max-w-[760px] font-serif text-[2.8rem] font-bold leading-[0.95] text-[#1A1A1A] sm:text-[3.85rem] lg:mt-9 lg:text-[3.85rem] xl:max-w-[980px] xl:text-[4.45rem] 2xl:text-[5.05rem]"
+              className="mt-6 max-w-[760px] font-serif text-[2.8rem] font-bold leading-[0.95] text-[#1A1A1A] sm:text-[3.85rem] lg:mt-7 lg:max-w-[930px] lg:text-[3.9rem] xl:max-w-[1060px] xl:text-[4.25rem] 2xl:text-[4.85rem]"
             >
               <span className="block lg:hidden">
                 <span className="block">Master Your</span>
@@ -195,38 +208,27 @@ export default function Home() {
 
             <motion.p
               variants={fadeUp}
-              className="mt-7 max-w-2xl text-base leading-8 text-[#4E463B] md:text-lg"
+              className="mt-5 max-w-2xl text-base leading-8 text-[#4E463B] md:text-lg"
             >
               Omkar Pawar helps people heal anxiety, regulate emotional overwhelm, and understand
               the root patterns that keep repeating beneath high-functioning outer lives.
             </motion.p>
 
-            <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Button type="button" onClick={() => openLeadWizard()} size="lg" className="sm:w-auto">
-                {wizardContent.triggerLabel}
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-              <Button asChild variant="secondary" size="lg" className="sm:w-auto">
-                <Link to="/contact">Book A Clarity Session</Link>
-              </Button>
-            </motion.div>
-
-            <motion.div variants={fadeUp} className="mt-6 grid max-w-2xl gap-2 sm:grid-cols-3">
-              {[
-                { label: "Anxiety & Overthinking", icon: <BrainCircuit className="h-4 w-4" /> },
-                { label: "Emotional Overwhelm", icon: <HeartHandshake className="h-4 w-4" /> },
-                { label: "Inner Child Healing", icon: <Sparkles className="h-4 w-4" /> },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="group flex items-center gap-3 rounded-lg border border-[#1A1A1A]/8 bg-white/76 px-3 py-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_12px_28px_rgba(140,106,68,0.16)]"
-                >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#F2E4CE] text-[#8C6A44]">
-                    {item.icon}
+            <motion.div variants={fadeUp} className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link
+                to="/contact"
+                className="group inline-flex min-h-14 w-full max-w-full items-center justify-center gap-3 overflow-hidden rounded-full border border-[#8C6A44]/18 bg-white/92 px-8 py-3.5 text-center text-sm font-extrabold tracking-[0.08em] text-[#1A1A1A] shadow-[0_14px_34px_rgba(88,62,34,0.11)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#8C6A44]/38 hover:text-[#8C6A44] sm:w-auto"
+              >
+                <span className="relative grid h-5 min-w-[11.5rem] place-items-center [perspective:900px]">
+                  <span className="transition-transform duration-500 [backface-visibility:hidden] group-hover:[transform:rotateX(180deg)]">
+                    Book A Clarity Session
                   </span>
-                  <span className="text-xs font-bold leading-5 text-[#1A1A1A]">{item.label}</span>
-                </div>
-              ))}
+                  <span className="absolute inset-0 grid place-items-center text-[#8C6A44] [backface-visibility:hidden] [transform:rotateX(-180deg)] transition-transform duration-500 group-hover:[transform:rotateX(0deg)]">
+                    Start Gently
+                  </span>
+                </span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </motion.div>
           </motion.div>
 
@@ -264,19 +266,30 @@ export default function Home() {
           className="mx-auto grid max-w-[1360px] gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-start"
         >
           <motion.div variants={fadeUp}>
-            <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44] shadow-[0_14px_34px_rgba(140,106,68,0.12)]">
-              <Sparkles className="h-6 w-6" />
+            <div className="relative overflow-hidden rounded-lg border border-[#1A1A1A]/8 bg-[#F2E4CE] p-3 shadow-[0_22px_70px_rgba(140,106,68,0.14)]">
+              <img
+                src={siteConfig.image.healingHorizontal}
+                alt="Omkar Pawar in a grounded outdoor setting"
+                className="aspect-[5/4] w-full rounded-md object-cover object-center"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-x-6 bottom-6 rounded-md border border-white/60 bg-[#FFF9EF]/92 p-4 shadow-[0_16px_40px_rgba(42,42,42,0.14)] backdrop-blur">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#8C6A44]">
+                  Surface To Root
+                </p>
+                <div className="mt-3 flex items-center gap-3">
+                  {["Signal", "Pattern", "Healing"].map((item, index) => (
+                    <div key={item} className="flex min-w-0 flex-1 items-center gap-2">
+                      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#F2E4CE] font-serif text-sm font-semibold text-[#8C6A44]">
+                        {index + 1}
+                      </span>
+                      <span className="truncate text-xs font-extrabold text-[#1A1A1A]">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-            <p className="mt-6 text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#8C6A44]">
-              The Freedom Innerwellbeing Approach
-            </p>
-            <h2 className="mt-4 max-w-md font-serif text-4xl font-semibold leading-tight text-[#1A1A1A] md:text-5xl">
-              The symptom is not the whole story.
-            </h2>
-            <p className="mt-5 max-w-md text-base leading-8 text-[#4E463B]">
-              The work moves beneath coping and into the reason a pattern keeps repeating, so the
-              next step feels clearer and more grounded.
-            </p>
           </motion.div>
 
           <motion.div variants={fadeUp}>
@@ -343,46 +356,76 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="grid gap-4"
+            className="rounded-lg border border-[#1A1A1A]/8 bg-white/82 p-3 shadow-[0_22px_70px_rgba(140,106,68,0.12)] backdrop-blur"
           >
-            {painPoints.map((item) => (
-              <motion.div key={item.title} variants={fadeUp}>
-                <Card className="grid gap-5 p-6 transition-shadow duration-300 hover:shadow-[0_18px_50px_rgba(140,106,68,0.14)] sm:grid-cols-[auto_1fr] sm:p-7">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44]">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-2xl font-semibold leading-tight text-[#1A1A1A]">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#4E463B]">{item.desc}</p>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+            <Accordion type="single" defaultValue="pain-0" collapsible>
+              {painPoints.map((item, index) => (
+                <motion.div key={item.title} variants={fadeUp}>
+                  <AccordionItem
+                    value={`pain-${index}`}
+                    className="rounded-md border-b-0 data-[state=open]:bg-[#FBF4E6]"
+                  >
+                    <AccordionTrigger className="px-4 py-5 hover:text-[#1A1A1A] md:px-5">
+                      <span className="flex items-center gap-4">
+                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44] shadow-sm">
+                          {item.icon}
+                        </span>
+                        <span>
+                          <span className="block font-serif text-2xl font-semibold leading-tight text-[#1A1A1A]">
+                            {item.title}
+                          </span>
+                          <span className="mt-1 block text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#8C6A44]">
+                            Pattern 0{index + 1}
+                          </span>
+                        </span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 text-base leading-8 md:px-5">
+                      {item.desc}
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              ))}
+            </Accordion>
           </motion.div>
         </div>
       </section>
 
-      <section className="bg-[#2A2A2A] px-5 py-20 text-white sm:px-8 lg:py-24">
-        <div className="mx-auto max-w-[1400px]">
+      <section className="relative overflow-hidden bg-[#252423] px-5 py-20 text-white sm:px-8 lg:px-10 lg:py-24">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[length:46px_46px] opacity-45" />
+        <div className="relative mx-auto grid max-w-[1400px] gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
+            className="grid gap-6"
           >
-            <div>
-              <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#EFD95E]">
+            <motion.div variants={fadeUp}>
+              <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#EFD95E]">
                 Clinical Expertise
-              </motion.p>
-              <motion.h2 variants={fadeUp} className="mt-4 max-w-2xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
+              </p>
+              <h2 className="mt-4 max-w-xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
                 An Eclectic Approach To Healing
-              </motion.h2>
-            </div>
-            <motion.p variants={fadeUp} className="max-w-2xl text-base leading-8 text-white/74">
-              Omkar draws from multiple therapeutic and awareness-based modalities to understand the
-              actual root of what is happening instead of staying only at symptom level.
-            </motion.p>
+              </h2>
+              <p className="mt-5 max-w-xl text-base leading-8 text-white/74">
+                Omkar draws from multiple therapeutic and awareness-based modalities to understand the
+                actual root of what is happening instead of staying only at symptom level.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={fadeUp}
+              className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.07] p-3 shadow-[0_24px_90px_rgba(0,0,0,0.24)]"
+            >
+              <img
+                src={siteConfig.image.clinicalExpertise}
+                alt="Omkar Pawar portrait for therapeutic support"
+                className="aspect-[5/4] w-full rounded-md object-cover object-center opacity-95"
+                loading="lazy"
+                decoding="async"
+              />
+            </motion.div>
           </motion.div>
 
           <motion.div
@@ -390,41 +433,29 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="mt-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr]"
           >
-            <motion.div variants={fadeUp} className="relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.06] p-3 shadow-[0_24px_90px_rgba(0,0,0,0.18)]">
-              <img
-                src={siteConfig.image.clinicalExpertise}
-                alt="Omkar Pawar portrait for therapeutic support"
-                className="aspect-[4/3] w-full rounded-md object-cover object-center opacity-95"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="grid gap-3 p-4">
+            <Card className="h-full border-white/10 bg-white/[0.07] p-5 text-white shadow-[0_24px_90px_rgba(0,0,0,0.18)] md:p-8">
+              <motion.div variants={fadeUp} className="grid gap-3 sm:grid-cols-3">
                 {claritySteps.map((step, index) => (
-                  <div key={step} className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#EBC85B]/14 text-xs font-bold text-[#EFD95E]">
-                      {index + 1}
-                    </span>
-                    <span className="text-sm leading-6 text-white/74">{step}</span>
+                  <div key={step} className="rounded-md border border-white/10 bg-white/[0.05] p-4">
+                    <span className="font-serif text-2xl font-semibold text-[#EFD95E]">0{index + 1}</span>
+                    <p className="mt-3 text-sm leading-6 text-white/72">{step}</p>
                   </div>
                 ))}
-              </div>
-            </motion.div>
+              </motion.div>
 
-            <motion.div variants={fadeUp}>
-              <Card className="h-full border-white/10 bg-white/[0.06] p-6 text-white shadow-none md:p-8">
-                <div className="mb-6 flex flex-wrap gap-2">
-                  {modalities.map((modality) => (
-                    <span
-                      key={modality.title}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#EFD95E]"
-                    >
-                      {modality.title}
-                    </span>
-                  ))}
-                </div>
+              <motion.div variants={fadeUp} className="mt-7 flex flex-wrap gap-2">
+                {modalities.map((modality) => (
+                  <span
+                    key={modality.title}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#EFD95E]"
+                  >
+                    {modality.title}
+                  </span>
+                ))}
+              </motion.div>
 
+              <motion.div variants={fadeUp} className="mt-5">
                 <Accordion type="single" defaultValue="modality-0" collapsible>
                   {modalities.map((modality, index) => (
                     <AccordionItem key={modality.title} value={`modality-${index}`} className="border-white/10">
@@ -440,18 +471,18 @@ export default function Home() {
                     </AccordionItem>
                   ))}
                 </Accordion>
+              </motion.div>
 
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <Button type="button" variant="inverted" size="lg" onClick={() => openLeadWizard()}>
-                    {wizardContent.triggerLabel}
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
-                  <Button asChild variant="ghost" size="lg" className="border border-white/12 text-white hover:bg-white/10">
-                    <Link to="/services">Explore Support</Link>
-                  </Button>
-                </div>
-              </Card>
-            </motion.div>
+              <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button type="button" variant="inverted" size="lg" onClick={() => openLeadWizard()}>
+                  {directionCtaLabel}
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+                <Button asChild variant="ghost" size="lg" className="border border-white/12 text-white hover:bg-white/10">
+                  <Link to="/services">Explore Support</Link>
+                </Button>
+              </motion.div>
+            </Card>
           </motion.div>
         </div>
       </section>
@@ -465,7 +496,7 @@ export default function Home() {
             variants={staggerContainer}
           >
             <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#8C6A44]">
-              Quick Clarity Check
+              Guided First Step
             </motion.p>
             <motion.h2 variants={fadeUp} className="mt-4 max-w-2xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
               Get Direction Without Guessing The Right Program First.
@@ -495,7 +526,7 @@ export default function Home() {
             ))}
             <motion.div variants={fadeUp} className="mt-3 flex flex-col gap-3 sm:flex-row">
               <Button type="button" onClick={() => openLeadWizard()} size="lg">
-                {wizardContent.triggerLabel}
+                {directionCtaLabel}
                 <ArrowRight className="h-4 w-4" />
               </Button>
               <Button asChild variant="secondary" size="lg">
@@ -571,7 +602,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-5 py-20 text-center sm:px-8 lg:py-24">
+      <section className="px-5 py-14 text-center sm:px-8 lg:py-16">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -579,20 +610,25 @@ export default function Home() {
           variants={staggerContainer}
           className="mx-auto max-w-3xl"
         >
-          <motion.div variants={fadeUp} className="mx-auto mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44]">
-            <Leaf className="h-5 w-5" />
+          <motion.div
+            variants={fadeUp}
+            className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-[#8C6A44]/12 bg-white shadow-[0_18px_45px_rgba(140,106,68,0.13)]"
+          >
+            <span className="absolute inset-2 rounded-full border border-[#EBC85B]/50" />
+            <span className="absolute h-10 w-10 rounded-full bg-[#F2E4CE]" />
+            <Leaf className="relative h-5 w-5 text-[#8C6A44]" />
           </motion.div>
-          <motion.h2 variants={fadeUp} className="font-serif text-4xl font-semibold leading-tight text-[#1A1A1A] md:text-6xl">
+          <motion.h2 variants={fadeUp} className="font-serif text-4xl font-semibold leading-tight text-[#1A1A1A] md:text-5xl">
             Ready To Stop Surviving And Start{" "}
             <span className="italic text-[#8C6A44]">Living?</span>
           </motion.h2>
-          <motion.p variants={fadeUp} className="mx-auto mt-6 max-w-2xl text-base leading-8 text-[#4E463B]">
-            Start with the quick clarity check, send an enquiry, or message directly on WhatsApp and
+          <motion.p variants={fadeUp} className="mx-auto mt-4 max-w-2xl text-base leading-8 text-[#4E463B]">
+            Start with a guided first step, send an enquiry, or message directly on WhatsApp and
             take the first honest step toward steadier emotional wellbeing.
           </motion.p>
-          <motion.div variants={fadeUp} className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+          <motion.div variants={fadeUp} className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <Button type="button" onClick={() => openLeadWizard()} size="lg">
-              {wizardContent.triggerLabel}
+              {directionCtaLabel}
             </Button>
             <Button asChild variant="secondary" size="lg">
               <a
