@@ -263,9 +263,9 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="mx-auto grid max-w-[1360px] gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-start"
+          className="mx-auto grid max-w-[1360px] gap-10 lg:grid-cols-[0.58fr_0.42fr] lg:items-start"
         >
-          <motion.div variants={fadeUp}>
+          <motion.div variants={fadeUp} className="order-2">
             <div className="relative overflow-hidden rounded-lg border border-[#1A1A1A]/8 bg-[#F2E4CE] p-3 shadow-[0_22px_70px_rgba(140,106,68,0.14)]">
               <img
                 src={siteConfig.image.healingHorizontal}
@@ -292,7 +292,10 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <motion.div variants={fadeUp}>
+          <motion.div variants={fadeUp} className="order-1">
+            <p className="mb-4 text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#8C6A44]">
+              The Freedom Innerwellbeing Approach
+            </p>
             <h2 className="max-w-4xl font-serif text-3xl font-semibold leading-tight text-[#1A1A1A] md:text-5xl">
               "For Every Surface-Level Behavior, There Is A{" "}
               <span className="italic text-[#8C6A44]">Deep-Rooted Reason.</span> We Do Not Just Cope.
