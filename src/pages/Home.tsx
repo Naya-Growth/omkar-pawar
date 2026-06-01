@@ -87,6 +87,27 @@ const claritySteps = [
   "Leave your details for a personal response.",
 ];
 
+const approachPrinciples = [
+  {
+    step: "01",
+    title: "Surface-Level Behavior",
+    desc: "Anxiety, overwhelm, and repeated reactions are treated as signals, not final labels.",
+    icon: <BrainCircuit className="h-5 w-5" />,
+  },
+  {
+    step: "02",
+    title: "Deep-Rooted Reason",
+    desc: "The work looks for the pattern beneath the symptom so the same loop does not keep returning.",
+    icon: <Sparkles className="h-5 w-5" />,
+  },
+  {
+    step: "03",
+    title: "Heal From The Root",
+    desc: "The next step becomes steadier emotional awareness, regulation, and practical follow-through.",
+    icon: <CheckCircle2 className="h-5 w-5" />,
+  },
+];
+
 const heroStatIcons = [Clock3, HeartHandshake, Globe2, CheckCircle2];
 
 export default function Home() {
@@ -94,12 +115,12 @@ export default function Home() {
 
   return (
     <div className="overflow-x-hidden bg-[#FBF4E6] text-[#1A1A1A]">
-      <section className="relative isolate overflow-hidden bg-[#FBF4E6] px-5 py-10 sm:px-8 lg:min-h-[calc(100svh-82px)] lg:px-10 lg:py-14">
+      <section className="relative isolate overflow-hidden bg-[#FBF4E6] px-5 py-10 sm:px-8 lg:min-h-[calc(100svh-82px)] lg:px-14 lg:py-14 xl:px-20 2xl:px-24">
         <img
           src={siteConfig.image.homeHeroHorizontal}
           alt=""
           aria-hidden="true"
-          className="absolute inset-y-0 right-0 z-0 hidden h-full w-[58%] object-cover object-center lg:block"
+          className="absolute inset-y-0 right-0 z-0 hidden h-full w-[56%] object-cover object-center lg:block"
           loading="eager"
           decoding="async"
         />
@@ -113,7 +134,7 @@ export default function Home() {
           loading="eager"
           decoding="async"
         />
-        <div className="relative z-10 mx-auto grid max-w-[1500px] items-center gap-9 lg:min-h-[calc(100svh-194px)] lg:grid-cols-[minmax(0,0.6fr)_minmax(0,0.4fr)]">
+        <div className="relative z-10 mx-auto grid max-w-[1400px] items-center gap-9 lg:min-h-[calc(100svh-194px)] lg:grid-cols-[minmax(0,0.6fr)_minmax(0,0.4fr)] xl:grid-cols-[minmax(0,0.69fr)_minmax(0,0.31fr)]">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -144,7 +165,7 @@ export default function Home() {
 
             <motion.h1
               variants={fadeUp}
-              className="mt-7 max-w-[760px] font-serif text-[2.8rem] font-bold leading-[0.95] text-[#1A1A1A] sm:text-[3.85rem] lg:mt-9 lg:text-[3.85rem] xl:text-[4.8rem] 2xl:text-[5.25rem]"
+              className="mt-7 max-w-[760px] font-serif text-[2.8rem] font-bold leading-[0.95] text-[#1A1A1A] sm:text-[3.85rem] lg:mt-9 lg:text-[3.85rem] xl:max-w-[980px] xl:text-[4.45rem] 2xl:text-[5.05rem]"
             >
               <span className="block lg:hidden">
                 <span className="block">Master Your</span>
@@ -191,25 +212,43 @@ export default function Home() {
               </Button>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="mt-5 flex flex-wrap items-center gap-4">
-              <a
+            <motion.div variants={fadeUp} className="mt-5 flex flex-wrap items-center gap-3">
+              <motion.a
                 href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#8C6A44] underline-offset-4 transition-colors hover:text-[#1A1A1A] hover:underline"
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.98 }}
+                className="group inline-flex w-full items-center gap-3 rounded-full border border-[#E1306C]/15 bg-white/82 px-4 py-2.5 text-left shadow-[0_12px_30px_rgba(225,48,108,0.08)] backdrop-blur transition-colors hover:border-[#E1306C]/28 hover:bg-white sm:w-auto"
               >
-                <Instagram className="h-4 w-4" />
-                Connect With Me On Instagram
-              </a>
-              <a
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[radial-gradient(circle_at_30%_110%,#FEDA75_0%,#FA7E1E_28%,#D62976_52%,#962FBF_74%,#4F5BD5_100%)] text-white shadow-[0_10px_22px_rgba(214,41,118,0.22)]">
+                  <Instagram className="h-4 w-4" />
+                </span>
+                <span className="grid">
+                  <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#E1306C]">
+                    Instagram
+                  </span>
+                  <span className="text-sm font-bold leading-5 text-[#1A1A1A]">Connect With Me</span>
+                </span>
+              </motion.a>
+              <motion.a
                 href={buildWhatsAppUrl("Hi Omkar, I would like to connect with you on WhatsApp.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#8C6A44] underline-offset-4 transition-colors hover:text-[#1A1A1A] hover:underline"
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.98 }}
+                className="group inline-flex w-full items-center gap-3 rounded-full border border-[#25D366]/18 bg-white/82 px-4 py-2.5 text-left shadow-[0_12px_30px_rgba(37,211,102,0.1)] backdrop-blur transition-colors hover:border-[#25D366]/34 hover:bg-white sm:w-auto"
               >
-                <MessageCircle className="h-4 w-4" />
-                WhatsApp Chat
-              </a>
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_22px_rgba(37,211,102,0.24)]">
+                  <MessageCircle className="h-4 w-4" />
+                </span>
+                <span className="grid">
+                  <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#128C4A]">
+                    WhatsApp
+                  </span>
+                  <span className="text-sm font-bold leading-5 text-[#1A1A1A]">Start A Chat</span>
+                </span>
+              </motion.a>
             </motion.div>
 
             <motion.div variants={fadeUp} className="mt-6 grid max-w-2xl gap-2 sm:grid-cols-3">
@@ -246,7 +285,7 @@ export default function Home() {
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="mx-auto mt-9 grid max-w-[1500px] gap-3 sm:grid-cols-2 lg:grid-cols-4"
+          className="mx-auto mt-9 grid max-w-[1400px] gap-3 sm:grid-cols-2 lg:grid-cols-4"
         >
           {heroStats.map((stat, index) => (
             <motion.div key={stat.label} variants={fadeUp}>
@@ -256,30 +295,56 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="border-y border-[#1A1A1A]/8 bg-white px-5 py-20 sm:px-8 lg:py-24">
+      <section className="border-y border-[#1A1A1A]/8 bg-white px-5 py-16 sm:px-8 lg:px-14 lg:py-20 xl:px-20 2xl:px-24">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="mx-auto grid max-w-[1180px] gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-center"
+          className="mx-auto grid max-w-[1360px] gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-start"
         >
           <motion.div variants={fadeUp}>
-            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44]">
-              <Sparkles className="h-5 w-5" />
+            <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44] shadow-[0_14px_34px_rgba(140,106,68,0.12)]">
+              <Sparkles className="h-6 w-6" />
             </div>
-            <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">
+            <p className="mt-6 text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#8C6A44]">
               The Freedom Innerwellbeing Approach
             </p>
+            <h2 className="mt-4 max-w-md font-serif text-4xl font-semibold leading-tight text-[#1A1A1A] md:text-5xl">
+              The symptom is not the whole story.
+            </h2>
+            <p className="mt-5 max-w-md text-base leading-8 text-[#4E463B]">
+              The work moves beneath coping and into the reason a pattern keeps repeating, so the
+              next step feels clearer and more grounded.
+            </p>
           </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            className="max-w-4xl font-serif text-3xl font-semibold leading-tight text-[#1A1A1A] md:text-5xl"
-          >
-            "For Every Surface-Level Behavior, There Is A{" "}
-            <span className="italic text-[#8C6A44]">Deep-Rooted Reason.</span> We Do Not Just Cope.
-            We Heal From The Root."
-          </motion.h2>
+
+          <motion.div variants={fadeUp}>
+            <h2 className="max-w-4xl font-serif text-3xl font-semibold leading-tight text-[#1A1A1A] md:text-5xl">
+              "For Every Surface-Level Behavior, There Is A{" "}
+              <span className="italic text-[#8C6A44]">Deep-Rooted Reason.</span> We Do Not Just Cope.
+              We Heal From The Root."
+            </h2>
+            <div className="mt-9 grid gap-4 md:grid-cols-3">
+              {approachPrinciples.map((item) => (
+                <div
+                  key={item.step}
+                  className="group rounded-lg border border-[#1A1A1A]/8 bg-[#FBF4E6] p-5 shadow-[0_14px_38px_rgba(88,62,34,0.07)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#FFF9EF] hover:shadow-[0_20px_55px_rgba(140,106,68,0.14)]"
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="font-serif text-3xl font-semibold text-[#8C6A44]">{item.step}</span>
+                    <span className="flex h-10 w-10 items-center justify-center rounded-md bg-white text-[#8C6A44] shadow-sm">
+                      {item.icon}
+                    </span>
+                  </div>
+                  <h3 className="mt-5 font-serif text-2xl font-semibold leading-tight text-[#1A1A1A]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-[#4E463B]">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
       </section>
 
@@ -523,7 +588,7 @@ export default function Home() {
               <img
                 src={siteConfig.image.homeFormAside}
                 alt="Omkar Pawar in a reflective outdoor portrait"
-                className="aspect-[4/3] w-full rounded-md object-cover object-center"
+                className="aspect-[4/5] w-full rounded-md object-cover object-[center_22%]"
                 loading="lazy"
                 decoding="async"
               />

@@ -30,7 +30,7 @@ export const siteConfig = {
     clinicalExpertise: "/media/omkar-suggested/Clinical_Expertise_Section.jpg",
     healingHorizontal: "/media/omkar-suggested/Horizontal_Option.png",
     contactPortrait: "/media/omkar-suggested/Contact_Page.png",
-    homeFormAside: "/media/omkar-suggested/Prefer_Writing_Before_A_Call_.png",
+    homeFormAside: "/media/omkar-suggested/whatsapp-portrait-navy-shirt.jpeg",
     contentAnxiety: "/media/content-anxiety.webp",
     contentEmotionalMastery: "/media/content-emotional-mastery.webp",
     contentInnerChild: "/media/content-inner-child.webp",
