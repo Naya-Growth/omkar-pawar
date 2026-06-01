@@ -207,7 +207,7 @@ export default function InquiryForm({
           name="serviceInterest"
           value={values.serviceInterest}
           onChange={handleChange}
-          className="h-14 w-full rounded-lg border border-[#262421]/8 bg-white px-5 text-sm text-[#262421] outline-none transition-shadow focus:ring-2 focus:ring-[#53665A]"
+          className="h-14 w-full rounded-lg border border-[#1A1A1A]/8 bg-white px-5 text-sm text-[#1A1A1A] outline-none transition-shadow focus:ring-2 focus:ring-[#8C6A44]"
         >
           {serviceOptions.map((option) => (
             <option key={option.value} value={option.value}>
@@ -236,7 +236,7 @@ export default function InquiryForm({
           name="consent"
           checked={values.consent}
           onChange={handleChange}
-          className="mt-1 h-4 w-4 rounded border border-black/10 accent-[#8C7A6B]"
+          className="mt-1 h-4 w-4 rounded border border-black/10 accent-[#8C6A44]"
         />
         <span>
           {contactCopy.consentLabel}

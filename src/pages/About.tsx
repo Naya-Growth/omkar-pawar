@@ -20,7 +20,7 @@ const staggerContainer = {
 
 export default function About() {
   return (
-    <div className="overflow-x-hidden bg-[#FAF9F6] text-[#2A2A2A]">
+    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#2A2A2A]">
       <section className="relative mx-auto max-w-[1400px] px-6 pb-8 pt-12 md:px-12">
         <motion.div
           initial="hidden"
@@ -28,19 +28,19 @@ export default function About() {
           variants={staggerContainer}
           className="mx-auto max-w-4xl text-center"
         >
-          <motion.span variants={fadeUp} className="mb-3 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C7A6B]">
+          <motion.span variants={fadeUp} className="mb-3 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C6A44]">
             The Origin Story
           </motion.span>
           <motion.h1 variants={fadeUp} className="font-serif text-4xl leading-[1.1] md:text-6xl lg:text-7xl">
             From Chasing Perfection
             <br />
-            To <span className="italic text-[#8C7A6B]">Facilitating Peace.</span>
+            To <span className="italic text-[#8C6A44]">Facilitating Peace.</span>
           </motion.h1>
           <motion.div
             initial={{ opacity: 0, filter: "blur(10px)" }}
             animate={{ opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="relative mb-6 mt-6 aspect-[21/9] overflow-hidden rounded-lg shadow-2xl shadow-[#8C7A6B]/10"
+            className="relative mb-6 mt-6 aspect-[21/9] overflow-hidden rounded-lg shadow-2xl shadow-[#8C6A44]/10"
           >
             <img
               src={siteConfig.image.aboutBanner}
@@ -52,20 +52,20 @@ export default function About() {
           </motion.div>
           <motion.div variants={fadeUp} className="grid gap-4 md:grid-cols-3">
             <div className="rounded-lg border border-black/5 bg-white px-5 py-5 shadow-sm">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">Practice</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">Practice</p>
               <p className="mt-2 text-lg font-semibold">{siteConfig.practiceName}</p>
             </div>
             <div className="rounded-lg border border-black/5 bg-white px-5 py-5 shadow-sm">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">Based In</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">Based In</p>
               <p className="mt-2 inline-flex items-center gap-2 text-lg font-semibold">
-                <MapPin className="h-4 w-4 text-[#8C7A6B]" />
+                <MapPin className="h-4 w-4 text-[#8C6A44]" />
                 {siteConfig.location}
               </p>
             </div>
             <div className="rounded-lg border border-black/5 bg-white px-5 py-5 shadow-sm">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">Languages</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">Languages</p>
               <p className="mt-2 inline-flex items-center gap-2 text-lg font-semibold">
-                <Globe2 className="h-4 w-4 text-[#8C7A6B]" />
+                <Globe2 className="h-4 w-4 text-[#8C6A44]" />
                 {siteConfig.languages.join(" · ")}
               </p>
             </div>
@@ -82,7 +82,7 @@ export default function About() {
           className="space-y-20"
         >
           <motion.div variants={fadeUp}>
-            <h3 className="mb-6 font-serif text-3xl text-[#8C7A6B]">01. The Burden Of Perfection</h3>
+            <h3 className="mb-6 font-serif text-3xl text-[#8C6A44]">01. The Burden Of Perfection</h3>
             <div className="space-y-6 text-lg font-light leading-relaxed text-gray-600">
               <p>
                 Omkar was born in the village of Whatambare in Solapur, Maharashtra. On the outside,
@@ -99,7 +99,7 @@ export default function About() {
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <h3 className="mb-6 font-serif text-3xl text-[#8C7A6B]">02. The Collapse And The Calling</h3>
+            <h3 className="mb-6 font-serif text-3xl text-[#8C6A44]">02. The Collapse And The Calling</h3>
             <div className="space-y-6 text-lg font-light leading-relaxed text-gray-600">
               <p>
                 The turning point came after failure in competitive exams. With a background in
@@ -115,7 +115,7 @@ export default function About() {
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <h3 className="mb-6 font-serif text-3xl text-[#8C7A6B]">03. The Transformation</h3>
+            <h3 className="mb-6 font-serif text-3xl text-[#8C6A44]">03. The Transformation</h3>
             <div className="space-y-6 text-lg font-light leading-relaxed text-gray-600">
               <p>
                 Transitioning from engineering into psychology was not simple. There were doubts,
@@ -133,7 +133,7 @@ export default function About() {
         </motion.div>
       </section>
 
-      <section className="bg-[#8C7A6B] px-6 py-32 text-white">
+      <section className="bg-[#8C6A44] px-6 py-32 text-white">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -159,7 +159,7 @@ export default function About() {
           variants={staggerContainer}
           className="mb-16 text-center"
         >
-          <motion.span variants={fadeUp} className="mb-4 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C7A6B]">
+          <motion.span variants={fadeUp} className="mb-4 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C6A44]">
             Expertise
           </motion.span>
           <motion.h3 variants={fadeUp} className="font-serif text-4xl text-[#2A2A2A] md:text-5xl">
@@ -201,7 +201,7 @@ export default function About() {
               variants={fadeUp}
               className="flex flex-col items-center rounded-lg border border-black/5 bg-white p-8 text-center shadow-sm transition-shadow duration-500 hover:shadow-xl"
             >
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#FAF4EA] text-[#8C7A6B]">
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#F2E4CE] text-[#8C6A44]">
                 {cred.icon}
               </div>
               <h4 className="mb-3 text-lg font-bold text-[#2A2A2A]">{cred.title}</h4>

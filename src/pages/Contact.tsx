@@ -26,7 +26,7 @@ export default function Contact() {
   const { openLeadWizard } = useLeadWizard();
 
   return (
-    <div className="overflow-x-hidden bg-[#FAF9F6] text-[#2A2A2A]">
+    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#2A2A2A]">
       <section className="relative mx-auto max-w-[1400px] px-6 pb-20 pt-24 text-center md:px-12">
         <motion.div
           initial="hidden"
@@ -34,11 +34,11 @@ export default function Contact() {
           variants={staggerContainer}
           className="mx-auto max-w-4xl"
         >
-          <motion.span variants={fadeUp} className="mb-6 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C7A6B]">
+          <motion.span variants={fadeUp} className="mb-6 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C6A44]">
             Connect
           </motion.span>
           <motion.h1 variants={fadeUp} className="font-serif text-4xl leading-[1.1] md:text-6xl lg:text-7xl">
-            Start Your <span className="italic text-[#8C7A6B]">Healing Journey</span>
+            Start Your <span className="italic text-[#8C6A44]">Healing Journey</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="mx-auto mt-8 max-w-2xl text-lg font-light leading-relaxed text-gray-600 md:text-xl">
             Whether you are ready to apply for support or simply want to ask a thoughtful question,
@@ -112,20 +112,20 @@ export default function Contact() {
 
             <motion.div variants={fadeUp} className="grid gap-6 rounded-lg border border-black/5 bg-white p-8 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FAF4EA] text-[#8C7A6B]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F2E4CE] text-[#8C6A44]">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">Email</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">Email</p>
                   <p className="mt-2 font-medium text-[#2A2A2A]">{siteConfig.email}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FAF4EA] text-[#8C7A6B]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F2E4CE] text-[#8C6A44]">
                   <MapPin className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">Location</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">Location</p>
                   <p className="mt-2 font-medium text-[#2A2A2A]">{siteConfig.locationLabel}</p>
                 </div>
               </div>
@@ -134,7 +134,7 @@ export default function Contact() {
                   href={siteConfig.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-[#FAF9F6] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-[#FBF4E6] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C6A44]/30 hover:text-[#8C6A44]"
                 >
                   <Instagram className="h-4 w-4" />
                   Instagram
@@ -143,7 +143,7 @@ export default function Contact() {
                   href={siteConfig.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-[#FAF9F6] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-[#FBF4E6] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C6A44]/30 hover:text-[#8C6A44]"
                 >
                   <Linkedin className="h-4 w-4" />
                   LinkedIn
@@ -152,7 +152,7 @@ export default function Contact() {
                   href={siteConfig.youtubeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-[#FAF9F6] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-[#FBF4E6] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C6A44]/30 hover:text-[#8C6A44]"
                 >
                   <Youtube className="h-4 w-4" />
                   YouTube

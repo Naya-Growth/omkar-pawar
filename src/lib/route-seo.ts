@@ -24,7 +24,7 @@ export const defaultKeywords = [
 
 export const routeSeo: Record<string, RouteSeoEntry> = {
   "/": {
-    title: "Omkar Pawar | Emotional Mastery, Anxiety Healing & Inner Child Work",
+    title: "Omkar Pawar | Master Your Emotions & Transform Your Life",
     description:
       "Work with Omkar Pawar of Freedom Innerwellbeing for psychology-led emotional mastery, inner child work, and a calmer, clearer life.",
     keywords: defaultKeywords,

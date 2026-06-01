@@ -62,7 +62,7 @@ export default function SuccessStories() {
   ];
 
   return (
-    <div className="overflow-x-hidden bg-[#FAF9F6] text-[#2A2A2A]">
+    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#2A2A2A]">
       {/* Hero Section */}
       <section className="relative pt-16 pb-10 px-6 md:px-12 max-w-[1400px] mx-auto text-center">
         <motion.div
@@ -71,11 +71,11 @@ export default function SuccessStories() {
           variants={staggerContainer}
           className="max-w-4xl mx-auto"
         >
-          <motion.span variants={fadeUp} className="text-[10px] uppercase tracking-[0.3em] text-[#8C7A6B] font-bold mb-4 block">
+          <motion.span variants={fadeUp} className="text-[10px] uppercase tracking-[0.3em] text-[#8C6A44] font-bold mb-4 block">
             Client Transformations
           </motion.span>
           <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6">
-            Stories Of <span className="italic text-[#8C7A6B]">Healing</span> <br />And Mastery
+            Stories Of <span className="italic text-[#8C6A44]">Healing</span> <br />And Mastery
           </motion.h1>
           <motion.p variants={fadeUp} className="text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto text-gray-600">
             Real experiences from high-performers who chose to break free from their invisible battles and reclaim their peace.
@@ -98,7 +98,7 @@ export default function SuccessStories() {
           className="max-w-3xl mx-auto bg-[#2A2A2A] text-white p-16 md:p-24 rounded-lg"
         >
           <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl mb-8 leading-tight">
-            Ready To Write Your Own <span className="italic text-[#8C7A6B]">Success Story?</span>
+            Ready To Write Your Own <span className="italic text-[#8C6A44]">Success Story?</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-white/70 mb-12 text-lg font-light max-w-xl mx-auto">
             Take the first step towards emotional freedom. Start with a clarity session to see if we're a fit.

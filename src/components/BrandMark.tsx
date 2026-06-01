@@ -20,7 +20,7 @@ export function BrandMark({ className = "h-11 w-11" }: BrandMarkProps) {
         strokeWidth="6"
         strokeLinejoin="round"
       />
-      <path d="M48 44V69" stroke="#FAF9F6" strokeWidth="7" strokeLinecap="round" />
+      <path d="M48 44V69" stroke="#FBF4E6" strokeWidth="7" strokeLinecap="round" />
       <path
         d="M48 44V69"
         stroke="currentColor"
@@ -46,20 +46,20 @@ export function BrandLockup({
   tone = "dark",
   compact = false,
 }: BrandLockupProps) {
-  const textTone = tone === "light" ? "text-white" : "text-[#2A2A2A]";
-  const metaTone = tone === "light" ? "text-white/65" : "text-[#8C7A6B]";
+  const textTone = tone === "light" ? "text-white" : "text-[#1A1A1A]";
+  const metaTone = tone === "light" ? "text-white/65" : "text-[#8C6A44]";
 
   return (
     <div className={`flex items-center gap-4 ${className}`}>
       <div
         className={`flex h-12 w-12 items-center justify-center rounded-full ${
-          tone === "light" ? "bg-white/10 text-white" : "bg-[#F2ECE3] text-[#735636]"
+          tone === "light" ? "bg-white/10 text-white" : "bg-[#F2E4CE] text-[#8C6A44]"
         }`}
       >
         <BrandMark className="h-9 w-9" />
       </div>
       <div className="min-w-0">
-        <p className={`font-serif text-xl leading-none ${textTone}`}>{siteConfig.projectName}</p>
+        <p className={`font-serif text-xl font-semibold leading-none ${textTone}`}>{siteConfig.projectName}</p>
         <p className={`mt-1 text-[10px] font-bold uppercase tracking-[0.24em] ${metaTone}`}>
           {compact ? siteConfig.practiceName : `${siteConfig.practiceName} · ${siteConfig.roleLabel}`}
         </p>

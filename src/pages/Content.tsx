@@ -50,7 +50,7 @@ export default function Content() {
   }, [activeFilter]);
 
   return (
-    <div className="overflow-x-hidden bg-[#FAF9F6] text-[#2A2A2A]">
+    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#2A2A2A]">
       <section className="border-b border-black/5 bg-[#F5F1EA] py-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

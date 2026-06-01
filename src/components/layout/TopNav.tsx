@@ -25,7 +25,7 @@ export default function TopNav() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-black/5 bg-[#FAF9F6]/85 backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 w-full border-b border-black/5 bg-[#FFF9EF]/88 backdrop-blur-xl">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-4 md:px-12">
         <Link to="/" className="min-w-0 shrink" aria-label="Go to Omkar Pawar home">
           <BrandLockup compact className="min-w-0" />
@@ -40,7 +40,7 @@ export default function TopNav() {
                 to={item.path}
                 className={`border-b-2 pb-1 text-[11px] font-bold uppercase tracking-[0.22em] transition-colors ${
                   active
-                    ? "border-[#8C7A6B] text-[#8C7A6B]"
+                    ? "border-[#8C6A44] text-[#8C6A44]"
                     : "border-transparent text-gray-500 hover:text-[#2A2A2A]"
                 }`}
               >
@@ -66,7 +66,7 @@ export default function TopNav() {
           <button
             type="button"
             onClick={() => openLeadWizard()}
-            className="inline-flex h-11 items-center rounded-full bg-[#2A2A2A] px-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white"
+            className="hidden h-11 items-center rounded-full bg-[#8C6A44] px-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white sm:inline-flex md:hidden"
           >
             Clarity
           </button>
@@ -83,7 +83,7 @@ export default function TopNav() {
       </div>
 
       {isMenuOpen ? (
-        <div className="border-t border-black/5 bg-[#FAF9F6] px-6 pb-6 md:hidden">
+        <div className="border-t border-black/5 bg-[#FFF9EF] px-6 pb-6 md:hidden">
           <div className="flex flex-col gap-2 pt-4">
             {navItems.map((item) => (
               <Link
@@ -92,7 +92,7 @@ export default function TopNav() {
                 onClick={closeMenu}
                 className={`rounded-lg px-4 py-3 text-sm font-bold uppercase tracking-[0.18em] transition-colors ${
                   location.pathname === item.path
-                    ? "bg-[#8C7A6B]/10 text-[#8C7A6B]"
+                    ? "bg-[#EBC85B]/22 text-[#8C6A44]"
                     : "text-gray-500 hover:bg-white hover:text-[#2A2A2A]"
                 }`}
               >
@@ -108,7 +108,7 @@ export default function TopNav() {
                 closeMenu();
                 openLeadWizard();
               }}
-              className="inline-flex items-center justify-center rounded-full bg-[#2A2A2A] px-5 py-4 text-xs font-bold uppercase tracking-[0.18em] text-white"
+              className="inline-flex items-center justify-center rounded-full bg-[#8C6A44] px-5 py-4 text-xs font-bold uppercase tracking-[0.18em] text-white"
             >
               {wizardContent.triggerLabel}
             </button>

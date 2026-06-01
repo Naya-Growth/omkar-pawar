@@ -90,9 +90,9 @@ export default function Home() {
   const { openLeadWizard } = useLeadWizard();
 
   return (
-    <div className="overflow-x-hidden bg-[#F7F8F5] text-[#252724]">
-      <section className="mx-auto max-w-[1500px] px-5 py-10 sm:px-8 lg:min-h-[calc(100svh-82px)] lg:px-10 lg:py-12">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(360px,500px)] xl:gap-16">
+    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#1A1A1A]">
+      <section className="bg-hero-gradient px-5 py-10 sm:px-8 lg:min-h-[calc(100svh-82px)] lg:px-10 lg:py-14">
+        <div className="mx-auto grid max-w-[1500px] items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(360px,500px)] xl:gap-16">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -100,10 +100,10 @@ export default function Home() {
             className="min-w-0"
           >
             <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-2.5">
-              <span className="rounded-full bg-[#E7EDE6] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#53665A]">
-                {siteConfig.roleLabel}
+              <span className="rounded-full bg-[#EBC85B] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#2A210B] shadow-[0_10px_24px_rgba(235,200,91,0.22)]">
+                Emotional Mastery
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#252724]/8 bg-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6F6259]">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#1A1A1A]/8 bg-white/82 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6F5438]">
                 <MapPin className="h-3.5 w-3.5" />
                 {siteConfig.locationLabel}
               </span>
@@ -111,16 +111,23 @@ export default function Home() {
 
             <motion.h1
               variants={fadeUp}
-              className="mt-8 max-w-[860px] font-serif text-[3.45rem] leading-[0.9] text-[#252724] sm:text-[4.6rem] lg:mt-9 lg:text-[5.35rem] xl:text-[5.95rem] 2xl:text-[6.35rem]"
+              className="mt-8 max-w-[920px] font-serif text-[2.85rem] font-bold leading-[0.95] text-[#1A1A1A] sm:text-[3.85rem] lg:mt-9 lg:text-[4.35rem] xl:text-[4.55rem] 2xl:text-[5.2rem]"
             >
-              <span className="block">Emotional Mastery</span>
-              <span className="block">For Calmer,</span>
-              <span className="block italic text-[#8A7668]">Clearer Living.</span>
+              <span className="block lg:hidden">
+                <span className="block">Master Your</span>
+                <span className="block">Emotions.</span>
+                <span className="block text-[#8C6A44]">Transform</span>
+                <span className="block text-[#8C6A44]">Your Life.</span>
+              </span>
+              <span className="hidden lg:block">
+                <span className="block whitespace-nowrap">Master Your Emotions.</span>
+                <span className="block whitespace-nowrap text-[#8C6A44]">Transform Your Life.</span>
+              </span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="mt-7 max-w-2xl text-base leading-8 text-[#55616F] md:text-lg"
+              className="mt-7 max-w-2xl text-base leading-8 text-[#4E463B] md:text-lg"
             >
               Omkar Pawar helps people heal anxiety, regulate emotional overwhelm, and understand
               the root patterns that keep repeating beneath high-functioning outer lives.
@@ -134,12 +141,12 @@ export default function Home() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="group flex items-center gap-3 rounded-lg border border-[#252724]/8 bg-white/70 px-3 py-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_12px_28px_rgba(60,73,64,0.12)]"
+                  className="group flex items-center gap-3 rounded-lg border border-[#1A1A1A]/8 bg-white/76 px-3 py-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_12px_28px_rgba(140,106,68,0.16)]"
                 >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#E7EDE6] text-[#53665A]">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#F2E4CE] text-[#8C6A44]">
                     {item.icon}
                   </span>
-                  <span className="text-xs font-bold leading-5 text-[#252724]">{item.label}</span>
+                  <span className="text-xs font-bold leading-5 text-[#1A1A1A]">{item.label}</span>
                 </div>
               ))}
             </motion.div>
@@ -159,7 +166,7 @@ export default function Home() {
                 href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#9A5A50] underline-offset-4 transition-colors hover:text-[#252724] hover:underline"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#8C6A44] underline-offset-4 transition-colors hover:text-[#1A1A1A] hover:underline"
               >
                 <Instagram className="h-4 w-4" />
                 Connect With Me On Instagram
@@ -168,7 +175,7 @@ export default function Home() {
                 href={buildWhatsAppUrl("Hi Omkar, I would like to connect with you on WhatsApp.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#53665A] underline-offset-4 transition-colors hover:text-[#252724] hover:underline"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#8C6A44] underline-offset-4 transition-colors hover:text-[#1A1A1A] hover:underline"
               >
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp Chat
@@ -182,8 +189,8 @@ export default function Home() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="relative mx-auto w-full max-w-[520px] lg:mx-0"
           >
-            <div className="overflow-hidden rounded-lg border border-[#252724]/8 bg-white p-3 shadow-[0_24px_80px_rgba(60,73,64,0.16)]">
-              <div className="relative h-[440px] overflow-hidden rounded-md bg-[#E7EDE6] sm:h-[560px] lg:h-[min(64vh,620px)] lg:min-h-[500px]">
+            <div className="overflow-hidden rounded-lg border border-[#1A1A1A]/8 bg-white/88 p-3 shadow-[0_24px_80px_rgba(140,106,68,0.18)]">
+              <div className="relative h-[440px] overflow-hidden rounded-md bg-[#F2E4CE] sm:h-[560px] lg:h-[min(64vh,620px)] lg:min-h-[500px]">
                 <img
                   src={siteConfig.image.heroPortrait}
                   alt="Omkar Pawar standing outdoors"
@@ -194,17 +201,17 @@ export default function Home() {
               </div>
             </div>
 
-            <Card className="absolute bottom-5 left-5 hidden max-w-[250px] bg-white/92 p-5 shadow-[0_18px_50px_rgba(37,39,36,0.14)] backdrop-blur lg:block">
-              <p className="font-serif text-2xl leading-[1.05] text-[#252724]">
+            <Card className="absolute bottom-5 left-5 hidden max-w-[250px] bg-white/92 p-5 shadow-[0_18px_50px_rgba(88,62,34,0.16)] backdrop-blur lg:block">
+              <p className="font-serif text-2xl font-semibold leading-[1.08] text-[#1A1A1A]">
                 "Be Gentle With Your Thoughts And Emotions."
               </p>
-              <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#8A7668]">
+              <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#8C6A44]">
                 Omkar Pawar
               </p>
             </Card>
 
-            <Card className="absolute left-5 top-5 hidden max-w-[220px] bg-[#25322C] p-4 text-white shadow-[0_18px_50px_rgba(37,39,36,0.22)] lg:block">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#D9E2D8]">
+            <Card className="absolute left-5 top-5 hidden max-w-[220px] bg-[#2A2A2A] p-4 text-white shadow-[0_18px_50px_rgba(42,42,42,0.22)] lg:block">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#EBC85B]/16 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#EFD95E]">
                 <Globe2 className="h-3.5 w-3.5" />
                 Online Worldwide
               </div>
@@ -219,22 +226,22 @@ export default function Home() {
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
+          className="mx-auto mt-9 grid max-w-[1500px] gap-3 sm:grid-cols-2 lg:grid-cols-4"
         >
           {heroStats.map((stat) => (
             <motion.div key={stat.label} variants={fadeUp}>
               <Card className="h-full p-5">
-                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#8A7668]">
+                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#8C6A44]">
                   {stat.label}
                 </p>
-                <p className="mt-2 text-xl font-semibold leading-tight text-[#252724]">{stat.value}</p>
+                <p className="mt-2 text-xl font-semibold leading-tight text-[#1A1A1A]">{stat.value}</p>
               </Card>
             </motion.div>
           ))}
         </motion.div>
       </section>
 
-      <section className="border-y border-[#252724]/8 bg-white px-5 py-20 sm:px-8 lg:py-24">
+      <section className="border-y border-[#1A1A1A]/8 bg-white px-5 py-20 sm:px-8 lg:py-24">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -243,19 +250,19 @@ export default function Home() {
           className="mx-auto grid max-w-[1180px] gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-center"
         >
           <motion.div variants={fadeUp}>
-            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#E7EDE6] text-[#53665A]">
+            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44]">
               <Sparkles className="h-5 w-5" />
             </div>
-            <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.22em] text-[#8A7668]">
+            <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">
               The Freedom Innerwellbeing Approach
             </p>
           </motion.div>
           <motion.h2
             variants={fadeUp}
-            className="max-w-4xl font-serif text-3xl leading-tight text-[#252724] md:text-5xl"
+            className="max-w-4xl font-serif text-3xl font-semibold leading-tight text-[#1A1A1A] md:text-5xl"
           >
             "For Every Surface-Level Behavior, There Is A{" "}
-            <span className="italic text-[#8A7668]">Deep-Rooted Reason.</span> We Do Not Just Cope.
+            <span className="italic text-[#8C6A44]">Deep-Rooted Reason.</span> We Do Not Just Cope.
             We Heal From The Root."
           </motion.h2>
         </motion.div>
@@ -270,13 +277,13 @@ export default function Home() {
             variants={staggerContainer}
             className="lg:sticky lg:top-28 lg:self-start"
           >
-            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8A7668]">
+            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">
               What Clients Usually Carry
             </motion.p>
-            <motion.h2 variants={fadeUp} className="mt-4 max-w-xl font-serif text-4xl leading-tight md:text-5xl">
+            <motion.h2 variants={fadeUp} className="mt-4 max-w-xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
               The Invisible Battles
             </motion.h2>
-            <motion.p variants={fadeUp} className="mt-5 max-w-xl text-base leading-8 text-[#55616F]">
+            <motion.p variants={fadeUp} className="mt-5 max-w-xl text-base leading-8 text-[#4E463B]">
               You may look composed on the outside and still feel exhausted by overthinking,
               emotional pressure, fear of judgment, and patterns that seem to return no matter how
               much you understand them intellectually.
@@ -300,13 +307,13 @@ export default function Home() {
           >
             {painPoints.map((item) => (
               <motion.div key={item.title} variants={fadeUp}>
-                <Card className="grid gap-5 p-6 transition-shadow duration-300 hover:shadow-[0_18px_50px_rgba(60,73,64,0.12)] sm:grid-cols-[auto_1fr] sm:p-7">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#E7EDE6] text-[#53665A]">
+                <Card className="grid gap-5 p-6 transition-shadow duration-300 hover:shadow-[0_18px_50px_rgba(140,106,68,0.14)] sm:grid-cols-[auto_1fr] sm:p-7">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44]">
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl leading-tight text-[#252724]">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#55616F]">{item.desc}</p>
+                    <h3 className="font-serif text-2xl font-semibold leading-tight text-[#1A1A1A]">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-7 text-[#4E463B]">{item.desc}</p>
                   </div>
                 </Card>
               </motion.div>
@@ -315,7 +322,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#25322C] px-5 py-20 text-white sm:px-8 lg:py-24">
+      <section className="bg-[#2A2A2A] px-5 py-20 text-white sm:px-8 lg:py-24">
         <div className="mx-auto max-w-[1400px]">
           <motion.div
             initial="hidden"
@@ -325,10 +332,10 @@ export default function Home() {
             className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
           >
             <div>
-              <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#D9E2D8]">
+              <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#EFD95E]">
                 Clinical Expertise
               </motion.p>
-              <motion.h2 variants={fadeUp} className="mt-4 max-w-2xl font-serif text-4xl leading-tight md:text-5xl">
+              <motion.h2 variants={fadeUp} className="mt-4 max-w-2xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
                 An Eclectic Approach To Healing
               </motion.h2>
             </div>
@@ -356,7 +363,7 @@ export default function Home() {
               <div className="grid gap-3 p-4">
                 {claritySteps.map((step, index) => (
                   <div key={step} className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-white/10 text-xs font-bold text-[#D9E2D8]">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#EBC85B]/14 text-xs font-bold text-[#EFD95E]">
                       {index + 1}
                     </span>
                     <span className="text-sm leading-6 text-white/74">{step}</span>
@@ -371,7 +378,7 @@ export default function Home() {
                   {modalities.map((modality) => (
                     <span
                       key={modality.title}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#D9E2D8]"
+                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#EFD95E]"
                     >
                       {modality.title}
                     </span>
@@ -381,9 +388,9 @@ export default function Home() {
                 <Accordion type="single" defaultValue="modality-0" collapsible>
                   {modalities.map((modality, index) => (
                     <AccordionItem key={modality.title} value={`modality-${index}`} className="border-white/10">
-                      <AccordionTrigger className="text-white hover:text-[#D9E2D8]">
+                      <AccordionTrigger className="text-white hover:text-[#EFD95E]">
                         <span className="flex items-center gap-4">
-                          <span className="font-serif text-2xl text-[#D9E2D8]">0{index + 1}</span>
+                          <span className="font-serif text-2xl font-semibold text-[#EFD95E]">0{index + 1}</span>
                           {modality.title}
                         </span>
                       </AccordionTrigger>
@@ -417,13 +424,13 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
           >
-            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#8A7668]">
+            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#8C6A44]">
               Quick Clarity Check
             </motion.p>
-            <motion.h2 variants={fadeUp} className="mt-4 max-w-2xl font-serif text-4xl leading-tight md:text-5xl">
+            <motion.h2 variants={fadeUp} className="mt-4 max-w-2xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
               Get Direction Without Guessing The Right Program First.
             </motion.h2>
-            <motion.p variants={fadeUp} className="mt-5 max-w-xl text-base leading-8 text-[#55616F]">
+            <motion.p variants={fadeUp} className="mt-5 max-w-xl text-base leading-8 text-[#4E463B]">
               This guided enquiry keeps the first step simple: name what is happening, choose the
               kind of support that feels comfortable, and let Omkar respond personally.
             </motion.p>
@@ -439,10 +446,10 @@ export default function Home() {
             {claritySteps.map((step, index) => (
               <motion.div key={step} variants={fadeUp}>
                 <Card className="flex items-start gap-4 p-5">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#E7EDE6] text-sm font-bold text-[#53665A]">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#F2E4CE] text-sm font-bold text-[#8C6A44]">
                     {index + 1}
                   </div>
-                  <p className="text-sm font-semibold leading-7 text-[#252724]">{step}</p>
+                  <p className="text-sm font-semibold leading-7 text-[#1A1A1A]">{step}</p>
                 </Card>
               </motion.div>
             ))}
@@ -474,13 +481,13 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
           >
-            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#8A7668]">
+            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#8C6A44]">
               Prefer Writing Before A Call?
             </motion.p>
-            <motion.h2 variants={fadeUp} className="mt-4 max-w-3xl font-serif text-4xl leading-tight md:text-5xl">
+            <motion.h2 variants={fadeUp} className="mt-4 max-w-3xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
               Send A Grounded Enquiry And Let The Right Next Step Become Clear.
             </motion.h2>
-            <motion.p variants={fadeUp} className="mt-5 max-w-2xl text-base leading-8 text-[#55616F]">
+            <motion.p variants={fadeUp} className="mt-5 max-w-2xl text-base leading-8 text-[#4E463B]">
               Use the form below if you want to explain what you are currently navigating in your own
               words. Your message is captured properly and routed for follow-up.
             </motion.p>
@@ -511,8 +518,8 @@ export default function Home() {
                   { icon: <ShieldCheck className="h-4 w-4" />, label: "Private anxiety and healing enquiries" },
                   { icon: <CheckCircle2 className="h-4 w-4" />, label: "Program fit checks" },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-3 text-sm font-semibold text-[#55616F]">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#E7EDE6] text-[#53665A]">
+                  <div key={item.label} className="flex items-center gap-3 text-sm font-semibold text-[#4E463B]">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44]">
                       {item.icon}
                     </span>
                     {item.label}
@@ -532,14 +539,14 @@ export default function Home() {
           variants={staggerContainer}
           className="mx-auto max-w-3xl"
         >
-          <motion.div variants={fadeUp} className="mx-auto mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-[#E7EDE6] text-[#53665A]">
+          <motion.div variants={fadeUp} className="mx-auto mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44]">
             <Leaf className="h-5 w-5" />
           </motion.div>
-          <motion.h2 variants={fadeUp} className="font-serif text-4xl leading-tight text-[#252724] md:text-6xl">
+          <motion.h2 variants={fadeUp} className="font-serif text-4xl font-semibold leading-tight text-[#1A1A1A] md:text-6xl">
             Ready To Stop Surviving And Start{" "}
-            <span className="italic text-[#8A7668]">Living?</span>
+            <span className="italic text-[#8C6A44]">Living?</span>
           </motion.h2>
-          <motion.p variants={fadeUp} className="mx-auto mt-6 max-w-2xl text-base leading-8 text-[#55616F]">
+          <motion.p variants={fadeUp} className="mx-auto mt-6 max-w-2xl text-base leading-8 text-[#4E463B]">
             Start with the quick clarity check, send an enquiry, or message directly on WhatsApp and
             take the first honest step toward steadier emotional wellbeing.
           </motion.p>

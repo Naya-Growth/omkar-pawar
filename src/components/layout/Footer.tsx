@@ -69,20 +69,20 @@ export default function Footer() {
               anxiety, perfectionism, emotional overwhelm, and unresolved inner-child patterns.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              <span className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#8C7A6B]">
+              <span className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#8C6A44]">
                 {siteConfig.socialProof.years}
               </span>
-              <span className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#8C7A6B]">
+              <span className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#8C6A44]">
                 {siteConfig.socialProof.clients}
               </span>
-              <span className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#8C7A6B]">
+              <span className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#8C6A44]">
                 {siteConfig.locationLabel}
               </span>
             </div>
           </div>
 
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">Explore</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">Explore</p>
             <div className="mt-5 flex flex-col gap-3 text-sm text-gray-600">
               <Link to="/" className="transition-colors hover:text-[#2A2A2A]">Home</Link>
               <Link to="/about" className="transition-colors hover:text-[#2A2A2A]">About Omkar</Link>
@@ -94,10 +94,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C7A6B]">Connect</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">Connect</p>
             <div className="mt-5 space-y-4 text-sm text-gray-600">
               <a href={`mailto:${siteConfig.email}`} className="flex items-start gap-3 transition-colors hover:text-[#2A2A2A]">
-                <Mail className="mt-1 h-4 w-4 shrink-0 text-[#8C7A6B]" />
+                <Mail className="mt-1 h-4 w-4 shrink-0 text-[#8C6A44]" />
                 <span>{siteConfig.email}</span>
               </a>
               <a
@@ -106,11 +106,11 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 transition-colors hover:text-[#2A2A2A]"
               >
-                <MessageCircle className="mt-1 h-4 w-4 shrink-0 text-[#8C7A6B]" />
+                <MessageCircle className="mt-1 h-4 w-4 shrink-0 text-[#8C6A44]" />
                 <span>{siteConfig.whatsappDisplay}</span>
               </a>
               <div className="flex items-start gap-3">
-                <MapPin className="mt-1 h-4 w-4 shrink-0 text-[#8C7A6B]" />
+                <MapPin className="mt-1 h-4 w-4 shrink-0 text-[#8C6A44]" />
                 <span>{siteConfig.locationLabel}</span>
               </div>
               <div className="flex flex-wrap gap-3 pt-2">
@@ -118,7 +118,7 @@ export default function Footer() {
                   href={siteConfig.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C6A44]/30 hover:text-[#8C6A44]"
                 >
                   <Instagram className="h-4 w-4" />
                   Instagram
@@ -127,7 +127,7 @@ export default function Footer() {
                   href={siteConfig.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C6A44]/30 hover:text-[#8C6A44]"
                 >
                   <Linkedin className="h-4 w-4" />
                   LinkedIn
@@ -136,7 +136,7 @@ export default function Footer() {
                   href={siteConfig.youtubeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C6A44]/30 hover:text-[#8C6A44]"
                 >
                   <Youtube className="h-4 w-4" />
                   YouTube

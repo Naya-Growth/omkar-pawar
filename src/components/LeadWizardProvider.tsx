@@ -316,7 +316,7 @@ function LeadWizardModal({
                                 </span>
                               </span>
                               {values.support === option.value ? (
-                                <CheckCircle2 className="h-5 w-5 shrink-0 text-[#53665A]" />
+                                <CheckCircle2 className="h-5 w-5 shrink-0 text-[#8C6A44]" />
                               ) : null}
                             </span>
                           </RadioGroupItem>

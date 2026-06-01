@@ -24,7 +24,7 @@ export default function Services() {
   const { openLeadWizard } = useLeadWizard();
 
   return (
-    <div className="overflow-x-hidden bg-[#FAF9F6] text-[#2A2A2A]">
+    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#2A2A2A]">
       <section className="relative mx-auto max-w-[1400px] px-6 pb-20 pt-24 md:px-12">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <motion.div
@@ -33,13 +33,13 @@ export default function Services() {
             variants={staggerContainer}
             className="max-w-xl"
           >
-            <motion.span variants={fadeUp} className="mb-6 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C7A6B]">
+            <motion.span variants={fadeUp} className="mb-6 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C6A44]">
               Work With Omkar
             </motion.span>
             <motion.h1 variants={fadeUp} className="font-serif text-5xl leading-[1.05] md:text-7xl">
               Transformation
               <br />
-              <span className="italic text-[#8C7A6B]">Pathways</span>
+              <span className="italic text-[#8C6A44]">Pathways</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="mt-8 text-lg font-light leading-relaxed text-gray-600">
               These offerings are designed for people who want grounded, emotionally intelligent
@@ -50,7 +50,7 @@ export default function Services() {
               <button
                 type="button"
                 onClick={() => openLeadWizard()}
-                className="rounded-full bg-[#2A2A2A] px-8 py-4 text-sm font-bold tracking-[0.16em] text-white transition-colors hover:bg-[#8C7A6B]"
+                className="rounded-full bg-[#2A2A2A] px-8 py-4 text-sm font-bold tracking-[0.16em] text-white transition-colors hover:bg-[#8C6A44]"
               >
                 Start With The {wizardContent.triggerLabel}
               </button>
@@ -58,7 +58,7 @@ export default function Services() {
                 href={buildWhatsAppUrl("Hi Omkar, I would like to know which program is right for me.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-black/5 bg-white px-8 py-4 text-sm font-bold tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C7A6B]/30 hover:text-[#8C7A6B]"
+                className="rounded-full border border-black/5 bg-white px-8 py-4 text-sm font-bold tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C6A44]/30 hover:text-[#8C6A44]"
               >
                 Ask On WhatsApp
               </a>
@@ -71,7 +71,7 @@ export default function Services() {
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="aspect-[4/5] overflow-hidden rounded-lg shadow-2xl shadow-[#8C7A6B]/10">
+            <div className="aspect-[4/5] overflow-hidden rounded-lg shadow-2xl shadow-[#8C6A44]/10">
               <img
                 src={siteConfig.image.servicesPortrait}
                 alt="Omkar Pawar portrait for services page"
@@ -94,7 +94,7 @@ export default function Services() {
         >
           <motion.div variants={fadeUp} className="group relative flex flex-col overflow-hidden rounded-lg border border-black/5 bg-white p-12 shadow-sm transition-all duration-500 hover:shadow-xl">
             <div className="relative z-10 flex-grow">
-              <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-[#FAF4EA] text-[#8C7A6B]">
+              <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-[#F2E4CE] text-[#8C6A44]">
                 <Leaf className="h-6 w-6" />
               </div>
               <h3 className="font-serif text-3xl md:text-4xl">
@@ -113,7 +113,7 @@ export default function Services() {
             <button
               type="button"
               onClick={() => openLeadWizard()}
-              className="relative z-10 mt-10 inline-flex w-fit items-center gap-2 rounded-full bg-[#2A2A2A] px-8 py-4 text-sm font-bold tracking-[0.14em] text-white transition-colors hover:bg-[#8C7A6B]"
+              className="relative z-10 mt-10 inline-flex w-fit items-center gap-2 rounded-full bg-[#2A2A2A] px-8 py-4 text-sm font-bold tracking-[0.14em] text-white transition-colors hover:bg-[#8C6A44]"
             >
               Apply to join
               <ArrowRight className="h-4 w-4" />
@@ -121,7 +121,7 @@ export default function Services() {
           </motion.div>
 
           <div className="flex flex-col gap-8">
-            <motion.div variants={fadeUp} className="rounded-lg bg-[#8C7A6B] p-12 text-white shadow-sm transition-all duration-500 hover:shadow-xl">
+            <motion.div variants={fadeUp} className="rounded-lg bg-[#8C6A44] p-12 text-white shadow-sm transition-all duration-500 hover:shadow-xl">
               <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white">
                 <Zap className="h-6 w-6" />
               </div>
@@ -170,11 +170,11 @@ export default function Services() {
           variants={staggerContainer}
           className="mb-20 text-center"
         >
-          <motion.span variants={fadeUp} className="mb-4 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C7A6B]">
+          <motion.span variants={fadeUp} className="mb-4 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C6A44]">
             The Process
           </motion.span>
           <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl">
-            How It <span className="italic text-[#8C7A6B]">Works</span>
+            How It <span className="italic text-[#8C6A44]">Works</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="mx-auto mt-5 max-w-2xl text-lg font-light text-gray-500">
             The process is designed to keep things simple, human, and clear from the first enquiry.
@@ -206,7 +206,7 @@ export default function Services() {
             },
           ].map((item) => (
             <motion.div key={item.step} variants={fadeUp} className="flex flex-col items-center">
-              <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-full border border-black/5 bg-white text-2xl font-serif text-[#8C7A6B] shadow-sm">
+              <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-full border border-black/5 bg-white text-2xl font-serif text-[#8C6A44] shadow-sm">
                 {item.step}
               </div>
               <h4 className="font-serif text-2xl">{item.title}</h4>
