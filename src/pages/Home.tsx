@@ -354,43 +354,49 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="rounded-lg border border-[#1A1A1A]/8 bg-white/82 p-3 shadow-[0_22px_70px_rgba(140,106,68,0.12)] backdrop-blur"
-          >
-            <Accordion type="single" defaultValue="pain-0" collapsible>
-              {painPoints.map((item, index) => (
-                <motion.div key={item.title} variants={fadeUp}>
-                  <AccordionItem
-                    value={`pain-${index}`}
-                    className="rounded-md border-b-0 data-[state=open]:bg-[#FBF4E6]"
-                  >
-                    <AccordionTrigger className="px-4 py-5 hover:text-[#1A1A1A] md:px-5">
-                      <span className="flex items-center gap-4">
-                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44] shadow-sm">
-                          {item.icon}
-                        </span>
-                        <span>
-                          <span className="block font-serif text-2xl font-semibold leading-tight text-[#1A1A1A]">
-                            {item.title}
+          <div className="grid gap-4">
+            <div className="overflow-hidden rounded-lg border border-[#1A1A1A]/8 bg-white/82 p-3 shadow-[0_22px_70px_rgba(140,106,68,0.12)] backdrop-blur">
+              <img
+                src={siteConfig.image.servicesPortrait}
+                alt="Omkar Pawar standing calmly outdoors"
+                className="aspect-[16/7] w-full rounded-md object-cover object-[center_38%]"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <div className="rounded-lg border border-[#1A1A1A]/8 bg-white/82 p-3 shadow-[0_22px_70px_rgba(140,106,68,0.12)] backdrop-blur">
+              <Accordion type="single" defaultValue="pain-0" collapsible>
+                {painPoints.map((item, index) => (
+                  <div key={item.title}>
+                    <AccordionItem
+                      value={`pain-${index}`}
+                      className="rounded-md border-b-0 data-[state=open]:bg-[#FBF4E6]"
+                    >
+                      <AccordionTrigger className="px-4 py-5 hover:text-[#1A1A1A] md:px-5">
+                        <span className="flex items-center gap-4">
+                          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44] shadow-sm">
+                            {item.icon}
                           </span>
-                          <span className="mt-1 block text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#8C6A44]">
-                            Pattern 0{index + 1}
+                          <span>
+                            <span className="block font-serif text-2xl font-semibold leading-tight text-[#1A1A1A]">
+                              {item.title}
+                            </span>
+                            <span className="mt-1 block text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#8C6A44]">
+                              Pattern 0{index + 1}
+                            </span>
                           </span>
                         </span>
-                      </span>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-4 text-base leading-8 md:px-5">
-                      {item.desc}
-                    </AccordionContent>
-                  </AccordionItem>
-                </motion.div>
-              ))}
-            </Accordion>
-          </motion.div>
+                      </AccordionTrigger>
+                      <AccordionContent className="px-4 text-base leading-8 md:px-5">
+                        {item.desc}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </div>
+                ))}
+              </Accordion>
+            </div>
+          </div>
         </div>
       </section>
 
