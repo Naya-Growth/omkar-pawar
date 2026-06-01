@@ -97,7 +97,7 @@ export default function Services() {
               src={siteConfig.image.servicesPortrait}
               alt="Omkar Pawar portrait for services page"
               aspect="aspect-[4/5]"
-              imageClassName="object-[center_18%]"
+              imageClassName="object-[center_16%]"
               priority
               caption={
                 <div className="grid gap-3 sm:grid-cols-2">
@@ -163,10 +163,10 @@ export default function Services() {
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <Reveal>
             <MediaFrame
-              src={siteConfig.image.heroPortrait}
+              src={siteConfig.image.healingHorizontal}
               alt="Omkar Pawar standing outdoors"
               aspect="aspect-[5/4]"
-              imageClassName="object-[center_20%]"
+              imageClassName="object-center"
               className="border-white/10 bg-white/[0.08] shadow-[0_24px_80px_rgba(0,0,0,0.24)]"
             />
           </Reveal>

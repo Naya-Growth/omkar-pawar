@@ -94,15 +94,33 @@ export default function Home() {
 
   return (
     <div className="overflow-x-hidden bg-[#FBF4E6] text-[#1A1A1A]">
-      <section className="bg-hero-gradient px-5 py-10 sm:px-8 lg:min-h-[calc(100svh-82px)] lg:px-10 lg:py-14">
-        <div className="mx-auto grid max-w-[1500px] items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(360px,500px)] xl:gap-16">
+      <section className="relative isolate overflow-hidden bg-[#FBF4E6] px-5 py-10 sm:px-8 lg:min-h-[calc(100svh-82px)] lg:px-10 lg:py-14">
+        <img
+          src={siteConfig.image.homeHeroHorizontal}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-y-0 right-0 z-0 hidden h-full w-[58%] object-cover object-center lg:block"
+          loading="eager"
+          decoding="async"
+        />
+        <div className="absolute inset-0 z-0 hidden bg-[linear-gradient(90deg,#FBF4E6_0%,#FBF4E6_41%,rgba(251,244,230,0.9)_56%,rgba(251,244,230,0.25)_74%,rgba(251,244,230,0.04)_100%)] lg:block" />
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_82%_22%,rgba(235,200,91,0.28),transparent_36%),linear-gradient(135deg,#FFF9EF_0%,#F8ECD9_52%,#F2DFC3_100%)] lg:hidden" />
+        <img
+          src={siteConfig.image.heroPortrait}
+          alt=""
+          aria-hidden="true"
+          className="absolute bottom-0 right-[-22%] z-0 h-[54%] w-[86%] object-cover object-[center_16%] opacity-[0.16] sm:hidden"
+          loading="eager"
+          decoding="async"
+        />
+        <div className="relative z-10 mx-auto grid max-w-[1500px] items-center gap-9 lg:min-h-[calc(100svh-194px)] lg:grid-cols-[minmax(0,0.6fr)_minmax(0,0.4fr)]">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
             className="min-w-0"
           >
-            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-2.5">
+            <motion.div variants={fadeUp} className="hidden flex-wrap items-center gap-2.5 sm:flex">
               <span className="rounded-full bg-[#EBC85B] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#2A210B] shadow-[0_10px_24px_rgba(235,200,91,0.22)]">
                 Emotional Mastery
               </span>
@@ -111,10 +129,22 @@ export default function Home() {
                 {siteConfig.locationLabel}
               </span>
             </motion.div>
+            <motion.div
+              variants={fadeUp}
+              className="flex max-w-full flex-wrap items-center gap-2 sm:hidden"
+            >
+              <span className="rounded-full bg-[#EBC85B] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#2A210B] shadow-[0_10px_24px_rgba(235,200,91,0.2)]">
+                Emotional Mastery
+              </span>
+              <span className="inline-flex min-w-0 items-center gap-1.5 rounded-full border border-[#1A1A1A]/8 bg-white/86 px-3.5 py-2 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#6F5438] shadow-sm">
+                <MapPin className="h-3.5 w-3.5 shrink-0" />
+                Pune · Online
+              </span>
+            </motion.div>
 
             <motion.h1
               variants={fadeUp}
-              className="mt-8 max-w-[920px] font-serif text-[2.85rem] font-bold leading-[0.95] text-[#1A1A1A] sm:text-[3.85rem] lg:mt-9 lg:text-[4.35rem] xl:text-[4.55rem] 2xl:text-[5.2rem]"
+              className="mt-7 max-w-[760px] font-serif text-[2.8rem] font-bold leading-[0.95] text-[#1A1A1A] sm:text-[3.85rem] lg:mt-9 lg:text-[3.85rem] xl:text-[4.8rem] 2xl:text-[5.25rem]"
             >
               <span className="block lg:hidden">
                 <span className="block">Master Your</span>
@@ -123,10 +153,25 @@ export default function Home() {
                 <span className="block text-[#8C6A44]">Your Life.</span>
               </span>
               <span className="hidden lg:block">
-                <span className="block whitespace-nowrap">Master Your Emotions.</span>
-                <span className="block whitespace-nowrap text-[#8C6A44]">Transform Your Life.</span>
+                <span className="block">Master Your Emotions.</span>
+                <span className="block text-[#8C6A44]">Transform Your Life.</span>
               </span>
             </motion.h1>
+
+            <motion.div
+              variants={fadeUp}
+              className="mt-6 overflow-hidden rounded-lg border border-[#1A1A1A]/8 bg-white/78 p-2 shadow-[0_18px_55px_rgba(140,106,68,0.18)] lg:hidden"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden rounded-md bg-[#F2E4CE]">
+                <img
+                  src={siteConfig.image.homeHeroHorizontal}
+                  alt="Omkar Pawar near a calm lakeside"
+                  className="h-full w-full object-cover object-[62%_center]"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+            </motion.div>
 
             <motion.p
               variants={fadeUp}
@@ -135,24 +180,6 @@ export default function Home() {
               Omkar Pawar helps people heal anxiety, regulate emotional overwhelm, and understand
               the root patterns that keep repeating beneath high-functioning outer lives.
             </motion.p>
-
-            <motion.div variants={fadeUp} className="mt-6 grid max-w-2xl gap-2 sm:grid-cols-3">
-              {[
-                { label: "Anxiety & Overthinking", icon: <BrainCircuit className="h-4 w-4" /> },
-                { label: "Emotional Overwhelm", icon: <HeartHandshake className="h-4 w-4" /> },
-                { label: "Inner Child Healing", icon: <Sparkles className="h-4 w-4" /> },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="group flex items-center gap-3 rounded-lg border border-[#1A1A1A]/8 bg-white/76 px-3 py-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_12px_28px_rgba(140,106,68,0.16)]"
-                >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#F2E4CE] text-[#8C6A44]">
-                    {item.icon}
-                  </span>
-                  <span className="text-xs font-bold leading-5 text-[#1A1A1A]">{item.label}</span>
-                </div>
-              ))}
-            </motion.div>
 
             <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button type="button" onClick={() => openLeadWizard()} size="lg" className="sm:w-auto">
@@ -184,44 +211,34 @@ export default function Home() {
                 WhatsApp Chat
               </a>
             </motion.div>
+
+            <motion.div variants={fadeUp} className="mt-6 grid max-w-2xl gap-2 sm:grid-cols-3">
+              {[
+                { label: "Anxiety & Overthinking", icon: <BrainCircuit className="h-4 w-4" /> },
+                { label: "Emotional Overwhelm", icon: <HeartHandshake className="h-4 w-4" /> },
+                { label: "Inner Child Healing", icon: <Sparkles className="h-4 w-4" /> },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="group flex items-center gap-3 rounded-lg border border-[#1A1A1A]/8 bg-white/76 px-3 py-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_12px_28px_rgba(140,106,68,0.16)]"
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#F2E4CE] text-[#8C6A44]">
+                    {item.icon}
+                  </span>
+                  <span className="text-xs font-bold leading-5 text-[#1A1A1A]">{item.label}</span>
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, filter: "blur(12px)", y: 16 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mx-auto w-full max-w-[520px] lg:mx-0"
+            className="hidden lg:block"
+            aria-hidden="true"
           >
-            <div className="overflow-hidden rounded-lg border border-[#1A1A1A]/8 bg-white/88 p-3 shadow-[0_24px_80px_rgba(140,106,68,0.18)]">
-              <div className="relative h-[440px] overflow-hidden rounded-md bg-[#F2E4CE] sm:h-[560px] lg:h-[min(64vh,620px)] lg:min-h-[500px]">
-                <img
-                  src={siteConfig.image.heroPortrait}
-                  alt="Omkar Pawar standing outdoors"
-                  className="h-full w-full object-cover object-[center_20%]"
-                  loading="eager"
-                  decoding="async"
-                />
-              </div>
-            </div>
-
-            <Card className="absolute bottom-5 left-5 hidden max-w-[250px] bg-white/92 p-5 shadow-[0_18px_50px_rgba(88,62,34,0.16)] backdrop-blur lg:block">
-              <p className="font-serif text-2xl font-semibold leading-[1.08] text-[#1A1A1A]">
-                "Be Gentle With Your Thoughts And Emotions."
-              </p>
-              <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#8C6A44]">
-                Omkar Pawar
-              </p>
-            </Card>
-
-            <Card className="absolute left-5 top-5 hidden max-w-[220px] bg-[#2A2A2A] p-4 text-white shadow-[0_18px_50px_rgba(42,42,42,0.22)] lg:block">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#EBC85B]/16 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#EFD95E]">
-                <Globe2 className="h-3.5 w-3.5" />
-                Online Worldwide
-              </div>
-              <p className="mt-4 text-sm leading-6 text-white/76">
-                Clarity sessions and 1:1 support rooted in emotional healing and practical awareness.
-              </p>
-            </Card>
+            <div className="ml-auto h-[min(62vh,560px)] min-h-[430px] w-full" />
           </motion.div>
         </div>
 
@@ -352,9 +369,9 @@ export default function Home() {
           >
             <motion.div variants={fadeUp} className="relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.06] p-3 shadow-[0_24px_90px_rgba(0,0,0,0.18)]">
               <img
-                src={siteConfig.image.servicesPortrait}
+                src={siteConfig.image.clinicalExpertise}
                 alt="Omkar Pawar portrait for therapeutic support"
-                className="aspect-[4/3] w-full rounded-md object-cover object-[center_18%] opacity-95"
+                className="aspect-[4/3] w-full rounded-md object-cover object-center opacity-95"
                 loading="lazy"
                 decoding="async"
               />
