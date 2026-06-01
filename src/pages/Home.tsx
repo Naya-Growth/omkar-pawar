@@ -6,7 +6,6 @@ import {
   Clock3,
   Globe2,
   HeartHandshake,
-  Instagram,
   Leaf,
   MapPin,
   MessageCircle,
@@ -210,45 +209,6 @@ export default function Home() {
               <Button asChild variant="secondary" size="lg" className="sm:w-auto">
                 <Link to="/contact">Book A Clarity Session</Link>
               </Button>
-            </motion.div>
-
-            <motion.div variants={fadeUp} className="mt-5 flex flex-wrap items-center gap-3">
-              <motion.a
-                href={siteConfig.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -3 }}
-                whileTap={{ scale: 0.98 }}
-                className="group inline-flex w-full items-center gap-3 rounded-full border border-[#E1306C]/15 bg-white/82 px-4 py-2.5 text-left shadow-[0_12px_30px_rgba(225,48,108,0.08)] backdrop-blur transition-colors hover:border-[#E1306C]/28 hover:bg-white sm:w-auto"
-              >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[radial-gradient(circle_at_30%_110%,#FEDA75_0%,#FA7E1E_28%,#D62976_52%,#962FBF_74%,#4F5BD5_100%)] text-white shadow-[0_10px_22px_rgba(214,41,118,0.22)]">
-                  <Instagram className="h-4 w-4" />
-                </span>
-                <span className="grid">
-                  <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#E1306C]">
-                    Instagram
-                  </span>
-                  <span className="text-sm font-bold leading-5 text-[#1A1A1A]">Connect With Me</span>
-                </span>
-              </motion.a>
-              <motion.a
-                href={buildWhatsAppUrl("Hi Omkar, I would like to connect with you on WhatsApp.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -3 }}
-                whileTap={{ scale: 0.98 }}
-                className="group inline-flex w-full items-center gap-3 rounded-full border border-[#25D366]/18 bg-white/82 px-4 py-2.5 text-left shadow-[0_12px_30px_rgba(37,211,102,0.1)] backdrop-blur transition-colors hover:border-[#25D366]/34 hover:bg-white sm:w-auto"
-              >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_22px_rgba(37,211,102,0.24)]">
-                  <MessageCircle className="h-4 w-4" />
-                </span>
-                <span className="grid">
-                  <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#128C4A]">
-                    WhatsApp
-                  </span>
-                  <span className="text-sm font-bold leading-5 text-[#1A1A1A]">Start A Chat</span>
-                </span>
-              </motion.a>
             </motion.div>
 
             <motion.div variants={fadeUp} className="mt-6 grid max-w-2xl gap-2 sm:grid-cols-3">
