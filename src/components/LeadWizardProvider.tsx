@@ -218,7 +218,7 @@ function LeadWizardModal({
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 22, scale: 0.97 }}
                 transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-                className="fixed left-1/2 top-1/2 z-[101] flex max-h-[calc(100vh-1.5rem)] w-[calc(100vw-1rem)] max-w-[860px] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-lg border border-white/60 bg-[#FBFAF7] shadow-[0_32px_90px_rgba(24,22,19,0.34)] focus:outline-none"
+                className="fixed left-1/2 top-1/2 z-[101] flex max-h-[calc(100vh-1.5rem)] w-[calc(100vw-1rem)] max-w-[780px] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-lg border border-white/60 bg-[#FBFAF7] shadow-[0_32px_90px_rgba(24,22,19,0.34)] focus:outline-none"
               >
                 <div className="border-b border-[#262421]/8 bg-[radial-gradient(circle_at_top_left,rgba(220,199,167,0.36),transparent_42%),linear-gradient(180deg,#FFFDF9,#F9F6EF)] px-5 pb-3 pt-4 md:px-8 md:pb-4 md:pt-5">
                   <div className="flex items-start justify-between gap-4">
@@ -230,7 +230,7 @@ function LeadWizardModal({
                         <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8B715E]">
                           {wizardContent.eyebrow}
                         </p>
-                        <DialogTitle className="font-serif text-[1.65rem] leading-[0.98] text-[#262421] md:text-4xl md:leading-tight">
+                        <DialogTitle className="font-serif text-[1.65rem] leading-[0.98] text-[#262421] md:text-3xl md:leading-tight">
                           {wizardContent.title}
                         </DialogTitle>
                       </div>
@@ -258,13 +258,13 @@ function LeadWizardModal({
                   </div>
                 </div>
 
-                <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4 md:px-8 md:py-7">
+                <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4 md:px-8 md:py-6">
                   {step === 0 ? (
                     <div>
                       <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#8B715E]">
                         {wizardContent.steps[0].eyebrow}
                       </p>
-                      <h4 className="font-serif text-2xl leading-tight text-[#262421] md:text-5xl">
+                      <h4 className="font-serif text-2xl leading-tight text-[#262421] md:text-[2.35rem]">
                         {wizardContent.steps[0].heading}
                       </h4>
                       <p className="mt-2 text-sm leading-6 text-[#5E6876] md:mt-3 md:text-base md:leading-7">
@@ -275,7 +275,7 @@ function LeadWizardModal({
                         onValueChange={(challenge) =>
                           setValues((current) => ({ ...current, challenge }))
                         }
-                        className="mt-4 grid gap-2 sm:grid-cols-2 md:mt-6 md:gap-3"
+                        className="mt-4 grid gap-2 sm:grid-cols-2 md:mt-5 md:gap-3"
                       >
                         {wizardContent.steps[0].options.map((option) => (
                           <RadioGroupItem key={option.value} value={option.value}>
@@ -291,7 +291,7 @@ function LeadWizardModal({
                       <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#8B715E]">
                         {wizardContent.steps[1].eyebrow}
                       </p>
-                      <h4 className="font-serif text-2xl leading-tight text-[#262421] md:text-5xl">
+                      <h4 className="font-serif text-2xl leading-tight text-[#262421] md:text-[2.35rem]">
                         {wizardContent.steps[1].heading}
                       </h4>
                       <p className="mt-2 text-sm leading-6 text-[#5E6876] md:mt-3 md:text-base md:leading-7">
@@ -302,7 +302,7 @@ function LeadWizardModal({
                         onValueChange={(support) =>
                           setValues((current) => ({ ...current, support }))
                         }
-                        className="mt-4 md:mt-6"
+                        className="mt-4 md:mt-5"
                       >
                         {wizardContent.steps[1].options.map((option) => (
                           <RadioGroupItem key={option.value} value={option.value}>
@@ -330,7 +330,7 @@ function LeadWizardModal({
                       <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#8B715E]">
                         {wizardContent.steps[2].eyebrow}
                       </p>
-                      <h4 className="font-serif text-2xl leading-tight text-[#262421] md:text-5xl">
+                      <h4 className="font-serif text-2xl leading-tight text-[#262421] md:text-[2.35rem]">
                         {contactCopy.heading}
                       </h4>
                       <p className="mt-2 text-sm leading-6 text-[#5E6876] md:mt-3 md:text-base md:leading-7">

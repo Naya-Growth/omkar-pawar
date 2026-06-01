@@ -1,215 +1,180 @@
-import { motion } from "motion/react";
 import { Baby, BadgeCheck, Brain, Globe2, GraduationCap, MapPin, Quote } from "lucide-react";
 
+import {
+  FeatureCard,
+  MediaFrame,
+  MetricCard,
+  Reveal,
+  SectionIntro,
+  SectionShell,
+} from "../components/ui/premium";
+import { heroStats } from "../lib/omkar-content";
 import { siteConfig } from "../lib/site-config";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] } },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
+const storyBlocks = [
+  {
+    number: "01",
+    title: "The Burden Of Perfection",
+    paragraphs: [
+      "Omkar was born in the village of Whatambare in Solapur, Maharashtra. On the outside, childhood looked stable. Internally, he was highly impressionable, absorbing the unspoken pressure of family, society, performance, and what it meant to be good enough.",
+      "That turned into a life organized around perfection. Everything had to be exceptional. Success became less about joy and more about pressure, judgment, and the fear of falling short.",
+    ],
   },
-};
+  {
+    number: "02",
+    title: "The Collapse And The Calling",
+    paragraphs: [
+      "The turning point came after failure in competitive exams. With a background in Mechanical Engineering and time spent in small-scale industry, Omkar felt deeply unsettled and disconnected from the work he was doing.",
+      "But the interest in inner work had always been there. From the age of 12, he had been reading Swami Vivekananda, especially Rajyoga, and was drawn toward the study of the mind. When the old path collapsed, psychology became the honest one.",
+    ],
+  },
+  {
+    number: "03",
+    title: "The Transformation",
+    paragraphs: [
+      "Transitioning from engineering into psychology was not simple. There were doubts, comparisons, and fears of being too late. But the work deepened through study, supervised practice, pro-bono sessions, hospital exposure, and real client transformations.",
+      "Today, Omkar's work is grounded in one central truth: for every visible behavior, there is a deeper reason beneath it. Healing becomes possible when that reason is met with awareness instead of shame.",
+    ],
+  },
+];
+
+const credentials = [
+  {
+    icon: <Brain className="h-7 w-7" />,
+    title: "Registered Psychologist",
+    body: "Double Master's in I/O Psychology & Clinical Psychology",
+  },
+  {
+    icon: <BadgeCheck className="h-7 w-7" />,
+    title: "Cognitive Hypnotherapist",
+    body: "Diploma in Cognitive Hypnotic Psychotherapy",
+  },
+  {
+    icon: <GraduationCap className="h-7 w-7" />,
+    title: "NLP Master Coach",
+    body: "Neuro-Linguistic Programming Master Practitioner",
+  },
+  {
+    icon: <Baby className="h-7 w-7" />,
+    title: "Inner Child Healer",
+    body: "Certified Inner Child Healing Practitioner",
+  },
+];
 
 export default function About() {
   return (
-    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#2A2A2A]">
-      <section className="relative mx-auto max-w-[1400px] px-6 pb-8 pt-12 md:px-12">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="mx-auto max-w-4xl text-center"
-        >
-          <motion.span variants={fadeUp} className="mb-3 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C6A44]">
-            The Origin Story
-          </motion.span>
-          <motion.h1 variants={fadeUp} className="font-serif text-4xl leading-[1.1] md:text-6xl lg:text-7xl">
-            From Chasing Perfection
-            <br />
-            To <span className="italic text-[#8C6A44]">Facilitating Peace.</span>
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0, filter: "blur(10px)" }}
-            animate={{ opacity: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="relative mb-6 mt-6 aspect-[21/9] overflow-hidden rounded-lg shadow-2xl shadow-[#8C6A44]/10"
-          >
-            <img
+    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#1A1A1A]">
+      <SectionShell className="bg-hero-gradient pt-12 lg:pt-16">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.82fr)_minmax(420px,1fr)] lg:items-center">
+          <Reveal immediate>
+            <SectionIntro
+              eyebrow="The Origin Story"
+              title={
+                <>
+                  From Chasing Perfection To{" "}
+                  <span className="italic text-[#8C6A44]">Facilitating Peace.</span>
+                </>
+              }
+              body="Omkar's work did not begin as a brand. It came from pressure, collapse, self-study, and a long turn toward psychology-led healing."
+              titleClassName="text-5xl md:text-6xl lg:text-7xl"
+            />
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              <MetricCard label="Practice" value={siteConfig.practiceName} />
+              <MetricCard label="Based In" value={siteConfig.location} icon={MapPin} />
+              <MetricCard label="Languages" value={siteConfig.languages.join(" · ")} icon={Globe2} />
+            </div>
+          </Reveal>
+
+          <Reveal immediate delay={0.08}>
+            <MediaFrame
               src={siteConfig.image.aboutBanner}
               alt="Omkar Pawar outdoors in a reflective portrait"
-              className="h-full w-full object-cover object-center"
-              loading="eager"
-              decoding="async"
+              aspect="aspect-[16/10]"
+              imageClassName="object-center"
+              priority
             />
-          </motion.div>
-          <motion.div variants={fadeUp} className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-lg border border-black/5 bg-white px-5 py-5 shadow-sm">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">Practice</p>
-              <p className="mt-2 text-lg font-semibold">{siteConfig.practiceName}</p>
-            </div>
-            <div className="rounded-lg border border-black/5 bg-white px-5 py-5 shadow-sm">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">Based In</p>
-              <p className="mt-2 inline-flex items-center gap-2 text-lg font-semibold">
-                <MapPin className="h-4 w-4 text-[#8C6A44]" />
-                {siteConfig.location}
-              </p>
-            </div>
-            <div className="rounded-lg border border-black/5 bg-white px-5 py-5 shadow-sm">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">Languages</p>
-              <p className="mt-2 inline-flex items-center gap-2 text-lg font-semibold">
-                <Globe2 className="h-4 w-4 text-[#8C6A44]" />
-                {siteConfig.languages.join(" · ")}
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
-      </section>
+          </Reveal>
+        </div>
+      </SectionShell>
 
-      <section className="mx-auto max-w-3xl px-6 pb-20 pt-4 md:px-12">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="space-y-20"
-        >
-          <motion.div variants={fadeUp}>
-            <h3 className="mb-6 font-serif text-3xl text-[#8C6A44]">01. The Burden Of Perfection</h3>
-            <div className="space-y-6 text-lg font-light leading-relaxed text-gray-600">
-              <p>
-                Omkar was born in the village of Whatambare in Solapur, Maharashtra. On the outside,
-                childhood looked stable. Internally, he was highly impressionable, absorbing the
-                unspoken pressure of family, society, performance, and what it meant to be “good
-                enough.”
-              </p>
-              <p>
-                That turned into a life organized around perfection. Everything had to be exceptional.
-                Success became less about joy and more about pressure, judgment, and the fear of
-                falling short.
-              </p>
+      <SectionShell tone="white" className="border-y border-[#1A1A1A]/8">
+        <div className="grid gap-8 lg:grid-cols-[0.62fr_1.38fr] lg:items-start">
+          <Reveal>
+            <div className="lg:sticky lg:top-28">
+              <SectionIntro
+                eyebrow="About Omkar"
+                title="A Story That Became A Practice."
+                body="The biography is arranged as a timeline so the emotional and professional arc is easy to read on desktop and mobile."
+              />
             </div>
-          </motion.div>
+          </Reveal>
 
-          <motion.div variants={fadeUp}>
-            <h3 className="mb-6 font-serif text-3xl text-[#8C6A44]">02. The Collapse And The Calling</h3>
-            <div className="space-y-6 text-lg font-light leading-relaxed text-gray-600">
-              <p>
-                The turning point came after failure in competitive exams. With a background in
-                Mechanical Engineering and time spent in small-scale industry, Omkar felt deeply
-                unsettled and disconnected from the work he was doing.
-              </p>
-              <p>
-                But the interest in inner work had always been there. From the age of 12, he had been
-                reading Swami Vivekananda, especially <em>Rajyoga</em>, and was drawn toward the study
-                of the mind. When the old path collapsed, psychology became the honest one.
-              </p>
-            </div>
-          </motion.div>
+          <div className="grid gap-5">
+            {storyBlocks.map((block, index) => (
+              <Reveal key={block.title} delay={index * 0.05}>
+                <article className="rounded-lg border border-[#1A1A1A]/8 bg-[#FBF4E6] p-6 shadow-[0_16px_50px_rgba(140,106,68,0.09)] md:grid md:grid-cols-[88px_1fr] md:p-8">
+                  <span className="font-serif text-5xl font-semibold leading-none text-[#8C6A44]/50">
+                    {block.number}
+                  </span>
+                  <div>
+                    <h3 className="font-serif text-3xl font-semibold leading-tight text-[#1A1A1A]">
+                      {block.title}
+                    </h3>
+                    <div className="mt-5 grid gap-4 text-base leading-8 text-[#4E463B]">
+                      {block.paragraphs.map((paragraph) => (
+                        <p key={paragraph}>{paragraph}</p>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </SectionShell>
 
-          <motion.div variants={fadeUp}>
-            <h3 className="mb-6 font-serif text-3xl text-[#8C6A44]">03. The Transformation</h3>
-            <div className="space-y-6 text-lg font-light leading-relaxed text-gray-600">
-              <p>
-                Transitioning from engineering into psychology was not simple. There were doubts,
-                comparisons, and fears of being too late. But the work deepened through study,
-                supervised practice, pro-bono sessions, hospital exposure, and real client
-                transformations.
-              </p>
-              <p>
-                Today, Omkar’s work is grounded in one central truth: for every visible behavior, there
-                is a deeper reason beneath it. Healing becomes possible when that reason is met with
-                awareness instead of shame.
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
-      </section>
+      <SectionShell tone="bronze">
+        <Reveal>
+          <div className="mx-auto max-w-4xl text-center">
+            <Quote className="mx-auto h-12 w-12 text-white/35" />
+            <h2 className="mt-7 font-serif text-3xl font-semibold leading-tight md:text-5xl">
+              "Every Behavior Has A Positive Intention. My Work Is To Help You Understand The Root Of
+              That Intention, So Healing And Growth Become Possible."
+            </h2>
+          </div>
+        </Reveal>
+      </SectionShell>
 
-      <section className="bg-[#8C6A44] px-6 py-32 text-white">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="mx-auto max-w-4xl text-center"
-        >
-          <motion.div variants={fadeUp} className="mb-8 flex justify-center">
-            <Quote className="h-12 w-12 text-white/30" />
-          </motion.div>
-          <motion.h2 variants={fadeUp} className="font-serif text-3xl leading-tight md:text-5xl">
-            “Every Behavior Has A Positive Intention. My Work Is To Help You Understand The Root Of
-            That Intention, So Healing And Growth Become Possible.”
-          </motion.h2>
-        </motion.div>
-      </section>
+      <SectionShell>
+        <Reveal>
+          <SectionIntro
+            align="center"
+            className="max-w-3xl"
+            eyebrow="Professional Foundation"
+            title="Training That Supports Practical Inner Work."
+            body="The work combines psychology, cognitive hypnotic psychotherapy, NLP, inner-child healing, and awareness-based regulation."
+          />
+        </Reveal>
 
-      <section className="mx-auto max-w-[1400px] px-6 py-32 md:px-12">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="mb-16 text-center"
-        >
-          <motion.span variants={fadeUp} className="mb-4 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C6A44]">
-            Expertise
-          </motion.span>
-          <motion.h3 variants={fadeUp} className="font-serif text-4xl text-[#2A2A2A] md:text-5xl">
-            Professional Foundation
-          </motion.h3>
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="grid gap-6 md:grid-cols-2 lg:grid-cols-4"
-        >
-          {[
-            {
-              icon: <Brain className="h-8 w-8" />,
-              title: "Registered Psychologist",
-              desc: "Double Master's in I/O Psychology & Clinical Psychology",
-            },
-            {
-              icon: <BadgeCheck className="h-8 w-8" />,
-              title: "Cognitive Hypnotherapist",
-              desc: "Diploma in Cognitive Hypnotic Psychotherapy",
-            },
-            {
-              icon: <GraduationCap className="h-8 w-8" />,
-              title: "NLP Master Coach",
-              desc: "Neuro-Linguistic Programming Master Practitioner",
-            },
-            {
-              icon: <Baby className="h-8 w-8" />,
-              title: "Inner Child Healer",
-              desc: "Certified Inner Child Healing Practitioner",
-            },
-          ].map((cred) => (
-            <motion.div
-              key={cred.title}
-              variants={fadeUp}
-              className="flex flex-col items-center rounded-lg border border-black/5 bg-white p-8 text-center shadow-sm transition-shadow duration-500 hover:shadow-xl"
-            >
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#F2E4CE] text-[#8C6A44]">
-                {cred.icon}
-              </div>
-              <h4 className="mb-3 text-lg font-bold text-[#2A2A2A]">{cred.title}</h4>
-              <p className="text-sm leading-relaxed text-gray-500">{cred.desc}</p>
-            </motion.div>
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {credentials.map((credential, index) => (
+            <Reveal key={credential.title} delay={index * 0.04}>
+              <FeatureCard
+                icon={credential.icon}
+                title={credential.title}
+                body={credential.body}
+                className="min-h-[280px] text-center"
+              />
+            </Reveal>
           ))}
-        </motion.div>
-      </section>
+        </div>
+
+        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {heroStats.map((stat) => (
+            <MetricCard key={stat.label} label={stat.label} value={stat.value} />
+          ))}
+        </div>
+      </SectionShell>
     </div>
   );
 }

@@ -183,11 +183,14 @@ function buildWebPageNode(route: RouteSeoEntry): JsonLdNode {
       "@type": "ImageObject",
       url: absoluteSiteUrl(siteConfig.image.shareCard),
     },
+    mainEntity: {
+      "@id": route.path === "/about" ? `${siteConfig.websiteUrl}#person` : `${siteConfig.websiteUrl}#service`,
+    },
     breadcrumb: {
       "@id": `${canonical}#breadcrumb`,
     },
     inLanguage: "en-IN",
-    dateModified: "2026-05-31",
+    dateModified: "2026-06-01",
   };
 }
 
@@ -208,6 +211,14 @@ const baseGraph: JsonLdNode[] = [
     homeLocation: {
       "@type": "Place",
       name: siteConfig.location,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "client enquiries",
+      email: siteConfig.email,
+      telephone: `+${siteConfig.whatsappNumber}`,
+      availableLanguage: siteConfig.languages,
+      areaServed: ["IN", "Worldwide"],
     },
     worksFor: {
       "@id": `${siteConfig.websiteUrl}#service`,
@@ -239,6 +250,14 @@ const baseGraph: JsonLdNode[] = [
     sameAs: [siteConfig.instagramUrl, siteConfig.linkedinUrl, siteConfig.youtubeUrl],
     url: siteConfig.websiteUrl,
     availableLanguage: siteConfig.languages,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "clarity session enquiries",
+      email: siteConfig.email,
+      telephone: `+${siteConfig.whatsappNumber}`,
+      availableLanguage: siteConfig.languages,
+      areaServed: ["Pune", "India", "Worldwide"],
+    },
     makesOffer: {
       "@type": "OfferCatalog",
       name: "Omkar Pawar Emotional Healing Support Paths",

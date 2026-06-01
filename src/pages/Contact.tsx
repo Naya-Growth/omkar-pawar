@@ -1,185 +1,202 @@
-import { motion } from "motion/react";
 import { ArrowRight, Instagram, Linkedin, Mail, MapPin, MessageCircle, Youtube } from "lucide-react";
 
 import InquiryForm from "../components/InquiryForm";
 import { useLeadWizard } from "../components/LeadWizardProvider";
 import { Button } from "../components/ui/button";
+import {
+  FeatureCard,
+  MediaFrame,
+  PremiumCard,
+  Reveal,
+  SectionIntro,
+  SectionShell,
+} from "../components/ui/premium";
 import { wizardContent } from "../lib/omkar-content";
 import { buildWhatsAppUrl, siteConfig } from "../lib/site-config";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] } },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
+const contactRoutes = [
+  {
+    icon: <MessageCircle className="h-6 w-6" />,
+    title: "Quick Clarity Check",
+    body: "Answer three short prompts so Omkar can understand what is happening and suggest the right first step.",
+    actionLabel: "Quick Clarity Check",
   },
-};
+  {
+    icon: <Instagram className="h-6 w-6" />,
+    title: "Instagram",
+    body: "Use Instagram if you want to connect through Omkar's active social presence first.",
+    href: siteConfig.instagramUrl,
+    actionLabel: "Open",
+  },
+  {
+    icon: <Mail className="h-6 w-6" />,
+    title: "Enquiry Form",
+    body: "Write the situation in your own words if you prefer a slower, more detailed first message.",
+    href: "#enquiry-form",
+    actionLabel: "Go To Form",
+  },
+];
 
 export default function Contact() {
   const { openLeadWizard } = useLeadWizard();
 
   return (
-    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#2A2A2A]">
-      <section className="relative mx-auto max-w-[1400px] px-6 pb-20 pt-24 text-center md:px-12">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="mx-auto max-w-4xl"
-        >
-          <motion.span variants={fadeUp} className="mb-6 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#8C6A44]">
-            Connect
-          </motion.span>
-          <motion.h1 variants={fadeUp} className="font-serif text-4xl leading-[1.1] md:text-6xl lg:text-7xl">
-            Start Your <span className="italic text-[#8C6A44]">Healing Journey</span>
-          </motion.h1>
-          <motion.p variants={fadeUp} className="mx-auto mt-8 max-w-2xl text-lg font-light leading-relaxed text-gray-600 md:text-xl">
-            Whether you are ready to apply for support or simply want to ask a thoughtful question,
-            this page gives you the cleanest way to reach out.
-          </motion.p>
-        </motion.div>
-      </section>
+    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#1A1A1A]">
+      <SectionShell className="bg-hero-gradient pt-12 lg:pt-16">
+        <Reveal immediate>
+          <SectionIntro
+            align="center"
+            className="max-w-4xl"
+            eyebrow="Connect"
+            title={
+              <>
+                Start Your <span className="italic text-[#8C6A44]">Healing Journey</span>
+              </>
+            }
+            body="Choose the cleanest first step: a quick clarity check, direct WhatsApp message, Instagram connection, or a written enquiry."
+            titleClassName="text-5xl md:text-6xl lg:text-7xl"
+          />
+        </Reveal>
+      </SectionShell>
 
-      <section className="mx-auto max-w-[1400px] px-6 py-12 md:px-12">
-        <div className="grid gap-16 lg:grid-cols-12">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="flex flex-col gap-8 lg:col-span-5"
-          >
-            <motion.div variants={fadeUp} className="overflow-hidden rounded-lg border border-black/5 bg-white shadow-sm">
-              <div className="aspect-[4/5] overflow-hidden bg-[#EFE6DA]">
-                <img
-                  src={siteConfig.image.contactPortrait}
-                  alt="Omkar Pawar portrait"
-                  className="h-full w-full object-cover object-[center_24%]"
-                  loading="eager"
-                  decoding="async"
-                />
-              </div>
-              <div className="space-y-4 p-8">
-                <h3 className="font-serif text-3xl">Choose The Easiest Next Step</h3>
-                <p className="text-sm leading-7 text-gray-600">
-                  Start with the quick clarity check, message directly on WhatsApp, or use the enquiry
-                  form if you want to explain things in your own words first.
-                </p>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <Button
-                    type="button"
-                    onClick={() => openLeadWizard()}
-                    size="md"
-                  >
-                    {wizardContent.triggerLabel}
-                  </Button>
-                  <Button asChild variant="instagram" size="md">
-                    <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer">
-                      <Instagram className="h-4 w-4" />
-                      Instagram
+      <SectionShell tone="white" className="border-y border-[#1A1A1A]/8">
+        <div className="grid gap-8 lg:grid-cols-3">
+          {contactRoutes.map((route, index) => (
+            <Reveal key={route.title} delay={index * 0.05}>
+              <FeatureCard
+                icon={route.icon}
+                title={route.title}
+                body={route.body}
+                href={route.href}
+                actionLabel={route.actionLabel}
+                onAction={route.title === "Quick Clarity Check" ? () => openLeadWizard() : undefined}
+                className="min-h-[290px]"
+              />
+            </Reveal>
+          ))}
+        </div>
+      </SectionShell>
+
+      <SectionShell>
+        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+          <Reveal>
+            <div className="lg:sticky lg:top-28">
+              <MediaFrame
+                src={siteConfig.image.contactPortrait}
+                alt="Omkar Pawar portrait"
+                aspect="aspect-[4/5]"
+                imageClassName="object-[center_24%]"
+                priority
+                caption={
+                  <div className="space-y-4">
+                    <h3 className="font-serif text-3xl font-semibold text-[#1A1A1A]">
+                      Choose The Easiest Next Step
+                    </h3>
+                    <p className="text-sm leading-7 text-[#4E463B]">
+                      Start with the quick clarity check, message directly on WhatsApp, or use the
+                      enquiry form if you want to explain things in your own words first.
+                    </p>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <Button type="button" onClick={() => openLeadWizard()} size="md">
+                        {wizardContent.triggerLabel}
+                      </Button>
+                      <Button asChild variant="instagram" size="md">
+                        <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer">
+                          <Instagram className="h-4 w-4" />
+                          Instagram
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                }
+              />
+
+              <PremiumCard className="mt-6 grid gap-5 p-6">
+                <div className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44]">
+                    <Mail className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#8C6A44]">
+                      Email
+                    </p>
+                    <a href={`mailto:${siteConfig.email}`} className="mt-2 block font-semibold text-[#1A1A1A] hover:text-[#8C6A44]">
+                      {siteConfig.email}
                     </a>
-                  </Button>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+                <div className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44]">
+                    <MapPin className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#8C6A44]">
+                      Location
+                    </p>
+                    <p className="mt-2 font-semibold text-[#1A1A1A]">{siteConfig.locationLabel}</p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-3 pt-1">
+                  {[
+                    { label: "Instagram", href: siteConfig.instagramUrl, icon: <Instagram className="h-4 w-4" /> },
+                    { label: "LinkedIn", href: siteConfig.linkedinUrl, icon: <Linkedin className="h-4 w-4" /> },
+                    { label: "YouTube", href: siteConfig.youtubeUrl, icon: <Youtube className="h-4 w-4" /> },
+                  ].map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-[#1A1A1A]/8 bg-[#FBF4E6] px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#1A1A1A] transition-colors hover:border-[#8C6A44]/35 hover:text-[#8C6A44]"
+                    >
+                      {link.icon}
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </PremiumCard>
+            </div>
+          </Reveal>
 
-            <motion.div variants={fadeUp} className="rounded-lg bg-[#25D366] p-10 text-white shadow-lg shadow-[#25D366]/20">
-              <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-white/20 text-white">
-                <MessageCircle className="h-6 w-6" />
+          <Reveal delay={0.08}>
+            <PremiumCard id="enquiry-form" className="p-6 md:p-10">
+              <SectionIntro
+                eyebrow="Send An Enquiry"
+                title="Write What You Are Navigating."
+                body="This form is for a private, thoughtful first message. Share enough context for Omkar to understand what kind of support may fit."
+                titleClassName="text-3xl md:text-4xl"
+              />
+              <div className="mt-8">
+                <InquiryForm />
               </div>
-              <h3 className="font-serif text-3xl">Chat On WhatsApp</h3>
-              <p className="mt-4 text-lg font-light text-white/90">
-                If you want the quickest reply before filling anything out, WhatsApp is the fastest
-                route.
-              </p>
+            </PremiumCard>
+          </Reveal>
+        </div>
+      </SectionShell>
+
+      <SectionShell tone="charcoal">
+        <Reveal>
+          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <SectionIntro
+              inverse
+              eyebrow="Prefer A Direct Message?"
+              title="WhatsApp Is The Fastest Route."
+              body="Use WhatsApp if you want a direct first message before filling out the longer enquiry form."
+              titleClassName="max-w-3xl"
+            />
+            <Button asChild variant="inverted" size="lg">
               <a
                 href={buildWhatsAppUrl("Hi Omkar, I would like to know more about working with you.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold tracking-[0.16em] text-[#128C7E] transition-colors hover:bg-gray-100"
               >
                 Message Now
                 <ArrowRight className="h-4 w-4" />
               </a>
-            </motion.div>
-
-            <motion.div variants={fadeUp} className="grid gap-6 rounded-lg border border-black/5 bg-white p-8 shadow-sm">
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F2E4CE] text-[#8C6A44]">
-                  <Mail className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">Email</p>
-                  <p className="mt-2 font-medium text-[#2A2A2A]">{siteConfig.email}</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F2E4CE] text-[#8C6A44]">
-                  <MapPin className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">Location</p>
-                  <p className="mt-2 font-medium text-[#2A2A2A]">{siteConfig.locationLabel}</p>
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={siteConfig.instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-[#FBF4E6] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C6A44]/30 hover:text-[#8C6A44]"
-                >
-                  <Instagram className="h-4 w-4" />
-                  Instagram
-                </a>
-                <a
-                  href={siteConfig.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-[#FBF4E6] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C6A44]/30 hover:text-[#8C6A44]"
-                >
-                  <Linkedin className="h-4 w-4" />
-                  LinkedIn
-                </a>
-                <a
-                  href={siteConfig.youtubeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-[#FBF4E6] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C6A44]/30 hover:text-[#8C6A44]"
-                >
-                  <Youtube className="h-4 w-4" />
-                  YouTube
-                </a>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-lg border border-black/5 bg-white p-10 shadow-sm lg:col-span-7 md:p-14"
-          >
-            <h3 className="font-serif text-3xl text-[#2A2A2A]">Send An Enquiry</h3>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-gray-600">
-              This form is connected to the live Naya lead system, so your enquiry is stored,
-              routed, and visible inside the client workspace without disappearing into a broken
-              inbox.
-            </p>
-            <div className="mt-8">
-              <InquiryForm />
-            </div>
-          </motion.div>
-        </div>
-      </section>
+            </Button>
+          </div>
+        </Reveal>
+      </SectionShell>
     </div>
   );
 }

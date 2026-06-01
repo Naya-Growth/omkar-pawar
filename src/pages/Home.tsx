@@ -25,6 +25,7 @@ import {
 } from "../components/ui/accordion";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
+import { MetricCard } from "../components/ui/premium";
 import { heroStats, wizardContent } from "../lib/omkar-content";
 import { buildWhatsAppUrl, siteConfig } from "../lib/site-config";
 
@@ -85,6 +86,8 @@ const claritySteps = [
   "Choose the support path that feels comfortable.",
   "Leave your details for a personal response.",
 ];
+
+const heroStatIcons = [Clock3, HeartHandshake, Globe2, CheckCircle2];
 
 export default function Home() {
   const { openLeadWizard } = useLeadWizard();
@@ -228,14 +231,9 @@ export default function Home() {
           variants={staggerContainer}
           className="mx-auto mt-9 grid max-w-[1500px] gap-3 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {heroStats.map((stat) => (
+          {heroStats.map((stat, index) => (
             <motion.div key={stat.label} variants={fadeUp}>
-              <Card className="h-full p-5">
-                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#8C6A44]">
-                  {stat.label}
-                </p>
-                <p className="mt-2 text-xl font-semibold leading-tight text-[#1A1A1A]">{stat.value}</p>
-              </Card>
+              <MetricCard label={stat.label} value={stat.value} icon={heroStatIcons[index]} />
             </motion.div>
           ))}
         </motion.div>
