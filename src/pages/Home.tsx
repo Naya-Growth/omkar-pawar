@@ -120,7 +120,7 @@ export default function Home() {
           src={siteConfig.image.homeHeroHorizontal}
           alt=""
           aria-hidden="true"
-          className="absolute inset-y-0 right-0 z-0 hidden h-full w-[56%] object-cover object-[100%_center] lg:block"
+          className="absolute inset-y-0 right-0 z-0 hidden h-full w-[56%] object-cover object-[98%_center] lg:block"
           loading="eager"
           decoding="async"
         />
