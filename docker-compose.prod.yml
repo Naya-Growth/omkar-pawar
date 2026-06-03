@@ -16,8 +16,12 @@ services:
       traefik.enable: "true"
       traefik.docker.network: proxy_net
       traefik.http.routers.omkar-pawar.entrypoints: websecure
-      traefik.http.routers.omkar-pawar.rule: Host(`omkarpawar.com`)
+      traefik.http.routers.omkar-pawar.rule: Host(`omkarpawar.com`) || Host(`www.omkarpawar.com`)
       traefik.http.routers.omkar-pawar.tls.certresolver: letsencrypt
+      traefik.http.routers.omkar-pawar.middlewares: omkar-pawar-www-redirect
+      traefik.http.middlewares.omkar-pawar-www-redirect.redirectregex.regex: ^https?://www\.omkarpawar\.com/(.*)
+      traefik.http.middlewares.omkar-pawar-www-redirect.redirectregex.replacement: https://omkarpawar.com/$${1}
+      traefik.http.middlewares.omkar-pawar-www-redirect.redirectregex.permanent: "true"
       traefik.http.services.omkar-pawar.loadbalancer.server.port: "80"
 
 networks:
