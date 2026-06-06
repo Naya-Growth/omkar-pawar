@@ -11,7 +11,7 @@ import { faqItems } from "../lib/omkar-content";
 
 export default function Faq() {
   return (
-    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#1A1A1A]">
+    <div className="overflow-x-hidden bg-[#FAF6F0] text-[#1A1A1A]">
       <SectionShell className="bg-hero-gradient pt-12 lg:pt-16">
         <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           <Reveal immediate>
@@ -31,7 +31,7 @@ export default function Faq() {
               type="single"
               defaultValue={faqItems[0].question}
               collapsible
-              className="rounded-lg border border-[#1A1A1A]/8 bg-white/92 px-5 shadow-[0_22px_70px_rgba(140,106,68,0.13)] md:px-7"
+              className="rounded-[24px] border border-[#1A1A1A]/8 bg-white/92 px-5 shadow-[0_22px_70px_rgba(140,106,68,0.13)] md:px-7"
             >
               {faqItems.map((item) => (
                 <AccordionItem key={item.question} value={item.question}>
@@ -48,3 +48,7 @@ export default function Faq() {
     </div>
   );
 }
+
+
+
+

@@ -3,9 +3,9 @@ import { siteConfig } from "../lib/site-config";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#2A2A2A]">
+    <div className="overflow-x-hidden bg-[#FAF6F0] text-[#2A2A2A]">
       <Section className="pt-24">
-        <span className="text-[10px] uppercase tracking-[0.3em] text-[#8C6A44] font-bold mb-6 block">
+        <span className="text-[10px] uppercase tracking-[0.3em] text-[#3D2B1F] font-bold mb-6 block">
           Privacy
         </span>
         <h1 className="font-serif text-4xl md:text-6xl leading-[1.1] mb-8">Privacy Policy</h1>
@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
           </p>
           <p>
             If you would like your information updated or removed, write to{" "}
-            <a className="text-[#8C6A44] underline-offset-4 hover:underline" href={`mailto:${siteConfig.email}`}>
+            <a className="text-[#3D2B1F] underline-offset-4 hover:underline" href={`mailto:${siteConfig.email}`}>
               {siteConfig.email}
             </a>.
           </p>
@@ -30,3 +30,7 @@ export default function PrivacyPolicy() {
     </div>
   );
 }
+
+
+
+

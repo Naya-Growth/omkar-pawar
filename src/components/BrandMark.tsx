@@ -20,7 +20,7 @@ export function BrandMark({ className = "h-11 w-11" }: BrandMarkProps) {
         strokeWidth="6"
         strokeLinejoin="round"
       />
-      <path d="M48 44V69" stroke="#FBF4E6" strokeWidth="7" strokeLinecap="round" />
+      <path d="M48 44V69" stroke="#FAF6F0" strokeWidth="7" strokeLinecap="round" />
       <path
         d="M48 44V69"
         stroke="currentColor"
@@ -47,13 +47,13 @@ export function BrandLockup({
   compact = false,
 }: BrandLockupProps) {
   const textTone = tone === "light" ? "text-white" : "text-[#1A1A1A]";
-  const metaTone = tone === "light" ? "text-white/65" : "text-[#8C6A44]";
+  const metaTone = tone === "light" ? "text-white/65" : "text-[#3D2B1F]";
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <span
         className={`h-10 w-1.5 rounded-full ${
-          tone === "light" ? "bg-white/40" : "bg-[#8C6A44]"
+          tone === "light" ? "bg-white/40" : "bg-[#3D2B1F]"
         }`}
         aria-hidden="true"
       />
@@ -66,3 +66,7 @@ export function BrandLockup({
     </div>
   );
 }
+
+
+
+

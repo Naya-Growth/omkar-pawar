@@ -24,7 +24,7 @@ export default function TopNav() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-black/5 bg-[#FFF9EF]/92 shadow-[0_10px_35px_rgba(88,62,34,0.06)] backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 w-full border-b border-black/5 bg-[#FFFFFF]/92 shadow-[0_10px_35px_rgba(88,62,34,0.06)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-6 py-3 md:px-12">
         <Link to="/" className="min-w-0 shrink" aria-label="Go to Omkar Pawar home">
           <BrandLockup compact className="min-w-0" />
@@ -39,7 +39,7 @@ export default function TopNav() {
                 to={item.path}
                 className={`border-b-2 pb-1 text-[11px] font-bold uppercase tracking-[0.22em] transition-colors ${
                   active
-                    ? "border-[#8C6A44] text-[#8C6A44]"
+                    ? "border-[#3D2B1F] text-[#3D2B1F]"
                     : "border-transparent text-gray-500 hover:text-[#2A2A2A]"
                 }`}
               >
@@ -84,7 +84,7 @@ export default function TopNav() {
           </motion.div>
           <Link
             to="/contact"
-            className="inline-flex min-h-11 items-center justify-center whitespace-nowrap rounded-full bg-[#8C6A44] px-5 text-xs font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_14px_32px_rgba(140,106,68,0.23)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#765636]"
+            className="inline-flex min-h-11 items-center justify-center whitespace-nowrap rounded-full bg-[#3D2B1F] px-5 text-xs font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_14px_32px_rgba(140,106,68,0.23)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#765636]"
           >
             Book Session
           </Link>
@@ -94,7 +94,7 @@ export default function TopNav() {
           <button
             type="button"
             onClick={() => openLeadWizard()}
-            className="hidden h-11 items-center rounded-full bg-[#8C6A44] px-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white sm:inline-flex md:hidden"
+            className="hidden h-11 items-center rounded-full bg-[#3D2B1F] px-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white sm:inline-flex md:hidden"
           >
             Direction
           </button>
@@ -111,16 +111,16 @@ export default function TopNav() {
       </div>
 
       {isMenuOpen ? (
-        <div className="border-t border-black/5 bg-[#FFF9EF] px-6 pb-6 md:hidden">
+        <div className="border-t border-black/5 bg-[#FFFFFF] px-6 pb-6 md:hidden">
           <div className="flex flex-col gap-2 pt-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={closeMenu}
-                className={`rounded-lg px-4 py-3 text-sm font-bold uppercase tracking-[0.18em] transition-colors ${
+                className={`rounded-[24px] px-4 py-3 text-sm font-bold uppercase tracking-[0.18em] transition-colors ${
                   location.pathname === item.path
-                    ? "bg-[#EBC85B]/22 text-[#8C6A44]"
+                    ? "bg-[#D4AF37]/22 text-[#3D2B1F]"
                     : "text-gray-500 hover:bg-white hover:text-[#2A2A2A]"
                 }`}
               >
@@ -136,7 +136,7 @@ export default function TopNav() {
                 closeMenu();
                 openLeadWizard();
               }}
-              className="inline-flex items-center justify-center rounded-full bg-[#8C6A44] px-5 py-4 text-xs font-bold uppercase tracking-[0.18em] text-white"
+              className="inline-flex items-center justify-center rounded-full bg-[#3D2B1F] px-5 py-4 text-xs font-bold uppercase tracking-[0.18em] text-white"
             >
               Find My Next Step
             </button>
@@ -164,3 +164,7 @@ export default function TopNav() {
     </nav>
   );
 }
+
+
+
+

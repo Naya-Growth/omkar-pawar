@@ -114,8 +114,8 @@ export default function Home() {
   const { openLeadWizard } = useLeadWizard();
 
   return (
-    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#1A1A1A]">
-      <section className="relative isolate overflow-hidden bg-[#FBF4E6] px-5 py-10 sm:px-8 lg:min-h-[calc(100svh-100px)] lg:px-14 lg:py-8 xl:px-20 2xl:px-24">
+    <div className="overflow-x-hidden bg-[#FAF6F0] text-[#1A1A1A]">
+      <section className="relative isolate overflow-hidden bg-[#FAF6F0] px-5 py-10 sm:px-8 lg:min-h-[calc(100svh-100px)] lg:px-14 lg:py-8 xl:px-20 2xl:px-24">
         <img
           src={siteConfig.image.homeHeroHorizontal}
           alt=""
@@ -124,8 +124,8 @@ export default function Home() {
           loading="eager"
           decoding="async"
         />
-        <div className="absolute inset-0 z-0 hidden bg-[linear-gradient(90deg,#FBF4E6_0%,#FBF4E6_41%,rgba(251,244,230,0.9)_56%,rgba(251,244,230,0.25)_74%,rgba(251,244,230,0.04)_100%)] lg:block" />
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_82%_22%,rgba(235,200,91,0.28),transparent_36%),linear-gradient(135deg,#FFF9EF_0%,#F8ECD9_52%,#F2DFC3_100%)] lg:hidden" />
+        <div className="absolute inset-0 z-0 hidden bg-[linear-gradient(90deg,#FAF6F0_0%,#FAF6F0_41%,rgba(251,244,230,0.9)_56%,rgba(251,244,230,0.25)_74%,rgba(251,244,230,0.04)_100%)] lg:block" />
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_82%_22%,rgba(235,200,91,0.28),transparent_36%),linear-gradient(135deg,#FFFFFF_0%,#F8ECD9_52%,#F2DFC3_100%)] lg:hidden" />
         <div className="bg-warm-pattern absolute inset-0 z-0 opacity-[0.18]" aria-hidden="true" />
         <img
           src={siteConfig.image.heroPortrait}
@@ -143,11 +143,11 @@ export default function Home() {
             className="min-w-0"
           >
             <motion.div variants={fadeUp} className="hidden flex-wrap items-center gap-2.5 sm:flex">
-              <span className="rounded-full bg-[#EBC85B] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#2A210B] shadow-[0_10px_24px_rgba(235,200,91,0.22)]">
+              <span className="rounded-full bg-[#D4AF37] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.18em] text-white shadow-[0_10px_24px_rgba(212,175,55,0.22)]">
                 Emotional Mastery
               </span>
-              <span className="inline-flex items-center gap-2 overflow-hidden rounded-full border border-[#1A1A1A]/8 bg-white/84 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6F5438] shadow-[0_10px_25px_rgba(88,62,34,0.08)]">
-                <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-[#F2E4CE] text-[#8C6A44]">
+              <span className="inline-flex items-center gap-2 overflow-hidden rounded-full border border-[#3D2B1F]/8 bg-white/84 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#3D2B1F] shadow-[0_10px_25px_rgba(61,43,31,0.08)]">
+                <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF6F0] text-[#3D2B1F]">
                   <span className="absolute h-4 w-4 rounded-full border border-[#25D366]/60 opacity-75 [animation:ping_1.7s_cubic-bezier(0,0,0.2,1)_infinite]" />
                   <Globe2 className="relative h-3.5 w-3.5" />
                 </span>
@@ -155,7 +155,7 @@ export default function Home() {
                   <MapPin className="h-3.5 w-3.5" />
                   Pune, Maharashtra
                 </span>
-                <span className="h-1 w-1 rounded-full bg-[#8C6A44]/45" />
+                <span className="h-1 w-1 rounded-full bg-[#3D2B1F]/45" />
                 <span className="inline-flex items-center gap-1.5 text-[#128C4A]">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#25D366]" />
                   Online Worldwide
@@ -166,10 +166,10 @@ export default function Home() {
               variants={fadeUp}
               className="flex max-w-full flex-wrap items-center gap-2 sm:hidden"
             >
-              <span className="rounded-full bg-[#EBC85B] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#2A210B] shadow-[0_10px_24px_rgba(235,200,91,0.2)]">
+              <span className="rounded-full bg-[#D4AF37] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.16em] text-white shadow-[0_10px_24px_rgba(212,175,55,0.2)]">
                 Emotional Mastery
               </span>
-              <span className="inline-flex min-w-0 items-center gap-1.5 rounded-full border border-[#1A1A1A]/8 bg-white/86 px-3.5 py-2 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#6F5438] shadow-sm">
+              <span className="inline-flex min-w-0 items-center gap-1.5 rounded-full border border-[#3D2B1F]/8 bg-white/86 px-3.5 py-2 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#3D2B1F] shadow-sm">
                 <MapPin className="h-3.5 w-3.5 shrink-0" />
                 Pune · Online
               </span>
@@ -182,20 +182,20 @@ export default function Home() {
               <span className="block lg:hidden">
                 <span className="block">Master Your</span>
                 <span className="block">Emotions.</span>
-                <span className="block text-[#8C6A44]">Transform</span>
-                <span className="block text-[#8C6A44]">Your Life.</span>
+                <span className="block text-[#3D2B1F]">Transform</span>
+                <span className="block text-[#3D2B1F]">Your Life.</span>
               </span>
               <span className="hidden lg:block">
                 <span className="block">Master Your Emotions.</span>
-                <span className="block text-[#8C6A44]">Transform Your Life.</span>
+                <span className="block text-[#3D2B1F]">Transform Your Life.</span>
               </span>
             </motion.h1>
 
             <motion.div
               variants={fadeUp}
-              className="mt-6 overflow-hidden rounded-lg border border-[#1A1A1A]/8 bg-white/78 p-2 shadow-[0_18px_55px_rgba(140,106,68,0.18)] lg:hidden"
+              className="mt-6 overflow-hidden rounded-[24px] border border-[#1A1A1A]/8 bg-white/78 p-2 shadow-[0_18px_55px_rgba(140,106,68,0.18)] lg:hidden"
             >
-              <div className="relative aspect-[16/10] overflow-hidden rounded-md bg-[#F2E4CE]">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-md bg-[#FAF6F0]">
                 <img
                   src={siteConfig.image.homeHeroHorizontal}
                   alt="Omkar Pawar near a calm lakeside"
@@ -208,7 +208,7 @@ export default function Home() {
 
             <motion.p
               variants={fadeUp}
-              className="mt-5 max-w-2xl text-base leading-8 text-[#4E463B] md:text-lg"
+              className="mt-5 max-w-2xl text-base leading-8 text-[#1A1A1A] md:text-lg"
             >
               Omkar Pawar helps people heal anxiety, regulate emotional overwhelm, and understand
               the root patterns that keep repeating beneath high-functioning outer lives.
@@ -217,13 +217,13 @@ export default function Home() {
             <motion.div variants={fadeUp} className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 to="/contact"
-                className="group inline-flex min-h-14 w-full max-w-full items-center justify-center gap-3 overflow-hidden rounded-full border border-[#8C6A44]/18 bg-white/92 px-8 py-3.5 text-center text-sm font-extrabold tracking-[0.08em] text-[#1A1A1A] shadow-[0_14px_34px_rgba(88,62,34,0.11)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#8C6A44]/38 hover:text-[#8C6A44] sm:w-auto"
+                className="group inline-flex min-h-14 w-full max-w-full items-center justify-center gap-3 overflow-hidden rounded-full border border-[#3D2B1F]/18 bg-white/92 px-8 py-3.5 text-center text-sm font-extrabold tracking-[0.08em] text-[#1A1A1A] shadow-[0_14px_34px_rgba(88,62,34,0.11)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#3D2B1F]/38 hover:text-[#3D2B1F] sm:w-auto"
               >
                 <span className="relative grid h-5 min-w-[11.5rem] place-items-center [perspective:900px]">
                   <span className="transition-transform duration-500 [backface-visibility:hidden] group-hover:[transform:rotateX(180deg)]">
                     Book A Clarity Session
                   </span>
-                  <span className="absolute inset-0 grid place-items-center text-[#8C6A44] [backface-visibility:hidden] [transform:rotateX(-180deg)] transition-transform duration-500 group-hover:[transform:rotateX(0deg)]">
+                  <span className="absolute inset-0 grid place-items-center text-[#3D2B1F] [backface-visibility:hidden] [transform:rotateX(-180deg)] transition-transform duration-500 group-hover:[transform:rotateX(0deg)]">
                     Start Gently
                   </span>
                 </span>
@@ -266,7 +266,7 @@ export default function Home() {
           className="mx-auto grid max-w-[1360px] gap-10 lg:grid-cols-[0.58fr_0.42fr] lg:items-start"
         >
           <motion.div variants={fadeUp} className="order-2">
-            <div className="relative overflow-hidden rounded-lg border border-[#1A1A1A]/8 bg-[#F2E4CE] p-3 shadow-[0_22px_70px_rgba(140,106,68,0.14)]">
+            <div className="relative overflow-hidden rounded-[24px] border border-[#1A1A1A]/8 bg-[#FAF6F0] p-3 shadow-[0_22px_70px_rgba(140,106,68,0.14)]">
               <img
                 src={siteConfig.image.healingHorizontal}
                 alt="Omkar Pawar in a grounded outdoor setting"
@@ -274,14 +274,14 @@ export default function Home() {
                 loading="lazy"
                 decoding="async"
               />
-              <div className="absolute inset-x-6 bottom-6 rounded-md border border-white/60 bg-[#FFF9EF]/92 p-4 shadow-[0_16px_40px_rgba(42,42,42,0.14)] backdrop-blur">
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#8C6A44]">
+              <div className="absolute inset-x-6 bottom-6 rounded-md border border-white/60 bg-[#FFFFFF]/92 p-4 shadow-[0_16px_40px_rgba(42,42,42,0.14)] backdrop-blur">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#3D2B1F]">
                   Surface To Root
                 </p>
                 <div className="mt-3 flex items-center gap-3">
                   {["Signal", "Pattern", "Healing"].map((item, index) => (
                     <div key={item} className="flex min-w-0 flex-1 items-center gap-2">
-                      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#F2E4CE] font-serif text-sm font-semibold text-[#8C6A44]">
+                      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#FAF6F0] font-serif text-sm font-semibold text-[#3D2B1F]">
                         {index + 1}
                       </span>
                       <span className="truncate text-xs font-extrabold text-[#1A1A1A]">{item}</span>
@@ -293,30 +293,30 @@ export default function Home() {
           </motion.div>
 
           <motion.div variants={fadeUp} className="order-1">
-            <p className="mb-4 text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#8C6A44]">
+            <p className="mb-4 text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#3D2B1F]">
               The Freedom Innerwellbeing Approach
             </p>
             <h2 className="max-w-4xl font-serif text-3xl font-semibold leading-tight text-[#1A1A1A] md:text-5xl">
               "For Every Surface-Level Behavior, There Is A{" "}
-              <span className="italic text-[#8C6A44]">Deep-Rooted Reason.</span> We Do Not Just Cope.
+              <span className="italic text-[#3D2B1F]">Deep-Rooted Reason.</span> We Do Not Just Cope.
               We Heal From The Root."
             </h2>
             <div className="mt-9 grid gap-4 md:grid-cols-3">
               {approachPrinciples.map((item) => (
                 <div
                   key={item.step}
-                  className="group rounded-lg border border-[#1A1A1A]/8 bg-[#FBF4E6] p-5 shadow-[0_14px_38px_rgba(88,62,34,0.07)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#FFF9EF] hover:shadow-[0_20px_55px_rgba(140,106,68,0.14)]"
+                  className="group rounded-[24px] border border-[#1A1A1A]/8 bg-[#FAF6F0] p-5 shadow-[0_14px_38px_rgba(88,62,34,0.07)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#FFFFFF] hover:shadow-[0_20px_55px_rgba(140,106,68,0.14)]"
                 >
                   <div className="flex items-center justify-between gap-4">
-                    <span className="font-serif text-3xl font-semibold text-[#8C6A44]">{item.step}</span>
-                    <span className="flex h-10 w-10 items-center justify-center rounded-md bg-white text-[#8C6A44] shadow-sm">
+                    <span className="font-serif text-3xl font-semibold text-[#3D2B1F]">{item.step}</span>
+                    <span className="flex h-10 w-10 items-center justify-center rounded-md bg-white text-[#3D2B1F] shadow-sm">
                       {item.icon}
                     </span>
                   </div>
                   <h3 className="mt-5 font-serif text-2xl font-semibold leading-tight text-[#1A1A1A]">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-[#4E463B]">{item.desc}</p>
+                  <p className="mt-3 text-sm leading-7 text-[#1A1A1A]">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -333,13 +333,13 @@ export default function Home() {
             variants={staggerContainer}
             className="lg:sticky lg:top-28 lg:self-start"
           >
-            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">
+            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#3D2B1F]">
               What Clients Usually Carry
             </motion.p>
             <motion.h2 variants={fadeUp} className="mt-4 max-w-xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
               The Invisible Battles
             </motion.h2>
-            <motion.p variants={fadeUp} className="mt-5 max-w-xl text-base leading-8 text-[#4E463B]">
+            <motion.p variants={fadeUp} className="mt-5 max-w-xl text-base leading-8 text-[#1A1A1A]">
               You may look composed on the outside and still feel exhausted by overthinking,
               emotional pressure, fear of judgment, and patterns that seem to return no matter how
               much you understand them intellectually.
@@ -355,7 +355,7 @@ export default function Home() {
           </motion.div>
 
           <div className="grid gap-4">
-            <div className="overflow-hidden rounded-lg border border-[#1A1A1A]/8 bg-white/82 p-3 shadow-[0_22px_70px_rgba(140,106,68,0.12)] backdrop-blur">
+            <div className="overflow-hidden rounded-[24px] border border-[#1A1A1A]/8 bg-white/82 p-3 shadow-[0_22px_70px_rgba(140,106,68,0.12)] backdrop-blur">
               <img
                 src={siteConfig.image.servicesPortrait}
                 alt="Omkar Pawar standing calmly outdoors"
@@ -365,24 +365,24 @@ export default function Home() {
               />
             </div>
 
-            <div className="rounded-lg border border-[#1A1A1A]/8 bg-white/82 p-3 shadow-[0_22px_70px_rgba(140,106,68,0.12)] backdrop-blur">
+            <div className="rounded-[24px] border border-[#1A1A1A]/8 bg-white/82 p-3 shadow-[0_22px_70px_rgba(140,106,68,0.12)] backdrop-blur">
               <Accordion type="single" defaultValue="pain-0" collapsible>
                 {painPoints.map((item, index) => (
                   <div key={item.title}>
                     <AccordionItem
                       value={`pain-${index}`}
-                      className="rounded-md border-b-0 data-[state=open]:bg-[#FBF4E6]"
+                      className="rounded-md border-b-0 data-[state=open]:bg-[#FAF6F0]"
                     >
                       <AccordionTrigger className="px-4 py-5 hover:text-[#1A1A1A] md:px-5">
                         <span className="flex items-center gap-4">
-                          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44] shadow-sm">
+                          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[24px] bg-[#FAF6F0] text-[#3D2B1F] shadow-sm">
                             {item.icon}
                           </span>
                           <span>
                             <span className="block font-serif text-2xl font-semibold leading-tight text-[#1A1A1A]">
                               {item.title}
                             </span>
-                            <span className="mt-1 block text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#8C6A44]">
+                            <span className="mt-1 block text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#3D2B1F]">
                               Pattern 0{index + 1}
                             </span>
                           </span>
@@ -400,7 +400,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#252423] px-5 py-20 text-white sm:px-8 lg:px-10 lg:py-24">
+      <section className="relative overflow-hidden bg-[#1A1A1A] px-5 py-20 text-white sm:px-8 lg:px-10 lg:py-24">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[length:46px_46px] opacity-45" />
         <div className="relative mx-auto grid max-w-[1400px] gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
           <motion.div
@@ -411,7 +411,7 @@ export default function Home() {
             className="grid gap-6"
           >
             <motion.div variants={fadeUp}>
-              <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#EFD95E]">
+              <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#D4AF37]">
                 Clinical Expertise
               </p>
               <h2 className="mt-4 max-w-xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
@@ -425,7 +425,7 @@ export default function Home() {
 
             <motion.div
               variants={fadeUp}
-              className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.07] p-3 shadow-[0_24px_90px_rgba(0,0,0,0.24)]"
+              className="overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.07] p-3 shadow-[0_24px_90px_rgba(0,0,0,0.24)]"
             >
               <img
                 src={siteConfig.image.clinicalExpertise}
@@ -447,7 +447,7 @@ export default function Home() {
               <motion.div variants={fadeUp} className="grid gap-3 sm:grid-cols-3">
                 {claritySteps.map((step, index) => (
                   <div key={step} className="rounded-md border border-white/10 bg-white/[0.05] p-4">
-                    <span className="font-serif text-2xl font-semibold text-[#EFD95E]">0{index + 1}</span>
+                    <span className="font-serif text-2xl font-semibold text-[#D4AF37]">0{index + 1}</span>
                     <p className="mt-3 text-sm leading-6 text-white/72">{step}</p>
                   </div>
                 ))}
@@ -457,7 +457,7 @@ export default function Home() {
                 {modalities.map((modality) => (
                   <span
                     key={modality.title}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#EFD95E]"
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#D4AF37]"
                   >
                     {modality.title}
                   </span>
@@ -468,9 +468,9 @@ export default function Home() {
                 <Accordion type="single" defaultValue="modality-0" collapsible>
                   {modalities.map((modality, index) => (
                     <AccordionItem key={modality.title} value={`modality-${index}`} className="border-white/10">
-                      <AccordionTrigger className="text-white hover:text-[#EFD95E]">
+                      <AccordionTrigger className="text-white hover:text-[#D4AF37]">
                         <span className="flex items-center gap-4">
-                          <span className="font-serif text-2xl font-semibold text-[#EFD95E]">0{index + 1}</span>
+                          <span className="font-serif text-2xl font-semibold text-[#D4AF37]">0{index + 1}</span>
                           {modality.title}
                         </span>
                       </AccordionTrigger>
@@ -504,13 +504,13 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
           >
-            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#8C6A44]">
+            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#3D2B1F]">
               Guided First Step
             </motion.p>
             <motion.h2 variants={fadeUp} className="mt-4 max-w-2xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
               Get Direction Without Guessing The Right Program First.
             </motion.h2>
-            <motion.p variants={fadeUp} className="mt-5 max-w-xl text-base leading-8 text-[#4E463B]">
+            <motion.p variants={fadeUp} className="mt-5 max-w-xl text-base leading-8 text-[#1A1A1A]">
               This guided enquiry keeps the first step simple: name what is happening, choose the
               kind of support that feels comfortable, and let Omkar respond personally.
             </motion.p>
@@ -526,7 +526,7 @@ export default function Home() {
             {claritySteps.map((step, index) => (
               <motion.div key={step} variants={fadeUp}>
                 <Card className="flex items-start gap-4 p-5">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#F2E4CE] text-sm font-bold text-[#8C6A44]">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[24px] bg-[#FAF6F0] text-sm font-bold text-[#3D2B1F]">
                     {index + 1}
                   </div>
                   <p className="text-sm font-semibold leading-7 text-[#1A1A1A]">{step}</p>
@@ -561,13 +561,13 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
           >
-            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#8C6A44]">
+            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#3D2B1F]">
               Prefer Writing Before A Call?
             </motion.p>
             <motion.h2 variants={fadeUp} className="mt-4 max-w-3xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
               Send A Grounded Enquiry And Let The Right Next Step Become Clear.
             </motion.h2>
-            <motion.p variants={fadeUp} className="mt-5 max-w-2xl text-base leading-8 text-[#4E463B]">
+            <motion.p variants={fadeUp} className="mt-5 max-w-2xl text-base leading-8 text-[#1A1A1A]">
               Use the form below if you want to explain what you are currently navigating in your own
               words. Your message is captured properly and routed for follow-up.
             </motion.p>
@@ -598,8 +598,8 @@ export default function Home() {
                   { icon: <ShieldCheck className="h-4 w-4" />, label: "Private anxiety and healing enquiries" },
                   { icon: <CheckCircle2 className="h-4 w-4" />, label: "Program fit checks" },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-3 text-sm font-semibold text-[#4E463B]">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44]">
+                  <div key={item.label} className="flex items-center gap-3 text-sm font-semibold text-[#1A1A1A]">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[24px] bg-[#FAF6F0] text-[#3D2B1F]">
                       {item.icon}
                     </span>
                     {item.label}
@@ -621,17 +621,17 @@ export default function Home() {
         >
           <motion.div
             variants={fadeUp}
-            className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-[#8C6A44]/12 bg-white shadow-[0_18px_45px_rgba(140,106,68,0.13)]"
+            className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-[#3D2B1F]/12 bg-white shadow-[0_18px_45px_rgba(140,106,68,0.13)]"
           >
-            <span className="absolute inset-2 rounded-full border border-[#EBC85B]/50" />
-            <span className="absolute h-10 w-10 rounded-full bg-[#F2E4CE]" />
-            <Leaf className="relative h-5 w-5 text-[#8C6A44]" />
+            <span className="absolute inset-2 rounded-full border border-[#D4AF37]/50" />
+            <span className="absolute h-10 w-10 rounded-full bg-[#FAF6F0]" />
+            <Leaf className="relative h-5 w-5 text-[#3D2B1F]" />
           </motion.div>
           <motion.h2 variants={fadeUp} className="font-serif text-4xl font-semibold leading-tight text-[#1A1A1A] md:text-5xl">
             Ready To Stop Surviving And Start{" "}
-            <span className="italic text-[#8C6A44]">Living?</span>
+            <span className="italic text-[#3D2B1F]">Living?</span>
           </motion.h2>
-          <motion.p variants={fadeUp} className="mx-auto mt-4 max-w-2xl text-base leading-8 text-[#4E463B]">
+          <motion.p variants={fadeUp} className="mx-auto mt-4 max-w-2xl text-base leading-8 text-[#1A1A1A]">
             Start with a guided first step, send an enquiry, or message directly on WhatsApp and
             take the first honest step toward steadier emotional wellbeing.
           </motion.p>
@@ -654,3 +654,7 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+

@@ -13,8 +13,8 @@ export default function Footer() {
 
   return (
     <footer className="mt-20 w-full">
-      <div className="bg-[#252423] px-6 py-20 text-white md:px-12">
-        <div className="mx-auto grid max-w-[1400px] gap-8 rounded-lg border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.025))] p-8 shadow-[0_24px_90px_rgba(0,0,0,0.24)] md:grid-cols-[1.05fr_0.95fr] md:p-12">
+      <div className="bg-[#1A1A1A] px-6 py-20 text-white md:px-12">
+        <div className="mx-auto grid max-w-[1400px] gap-8 rounded-[24px] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.025))] p-8 shadow-[0_24px_90px_rgba(0,0,0,0.24)] md:grid-cols-[1.05fr_0.95fr] md:p-12">
           <div className="flex flex-col justify-between gap-8">
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#D8C0A1]">
@@ -35,7 +35,7 @@ export default function Footer() {
                 "No pressure to commit",
               ].map((item) => (
                 <div key={item} className="rounded-md border border-white/10 bg-white/[0.05] px-4 py-3">
-                  <ShieldCheck className="h-4 w-4 text-[#EFD95E]" />
+                  <ShieldCheck className="h-4 w-4 text-[#D4AF37]" />
                   <p className="mt-2 text-xs font-bold leading-5 text-white/76">{item}</p>
                 </div>
               ))}
@@ -48,9 +48,9 @@ export default function Footer() {
               onClick={() => openLeadWizard()}
               whileHover={{ y: -3, rotateX: 4 }}
               whileTap={{ scale: 0.98 }}
-              className="flex min-h-[142px] flex-col justify-between rounded-lg bg-white p-6 text-left text-[#1A1A1A] shadow-[0_18px_50px_rgba(0,0,0,0.2)]"
+              className="flex min-h-[142px] flex-col justify-between rounded-2xl bg-white p-6 text-left text-[#1A1A1A] shadow-[0_18px_50px_rgba(61,43,31,0.12)]"
             >
-              <Send className="h-6 w-6 text-[#8C6A44]" />
+              <Send className="h-6 w-6 text-[#3D2B1F]" />
               <span className="font-serif text-2xl font-semibold leading-tight">{directionCtaLabel}</span>
               <ArrowRight className="h-4 w-4" />
             </motion.button>
@@ -60,7 +60,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               whileHover={{ y: -3, rotateX: 4 }}
               whileTap={{ scale: 0.98 }}
-              className="flex min-h-[142px] flex-col justify-between rounded-lg border border-[#25D366]/24 bg-[#25D366]/10 p-6 text-left text-white"
+              className="flex min-h-[142px] flex-col justify-between rounded-2xl border border-[#25D366]/24 bg-[#25D366]/10 p-6 text-left text-white"
             >
               <MessageCircle className="h-6 w-6 text-[#25D366]" />
               <span className="font-serif text-2xl font-semibold leading-tight">Message On WhatsApp</span>
@@ -68,7 +68,7 @@ export default function Footer() {
             </motion.a>
             <Link
               to="/contact"
-              className="rounded-lg border border-white/12 bg-white/[0.05] px-6 py-5 text-sm font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-white/10"
+              className="rounded-xl border border-white/12 bg-white/[0.05] px-6 py-5 text-sm font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-white/10"
             >
               Send An Enquiry
             </Link>
@@ -76,7 +76,7 @@ export default function Footer() {
               href={siteConfig.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-[#D62976]/24 bg-[#D62976]/10 px-6 py-5 text-sm font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[#D62976]/16"
+              className="inline-flex items-center gap-2 rounded-xl border border-[#D62976]/24 bg-[#D62976]/10 px-6 py-5 text-sm font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[#D62976]/16"
             >
               <Instagram className="h-4 w-4 text-[#FEDA75]" />
               Instagram
@@ -85,7 +85,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="bg-[#F3EEE6] px-6 pb-32 pt-16 text-[#2A2A2A] md:px-12 md:pb-16">
+      <div className="bg-[#FAF6F0] px-6 pb-32 pt-16 text-[#2A2A2A] md:px-12 md:pb-16">
         <div className="mx-auto grid max-w-[1400px] gap-12 md:grid-cols-[1.35fr_0.7fr_0.95fr]">
           <div>
             <BrandLockup className="items-start" />
@@ -94,20 +94,20 @@ export default function Footer() {
               anxiety, perfectionism, emotional overwhelm, and unresolved inner-child patterns.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              <span className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#8C6A44]">
+              <span className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#3D2B1F]">
                 {siteConfig.socialProof.years}
               </span>
-              <span className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#8C6A44]">
+              <span className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#3D2B1F]">
                 {siteConfig.socialProof.clients}
               </span>
-              <span className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#8C6A44]">
+              <span className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#3D2B1F]">
                 {siteConfig.locationLabel}
               </span>
             </div>
           </div>
 
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">Explore</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#3D2B1F]">Explore</p>
             <div className="mt-5 flex flex-col gap-3 text-sm text-gray-600">
               <Link to="/" className="transition-colors hover:text-[#2A2A2A]">Home</Link>
               <Link to="/about" className="transition-colors hover:text-[#2A2A2A]">About Omkar</Link>
@@ -119,10 +119,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C6A44]">Connect</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#3D2B1F]">Connect</p>
             <div className="mt-5 space-y-4 text-sm text-gray-600">
               <a href={`mailto:${siteConfig.email}`} className="flex items-start gap-3 transition-colors hover:text-[#2A2A2A]">
-                <Mail className="mt-1 h-4 w-4 shrink-0 text-[#8C6A44]" />
+                <Mail className="mt-1 h-4 w-4 shrink-0 text-[#3D2B1F]" />
                 <span>{siteConfig.email}</span>
               </a>
               <a
@@ -131,11 +131,11 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 transition-colors hover:text-[#2A2A2A]"
               >
-                <MessageCircle className="mt-1 h-4 w-4 shrink-0 text-[#8C6A44]" />
+                <MessageCircle className="mt-1 h-4 w-4 shrink-0 text-[#3D2B1F]" />
                 <span>{siteConfig.whatsappDisplay}</span>
               </a>
               <div className="flex items-start gap-3">
-                <MapPin className="mt-1 h-4 w-4 shrink-0 text-[#8C6A44]" />
+                <MapPin className="mt-1 h-4 w-4 shrink-0 text-[#3D2B1F]" />
                 <span>{siteConfig.locationLabel}</span>
               </div>
               <div className="flex flex-wrap gap-3 pt-2">
@@ -143,7 +143,7 @@ export default function Footer() {
                   href={siteConfig.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C6A44]/30 hover:text-[#8C6A44]"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#3D2B1F]/30 hover:text-[#3D2B1F]"
                 >
                   <Instagram className="h-4 w-4" />
                   Instagram
@@ -152,7 +152,7 @@ export default function Footer() {
                   href={siteConfig.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C6A44]/30 hover:text-[#8C6A44]"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#3D2B1F]/30 hover:text-[#3D2B1F]"
                 >
                   <Linkedin className="h-4 w-4" />
                   LinkedIn
@@ -161,7 +161,7 @@ export default function Footer() {
                   href={siteConfig.youtubeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#8C6A44]/30 hover:text-[#8C6A44]"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2A2A2A] transition-colors hover:border-[#3D2B1F]/30 hover:text-[#3D2B1F]"
                 >
                   <Youtube className="h-4 w-4" />
                   YouTube
@@ -183,3 +183,7 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+
+

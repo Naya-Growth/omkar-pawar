@@ -137,7 +137,7 @@ export default function InquiryForm({
     <form className={className} onSubmit={handleSubmit} noValidate>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         <label className="space-y-3">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#8B715E]">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#3D2B1F]">
             First Name
           </span>
           <Input
@@ -153,7 +153,7 @@ export default function InquiryForm({
         </label>
 
         <label className="space-y-3">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#8B715E]">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#3D2B1F]">
             Last Name
           </span>
           <Input
@@ -169,7 +169,7 @@ export default function InquiryForm({
 
       <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
         <label className="space-y-3">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#8B715E]">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#3D2B1F]">
             Email Address
           </span>
           <Input
@@ -184,7 +184,7 @@ export default function InquiryForm({
         </label>
 
         <label className="space-y-3">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#8B715E]">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#3D2B1F]">
             Phone / WhatsApp
           </span>
           <Input
@@ -200,14 +200,14 @@ export default function InquiryForm({
       </div>
 
       <label className="mt-5 block space-y-3">
-        <span className="text-[10px] font-bold uppercase tracking-widest text-[#8B715E]">
+        <span className="text-[10px] font-bold uppercase tracking-widest text-[#3D2B1F]/60">
           What are you looking for?
         </span>
         <select
           name="serviceInterest"
           value={values.serviceInterest}
           onChange={handleChange}
-          className="h-14 w-full rounded-lg border border-[#1A1A1A]/8 bg-white px-5 text-sm text-[#1A1A1A] outline-none transition-shadow focus:ring-2 focus:ring-[#8C6A44]"
+          className="h-14 w-full rounded-[24px] border border-[#1A1A1A]/8 bg-white px-5 text-sm text-[#1A1A1A] outline-none transition-shadow focus:ring-2 focus:ring-[#3D2B1F]"
         >
           {serviceOptions.map((option) => (
             <option key={option.value} value={option.value}>
@@ -218,7 +218,7 @@ export default function InquiryForm({
       </label>
 
       <label className="mt-5 block space-y-3">
-        <span className="text-[10px] font-bold uppercase tracking-widest text-[#8B715E]">
+        <span className="text-[10px] font-bold uppercase tracking-widest text-[#3D2B1F]/60">
           How can Omkar help?
         </span>
         <Textarea
@@ -236,14 +236,14 @@ export default function InquiryForm({
           name="consent"
           checked={values.consent}
           onChange={handleChange}
-          className="mt-1 h-4 w-4 rounded border border-black/10 accent-[#8C6A44]"
+          className="mt-1 h-4 w-4 rounded border border-black/10 accent-[#3D2B1F]"
         />
         <span>
           {contactCopy.consentLabel}
         </span>
       </label>
 
-      <p className="mt-3 text-xs font-semibold text-[#8B715E]">{contactCopy.trustLine}</p>
+      <p className="mt-3 text-xs font-semibold text-[#3D2B1F]">{contactCopy.trustLine}</p>
 
       <input type="text" name="website_url_extra" className="hidden" tabIndex={-1} autoComplete="off" />
 
@@ -251,7 +251,7 @@ export default function InquiryForm({
         <p
           role="status"
           aria-live="polite"
-          className={`mt-6 rounded-lg px-5 py-4 text-sm leading-7 ${
+          className={`mt-6 rounded-[24px] px-5 py-4 text-sm leading-7 ${
             status.tone === "success"
               ? "border border-emerald-400/30 bg-emerald-500/8 text-emerald-700"
               : "border border-rose-400/30 bg-rose-500/8 text-rose-700"
@@ -286,3 +286,7 @@ export default function InquiryForm({
     </form>
   );
 }
+
+
+
+

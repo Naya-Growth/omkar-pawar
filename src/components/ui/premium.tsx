@@ -76,10 +76,10 @@ type SectionShellProps = {
 
 export function SectionShell({ children, className, id, tone = "warm" }: SectionShellProps) {
   const toneClass = {
-    warm: "bg-[#FBF4E6] text-[#1A1A1A]",
+    warm: "bg-[#FAF6F0] text-[#1A1A1A]",
     white: "bg-white text-[#1A1A1A]",
-    charcoal: "bg-[#252423] text-white",
-    bronze: "bg-[#8C6A44] text-white",
+    charcoal: "bg-[#1A1A1A] text-white",
+    bronze: "bg-[#3D2B1F] text-white",
   }[tone];
 
   return (
@@ -103,7 +103,7 @@ export function Eyebrow({ children, className, inverse = false }: EyebrowProps) 
     <p
       className={cn(
         "text-[10px] font-extrabold uppercase tracking-[0.22em]",
-        inverse ? "text-[#EFD95E]" : "text-[#8C6A44]",
+        inverse ? "text-[#D4AF37]" : "text-[#3D2B1F]",
         className,
       )}
     >
@@ -147,7 +147,7 @@ export function SectionIntro({
         <p
           className={cn(
             "mt-5 text-base leading-8 md:text-lg",
-            inverse ? "text-white/74" : "text-[#4E463B]",
+            inverse ? "text-white/74" : "text-[#1A1A1A]",
           )}
         >
           {body}
@@ -167,8 +167,8 @@ export function IconBadge({ icon, className, inverse = false }: IconBadgeProps) 
   return (
     <span
       className={cn(
-        "flex h-12 w-12 shrink-0 items-center justify-center rounded-lg",
-        inverse ? "bg-white/10 text-[#EFD95E]" : "bg-[#F2E4CE] text-[#8C6A44]",
+        "flex h-12 w-12 shrink-0 items-center justify-center rounded-[24px]",
+        inverse ? "bg-white/10 text-[#D4AF37]" : "bg-[#FAF6F0] text-[#3D2B1F]",
         className,
       )}
     >
@@ -248,7 +248,7 @@ export function FeatureCard({
         <h3 className={cn("font-serif text-2xl font-semibold leading-tight md:text-3xl", inverse ? "text-white" : "text-[#1A1A1A]")}>
           {title}
         </h3>
-        <p className={cn("mt-4 flex-1 text-sm leading-7 md:text-base", inverse ? "text-white/72" : "text-[#4E463B]")}>
+        <p className={cn("mt-4 flex-1 text-sm leading-7 md:text-base", inverse ? "text-white/72" : "text-[#1A1A1A]")}>
           {body}
         </p>
         {action}
@@ -279,11 +279,11 @@ export function MediaFrame({
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-lg border border-[#1A1A1A]/8 bg-white/85 p-3 shadow-[0_24px_80px_rgba(140,106,68,0.14)]",
+        "overflow-hidden rounded-[24px] border border-[#1A1A1A]/8 bg-white/85 p-3 shadow-[0_24px_80px_rgba(140,106,68,0.14)]",
         className,
       )}
     >
-      <div className={cn("overflow-hidden rounded-md bg-[#F2E4CE]", aspect)}>
+      <div className={cn("overflow-hidden rounded-md bg-[#FAF6F0]", aspect)}>
         <img
           src={src}
           alt={alt}
@@ -343,8 +343,8 @@ export function StepCard({ index, title, body, inverse = false }: StepCardProps)
       <div className="flex items-start gap-4">
         <span
           className={cn(
-            "flex h-11 w-11 shrink-0 items-center justify-center rounded-lg font-serif text-2xl font-semibold",
-            inverse ? "bg-white/10 text-[#EFD95E]" : "bg-[#F2E4CE] text-[#8C6A44]",
+            "flex h-11 w-11 shrink-0 items-center justify-center rounded-[24px] font-serif text-2xl font-semibold",
+            inverse ? "bg-white/10 text-[#D4AF37]" : "bg-[#FAF6F0] text-[#3D2B1F]",
           )}
         >
           {index}
@@ -353,9 +353,13 @@ export function StepCard({ index, title, body, inverse = false }: StepCardProps)
           <h3 className={cn("font-serif text-2xl font-semibold leading-tight", inverse ? "text-white" : "text-[#1A1A1A]")}>
             {title}
           </h3>
-          <p className={cn("mt-3 text-sm leading-7", inverse ? "text-white/72" : "text-[#4E463B]")}>{body}</p>
+          <p className={cn("mt-3 text-sm leading-7", inverse ? "text-white/72" : "text-[#1A1A1A]")}>{body}</p>
         </div>
       </div>
     </PremiumCard>
   );
 }
+
+
+
+

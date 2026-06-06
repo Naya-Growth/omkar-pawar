@@ -2,9 +2,9 @@ import Section from "../components/ui/Section";
 
 export default function TermsOfService() {
   return (
-    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#2A2A2A]">
+    <div className="overflow-x-hidden bg-[#FAF6F0] text-[#2A2A2A]">
       <Section className="pt-24">
-        <span className="text-[10px] uppercase tracking-[0.3em] text-[#8C6A44] font-bold mb-6 block">
+        <span className="text-[10px] uppercase tracking-[0.3em] text-[#3D2B1F] font-bold mb-6 block">
           Terms
         </span>
         <h1 className="font-serif text-4xl md:text-6xl leading-[1.1] mb-8">Terms of Service</h1>
@@ -27,3 +27,7 @@ export default function TermsOfService() {
     </div>
   );
 }
+
+
+
+

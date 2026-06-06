@@ -78,7 +78,7 @@ export default function Content() {
   }, [activeFilter]);
 
   return (
-    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#1A1A1A]">
+    <div className="overflow-x-hidden bg-[#FAF6F0] text-[#1A1A1A]">
       <SectionShell className="bg-hero-gradient pt-12 lg:pt-16">
         <Reveal immediate>
           <SectionIntro
@@ -87,7 +87,7 @@ export default function Content() {
             eyebrow="Content Library"
             title={
               <>
-                Insights For Your <span className="italic text-[#8C6A44]">Emotional Growth</span>
+                Insights For Your <span className="italic text-[#3D2B1F]">Emotional Growth</span>
               </>
             }
             body="Articles, videos, and practices designed to help you understand your mind, regulate your nervous system, and reconnect with emotional steadiness."
@@ -104,14 +104,14 @@ export default function Content() {
                 body={channel.body}
                 href={channel.href}
                 actionLabel="Open"
-                className="min-h-[260px]"
+                className="min-h-[260px] rounded-[32px] shadow-[0_20px_50px_rgba(61,43,31,0.05)]"
               />
             </Reveal>
           ))}
         </div>
       </SectionShell>
 
-      <SectionShell tone="white" className="border-y border-[#1A1A1A]/8">
+      <SectionShell tone="white" className="border-y border-[#3D2B1F]/5">
         <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           <Reveal>
             <div className="lg:sticky lg:top-28">
@@ -134,8 +134,8 @@ export default function Content() {
                     className={cn(
                       "rounded-full px-5 py-3 text-xs font-extrabold uppercase tracking-[0.14em] transition-all",
                       activeFilter === filter
-                        ? "bg-[#8C6A44] text-white shadow-[0_14px_32px_rgba(140,106,68,0.22)]"
-                        : "border border-[#1A1A1A]/8 bg-white text-[#4E463B] hover:border-[#8C6A44]/35 hover:text-[#8C6A44]",
+                        ? "bg-[#3D2B1F] text-white shadow-[0_14px_32px_rgba(61,43,31,0.22)]"
+                        : "border border-[#3D2B1F]/8 bg-white text-[#1A1A1A] hover:border-[#3D2B1F]/35 hover:text-[#3D2B1F]",
                     )}
                   >
                     {filter}
@@ -152,19 +152,19 @@ export default function Content() {
                   <Reveal key={item.title} delay={index * 0.05}>
                     <PremiumCard className="group h-full p-7">
                       <div className="mb-8 flex items-start justify-between gap-4">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-[#F2E4CE] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#8C6A44]">
+                        <span className="inline-flex items-center gap-2 rounded-full bg-[#FAF6F0] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#3D2B1F]">
                           <Icon className="h-4 w-4" />
                           {item.type}
                         </span>
-                        <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#8C6A44]">
+                        <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#3D2B1F]">
                           {String(index + 1).padStart(2, "0")}
                         </span>
                       </div>
                       <Eyebrow>{item.category}</Eyebrow>
-                      <h3 className="mt-4 font-serif text-3xl font-semibold leading-tight text-[#1A1A1A] transition-colors group-hover:text-[#8C6A44]">
+                      <h3 className="mt-4 font-serif text-3xl font-semibold leading-tight text-[#1A1A1A] transition-colors group-hover:text-[#3D2B1F]">
                         {item.title}
                       </h3>
-                      <p className="mt-5 text-sm leading-7 text-[#4E463B]">
+                      <p className="mt-5 text-sm leading-7 text-[#1A1A1A]">
                         Use this as a starting point, then continue on Omkar's active social channels
                         for the full reflection or practice.
                       </p>
@@ -179,7 +179,7 @@ export default function Content() {
 
       <SectionShell>
         <Reveal>
-          <div className="rounded-lg border border-[#1A1A1A]/8 bg-[#252423] p-6 text-center text-white shadow-[0_24px_80px_rgba(0,0,0,0.18)] md:p-12">
+          <div className="rounded-[24px] border border-[#1A1A1A]/8 bg-[#1A1A1A] p-6 text-center text-white shadow-[0_24px_80px_rgba(0,0,0,0.18)] md:p-12">
             <h3 className="mx-auto max-w-3xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
               Need Help Finding The Right Support Path?
             </h3>
@@ -197,3 +197,7 @@ export default function Content() {
     </div>
   );
 }
+
+
+
+

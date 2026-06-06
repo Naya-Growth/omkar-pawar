@@ -53,21 +53,21 @@ export default function StoryCarousel({ stories }: { stories: StorySlide[] }) {
             >
               <Card className="flex h-full min-h-[360px] flex-col p-7 transition-transform duration-300 hover:-translate-y-1">
                 <div className="mb-7 flex items-start justify-between gap-4">
-                  <span className="rounded-full bg-[#FFF7EA] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#8C6A44]">
+                  <span className="rounded-full bg-[#FAF6F0] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#3D2B1F]">
                     {story.category}
                   </span>
                   <div className="flex gap-1" aria-label={`${story.rating} star story`}>
                     {[...Array(story.rating)].map((_, starIndex) => (
                       <Star
                         key={starIndex}
-                        className="h-4 w-4 fill-[#8C6A44] text-[#8C6A44]"
+                        className="h-4 w-4 fill-[#D4AF37] text-[#D4AF37]"
                       />
                     ))}
                   </div>
                 </div>
 
-                <Quote className="mb-5 h-8 w-8 text-[#8C6A44]/30" />
-                <p className="flex-1 font-serif text-2xl font-semibold italic leading-snug text-[#1A1A1A]">
+                <Quote className="mb-5 h-8 w-8 text-[#3D2B1F]/30" />
+                <p className="quote-text flex-1 font-serif text-2xl font-semibold italic leading-snug text-[#1A1A1A]">
                   "{story.quote}"
                 </p>
                 <p className="mt-8 border-t border-[#1A1A1A]/8 pt-5 text-sm font-bold text-[#1A1A1A]">
@@ -86,7 +86,7 @@ export default function StoryCarousel({ stories }: { stories: StorySlide[] }) {
               key={story.author}
               type="button"
               className={`h-1.5 rounded-full transition-all ${
-                selectedIndex === index ? "w-9 bg-[#8C6A44]" : "w-3 bg-[#1A1A1A]/18"
+                selectedIndex === index ? "w-9 bg-[#3D2B1F]" : "w-3 bg-[#1A1A1A]/18"
               }`}
               aria-label={`Go to story ${index + 1}`}
               onClick={() => emblaApi?.scrollTo(index)}
@@ -106,3 +106,7 @@ export default function StoryCarousel({ stories }: { stories: StorySlide[] }) {
     </div>
   );
 }
+
+
+
+

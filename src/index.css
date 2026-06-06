@@ -3,7 +3,7 @@
 
 @theme {
   --color-primary-fixed: #ead8bd;
-  --color-primary: #8c6a44;
+  --color-primary: #3d2b1f; /* Deep Brown primary */
   --color-inverse-surface: #1a1a1a;
   --color-tertiary-fixed-dim: #d7c9b3;
   --color-outline: #9f8d77;
@@ -14,14 +14,14 @@
   --color-surface-container-lowest: #ffffff;
   --color-on-surface-variant: #4e463b;
   --color-primary-fixed-dim: #d2b68e;
-  --color-secondary: #ebc85b;
+  --color-secondary: #d4af37; /* Gold/Champagne accent */
   --color-inverse-primary: #ebd7b6;
-  --color-primary-container: #ead8bd;
+  --color-primary-container: #3d2b1f; /* Deep Brown primary container */
   --color-on-secondary-container: #5d4819;
-  --color-surface-container-low: #fbf4e6;
+  --color-surface-container-low: #faf6f0;
   --color-surface-container-high: #f1e4d0;
   --color-on-tertiary: #ffffff;
-  --color-secondary-container: #ebc85b;
+  --color-secondary-container: #d4af37;
   --color-error: #ba1a1a;
   --color-error-container: #ffdad6;
   --color-tertiary-container: #d8c3a4;
@@ -35,10 +35,10 @@
   --color-outline-variant: #dfcfb7;
   --color-secondary-fixed-dim: #d8b44d;
   --color-on-secondary-fixed-variant: #6b521a;
-  --color-surface-tint: #8c6a44;
-  --color-surface: #fff9ef;
+  --color-surface-tint: #3d2b1f;
+  --color-surface: #ffffff;
   --color-on-primary-fixed: #261a0e;
-  --color-background: #fbf4e6;
+  --color-background: #faf6f0; /* Warm Beige/Cream background */
   --color-on-background: #1a1a1a;
   --color-on-secondary: #ffffff;
   --color-secondary-fixed: #efd95e;
@@ -47,14 +47,22 @@
   --color-on-error: #ffffff;
   --color-on-error-container: #93000a;
   --color-surface-bright: #fffaf2;
-  --color-on-primary-container: #5f4529;
+  --color-on-primary-container: #ffffff;
   --color-surface-container-highest: #eadcc6;
+
+  /* Custom overrides for Stitch Aesthetic */
+  --color-brand-brown: #3d2b1f;
+  --color-brand-beige: #faf6f0;
+  --color-brand-gold: #d4af37;
+  --color-brand-champagne: #e2b37a;
 
   --font-headline: "Playfair Display", Georgia, serif;
   --font-body: "Inter", Helvetica, Arial, sans-serif;
   --font-label: "Inter", Helvetica, Arial, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Inter", Helvetica, Arial, sans-serif;
+
+  --radius-card: 24px;
 }
 
 @layer base {
@@ -74,8 +82,12 @@
   h2,
   h3,
   h4,
-  .font-serif {
+  h5,
+  h6,
+  .font-serif,
+  .quote-text {
     letter-spacing: 0;
+    text-transform: capitalize;
   }
 
   #root {

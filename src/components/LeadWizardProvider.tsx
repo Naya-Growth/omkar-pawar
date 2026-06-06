@@ -218,16 +218,16 @@ function LeadWizardModal({
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 22, scale: 0.97 }}
                 transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-                className="fixed left-1/2 top-1/2 z-[101] flex max-h-[calc(100vh-1.5rem)] w-[calc(100vw-1rem)] max-w-[780px] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-lg border border-white/60 bg-[#FBFAF7] shadow-[0_32px_90px_rgba(24,22,19,0.34)] focus:outline-none"
+                className="fixed left-1/2 top-1/2 z-[101] flex max-h-[calc(100vh-1.5rem)] w-[calc(100vw-1rem)] max-w-[780px] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-[24px] border border-white/60 bg-[#FBFAF7] shadow-[0_32px_90px_rgba(24,22,19,0.34)] focus:outline-none"
               >
                 <div className="border-b border-[#262421]/8 bg-[radial-gradient(circle_at_top_left,rgba(220,199,167,0.36),transparent_42%),linear-gradient(180deg,#FFFDF9,#F9F6EF)] px-5 pb-3 pt-4 md:px-8 md:pb-4 md:pt-5">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex min-w-0 items-center gap-3">
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EDE2D4] text-[#8B715E] md:h-11 md:w-11">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EDE2D4] text-[#3D2B1F] md:h-11 md:w-11">
                         <Sparkles className="h-5 w-5" />
                       </div>
                       <div className="min-w-0">
-                        <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8B715E]">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#3D2B1F]">
                           {wizardContent.eyebrow}
                         </p>
                         <DialogTitle className="font-serif text-[1.65rem] leading-[0.98] text-[#262421] md:text-3xl md:leading-tight">
@@ -261,7 +261,7 @@ function LeadWizardModal({
                 <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4 md:px-8 md:py-6">
                   {step === 0 ? (
                     <div>
-                      <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#8B715E]">
+                      <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#3D2B1F]">
                         {wizardContent.steps[0].eyebrow}
                       </p>
                       <h4 className="font-serif text-2xl leading-tight text-[#262421] md:text-[2.35rem]">
@@ -288,7 +288,7 @@ function LeadWizardModal({
 
                   {step === 1 ? (
                     <div>
-                      <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#8B715E]">
+                      <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#3D2B1F]">
                         {wizardContent.steps[1].eyebrow}
                       </p>
                       <h4 className="font-serif text-2xl leading-tight text-[#262421] md:text-[2.35rem]">
@@ -316,7 +316,7 @@ function LeadWizardModal({
                                 </span>
                               </span>
                               {values.support === option.value ? (
-                                <CheckCircle2 className="h-5 w-5 shrink-0 text-[#8C6A44]" />
+                                <CheckCircle2 className="h-5 w-5 shrink-0 text-[#3D2B1F]" />
                               ) : null}
                             </span>
                           </RadioGroupItem>
@@ -327,7 +327,7 @@ function LeadWizardModal({
 
                   {step === 2 ? (
                     <form id={formId} onSubmit={handleSubmit} noValidate>
-                      <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#8B715E]">
+                      <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.26em] text-[#3D2B1F]">
                         {wizardContent.steps[2].eyebrow}
                       </p>
                       <h4 className="font-serif text-2xl leading-tight text-[#262421] md:text-[2.35rem]">
@@ -378,7 +378,7 @@ function LeadWizardModal({
                         <span>{contactCopy.consentLabel}</span>
                       </label>
 
-                      <p className="mt-3 text-xs font-semibold text-[#8B715E]">
+                      <p className="mt-3 text-xs font-semibold text-[#3D2B1F]">
                         {contactCopy.trustLine}
                       </p>
 
@@ -387,7 +387,7 @@ function LeadWizardModal({
                           role="status"
                           aria-live="polite"
                           className={cn(
-                            "mt-5 rounded-lg border px-4 py-3 text-sm leading-6",
+                            "mt-5 rounded-[24px] border px-4 py-3 text-sm leading-6",
                             status.tone === "success"
                               ? "border-emerald-300 bg-emerald-50 text-emerald-700"
                               : "border-rose-300 bg-rose-50 text-rose-700",
@@ -486,3 +486,7 @@ export function useLeadWizard() {
 
   return context;
 }
+
+
+
+

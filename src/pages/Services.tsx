@@ -61,15 +61,15 @@ export default function Services() {
   const { openLeadWizard } = useLeadWizard();
 
   return (
-    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#1A1A1A]">
+    <div className="overflow-x-hidden bg-[#FAF6F0] text-[#1A1A1A]">
       <SectionShell className="bg-hero-gradient pt-12 lg:pt-16">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.98fr)_minmax(360px,0.78fr)] lg:gap-16">
           <Reveal immediate className="max-w-3xl">
             <Eyebrow>Work With Omkar</Eyebrow>
             <h1 className="mt-5 font-serif text-5xl font-semibold leading-[1.02] md:text-6xl lg:text-7xl">
-              Transformation <span className="italic text-[#8C6A44]">Pathways</span>
+              Transformation <span className="italic text-[#3D2B1F]">Pathways</span>
             </h1>
-            <p className="mt-7 max-w-2xl text-base leading-8 text-[#4E463B] md:text-lg">
+            <p className="mt-7 max-w-2xl text-base leading-8 text-[#1A1A1A] md:text-lg">
               Choose support based on what you are carrying right now. The first step is designed to
               be clear, private, and human before any deeper commitment is discussed.
             </p>
@@ -104,7 +104,7 @@ export default function Services() {
                   {["Online Worldwide", "Clarity First", "1:1 Support", "Root-Level Work"].map((item) => (
                     <span
                       key={item}
-                      className="rounded-full bg-[#FBF4E6] px-4 py-2 text-center text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#8C6A44]"
+                      className="rounded-full bg-[#FAF6F0] px-4 py-2 text-center text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#3D2B1F]"
                     >
                       {item}
                     </span>
@@ -130,12 +130,12 @@ export default function Services() {
             />
           </Reveal>
           <Reveal delay={0.08}>
-            <div className="rounded-lg border border-[#1A1A1A]/8 bg-[#FBF4E6] p-5 md:p-6">
-              <p className="font-serif text-2xl font-semibold leading-snug text-[#1A1A1A]">
+            <div className="rounded-[24px] border border-[#1A1A1A]/8 bg-[#FAF6F0] p-5 md:p-6">
+              <p className="quote-text font-serif text-2xl font-semibold leading-snug text-[#1A1A1A]">
                 "The right support should reduce confusion from the first interaction, not add more
                 pressure."
               </p>
-              <p className="mt-3 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#8C6A44]">
+              <p className="mt-3 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#3D2B1F]">
                 Freedom Innerwellbeing
               </p>
             </div>
@@ -197,12 +197,12 @@ export default function Services() {
 
       <SectionShell>
         <Reveal>
-          <div className="rounded-lg border border-[#1A1A1A]/8 bg-white/80 p-6 text-center shadow-[0_22px_70px_rgba(140,106,68,0.12)] md:p-12">
-            <Sparkles className="mx-auto h-9 w-9 text-[#8C6A44]" />
+          <div className="rounded-[24px] border border-[#1A1A1A]/8 bg-white/80 p-6 text-center shadow-[0_22px_70px_rgba(140,106,68,0.12)] md:p-12">
+            <Sparkles className="mx-auto h-9 w-9 text-[#3D2B1F]" />
             <h2 className="mx-auto mt-5 max-w-3xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
               Not Sure Which Path Fits?
             </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#4E463B]">
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#1A1A1A]">
               Start with the quick clarity check. It captures what is bothering you and lets Omkar
               respond with the right next step.
             </p>
@@ -220,3 +220,7 @@ export default function Services() {
     </div>
   );
 }
+
+
+
+

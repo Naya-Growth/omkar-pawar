@@ -55,7 +55,7 @@ export default function SuccessStories() {
   const { openLeadWizard } = useLeadWizard();
 
   return (
-    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#1A1A1A]">
+    <div className="overflow-x-hidden bg-[#FAF6F0] text-[#1A1A1A]">
       <SectionShell className="bg-hero-gradient pt-12 lg:pt-16">
         <Reveal immediate>
           <SectionIntro
@@ -64,7 +64,7 @@ export default function SuccessStories() {
             eyebrow="Client Transformations"
             title={
               <>
-                Stories Of <span className="italic text-[#8C6A44]">Healing</span> And Mastery
+                Stories Of <span className="italic text-[#3D2B1F]">Healing</span> And Mastery
               </>
             }
             body="Real experiences from high-performers who chose to break free from invisible battles and reclaim steadier emotional ground."
@@ -72,7 +72,7 @@ export default function SuccessStories() {
           />
         </Reveal>
 
-        <div className="mx-auto mt-8 flex max-w-2xl justify-center gap-1 text-[#8C6A44]" aria-label="Five star client stories">
+        <div className="mx-auto mt-8 flex max-w-2xl justify-center gap-1 text-[#3D2B1F]" aria-label="Five star client stories">
           {[...Array(5)].map((_, index) => (
             <Star key={index} className="h-5 w-5 fill-current" />
           ))}
@@ -87,10 +87,10 @@ export default function SuccessStories() {
 
       <SectionShell>
         <Reveal>
-          <div className="mx-auto max-w-4xl rounded-lg border border-[#1A1A1A]/8 bg-[#252423] p-8 text-center text-white shadow-[0_24px_90px_rgba(0,0,0,0.2)] md:p-14">
-            <Quote className="mx-auto h-10 w-10 text-[#EFD95E]/70" />
+          <div className="mx-auto max-w-4xl rounded-[24px] border border-[#1A1A1A]/8 bg-[#1A1A1A] p-8 text-center text-white shadow-[0_24px_90px_rgba(0,0,0,0.2)] md:p-14">
+            <Quote className="mx-auto h-10 w-10 text-[#D4AF37]/70" />
             <h2 className="mt-6 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              Ready To Write Your Own <span className="italic text-[#EFD95E]">Success Story?</span>
+              Ready To Write Your Own <span className="italic text-[#D4AF37]">Success Story?</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/74">
               Take the first step toward emotional freedom. Start with the quick clarity check to see
@@ -105,3 +105,7 @@ export default function SuccessStories() {
     </div>
   );
 }
+
+
+
+

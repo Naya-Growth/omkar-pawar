@@ -63,7 +63,7 @@ const credentials = [
 
 export default function About() {
   return (
-    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#1A1A1A]">
+    <div className="overflow-x-hidden bg-[#FAF6F0] text-[#1A1A1A]">
       <SectionShell className="bg-hero-gradient pt-12 lg:pt-16">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.82fr)_minmax(420px,1fr)] lg:items-center">
           <Reveal immediate>
@@ -72,7 +72,7 @@ export default function About() {
               title={
                 <>
                   From Chasing Perfection To{" "}
-                  <span className="italic text-[#8C6A44]">Facilitating Peace.</span>
+                  <span className="italic text-[#3D2B1F]">Facilitating Peace.</span>
                 </>
               }
               body="Omkar's work did not begin as a brand. It came from pressure, collapse, self-study, and a long turn toward psychology-led healing."
@@ -112,15 +112,15 @@ export default function About() {
           <div className="grid gap-5">
             {storyBlocks.map((block, index) => (
               <Reveal key={block.title} delay={index * 0.05}>
-                <article className="rounded-lg border border-[#1A1A1A]/8 bg-[#FBF4E6] p-6 shadow-[0_16px_50px_rgba(140,106,68,0.09)] md:grid md:grid-cols-[88px_1fr] md:p-8">
-                  <span className="font-serif text-5xl font-semibold leading-none text-[#8C6A44]/50">
+                <article className="rounded-[24px] border border-[#1A1A1A]/8 bg-[#FAF6F0] p-6 shadow-[0_16px_50px_rgba(140,106,68,0.09)] md:grid md:grid-cols-[88px_1fr] md:p-8">
+                  <span className="font-serif text-5xl font-semibold leading-none text-[#3D2B1F]/50">
                     {block.number}
                   </span>
                   <div>
                     <h3 className="font-serif text-3xl font-semibold leading-tight text-[#1A1A1A]">
                       {block.title}
                     </h3>
-                    <div className="mt-5 grid gap-4 text-base leading-8 text-[#4E463B]">
+                    <div className="mt-5 grid gap-4 text-base leading-8 text-[#1A1A1A]">
                       {block.paragraphs.map((paragraph) => (
                         <p key={paragraph}>{paragraph}</p>
                       ))}
@@ -137,7 +137,7 @@ export default function About() {
         <Reveal>
           <div className="mx-auto max-w-4xl text-center">
             <Quote className="mx-auto h-12 w-12 text-white/35" />
-            <h2 className="mt-7 font-serif text-3xl font-semibold leading-tight md:text-5xl">
+            <h2 className="quote-text mt-7 font-serif text-3xl font-semibold leading-tight md:text-5xl">
               "Every Behavior Has A Positive Intention. My Work Is To Help You Understand The Root Of
               That Intention, So Healing And Growth Become Possible."
             </h2>
@@ -178,3 +178,7 @@ export default function About() {
     </div>
   );
 }
+
+
+
+

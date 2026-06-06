@@ -41,7 +41,7 @@ export default function Contact() {
   const { openLeadWizard } = useLeadWizard();
 
   return (
-    <div className="overflow-x-hidden bg-[#FBF4E6] text-[#1A1A1A]">
+    <div className="overflow-x-hidden bg-[#FAF6F0] text-[#1A1A1A]">
       <SectionShell className="bg-hero-gradient pt-12 lg:pt-16">
         <Reveal immediate>
           <SectionIntro
@@ -50,7 +50,7 @@ export default function Contact() {
             eyebrow="Connect"
             title={
               <>
-                Start Your <span className="italic text-[#8C6A44]">Healing Journey</span>
+                Start Your <span className="italic text-[#3D2B1F]">Healing Journey</span>
               </>
             }
             body="Choose the cleanest first step: a quick clarity check, direct WhatsApp message, Instagram connection, or a written enquiry."
@@ -92,7 +92,7 @@ export default function Contact() {
                     <h3 className="font-serif text-3xl font-semibold text-[#1A1A1A]">
                       Choose The Easiest Next Step
                     </h3>
-                    <p className="text-sm leading-7 text-[#4E463B]">
+                    <p className="text-sm leading-7 text-[#1A1A1A]">
                       Start with the quick clarity check, message directly on WhatsApp, or use the
                       enquiry form if you want to explain things in your own words first.
                     </p>
@@ -113,24 +113,24 @@ export default function Contact() {
 
               <PremiumCard className="mt-6 grid gap-5 p-6">
                 <div className="flex items-start gap-4">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44]">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[24px] bg-[#FAF6F0] text-[#3D2B1F]">
                     <Mail className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#8C6A44]">
+                    <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#3D2B1F]">
                       Email
                     </p>
-                    <a href={`mailto:${siteConfig.email}`} className="mt-2 block font-semibold text-[#1A1A1A] hover:text-[#8C6A44]">
+                    <a href={`mailto:${siteConfig.email}`} className="mt-2 block font-semibold text-[#1A1A1A] hover:text-[#3D2B1F]">
                       {siteConfig.email}
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#F2E4CE] text-[#8C6A44]">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[24px] bg-[#FAF6F0] text-[#3D2B1F]">
                     <MapPin className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#8C6A44]">
+                    <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#3D2B1F]">
                       Location
                     </p>
                     <p className="mt-2 font-semibold text-[#1A1A1A]">{siteConfig.locationLabel}</p>
@@ -147,7 +147,7 @@ export default function Contact() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-[#1A1A1A]/8 bg-[#FBF4E6] px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#1A1A1A] transition-colors hover:border-[#8C6A44]/35 hover:text-[#8C6A44]"
+                      className="inline-flex items-center gap-2 rounded-full border border-[#1A1A1A]/8 bg-[#FAF6F0] px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#1A1A1A] transition-colors hover:border-[#3D2B1F]/35 hover:text-[#3D2B1F]"
                     >
                       {link.icon}
                       {link.label}
@@ -200,3 +200,7 @@ export default function Contact() {
     </div>
   );
 }
+
+
+
+
