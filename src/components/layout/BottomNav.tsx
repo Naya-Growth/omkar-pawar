@@ -7,7 +7,7 @@ export default function BottomNav() {
     { path: '/', icon: Home, label: 'Home' },
     { path: '/about', icon: User, label: 'About' },
     { path: '/services', icon: Leaf, label: 'Services' },
-    { path: '/stories', icon: Sparkles, label: 'Stories' },
+    { path: '/stories', icon: Sparkles, label: 'Client Stories' },
     { path: '/contact', icon: MessageCircle, label: 'Contact' },
   ];
 

@@ -1,5 +1,4 @@
-import { useMemo, useState } from "react";
-import { ArrowRight, BookOpen, Instagram, Linkedin, PlayCircle, Video, Youtube } from "lucide-react";
+import { ArrowRight, Instagram, Linkedin, PlayCircle, Video, Youtube } from "lucide-react";
 
 import { useLeadWizard } from "../components/LeadWizardProvider";
 import { Button } from "../components/ui/button";
@@ -13,36 +12,37 @@ import {
 } from "../components/ui/premium";
 import { wizardContent } from "../lib/omkar-content";
 import { siteConfig } from "../lib/site-config";
-import { cn } from "../lib/utils";
 
-const insights = [
+const themes = [
   {
-    category: "Anxiety",
-    title: "The Hidden Cost Of High-Functioning Anxiety",
-    type: "Article",
-    icon: BookOpen,
-  },
-  {
-    category: "Emotional Mastery",
-    title: "Why You Cannot Think Your Way Out Of A Trigger",
-    type: "Video",
-    icon: Video,
-  },
-  {
-    category: "Inner Child Healing",
-    title: "Re-Parenting: The Key To Adult Relationships",
-    type: "Article",
-    icon: BookOpen,
-  },
-  {
-    category: "Mindfulness",
-    title: "A 5-Minute Somatic Reset For Overwhelm",
-    type: "Reel",
+    category: "Anxiety & Overthinking",
+    title: "Practical guidance for managing mental loops, overthinking, and nervous system regulation.",
+    channel: "Instagram",
+    href: siteConfig.instagramUrl,
     icon: PlayCircle,
   },
+  {
+    category: "Childhood Trauma & Inner Child",
+    title: "Deep-root reflections on tracing adult stress responses to childhood expectations and triggers.",
+    channel: "LinkedIn",
+    href: siteConfig.linkedinUrl,
+    icon: Linkedin,
+  },
+  {
+    category: "Emotional Regulation",
+    title: "Somatic practices and psychological concepts to help you shift from reactive to calm responses.",
+    channel: "YouTube",
+    href: siteConfig.youtubeUrl,
+    icon: Youtube,
+  },
+  {
+    category: "Mindfulness & Somatic Resets",
+    title: "Quick, actionable check-ins and reels to ground your body and clear your mind during high stress.",
+    channel: "Instagram",
+    href: siteConfig.instagramUrl,
+    icon: Video,
+  },
 ];
-
-const filters = ["All", "Anxiety", "Emotional Mastery", "Inner Child Healing", "Mindfulness"];
 
 const socialChannels = [
   {
@@ -66,16 +66,7 @@ const socialChannels = [
 ];
 
 export default function Content() {
-  const [activeFilter, setActiveFilter] = useState("All");
   const { openLeadWizard } = useLeadWizard();
-
-  const filteredInsights = useMemo(() => {
-    if (activeFilter === "All") {
-      return insights;
-    }
-
-    return insights.filter((item) => item.category === activeFilter);
-  }, [activeFilter]);
 
   return (
     <div className="overflow-x-hidden bg-[#FAF6F0] text-[#1A1A1A]">
@@ -84,13 +75,13 @@ export default function Content() {
           <SectionIntro
             align="center"
             className="max-w-4xl"
-            eyebrow="Content Library"
+            eyebrow="Follow Omkar's Content"
             title={
               <>
-                Insights For Your <span className="italic text-[#3D2B1F]">Emotional Growth</span>
+                Follow Omkar's <span className="italic text-[#3D2B1F]">Content</span>
               </>
             }
-            body="Articles, videos, and practices designed to help you understand your mind, regulate your nervous system, and reconnect with emotional steadiness."
+            body="Read regular insights, reflections, and video guides on anxiety, childhood trauma, and emotional regulation directly on Omkar's active channels."
             titleClassName="text-5xl md:text-6xl lg:text-7xl"
           />
         </Reveal>
@@ -103,7 +94,7 @@ export default function Content() {
                 title={channel.label}
                 body={channel.body}
                 href={channel.href}
-                actionLabel="Open"
+                actionLabel="Open Channel"
                 className="min-h-[260px] rounded-[32px] shadow-[0_20px_50px_rgba(61,43,31,0.05)]"
               />
             </Reveal>
@@ -116,7 +107,7 @@ export default function Content() {
           <Reveal>
             <div className="lg:sticky lg:top-28">
               <SectionIntro
-                eyebrow="Browse Topics"
+                eyebrow="What Omkar Shares"
                 title="Choose The Theme That Feels Closest."
                 body="The content stays image-light on purpose here. The focus is on readable topics, clear categories, and direct routes into Omkar's active channels."
               />
@@ -124,51 +115,40 @@ export default function Content() {
           </Reveal>
 
           <div>
-            <Reveal>
-              <div className="flex flex-wrap gap-3">
-                {filters.map((filter) => (
-                  <button
-                    key={filter}
-                    type="button"
-                    onClick={() => setActiveFilter(filter)}
-                    className={cn(
-                      "rounded-full px-5 py-3 text-xs font-extrabold uppercase tracking-[0.14em] transition-all",
-                      activeFilter === filter
-                        ? "bg-[#3D2B1F] text-white shadow-[0_14px_32px_rgba(61,43,31,0.22)]"
-                        : "border border-[#3D2B1F]/8 bg-white text-[#1A1A1A] hover:border-[#3D2B1F]/35 hover:text-[#3D2B1F]",
-                    )}
-                  >
-                    {filter}
-                  </button>
-                ))}
-              </div>
-            </Reveal>
-
-            <div className="mt-8 grid gap-5 md:grid-cols-2">
-              {filteredInsights.map((item, index) => {
+            <div className="grid gap-5 md:grid-cols-2">
+              {themes.map((item, index) => {
                 const Icon = item.icon;
 
                 return (
-                  <Reveal key={item.title} delay={index * 0.05}>
-                    <PremiumCard className="group h-full p-7">
-                      <div className="mb-8 flex items-start justify-between gap-4">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-[#FAF6F0] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#3D2B1F]">
-                          <Icon className="h-4 w-4" />
-                          {item.type}
-                        </span>
-                        <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#3D2B1F]">
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                      </div>
-                      <Eyebrow>{item.category}</Eyebrow>
-                      <h3 className="mt-4 font-serif text-3xl font-semibold leading-tight text-[#1A1A1A] transition-colors group-hover:text-[#3D2B1F]">
-                        {item.title}
-                      </h3>
-                      <p className="mt-5 text-sm leading-7 text-[#1A1A1A]">
-                        Use this as a starting point, then continue on Omkar's active social channels
-                        for the full reflection or practice.
-                      </p>
-                    </PremiumCard>
+                  <Reveal key={item.category} delay={index * 0.05}>
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block group h-full"
+                    >
+                      <PremiumCard className="group h-full p-7 transition-all duration-300 hover:shadow-[0_22px_70px_rgba(140,106,68,0.14)] hover:-translate-y-1">
+                        <div className="mb-8 flex items-start justify-between gap-4">
+                          <span className="inline-flex items-center gap-2 rounded-full bg-[#FAF6F0] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#3D2B1F]">
+                            <Icon className="h-4 w-4" />
+                            {item.channel}
+                          </span>
+                          <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#3D2B1F]">
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
+                        </div>
+                        <h3 className="font-serif text-2xl font-semibold leading-tight text-[#1A1A1A] transition-colors group-hover:text-[#3D2B1F]">
+                          {item.category}
+                        </h3>
+                        <p className="mt-4 text-sm leading-7 text-gray-600">
+                          {item.title}
+                        </p>
+                        <div className="mt-8 border-t border-[#1A1A1A]/8 pt-5 flex items-center justify-between text-xs font-extrabold uppercase tracking-[0.14em] text-[#3D2B1F]">
+                          <span>Explore on {item.channel}</span>
+                          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </div>
+                      </PremiumCard>
+                    </a>
                   </Reveal>
                 );
               })}

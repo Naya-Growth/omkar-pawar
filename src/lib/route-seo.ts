@@ -24,49 +24,49 @@ export const defaultKeywords = [
 
 export const routeSeo: Record<string, RouteSeoEntry> = {
   "/": {
-    title: "Omkar Pawar | Master Your Emotions & Transform Your Life",
+    title: "Omkar Pawar | Anxiety and Childhood Trauma Support",
     description:
-      "Work with Omkar Pawar of Freedom Innerwellbeing for psychology-led emotional mastery, inner child work, and a calmer, clearer life.",
+      "Online sessions with Omkar Pawar to help you understand what is troubling you, feel calmer, and choose the right next step.",
     keywords: defaultKeywords,
     path: "/",
     schemaType: "WebPage",
   },
   "/about": {
-    title: "About Omkar Pawar | Freedom Innerwellbeing",
+    title: "About Omkar Pawar | Background & Credentials",
     description:
-      "Learn about Omkar Pawar's journey from perfectionism and pressure to becoming a cognitive hypnotic psychotherapist and emotional healing guide.",
+      "Learn about Omkar Pawar's background, clinical credentials, and approach to emotional healing and childhood trauma support.",
     keywords: `${defaultKeywords}, about Omkar Pawar, psychologist Pune`,
     path: "/about",
     schemaType: ["WebPage", "AboutPage", "ProfilePage"],
   },
   "/services": {
-    title: "Programs & 1:1 Support | Omkar Pawar",
+    title: "Support Options & Sessions | Omkar Pawar",
     description:
-      "Explore clarity sessions, 1:1 emotional healing, inner child healing, and structured support programs with Omkar Pawar.",
+      "Explore online sessions with Omkar Pawar, including clarity calls, 1:1 emotional support, and inner child work.",
     keywords: `${defaultKeywords}, 1:1 emotional healing, anxiety transformation program`,
     path: "/services",
     schemaType: ["WebPage", "CollectionPage"],
   },
   "/stories": {
-    title: "Client Stories | Omkar Pawar",
+    title: "Client Experiences | Omkar Pawar",
     description:
-      "Read healing stories and transformation journeys from people who worked with Omkar Pawar on anxiety, confidence, and emotional patterns.",
+      "Read grounded reflections and experiences from individuals who worked with Omkar Pawar to address anxiety and childhood patterns.",
     keywords: `${defaultKeywords}, client stories, healing testimonials`,
     path: "/stories",
     schemaType: ["WebPage", "CollectionPage"],
   },
   "/content": {
-    title: "Insights & Articles | Omkar Pawar",
+    title: "Follow Omkar's Content | Insights & Resources",
     description:
-      "Explore Omkar Pawar's insights on anxiety, emotional mastery, inner child healing, mindfulness, and nervous system regulation.",
+      "Explore Omkar Pawar's daily insights, reflections, and video resources on anxiety and childhood trauma across active channels.",
     keywords: `${defaultKeywords}, anxiety article, mindfulness content, emotional mastery insights`,
     path: "/content",
     schemaType: ["WebPage", "CollectionPage"],
   },
   "/contact": {
-    title: "Book a Clarity Session | Omkar Pawar",
+    title: "Book a Clarity Call | Omkar Pawar",
     description:
-      "Reach out to Omkar Pawar for a clarity session, WhatsApp conversation, or inquiry about emotional healing and inner child work.",
+      "Book a 15-20 min online clarity call with Omkar Pawar to discuss what you are navigating and find the right next step.",
     keywords: `${defaultKeywords}, book clarity session, contact Omkar Pawar`,
     path: "/contact",
     schemaType: ["WebPage", "ContactPage"],
@@ -90,7 +90,7 @@ export const routeSeo: Record<string, RouteSeoEntry> = {
   "/faq": {
     title: "FAQ | Omkar Pawar",
     description:
-      "Find answers about Omkar Pawar's clarity sessions, healing programs, and how online sessions work.",
+      "Find answers about clarity calls, childhood trauma work, online session privacy, pricing, and urgent crisis guidance.",
     keywords: `${defaultKeywords}, FAQ, online therapy questions`,
     path: "/faq",
     schemaType: ["WebPage", "FAQPage"],

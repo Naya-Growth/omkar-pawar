@@ -17,23 +17,23 @@ import { buildWhatsAppUrl, siteConfig } from "../lib/site-config";
 const contactRoutes = [
   {
     icon: <MessageCircle className="h-6 w-6" />,
-    title: "Quick Clarity Check",
-    body: "Answer three short prompts so Omkar can understand what is happening and suggest the right first step.",
-    actionLabel: "Quick Clarity Check",
+    title: "Book a Clarity Call",
+    body: "Start with a short, 15-20 min online clarity call to share what is troubling you and map the right next step.",
+    actionLabel: "Book Clarity Call",
   },
   {
-    icon: <Instagram className="h-6 w-6" />,
-    title: "Instagram",
-    body: "Use Instagram if you want to connect through Omkar's active social presence first.",
-    href: siteConfig.instagramUrl,
-    actionLabel: "Open",
+    icon: <MessageCircle className="h-6 w-6" />,
+    title: "Message on WhatsApp",
+    body: "Send a direct message on WhatsApp if you have quick questions about session availability or formats.",
+    href: buildWhatsAppUrl("Hi Omkar, I would like to book a clarity call with you."),
+    actionLabel: "Message on WhatsApp",
   },
   {
     icon: <Mail className="h-6 w-6" />,
-    title: "Enquiry Form",
-    body: "Write the situation in your own words if you prefer a slower, more detailed first message.",
+    title: "Written Enquiry",
+    body: "Describe what you are navigating in your own words if you prefer a slower, more detailed first message.",
     href: "#enquiry-form",
-    actionLabel: "Go To Form",
+    actionLabel: "Write Enquiry",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function Contact() {
                 Start Your <span className="italic text-[#3D2B1F]">Healing Journey</span>
               </>
             }
-            body="Choose the cleanest first step: a quick clarity check, direct WhatsApp message, Instagram connection, or a written enquiry."
+            body="Choose the cleanest first step: book a clarity call, message directly on WhatsApp, or send a written enquiry."
             titleClassName="text-5xl md:text-6xl lg:text-7xl"
           />
         </Reveal>
@@ -69,7 +69,7 @@ export default function Contact() {
                 body={route.body}
                 href={route.href}
                 actionLabel={route.actionLabel}
-                onAction={route.title === "Quick Clarity Check" ? () => openLeadWizard() : undefined}
+                onAction={route.title === "Book a Clarity Call" ? () => openLeadWizard() : undefined}
                 className="min-h-[290px]"
               />
             </Reveal>
@@ -93,17 +93,20 @@ export default function Contact() {
                       Choose The Easiest Next Step
                     </h3>
                     <p className="text-sm leading-7 text-[#1A1A1A]">
-                      Start with the quick clarity check, message directly on WhatsApp, or use the
-                      enquiry form if you want to explain things in your own words first.
+                      Start with a clarity call, message directly on WhatsApp, or write a detailed enquiry.
                     </p>
                     <div className="grid gap-3 sm:grid-cols-2">
                       <Button type="button" onClick={() => openLeadWizard()} size="md">
-                        {wizardContent.triggerLabel}
+                        Book Clarity Call
                       </Button>
-                      <Button asChild variant="instagram" size="md">
-                        <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer">
-                          <Instagram className="h-4 w-4" />
-                          Instagram
+                      <Button asChild variant="secondary" size="md">
+                        <a
+                          href={buildWhatsAppUrl("Hi Omkar, I would like to book a clarity call.")}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <MessageCircle className="h-4 w-4" />
+                          Message WhatsApp
                         </a>
                       </Button>
                     </div>

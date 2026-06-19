@@ -28,7 +28,7 @@ test("buildInquiryLeadPayload maps the enquiry into the Naya lead contract", () 
   assert.deepEqual(payload.serviceInterest, ["inner-child-healing"]);
   assert.equal(payload.budgetRange, "To be discussed privately");
   assert.equal(payload.timeline, "Flexible");
-  assert.match(payload.problemSummary, /Inner Child Healing Sessions/);
+  assert.match(payload.problemSummary, /Inner Child & Childhood Trauma Support/);
   assert.equal(payload.utmCampaign, "spring-launch");
 });
 

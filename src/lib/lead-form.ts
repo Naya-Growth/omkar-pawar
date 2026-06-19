@@ -41,11 +41,11 @@ export type InquiryLeadPayload = {
 
 const serviceLabels: Record<string, string> = {
   ...supportPathLabels,
-  "discovery-call": "Clarity Session",
-  "anxiety-reset": "1:1 Emotional Healing & Anxiety Reset Program",
-  "inner-child-healing": "Inner Child Healing Sessions",
-  "28-day-anxiety-transformation": "28 Days Anxiety Transformation",
-  "general-guidance": "General Guidance",
+  "discovery-call": "Clarity Call",
+  "anxiety-reset": "1:1 Emotional Healing & Support",
+  "inner-child-healing": "Inner Child & Childhood Trauma Support",
+  "28-day-anxiety-transformation": "Structured Support Program",
+  "general-guidance": "General Support Guidance",
 };
 
 function trimOrFallback(value: string, fallback: string) {
@@ -59,7 +59,7 @@ export function buildInquiryLeadPayload(input: BuildLeadPayloadInput): InquiryLe
     input.values.firstName,
   );
   const interestLabel =
-    serviceLabels[input.values.serviceInterest] ?? "General Coaching Guidance";
+    serviceLabels[input.values.serviceInterest] ?? "General Support Guidance";
   const cleanedMessage = trimOrFallback(
     input.values.message,
     "The visitor wants to understand the right next step and requested a callback.",

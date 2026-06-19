@@ -19,26 +19,26 @@ const supportPaths = [
   {
     icon: <Compass className="h-6 w-6" />,
     title: "Quick Clarity Call",
-    body: "A short, grounded conversation when you need direction before choosing a deeper support path.",
-    detail: "Best when you want to talk once and understand the right next step.",
+    body: "A brief, low-pressure conversation to understand what is troubling you, map the right next step, and see if we are a good fit.",
+    detail: "15-20 minutes · Online video call · Free",
   },
   {
     icon: <BrainCircuit className="h-6 w-6" />,
-    title: "1:1 Emotional Healing & Anxiety Reset",
-    body: "A personalized online support container for anxiety, emotional overwhelm, confidence, and repeated response patterns.",
-    detail: "Best when you want steady personal support and a deeper look at what is repeating.",
+    title: "1:1 Emotional Healing & Support",
+    body: "Personal online sessions to help you understand your overthinking, find calmer responses, and manage daily anxiety.",
+    detail: "60 minutes · Online · Flexible scheduling",
   },
   {
     icon: <Baby className="h-6 w-6" />,
-    title: "Inner Child Healing Sessions",
-    body: "Focused work for old experiences that still shape present triggers, reactions, self-image, and relationships.",
-    detail: "Best when past patterns are still affecting your present life.",
+    title: "Inner Child & Childhood Trauma Support",
+    body: "Gentle exploration of early patterns and expectations that still shape your adult triggers, reactions, and self-doubt.",
+    detail: "60 minutes · Online · Focused work",
   },
   {
     icon: <CalendarDays className="h-6 w-6" />,
-    title: "28 Days Anxiety Transformation",
-    body: "A structured, time-bound program to break anxiety loops, reduce overwhelm, and build a steadier internal rhythm.",
-    detail: "Best when you need step-by-step transformation with clear follow-through.",
+    title: "Structured Support Program",
+    body: "Consistent weekly check-ins and practical tools designed to help you build steadier emotional regulation and daily habits.",
+    detail: "4-week container · Weekly sessions · Structured resources",
   },
 ];
 
@@ -67,7 +67,7 @@ export default function Services() {
           <Reveal immediate className="max-w-3xl">
             <Eyebrow>Work With Omkar</Eyebrow>
             <h1 className="mt-5 font-serif text-5xl font-semibold leading-[1.02] md:text-6xl lg:text-7xl">
-              Transformation <span className="italic text-[#3D2B1F]">Pathways</span>
+              Support <span className="italic text-[#3D2B1F]">Options</span>
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-8 text-[#1A1A1A] md:text-lg">
               Choose support based on what you are carrying right now. The first step is designed to

@@ -111,9 +111,10 @@ export default function Footer() {
             <div className="mt-5 flex flex-col gap-3 text-sm text-gray-600">
               <Link to="/" className="transition-colors hover:text-[#2A2A2A]">Home</Link>
               <Link to="/about" className="transition-colors hover:text-[#2A2A2A]">About Omkar</Link>
-              <Link to="/services" className="transition-colors hover:text-[#2A2A2A]">Programs & Support</Link>
+              <Link to="/services" className="transition-colors hover:text-[#2A2A2A]">Support Options</Link>
               <Link to="/stories" className="transition-colors hover:text-[#2A2A2A]">Client Stories</Link>
-              <Link to="/content" className="transition-colors hover:text-[#2A2A2A]">Content Library</Link>
+              <Link to="/faq" className="transition-colors hover:text-[#2A2A2A]">FAQ</Link>
+              <Link to="/content" className="transition-colors hover:text-[#2A2A2A]">Follow Omkar's Content</Link>
               <Link to="/contact" className="transition-colors hover:text-[#2A2A2A]">Contact</Link>
             </div>
           </div>

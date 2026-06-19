@@ -1,8 +1,8 @@
 export const supportPathLabels: Record<string, string> = {
   "quick-clarity-call": "Quick Clarity Call (15-20 Mins)",
-  "one-to-one-personal-session": "1:1 Personal Session",
-  "past-patterns-inner-healing": "Work On Past Patterns (Inner Healing)",
-  "structured-28-day-program": "Structured 28-Day Program",
+  "one-to-one-personal-session": "1:1 Emotional Healing & Support",
+  "past-patterns-inner-healing": "Inner Child & Childhood Trauma Support",
+  "structured-28-day-program": "Structured Support Program",
   "not-sure-yet": "Not Sure Yet",
 };
 
@@ -88,18 +88,38 @@ export const socialLinks = [
 
 export const faqItems = [
   {
-    question: "How Do I Begin?",
+    question: "What is a Clarity Call?",
     answer:
-      "Start with the quick clarity check, enquiry form, or a WhatsApp message. The team will help you understand the right next step.",
+      "A Clarity Call is a brief, 15-20 minute online conversation. It is a low-pressure space for you to share what is troubling you, ask questions about how I work, and see if we are a good fit before committing to longer sessions.",
   },
   {
-    question: "Are Sessions Online?",
+    question: "How do childhood patterns or childhood trauma affect adult life?",
     answer:
-      "Yes. Sessions are conducted online so support can be offered across locations in a calm and flexible format.",
+      "Many adult struggles with anxiety, overthinking, or relationship loops stem from early survival strategies or expectations. Inner child support helps you recognize and gently resolve these deep-rooted triggers at the root level rather than just managing symptoms.",
   },
   {
-    question: "Is Pricing Public?",
+    question: "Are the sessions online or in-person?",
     answer:
-      "Pricing is discussed privately after understanding your needs and the format that fits you best.",
+      "All sessions are conducted online via secure video calls (Zoom or Google Meet). This allows you to join from a comfortable, private space anywhere worldwide.",
+  },
+  {
+    question: "Is this therapy or coaching?",
+    answer:
+      "My work combines psychology-led therapeutic modalities (like Cognitive Hypnotic Psychotherapy and Inner Child work) with practical, forward-looking guidance. It goes deeper than standard coaching to address root causes, while remaining highly practical and focused on your next steps.",
+  },
+  {
+    question: "Is my privacy protected?",
+    answer:
+      "Yes, confidentiality is a core clinical boundary. Everything you share in our sessions, form submissions, and messages is kept completely private and secure.",
+  },
+  {
+    question: "What is the pricing for sessions?",
+    answer:
+      "Pricing and structure are discussed transparently during or after our initial clarity call, once we understand your specific needs and which support format (1:1, structured blocks, or single checks) fits you best.",
+  },
+  {
+    question: "What should I do in case of an urgent crisis?",
+    answer:
+      "Please note that my practice is not equipped to handle acute psychiatric emergencies or crisis support. If you are experiencing thoughts of self-harm or are in an urgent crisis, please contact your local emergency services or visit the nearest healthcare facility immediately.",
   },
 ] as const;

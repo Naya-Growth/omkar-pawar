@@ -16,8 +16,8 @@ export default function TopNav() {
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
     { path: "/services", label: "Services" },
-    { path: "/stories", label: "Stories" },
-    { path: "/content", label: "Content" },
+    { path: "/stories", label: "Client Stories" },
+    { path: "/faq", label: "FAQ" },
     { path: "/contact", label: "Contact" },
   ];
 

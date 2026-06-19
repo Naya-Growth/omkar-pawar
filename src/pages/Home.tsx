@@ -11,11 +11,18 @@ import {
   MessageCircle,
   ShieldCheck,
   Sparkles,
+  GraduationCap,
+  Baby,
+  Compass,
+  HelpCircle,
+  Mail,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import InquiryForm from "../components/InquiryForm";
 import { useLeadWizard } from "../components/LeadWizardProvider";
+import StoryCarousel from "../components/StoryCarousel";
+import { stories } from "./SuccessStories";
 import {
   Accordion,
   AccordionContent,
@@ -24,8 +31,14 @@ import {
 } from "../components/ui/accordion";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
-import { MetricCard } from "../components/ui/premium";
-import { heroStats } from "../lib/omkar-content";
+import {
+  Reveal,
+  SectionIntro,
+  SectionShell,
+  MetricCard,
+  FeatureCard,
+} from "../components/ui/premium";
+import { heroStats, faqItems } from "../lib/omkar-content";
 import { buildWhatsAppUrl, siteConfig } from "../lib/site-config";
 
 const fadeUp = {
@@ -61,31 +74,6 @@ const painPoints = [
   },
 ];
 
-const modalities = [
-  {
-    title: "Inner Child Healing",
-    desc: "For old experiences that still shape present reactions, triggers, self-protection, and shutdown.",
-  },
-  {
-    title: "Cognitive Hypnotic Psychotherapy",
-    desc: "Root-level work for the deeper reason beneath surface-level behavior and emotional loops.",
-  },
-  {
-    title: "Neuro-Linguistic Programming",
-    desc: "Practical reframing support for confidence, self-doubt, emotional responses, and repeated patterns.",
-  },
-  {
-    title: "Mindfulness-Based CBT",
-    desc: "Calm awareness and grounded regulation for overthinking, overwhelm, and clearer follow-through.",
-  },
-];
-
-const claritySteps = [
-  "Share what feels most active right now.",
-  "Choose the support path that feels comfortable.",
-  "Leave your details for a personal response.",
-];
-
 const approachPrinciples = [
   {
     step: "01",
@@ -107,14 +95,65 @@ const approachPrinciples = [
   },
 ];
 
+const supportPaths = [
+  {
+    icon: <Compass className="h-6 w-6" />,
+    title: "Quick Clarity Call",
+    body: "A brief, low-pressure conversation to understand what is troubling you, map the right next step, and see if we are a good fit.",
+    detail: "15-20 minutes · Online video call · Free",
+  },
+  {
+    icon: <BrainCircuit className="h-6 w-6" />,
+    title: "1:1 Emotional Healing & Support",
+    body: "Personal online sessions to help you understand your overthinking, find calmer responses, and manage daily anxiety.",
+    detail: "60 minutes · Online · Flexible scheduling",
+  },
+  {
+    icon: <Baby className="h-6 w-6" />,
+    title: "Inner Child & Childhood Trauma Support",
+    body: "Gentle exploration of early patterns and expectations that still shape your adult triggers, reactions, and self-doubt.",
+    detail: "60 minutes · Online · Focused work",
+  },
+  {
+    icon: <CheckCircle2 className="h-6 w-6" />,
+    title: "Structured Support Program",
+    body: "Consistent weekly check-ins and practical tools designed to help you build steadier emotional regulation and daily habits.",
+    detail: "4-week container · Weekly sessions · Structured resources",
+  },
+];
+
+const homeCredentials = [
+  {
+    icon: <BrainCircuit className="h-6 w-6" />,
+    title: "Psychologist & Practitioner",
+    desc: "Double Master's in I/O Psychology & Clinical Psychology",
+  },
+  {
+    icon: <ShieldCheck className="h-6 w-6" />,
+    title: "Cognitive Hypnotherapist",
+    desc: "Diploma in Cognitive Hypnotic Psychotherapy",
+  },
+  {
+    icon: <GraduationCap className="h-6 w-6" />,
+    title: "NLP Master Coach",
+    desc: "Neuro-Linguistic Programming Master Practitioner",
+  },
+  {
+    icon: <Baby className="h-6 w-6" />,
+    title: "Inner Child Healer",
+    desc: "Certified Inner Child Healing Practitioner",
+  },
+];
+
 const heroStatIcons = [Clock3, HeartHandshake, Globe2, CheckCircle2];
-const directionCtaLabel = "Find My Next Step";
+const directionCtaLabel = "Book a Clarity Call";
 
 export default function Home() {
   const { openLeadWizard } = useLeadWizard();
 
   return (
     <div className="overflow-x-hidden bg-[#FAF6F0] text-[#1A1A1A]">
+      {/* 1. HERO SECTION */}
       <section className="relative isolate overflow-hidden bg-[#FAF6F0] px-5 py-10 sm:px-8 lg:min-h-[calc(100svh-100px)] lg:px-14 lg:py-8 xl:px-20 2xl:px-24">
         <img
           src={siteConfig.image.homeHeroHorizontal}
@@ -144,7 +183,7 @@ export default function Home() {
           >
             <motion.div variants={fadeUp} className="hidden flex-wrap items-center gap-2.5 sm:flex">
               <span className="rounded-full bg-[#D4AF37] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.18em] text-white shadow-[0_10px_24px_rgba(212,175,55,0.22)]">
-                Emotional Mastery
+                Emotional Wellbeing
               </span>
               <span className="inline-flex items-center gap-2 overflow-hidden rounded-full border border-[#3D2B1F]/8 bg-white/84 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#3D2B1F] shadow-[0_10px_25px_rgba(61,43,31,0.08)]">
                 <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF6F0] text-[#3D2B1F]">
@@ -167,7 +206,7 @@ export default function Home() {
               className="flex max-w-full flex-wrap items-center gap-2 sm:hidden"
             >
               <span className="rounded-full bg-[#D4AF37] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.16em] text-white shadow-[0_10px_24px_rgba(212,175,55,0.2)]">
-                Emotional Mastery
+                Emotional Wellbeing
               </span>
               <span className="inline-flex min-w-0 items-center gap-1.5 rounded-full border border-[#3D2B1F]/8 bg-white/86 px-3.5 py-2 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#3D2B1F] shadow-sm">
                 <MapPin className="h-3.5 w-3.5 shrink-0" />
@@ -177,18 +216,9 @@ export default function Home() {
 
             <motion.h1
               variants={fadeUp}
-              className="mt-6 max-w-[760px] font-serif text-[2.8rem] font-bold leading-[0.95] text-[#1A1A1A] sm:text-[3.85rem] lg:mt-7 lg:max-w-[930px] lg:text-[3.9rem] xl:max-w-[1060px] xl:text-[4.25rem] 2xl:text-[4.85rem]"
+              className="mt-6 max-w-[760px] font-serif text-[2.4rem] font-bold leading-[1.05] text-[#1A1A1A] sm:text-[3.2rem] lg:mt-7 lg:max-w-[930px] lg:text-[3.4rem] xl:max-w-[1060px] xl:text-[3.8rem] 2xl:text-[4.2rem]"
             >
-              <span className="block lg:hidden">
-                <span className="block">Master Your</span>
-                <span className="block">Emotions.</span>
-                <span className="block text-[#3D2B1F]">Transform</span>
-                <span className="block text-[#3D2B1F]">Your Life.</span>
-              </span>
-              <span className="hidden lg:block">
-                <span className="block">Master Your Emotions.</span>
-                <span className="block text-[#3D2B1F]">Transform Your Life.</span>
-              </span>
+              Anxiety and childhood trauma support with Omkar Pawar
             </motion.h1>
 
             <motion.div
@@ -210,26 +240,49 @@ export default function Home() {
               variants={fadeUp}
               className="mt-5 max-w-2xl text-base leading-8 text-[#1A1A1A] md:text-lg"
             >
-              Omkar Pawar helps people heal anxiety, regulate emotional overwhelm, and understand
-              the root patterns that keep repeating beneath high-functioning outer lives.
+              Online sessions to help you understand what is troubling you, feel calmer, and choose the right next step.
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link
-                to="/contact"
-                className="group inline-flex min-h-14 w-full max-w-full items-center justify-center gap-3 overflow-hidden rounded-full border border-[#3D2B1F]/18 bg-white/92 px-8 py-3.5 text-center text-sm font-extrabold tracking-[0.08em] text-[#1A1A1A] shadow-[0_14px_34px_rgba(88,62,34,0.11)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#3D2B1F]/38 hover:text-[#3D2B1F] sm:w-auto"
+              <Button
+                type="button"
+                onClick={() => openLeadWizard()}
+                size="lg"
+                className="min-h-14 font-extrabold tracking-[0.08em] uppercase text-xs rounded-full shadow-[0_14px_34px_rgba(88,62,34,0.11)] px-8"
               >
-                <span className="relative grid h-5 min-w-[11.5rem] place-items-center [perspective:900px]">
-                  <span className="transition-transform duration-500 [backface-visibility:hidden] group-hover:[transform:rotateX(180deg)]">
-                    Book A Clarity Session
-                  </span>
-                  <span className="absolute inset-0 grid place-items-center text-[#3D2B1F] [backface-visibility:hidden] [transform:rotateX(-180deg)] transition-transform duration-500 group-hover:[transform:rotateX(0deg)]">
-                    Start Gently
-                  </span>
-                </span>
+                Book a Clarity Call
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </Button>
+              <Button
+                asChild
+                variant="secondary"
+                size="lg"
+                className="min-h-14 font-extrabold tracking-[0.08em] uppercase text-xs rounded-full border border-[#3D2B1F]/18 bg-white/92 hover:border-[#3D2B1F]/38 text-[#1A1A1A] px-8"
+              >
+                <a
+                  href={buildWhatsAppUrl("Hi Omkar, I would like to book a clarity call with you.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 justify-center"
+                >
+                  <MessageCircle className="h-4 w-4 shrink-0 text-[#128C4A]" />
+                  Message on WhatsApp
+                </a>
+              </Button>
             </motion.div>
+
+            <motion.p
+              variants={fadeUp}
+              className="mt-6 text-xs font-semibold text-gray-500 tracking-wide flex flex-wrap items-center gap-x-2 gap-y-1"
+            >
+              <span>7+ years experience</span>
+              <span className="text-gray-300">&middot;</span>
+              <span>2000+ 1:1 sessions</span>
+              <span className="text-gray-300">&middot;</span>
+              <span>English, Hindi, Marathi</span>
+              <span className="text-gray-300">&middot;</span>
+              <span>Online worldwide</span>
+            </motion.p>
           </motion.div>
 
           <motion.div
@@ -247,7 +300,7 @@ export default function Home() {
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="mx-auto mt-9 grid max-w-[1400px] gap-3 sm:grid-cols-2 lg:grid-cols-4"
+          className="mx-auto mt-12 grid max-w-[1400px] gap-3 sm:grid-cols-2 lg:grid-cols-4"
         >
           {heroStats.map((stat, index) => (
             <motion.div key={stat.label} variants={fadeUp}>
@@ -257,6 +310,84 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* 2. PROBLEMS SECTION */}
+      <section className="mx-auto max-w-[1400px] px-5 py-20 sm:px-8 lg:px-10 lg:py-24">
+        <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:gap-14">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="lg:sticky lg:top-28 lg:self-start"
+          >
+            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#3D2B1F]">
+              What Clients Usually Carry
+            </motion.p>
+            <motion.h2 variants={fadeUp} className="mt-4 max-w-xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
+              The Invisible Battles
+            </motion.h2>
+            <motion.p variants={fadeUp} className="mt-5 max-w-xl text-base leading-8 text-[#1A1A1A]">
+              You may look composed on the outside and still feel exhausted by overthinking,
+              emotional pressure, fear of judgment, and patterns that seem to return no matter how
+              much you understand them intellectually.
+            </motion.p>
+            <motion.div variants={fadeUp} className="mt-8">
+              <Button asChild variant="ghost" size="md" className="px-0">
+                <Link to="/about">
+                  Read Omkar's Story
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </motion.div>
+          </motion.div>
+
+          <div className="grid gap-4">
+            <div className="overflow-hidden rounded-[24px] border border-[#1A1A1A]/8 bg-white/82 p-3 shadow-[0_22px_70px_rgba(140,106,68,0.12)] backdrop-blur">
+              <img
+                src={siteConfig.image.servicesPortrait}
+                alt="Omkar Pawar standing calmly outdoors"
+                className="aspect-[16/7] w-full rounded-md object-cover object-[center_38%]"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <div className="rounded-[24px] border border-[#1A1A1A]/8 bg-white/82 p-3 shadow-[0_22px_70px_rgba(140,106,68,0.12)] backdrop-blur">
+              <Accordion type="single" defaultValue="pain-0" collapsible>
+                {painPoints.map((item, index) => (
+                  <div key={item.title}>
+                    <AccordionItem
+                      value={`pain-${index}`}
+                      className="rounded-md border-b-0 data-[state=open]:bg-[#FAF6F0]"
+                    >
+                      <AccordionTrigger className="px-4 py-5 hover:text-[#1A1A1A] md:px-5">
+                        <span className="flex items-center gap-4">
+                          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[24px] bg-[#FAF6F0] text-[#3D2B1F] shadow-sm">
+                            {item.icon}
+                          </span>
+                          <span>
+                            <span className="block font-serif text-2xl font-semibold leading-tight text-[#1A1A1A]">
+                              {item.title}
+                            </span>
+                            <span className="mt-1 block text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#3D2B1F]">
+                              Pattern 0{index + 1}
+                            </span>
+                          </span>
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent className="px-4 text-base leading-8 md:px-5">
+                        {item.desc}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </div>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. HOW IT WORKS SECTION */}
       <section className="border-y border-[#1A1A1A]/8 bg-white px-5 py-16 sm:px-8 lg:px-14 lg:py-20 xl:px-20 2xl:px-24">
         <motion.div
           initial="hidden"
@@ -324,294 +455,158 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="mx-auto max-w-[1400px] px-5 py-20 sm:px-8 lg:px-10 lg:py-24">
-        <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:gap-14">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="lg:sticky lg:top-28 lg:self-start"
-          >
-            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#3D2B1F]">
-              What Clients Usually Carry
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="mt-4 max-w-xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              The Invisible Battles
-            </motion.h2>
-            <motion.p variants={fadeUp} className="mt-5 max-w-xl text-base leading-8 text-[#1A1A1A]">
-              You may look composed on the outside and still feel exhausted by overthinking,
-              emotional pressure, fear of judgment, and patterns that seem to return no matter how
-              much you understand them intellectually.
-            </motion.p>
-            <motion.div variants={fadeUp} className="mt-8">
-              <Button asChild variant="ghost" size="md" className="px-0">
-                <Link to="/about">
-                  Read Omkar's Story
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
+      {/* 4. SUPPORT OPTIONS SECTION */}
+      <SectionShell tone="white" className="border-b border-[#1A1A1A]/8">
+        <Reveal>
+          <SectionIntro
+            align="center"
+            eyebrow="Session Paths"
+            title="Support Options"
+            body="Choose support based on what you are carrying right now. The first step is designed to be clear and private."
+          />
+        </Reveal>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2 max-w-[1200px] mx-auto">
+          {supportPaths.map((path, index) => (
+            <Reveal key={path.title} delay={index * 0.05}>
+              <FeatureCard
+                icon={path.icon}
+                kicker={path.detail}
+                title={path.title}
+                body={path.body}
+                actionLabel="Check Fit"
+                onAction={() => openLeadWizard()}
+                className="min-h-[280px]"
+              />
+            </Reveal>
+          ))}
+        </div>
+      </SectionShell>
+
+      {/* 5. ABOUT/CREDENTIALS SECTION */}
+      <SectionShell className="border-b border-[#1A1A1A]/8">
+        <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start max-w-[1400px] mx-auto">
+          <Reveal>
+            <div className="lg:sticky lg:top-28">
+              <SectionIntro
+                eyebrow="The Practitioner"
+                title="About Omkar Pawar"
+                body="An eclectic approach combining clinical training, psychology, and childhood trauma insights to facilitate steady mental and emotional wellbeing."
+              />
+              <div className="mt-8">
+                <Button asChild variant="ghost" size="md" className="px-0">
+                  <Link to="/about">
+                    View Training & Full Story
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+              <div className="mt-8 grid gap-4 p-5 rounded-[24px] border border-[#1A1A1A]/8 bg-white/78">
+                <div className="flex items-center gap-3 text-sm font-semibold text-[#1A1A1A]">
+                  <Globe2 className="h-5 w-5 text-[#3D2B1F]" />
+                  Languages: English · Hindi · Marathi
+                </div>
+                <div className="flex items-center gap-3 text-sm font-semibold text-[#1A1A1A]">
+                  <MapPin className="h-5 w-5 text-[#3D2B1F]" />
+                  Pune, Maharashtra &middot; Online Worldwide
+                </div>
+              </div>
+            </div>
+          </Reveal>
 
           <div className="grid gap-4">
-            <div className="overflow-hidden rounded-[24px] border border-[#1A1A1A]/8 bg-white/82 p-3 shadow-[0_22px_70px_rgba(140,106,68,0.12)] backdrop-blur">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {homeCredentials.map((cred, index) => (
+                <Reveal key={cred.title} delay={index * 0.04}>
+                  <Card className="p-6 h-full flex flex-col justify-between border-[#1A1A1A]/8 shadow-sm">
+                    <div>
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[24px] bg-[#FAF6F0] text-[#3D2B1F] mb-4 shadow-sm">
+                        {cred.icon}
+                      </span>
+                      <h3 className="font-serif text-xl font-semibold text-[#1A1A1A]">{cred.title}</h3>
+                      <p className="mt-2 text-sm text-gray-600 leading-relaxed">{cred.desc}</p>
+                    </div>
+                  </Card>
+                </Reveal>
+              ))}
+            </div>
+            <div className="overflow-hidden rounded-[24px] border border-[#1A1A1A]/8 bg-white p-3 shadow-md">
               <img
-                src={siteConfig.image.servicesPortrait}
-                alt="Omkar Pawar standing calmly outdoors"
-                className="aspect-[16/7] w-full rounded-md object-cover object-[center_38%]"
+                src={siteConfig.image.homeFormAside}
+                alt="Omkar Pawar reflective portrait"
+                className="aspect-[16/9] w-full rounded-md object-cover object-[center_22%]"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-
-            <div className="rounded-[24px] border border-[#1A1A1A]/8 bg-white/82 p-3 shadow-[0_22px_70px_rgba(140,106,68,0.12)] backdrop-blur">
-              <Accordion type="single" defaultValue="pain-0" collapsible>
-                {painPoints.map((item, index) => (
-                  <div key={item.title}>
-                    <AccordionItem
-                      value={`pain-${index}`}
-                      className="rounded-md border-b-0 data-[state=open]:bg-[#FAF6F0]"
-                    >
-                      <AccordionTrigger className="px-4 py-5 hover:text-[#1A1A1A] md:px-5">
-                        <span className="flex items-center gap-4">
-                          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[24px] bg-[#FAF6F0] text-[#3D2B1F] shadow-sm">
-                            {item.icon}
-                          </span>
-                          <span>
-                            <span className="block font-serif text-2xl font-semibold leading-tight text-[#1A1A1A]">
-                              {item.title}
-                            </span>
-                            <span className="mt-1 block text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#3D2B1F]">
-                              Pattern 0{index + 1}
-                            </span>
-                          </span>
-                        </span>
-                      </AccordionTrigger>
-                      <AccordionContent className="px-4 text-base leading-8 md:px-5">
-                        {item.desc}
-                      </AccordionContent>
-                    </AccordionItem>
-                  </div>
-                ))}
-              </Accordion>
             </div>
           </div>
         </div>
-      </section>
+      </SectionShell>
 
-      <section className="relative overflow-hidden bg-[#1A1A1A] px-5 py-20 text-white sm:px-8 lg:px-10 lg:py-24">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[length:46px_46px] opacity-45" />
-        <div className="relative mx-auto grid max-w-[1400px] gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="grid gap-6"
-          >
-            <motion.div variants={fadeUp}>
-              <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#D4AF37]">
-                Clinical Expertise
-              </p>
-              <h2 className="mt-4 max-w-xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
-                An Eclectic Approach To Healing
-              </h2>
-              <p className="mt-5 max-w-xl text-base leading-8 text-white/74">
-                Omkar draws from multiple therapeutic and awareness-based modalities to understand the
-                actual root of what is happening instead of staying only at symptom level.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={fadeUp}
-              className="overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.07] p-3 shadow-[0_24px_90px_rgba(0,0,0,0.24)]"
-            >
-              <img
-                src={siteConfig.image.clinicalExpertise}
-                alt="Omkar Pawar portrait for therapeutic support"
-                className="aspect-[5/4] w-full rounded-md object-cover object-center opacity-95"
-                loading="lazy"
-                decoding="async"
-              />
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-          >
-            <Card className="h-full border-white/10 bg-white/[0.07] p-5 text-white shadow-[0_24px_90px_rgba(0,0,0,0.18)] md:p-8">
-              <motion.div variants={fadeUp} className="grid gap-3 sm:grid-cols-3">
-                {claritySteps.map((step, index) => (
-                  <div key={step} className="rounded-md border border-white/10 bg-white/[0.05] p-4">
-                    <span className="font-serif text-2xl font-semibold text-[#D4AF37]">0{index + 1}</span>
-                    <p className="mt-3 text-sm leading-6 text-white/72">{step}</p>
-                  </div>
-                ))}
-              </motion.div>
-
-              <motion.div variants={fadeUp} className="mt-7 flex flex-wrap gap-2">
-                {modalities.map((modality) => (
-                  <span
-                    key={modality.title}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#D4AF37]"
-                  >
-                    {modality.title}
-                  </span>
-                ))}
-              </motion.div>
-
-              <motion.div variants={fadeUp} className="mt-5">
-                <Accordion type="single" defaultValue="modality-0" collapsible>
-                  {modalities.map((modality, index) => (
-                    <AccordionItem key={modality.title} value={`modality-${index}`} className="border-white/10">
-                      <AccordionTrigger className="text-white hover:text-[#D4AF37]">
-                        <span className="flex items-center gap-4">
-                          <span className="font-serif text-2xl font-semibold text-[#D4AF37]">0{index + 1}</span>
-                          {modality.title}
-                        </span>
-                      </AccordionTrigger>
-                      <AccordionContent className="text-white/74">
-                        {modality.desc}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </motion.div>
-
-              <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button type="button" variant="inverted" size="lg" onClick={() => openLeadWizard()}>
-                  {directionCtaLabel}
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-                <Button asChild variant="ghost" size="lg" className="border border-white/12 text-white hover:bg-white/10">
-                  <Link to="/services">Explore Support</Link>
-                </Button>
-              </motion.div>
-            </Card>
-          </motion.div>
+      {/* 6. CLIENT EXPERIENCES SECTION */}
+      <SectionShell tone="white" className="border-b border-[#1A1A1A]/8">
+        <Reveal>
+          <SectionIntro
+            align="center"
+            eyebrow="Client Experiences"
+            title="Experiences Of Healing And Understanding"
+            body="Read reflections from people who chose to address childhood patterns and find a calmer way forward."
+          />
+        </Reveal>
+        <div className="mt-10 max-w-[1200px] mx-auto">
+          <StoryCarousel stories={stories} />
         </div>
-      </section>
+      </SectionShell>
 
-      <section className="mx-auto max-w-[1400px] px-5 py-20 sm:px-8 lg:px-10 lg:py-24">
-        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-          >
-            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#3D2B1F]">
-              Guided First Step
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="mt-4 max-w-2xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              Get Direction Without Guessing The Right Program First.
-            </motion.h2>
-            <motion.p variants={fadeUp} className="mt-5 max-w-xl text-base leading-8 text-[#1A1A1A]">
-              This guided enquiry keeps the first step simple: name what is happening, choose the
-              kind of support that feels comfortable, and let Omkar respond personally.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="grid gap-3"
-          >
-            {claritySteps.map((step, index) => (
-              <motion.div key={step} variants={fadeUp}>
-                <Card className="flex items-start gap-4 p-5">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[24px] bg-[#FAF6F0] text-sm font-bold text-[#3D2B1F]">
-                    {index + 1}
-                  </div>
-                  <p className="text-sm font-semibold leading-7 text-[#1A1A1A]">{step}</p>
-                </Card>
-              </motion.div>
-            ))}
-            <motion.div variants={fadeUp} className="mt-3 flex flex-col gap-3 sm:flex-row">
-              <Button type="button" onClick={() => openLeadWizard()} size="lg">
-                {directionCtaLabel}
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-              <Button asChild variant="secondary" size="lg">
-                <a
-                  href={buildWhatsAppUrl("Hi Omkar, I would like to connect with you on WhatsApp.")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  Message On WhatsApp
-                </a>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="bg-white px-5 py-20 sm:px-8 lg:py-24">
-        <div className="mx-auto grid max-w-[1400px] gap-8 lg:grid-cols-[1fr_0.78fr] lg:items-start">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-          >
-            <motion.p variants={fadeUp} className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#3D2B1F]">
-              Prefer Writing Before A Call?
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="mt-4 max-w-3xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              Send A Grounded Enquiry And Let The Right Next Step Become Clear.
-            </motion.h2>
-            <motion.p variants={fadeUp} className="mt-5 max-w-2xl text-base leading-8 text-[#1A1A1A]">
-              Use the form below if you want to explain what you are currently navigating in your own
-              words. Your message is captured properly and routed for follow-up.
-            </motion.p>
-
-            <motion.div variants={fadeUp} className="mt-8">
-              <InquiryForm sourceCta="home-inline-form" />
-            </motion.div>
-          </motion.div>
-
-          <motion.aside
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:sticky lg:top-28"
-          >
-            <Card className="overflow-hidden p-3">
-              <img
-                src={siteConfig.image.homeFormAside}
-                alt="Omkar Pawar in a reflective outdoor portrait"
-                className="aspect-[4/5] w-full rounded-md object-cover object-[center_22%]"
-                loading="lazy"
-                decoding="async"
+      {/* 7. FAQ SECTION */}
+      <SectionShell className="border-b border-[#1A1A1A]/8">
+        <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start max-w-[1400px] mx-auto">
+          <Reveal>
+            <div className="lg:sticky lg:top-28">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[24px] bg-[#FAF6F0] text-[#3D2B1F] shadow-sm mb-6">
+                <HelpCircle className="h-6 w-6" />
+              </span>
+              <SectionIntro
+                eyebrow="FAQ"
+                title="Frequently Asked Questions"
+                body="Clear answers for people considering a clarity session, online support, or childhood trauma work."
+                titleClassName="text-4xl md:text-5xl"
               />
-              <div className="grid gap-3 p-4">
-                {[
-                  { icon: <Clock3 className="h-4 w-4" />, label: "Discovery-call requests" },
-                  { icon: <ShieldCheck className="h-4 w-4" />, label: "Private anxiety and healing enquiries" },
-                  { icon: <CheckCircle2 className="h-4 w-4" />, label: "Program fit checks" },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-3 text-sm font-semibold text-[#1A1A1A]">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[24px] bg-[#FAF6F0] text-[#3D2B1F]">
-                      {item.icon}
-                    </span>
-                    {item.label}
-                  </div>
-                ))}
+              <div className="mt-8">
+                <Button asChild variant="ghost" size="md" className="px-0">
+                  <Link to="/faq">
+                    View All FAQs
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
               </div>
-            </Card>
-          </motion.aside>
-        </div>
-      </section>
+            </div>
+          </Reveal>
 
-      <section className="px-5 py-14 text-center sm:px-8 lg:py-16">
+          <Reveal delay={0.08}>
+            <Accordion
+              type="single"
+              defaultValue={faqItems[0].question}
+              collapsible
+              className="rounded-[24px] border border-[#1A1A1A]/8 bg-white/92 px-5 shadow-[0_22px_70px_rgba(140,106,68,0.13)] md:px-7"
+            >
+              {faqItems.map((item) => (
+                <AccordionItem key={item.question} value={item.question}>
+                  <AccordionTrigger className="font-serif text-xl md:text-2xl text-left">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-base leading-8 text-gray-600">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </Reveal>
+        </div>
+      </SectionShell>
+
+      {/* 8. FINAL CTA SECTION */}
+      <section className="px-5 py-20 text-center sm:px-8 lg:py-24">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -632,16 +627,16 @@ export default function Home() {
             <span className="italic text-[#3D2B1F]">Living?</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="mx-auto mt-4 max-w-2xl text-base leading-8 text-[#1A1A1A]">
-            Start with a guided first step, send an enquiry, or message directly on WhatsApp and
+            Start with a clarity call, send an enquiry, or message directly on WhatsApp and
             take the first honest step toward steadier emotional wellbeing.
           </motion.p>
           <motion.div variants={fadeUp} className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <Button type="button" onClick={() => openLeadWizard()} size="lg">
-              {directionCtaLabel}
+              Book a Clarity Call
             </Button>
             <Button asChild variant="secondary" size="lg">
               <a
-                href={buildWhatsAppUrl("Hi Omkar, I would like to connect with you on WhatsApp.")}
+                href={buildWhatsAppUrl("Hi Omkar, I would like to book a clarity call with you.")}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -654,7 +649,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-
-

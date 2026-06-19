@@ -41,7 +41,7 @@ const storyBlocks = [
 const credentials = [
   {
     icon: <Brain className="h-7 w-7" />,
-    title: "Registered Psychologist",
+    title: "Psychologist & Practitioner",
     body: "Double Master's in I/O Psychology & Clinical Psychology",
   },
   {
@@ -98,6 +98,37 @@ export default function About() {
       </SectionShell>
 
       <SectionShell tone="white" className="border-y border-[#1A1A1A]/8">
+        <Reveal>
+          <SectionIntro
+            align="center"
+            className="max-w-3xl"
+            eyebrow="Professional Foundation"
+            title="Training That Supports Practical Inner Work."
+            body="The work combines psychology, cognitive hypnotic psychotherapy, NLP, inner-child healing, and awareness-based regulation."
+          />
+        </Reveal>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {credentials.map((credential, index) => (
+            <Reveal key={credential.title} delay={index * 0.04}>
+              <FeatureCard
+                icon={credential.icon}
+                title={credential.title}
+                body={credential.body}
+                className="min-h-[280px] text-center bg-[#FAF6F0] border border-[#1A1A1A]/8"
+              />
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {heroStats.map((stat) => (
+            <MetricCard key={stat.label} label={stat.label} value={stat.value} />
+          ))}
+        </div>
+      </SectionShell>
+
+      <SectionShell className="border-b border-[#1A1A1A]/8">
         <div className="grid gap-8 lg:grid-cols-[0.62fr_1.38fr] lg:items-start">
           <Reveal>
             <div className="lg:sticky lg:top-28">
@@ -112,7 +143,7 @@ export default function About() {
           <div className="grid gap-5">
             {storyBlocks.map((block, index) => (
               <Reveal key={block.title} delay={index * 0.05}>
-                <article className="rounded-[24px] border border-[#1A1A1A]/8 bg-[#FAF6F0] p-6 shadow-[0_16px_50px_rgba(140,106,68,0.09)] md:grid md:grid-cols-[88px_1fr] md:p-8">
+                <article className="rounded-[24px] border border-[#1A1A1A]/8 bg-[#FFFFFF] p-6 shadow-[0_16px_50px_rgba(140,106,68,0.06)] md:grid md:grid-cols-[88px_1fr] md:p-8">
                   <span className="font-serif text-5xl font-semibold leading-none text-[#3D2B1F]/50">
                     {block.number}
                   </span>
@@ -143,37 +174,6 @@ export default function About() {
             </h2>
           </div>
         </Reveal>
-      </SectionShell>
-
-      <SectionShell>
-        <Reveal>
-          <SectionIntro
-            align="center"
-            className="max-w-3xl"
-            eyebrow="Professional Foundation"
-            title="Training That Supports Practical Inner Work."
-            body="The work combines psychology, cognitive hypnotic psychotherapy, NLP, inner-child healing, and awareness-based regulation."
-          />
-        </Reveal>
-
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {credentials.map((credential, index) => (
-            <Reveal key={credential.title} delay={index * 0.04}>
-              <FeatureCard
-                icon={credential.icon}
-                title={credential.title}
-                body={credential.body}
-                className="min-h-[280px] text-center"
-              />
-            </Reveal>
-          ))}
-        </div>
-
-        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {heroStats.map((stat) => (
-            <MetricCard key={stat.label} label={stat.label} value={stat.value} />
-          ))}
-        </div>
       </SectionShell>
     </div>
   );

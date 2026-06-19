@@ -6,46 +6,46 @@ import { Button } from "../components/ui/button";
 import { Reveal, SectionIntro, SectionShell } from "../components/ui/premium";
 import { wizardContent } from "../lib/omkar-content";
 
-const stories: StorySlide[] = [
+export const stories: StorySlide[] = [
   {
-    category: "Anxiety Reduction",
+    category: "Anxiety Support",
     quote:
-      "I was constantly living in my head, overthinking every small detail at work and home. After the 28-day program, I finally know what peace feels like. I can actually switch off.",
+      "I spent years overthinking small details and feeling anxious about work. Working with Omkar helped me understand the roots of that pressure and find a calmer daily rhythm.",
     author: "S., Tech Executive",
     rating: 5,
   },
   {
-    category: "Emotional Breakthrough",
+    category: "Emotional Support",
     quote:
-      "Post-divorce, I was battling severe self-doubt and anger. Omkar helped me heal my inner child and reframe my entire perspective. I am now happily married again and living a life I didn't think was possible.",
+      "After a difficult separation, I was carrying a lot of self-doubt. The inner child sessions helped me process those patterns. I feel much more grounded and secure in myself now.",
     author: "P., Entrepreneur",
     rating: 5,
   },
   {
-    category: "Relationship Improvement",
+    category: "Relationship Patterns",
     quote:
-      "I kept repeating the same toxic cycles in my relationships. The 1:1 sessions helped me understand my attachment wounds. For the first time, I feel secure in my relationship.",
+      "I noticed a pattern of emotional reactivity in my relationships. The sessions helped me trace these back to early attachment triggers. I can now communicate much more calmly with my partner.",
     author: "M., Creative Director",
     rating: 5,
   },
   {
     category: "Anxiety & Confidence",
     quote:
-      "I looked successful on the outside but felt like an imposter inside. Omkar's eclectic approach using NLP and hypnotherapy completely shifted my self-image. I lead my team with genuine confidence now.",
+      "On the outside, things looked fine, but internally I struggled with constant self-doubt and imposter feelings. Through NLP and structured sessions, I learned to manage that inner critic and lead my team with steadier confidence.",
     author: "R., VP of Sales",
     rating: 5,
   },
   {
     category: "Inner Child Healing",
     quote:
-      "I didn't realize how much my childhood was dictating my adult reactions. Healing those deep-rooted wounds was the most liberating experience of my life.",
+      "I hadn't connected my current stress response to early childhood expectations. Addressing those roots has made a significant difference in how I handle daily pressure.",
     author: "A., Doctor",
     rating: 5,
   },
   {
-    category: "Emotional Stability",
+    category: "Emotional Regulation",
     quote:
-      "I used to react to everything. Now, I respond. The emotional agency I've gained through this work is priceless. Highly recommend Omkar to anyone feeling stuck.",
+      "I used to feel completely swept away by emotional triggers. The sessions gave me the space to pause, regulate, and choose how to respond rather than just reacting.",
     author: "K., Founder",
     rating: 5,
   },
@@ -61,13 +61,13 @@ export default function SuccessStories() {
           <SectionIntro
             align="center"
             className="max-w-4xl"
-            eyebrow="Client Transformations"
+            eyebrow="Client Experiences"
             title={
               <>
-                Stories Of <span className="italic text-[#3D2B1F]">Healing</span> And Mastery
+                Experiences Of <span className="italic text-[#3D2B1F]">Healing</span> And Understanding
               </>
             }
-            body="Real experiences from high-performers who chose to break free from invisible battles and reclaim steadier emotional ground."
+            body="Real reflections from people who worked with Omkar to understand their anxiety, address childhood patterns, and find a calmer way forward."
             titleClassName="text-5xl md:text-6xl lg:text-7xl"
           />
         </Reveal>
@@ -90,11 +90,10 @@ export default function SuccessStories() {
           <div className="mx-auto max-w-4xl rounded-[24px] border border-[#1A1A1A]/8 bg-[#1A1A1A] p-8 text-center text-white shadow-[0_24px_90px_rgba(0,0,0,0.2)] md:p-14">
             <Quote className="mx-auto h-10 w-10 text-[#D4AF37]/70" />
             <h2 className="mt-6 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              Ready To Write Your Own <span className="italic text-[#D4AF37]">Success Story?</span>
+              Ready to take a step toward <span className="italic text-[#D4AF37]">steadier wellbeing?</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/74">
-              Take the first step toward emotional freedom. Start with the quick clarity check to see
-              which support path fits.
+              Start with a quick clarity check to see which support path fits. Your check is private and has no pressure to commit.
             </p>
             <Button type="button" onClick={() => openLeadWizard()} variant="inverted" size="lg" className="mt-8">
               {wizardContent.triggerLabel}

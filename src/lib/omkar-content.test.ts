@@ -55,12 +55,12 @@ test("wizardContent matches the quick clarity check copy and options", () => {
     wizardContent.steps[1].options.map((option) => [option.label, option.description]),
     [
       ["Quick Clarity Call (15-20 Mins)", "Talk Once, Get Direction"],
-      ["1:1 Personal Session", "Deep Dive Into Your Situation"],
+      ["1:1 Emotional Healing & Support", "Deep Dive Into Your Situation"],
       [
-        "Work On Past Patterns (Inner Healing)",
+        "Inner Child & Childhood Trauma Support",
         "If Old Experiences Are Still Affecting You",
       ],
-      ["Structured 28-Day Program", "Step-By-Step Transformation"],
+      ["Structured Support Program", "Step-By-Step Transformation"],
       ["Not Sure Yet", "Help Me Decide"],
     ],
   );
@@ -84,19 +84,27 @@ test("socialLinks include Instagram and YouTube destinations", () => {
 
 test("supportPathLabels keep the lead payload aligned with the visible choices", () => {
   assert.equal(supportPathLabels["quick-clarity-call"], "Quick Clarity Call (15-20 Mins)");
-  assert.equal(supportPathLabels["one-to-one-personal-session"], "1:1 Personal Session");
+  assert.equal(supportPathLabels["one-to-one-personal-session"], "1:1 Emotional Healing & Support");
   assert.equal(
     supportPathLabels["past-patterns-inner-healing"],
-    "Work On Past Patterns (Inner Healing)",
+    "Inner Child & Childhood Trauma Support",
   );
-  assert.equal(supportPathLabels["structured-28-day-program"], "Structured 28-Day Program");
+  assert.equal(supportPathLabels["structured-28-day-program"], "Structured Support Program");
   assert.equal(supportPathLabels["not-sure-yet"], "Not Sure Yet");
 });
 
 test("faqItems keep structured data aligned with the FAQ page", () => {
-  assert.equal(faqItems.length, 3);
+  assert.equal(faqItems.length, 7);
   assert.deepEqual(
     faqItems.map((item) => item.question),
-    ["How Do I Begin?", "Are Sessions Online?", "Is Pricing Public?"],
+    [
+      "What is a Clarity Call?",
+      "How do childhood patterns or childhood trauma affect adult life?",
+      "Are the sessions online or in-person?",
+      "Is this therapy or coaching?",
+      "Is my privacy protected?",
+      "What is the pricing for sessions?",
+      "What should I do in case of an urgent crisis?",
+    ],
   );
 });
