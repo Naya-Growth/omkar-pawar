@@ -1,200 +1,226 @@
-import { motion } from 'motion/react';
-import { Leaf, Zap, Users, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { ArrowRight, Baby, BrainCircuit, CalendarDays, Compass, MessageCircle, Sparkles } from "lucide-react";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] } }
-};
+import { useLeadWizard } from "../components/LeadWizardProvider";
+import { Button } from "../components/ui/button";
+import {
+  Eyebrow,
+  FeatureCard,
+  MediaFrame,
+  Reveal,
+  SectionIntro,
+  SectionShell,
+  StepCard,
+} from "../components/ui/premium";
+import { wizardContent } from "../lib/omkar-content";
+import { buildWhatsAppUrl, siteConfig } from "../lib/site-config";
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
+const supportPaths = [
+  {
+    icon: <Compass className="h-6 w-6" />,
+    title: "Quick Clarity Call",
+    body: "A brief, low-pressure conversation to understand what is troubling you, map the right next step, and see if we are a good fit.",
+    detail: "15-20 minutes · Online video call · Free",
+  },
+  {
+    icon: <BrainCircuit className="h-6 w-6" />,
+    title: "1:1 Emotional Healing & Support",
+    body: "Personal online sessions to help you understand your overthinking, find calmer responses, and manage daily anxiety.",
+    detail: "60 minutes · Online · Flexible scheduling",
+  },
+  {
+    icon: <Baby className="h-6 w-6" />,
+    title: "Inner Child & Childhood Trauma Support",
+    body: "Gentle exploration of early patterns and expectations that still shape your adult triggers, reactions, and self-doubt.",
+    detail: "60 minutes · Online · Focused work",
+  },
+  {
+    icon: <CalendarDays className="h-6 w-6" />,
+    title: "Structured Support Program",
+    body: "Consistent weekly check-ins and practical tools designed to help you build steadier emotional regulation and daily habits.",
+    detail: "4-week container · Weekly sessions · Structured resources",
+  },
+];
+
+const processSteps = [
+  {
+    title: "Guided Enquiry",
+    body: "Start with the quick clarity check or send a direct enquiry so the right context is captured properly.",
+  },
+  {
+    title: "Clarity Session",
+    body: "A clarity conversation helps map what you are carrying, what keeps repeating, and what support fits.",
+  },
+  {
+    title: "Intentional Support",
+    body: "If it is the right fit, the next phase becomes a structured healing container with steady follow-through.",
+  },
+];
 
 export default function Services() {
+  const { openLeadWizard } = useLeadWizard();
+
   return (
-    <div className="overflow-x-hidden bg-[#FAF9F6] text-[#2A2A2A]">
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-20 px-6 md:px-12 max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="max-w-xl"
-          >
-            <motion.span variants={fadeUp} className="text-[10px] uppercase tracking-[0.3em] text-[#8C7A6B] font-bold mb-6 block">
-              Elevate Your Being
-            </motion.span>
-            <motion.h1 variants={fadeUp} className="font-serif text-5xl md:text-7xl leading-[1.05] mb-6">
-              Work With Me
-            </motion.h1>
-            <motion.div variants={fadeUp} className="w-16 h-[1px] bg-[#8C7A6B] mb-6"></motion.div>
-            <motion.h2 variants={fadeUp} className="font-serif text-3xl md:text-4xl italic text-[#8C7A6B] mb-8">
-              Transformation Pathways
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-gray-600 text-lg mb-10 font-light leading-relaxed max-w-md">
-              A curated selection of premium emotional mastery programs designed to move you from a state of reactive survival to conscious, peaceful creation.
-            </motion.p>
-            <motion.p variants={fadeUp} className="text-sm font-bold uppercase tracking-widest text-[#2A2A2A] bg-white px-6 py-3 rounded-full inline-block border border-black/5 shadow-sm">
-              Pricing discussed privately upon application
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, filter: 'blur(20px)' }}
-            animate={{ opacity: 1, filter: 'blur(0px)' }}
-            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
-          >
-            <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl shadow-[#8C7A6B]/10">
-              <img 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCygHCUcWLO9UuDZR912DUlPN_7amg7Z36UXAOWMiMDs9rZzbrgmDdMg-XOy-Ktlec5hD0PVeT22rls-k_Bkp1r78sQFSjn3DmCVmPiVnu5-7zGGiZjFFeiqnSSGNQBtaX_TKq5NppUbbyieZJdoWRf7TfVojOOzGr4Ro-UtWhwYq91mlrpqf3Hh1Z7QRY2ej-aZm4hbRbBEqMMb_EKPuZ8qgvrh49zUCXRYF3A0SWpnKANQuDDpy6hUMgraYZTTOQPFniw_BcNiECt" 
-                alt="Omkar Pawar" 
-                className="w-full h-full object-cover"
-              />
+    <div className="overflow-x-hidden bg-[#FAF6F0] text-[#1A1A1A]">
+      <SectionShell className="bg-hero-gradient pt-12 lg:pt-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.98fr)_minmax(360px,0.78fr)] lg:gap-16">
+          <Reveal immediate className="max-w-3xl">
+            <Eyebrow>Work With Omkar</Eyebrow>
+            <h1 className="mt-5 font-serif text-5xl font-semibold leading-[1.02] md:text-6xl lg:text-7xl">
+              Support <span className="italic text-[#3D2B1F]">Options</span>
+            </h1>
+            <p className="mt-7 max-w-2xl text-base leading-8 text-[#1A1A1A] md:text-lg">
+              Choose support based on what you are carrying right now. The first step is designed to
+              be clear, private, and human before any deeper commitment is discussed.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button type="button" onClick={() => openLeadWizard()} size="lg" className="w-full sm:w-auto">
+                <span className="hidden sm:inline">Start With The {wizardContent.triggerLabel}</span>
+                <span className="sm:hidden">{wizardContent.triggerLabel}</span>
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+              <Button asChild variant="secondary" size="lg" className="w-full sm:w-auto">
+                <a
+                  href={buildWhatsAppUrl("Hi Omkar, I would like to know which program is right for me.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  Ask On WhatsApp
+                </a>
+              </Button>
             </div>
-          </motion.div>
+          </Reveal>
+
+          <Reveal immediate delay={0.08}>
+            <MediaFrame
+              src={siteConfig.image.servicesPortrait}
+              alt="Omkar Pawar portrait for services page"
+              aspect="aspect-[4/5]"
+              imageClassName="object-[center_16%]"
+              priority
+              caption={
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {["Online Worldwide", "Clarity First", "1:1 Support", "Root-Level Work"].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full bg-[#FAF6F0] px-4 py-2 text-center text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#3D2B1F]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              }
+            />
+          </Reveal>
         </div>
-      </section>
+      </SectionShell>
 
-      {/* Programs Section */}
-      <section className="py-32 px-6 md:px-12 max-w-[1400px] mx-auto">
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-        >
-          {/* 1:1 Emotional Healing */}
-          <motion.div variants={fadeUp} className="bg-white p-12 rounded-[3rem] shadow-sm border border-black/5 flex flex-col relative overflow-hidden group hover:shadow-xl transition-all duration-500">
-            <div className="absolute right-0 top-0 w-64 h-64 bg-gradient-to-bl from-[#FAF9F6] to-transparent rounded-bl-full opacity-50 transition-transform group-hover:scale-110 duration-700"></div>
-            
-            <div className="relative z-10 flex-grow">
-              <div className="w-14 h-14 rounded-full bg-[#FAF9F6] flex items-center justify-center text-[#8C7A6B] mb-8">
-                <Leaf className="w-6 h-6" />
-              </div>
-              <h3 className="font-serif text-3xl md:text-4xl mb-6">1:1 Emotional Healing & Anxiety Reset Program</h3>
-              <p className="text-gray-500 font-light leading-relaxed mb-8">
-                A highly personalized, deep-dive container for high-performers struggling with anxiety and emotional overwhelm. We combine somatic therapy, cognitive reframing, and energetic alignment to reset your nervous system.
+      <SectionShell tone="white" className="border-y border-[#1A1A1A]/8">
+        <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+          <Reveal>
+            <SectionIntro
+              eyebrow="Support Menu"
+              title={
+                <>
+                  Pick The First Door, Not The Whole Future.
+                </>
+              }
+              body="Each path starts with context, consent, and fit. Pricing and format are discussed privately after the need is clear."
+            />
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="rounded-[24px] border border-[#1A1A1A]/8 bg-[#FAF6F0] p-5 md:p-6">
+              <p className="quote-text font-serif text-2xl font-semibold leading-snug text-[#1A1A1A]">
+                "The right support should reduce confusion from the first interaction, not add more
+                pressure."
               </p>
-              <ul className="space-y-4 mb-12">
-                <li className="flex items-start gap-3 text-sm text-gray-600 font-light">
-                  <div className="w-5 h-5 rounded-full bg-[#FAF9F6] flex items-center justify-center text-[#8C7A6B] shrink-0 mt-0.5">✓</div>
-                  <span><strong className="text-[#2A2A2A] font-medium">Format:</strong> 1:1 Online (Google Meet)</span>
-                </li>
-                <li className="flex items-start gap-3 text-sm text-gray-600 font-light">
-                  <div className="w-5 h-5 rounded-full bg-[#FAF9F6] flex items-center justify-center text-[#8C7A6B] shrink-0 mt-0.5">✓</div>
-                  <span><strong className="text-[#2A2A2A] font-medium">Outcome:</strong> Deep emotional stability, significantly reduced anxiety, and profound inner clarity.</span>
-                </li>
-              </ul>
-            </div>
-            <div className="relative z-10 mt-auto">
-              <Link to="/contact" className="bg-[#2A2A2A] text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide hover:bg-[#8C7A6B] transition-colors inline-flex items-center gap-2">
-                Apply to Join <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </motion.div>
-
-          <div className="flex flex-col gap-8">
-            {/* Inner Child Healing */}
-            <motion.div variants={fadeUp} className="bg-[#8C7A6B] p-12 rounded-[3rem] shadow-sm text-white flex-grow relative overflow-hidden group hover:shadow-xl transition-all duration-500">
-              <div className="relative z-10">
-                <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-white mb-8">
-                  <Zap className="w-6 h-6" />
-                </div>
-                <h3 className="font-serif text-3xl mb-4">Inner Child Healing Sessions</h3>
-                <p className="text-white/80 font-light leading-relaxed mb-8">
-                  Intensive healing sessions designed to resolve past emotional wounds. Reconnect with your core essence, heal the traumas that keep you playing small, and break self-sabotaging patterns.
-                </p>
-                <Link to="/contact" className="bg-white text-[#2A2A2A] px-8 py-4 rounded-full text-sm font-bold tracking-wide hover:bg-gray-100 transition-colors inline-flex items-center gap-2">
-                  Apply to Join <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* 28 Days Anxiety */}
-            <motion.div variants={fadeUp} className="bg-[#2A2A2A] p-12 rounded-[3rem] shadow-sm text-white flex-grow relative overflow-hidden group hover:shadow-xl transition-all duration-500">
-              <div className="relative z-10">
-                <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-white mb-8">
-                  <Users className="w-6 h-6" />
-                </div>
-                <h3 className="font-serif text-3xl mb-4">28 Days Anxiety Transformation</h3>
-                <p className="text-white/80 font-light leading-relaxed mb-8">
-                  A structured, intensive coaching program to break severe anxiety loops and build lasting emotional control. Learn to regulate your nervous system and reclaim your peace of mind in less than a month.
-                </p>
-                <Link to="/contact" className="bg-white text-[#2A2A2A] px-8 py-4 rounded-full text-sm font-bold tracking-wide hover:bg-[#8C7A6B] hover:text-white transition-colors inline-flex items-center gap-2">
-                  Apply to Join <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* How it Works Section */}
-      <section className="py-32 px-6 md:px-12 max-w-[1400px] mx-auto">
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="text-center mb-20"
-        >
-          <motion.span variants={fadeUp} className="text-[10px] uppercase tracking-[0.3em] text-[#8C7A6B] font-bold mb-4 block">
-            The Process
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl mb-6">
-            How it <span className="italic text-[#8C7A6B]">Works</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-gray-500 font-light max-w-xl mx-auto text-lg">
-            Our methodology is rooted in the intersection of ancient wisdom and modern neuroscience.
-          </motion.p>
-        </motion.div>
-
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center"
-        >
-          {[
-            {
-              step: "1",
-              title: "Deep Discovery",
-              desc: "We begin with a 45-minute alignment call to map your emotional landscape and identify the core blocks holding you back."
-            },
-            {
-              step: "2",
-              title: "Curated Journey",
-              desc: "Based on your blueprint, we enter a container of intensive healing, utilizing somatic practices and reframing techniques."
-            },
-            {
-              step: "3",
-              title: "Integrated Mastery",
-              desc: "You emerge with a personalized toolkit of practices to maintain your resonance and lead from a state of wholeness."
-            }
-          ].map((item, i) => (
-            <motion.div key={i} variants={fadeUp} className="flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-white border border-black/5 shadow-sm flex items-center justify-center text-[#8C7A6B] font-serif text-2xl mb-8">
-                {item.step}
-              </div>
-              <h4 className="font-serif text-2xl mb-4">{item.title}</h4>
-              <p className="text-gray-500 leading-relaxed font-light">
-                {item.desc}
+              <p className="mt-3 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#3D2B1F]">
+                Freedom Innerwellbeing
               </p>
-            </motion.div>
+            </div>
+          </Reveal>
+        </div>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
+          {supportPaths.map((path, index) => (
+            <Reveal key={path.title} delay={index * 0.04}>
+              <FeatureCard
+                icon={path.icon}
+                kicker={path.detail}
+                title={path.title}
+                body={path.body}
+                actionLabel="Check Fit"
+                onAction={() => openLeadWizard()}
+                className="min-h-[330px]"
+              />
+            </Reveal>
           ))}
-        </motion.div>
-      </section>
+        </div>
+      </SectionShell>
+
+      <SectionShell tone="charcoal">
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+          <Reveal>
+            <MediaFrame
+              src={siteConfig.image.healingHorizontal}
+              alt="Omkar Pawar standing outdoors"
+              aspect="aspect-[5/4]"
+              imageClassName="object-center"
+              className="border-white/10 bg-white/[0.08] shadow-[0_24px_80px_rgba(0,0,0,0.24)]"
+            />
+          </Reveal>
+
+          <div>
+            <Reveal>
+              <SectionIntro
+                inverse
+                eyebrow="The Process"
+                title={
+                  <>
+                    A Calm Path From Unclear Emotion To Clear Next Step.
+                  </>
+                }
+                body="The process is intentionally simple so you do not need to self-diagnose or choose the perfect program before speaking."
+              />
+            </Reveal>
+            <div className="mt-8 grid gap-4">
+              {processSteps.map((step, index) => (
+                <Reveal key={step.title} delay={index * 0.05}>
+                  <StepCard index={index + 1} title={step.title} body={step.body} inverse />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </SectionShell>
+
+      <SectionShell>
+        <Reveal>
+          <div className="rounded-[24px] border border-[#1A1A1A]/8 bg-white/80 p-6 text-center shadow-[0_22px_70px_rgba(140,106,68,0.12)] md:p-12">
+            <Sparkles className="mx-auto h-9 w-9 text-[#3D2B1F]" />
+            <h2 className="mx-auto mt-5 max-w-3xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
+              Not Sure Which Path Fits?
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#1A1A1A]">
+              Start with the quick clarity check. It captures what is bothering you and lets Omkar
+              respond with the right next step.
+            </p>
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <Button type="button" onClick={() => openLeadWizard()} size="lg">
+                {wizardContent.triggerLabel}
+              </Button>
+              <Button asChild variant="secondary" size="lg">
+                <Link to="/contact">Send An Enquiry</Link>
+              </Button>
+            </div>
+          </div>
+        </Reveal>
+      </SectionShell>
     </div>
   );
 }
+
+
+
+
