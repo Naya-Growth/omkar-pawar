@@ -7,12 +7,12 @@ export default function BottomNav() {
     { path: '/', icon: Home, label: 'Home' },
     { path: '/about', icon: User, label: 'About' },
     { path: '/services', icon: Leaf, label: 'Services' },
-    { path: '/stories', icon: Sparkles, label: 'Stories' },
+    { path: '/stories', icon: Sparkles, label: 'Client Stories' },
     { path: '/contact', icon: MessageCircle, label: 'Contact' },
   ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#FAF9F6]/95 backdrop-blur-2xl z-50 rounded-t-[2rem] border-t border-black/5 shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
+    <nav className="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#FAF6F0]/95 backdrop-blur-2xl z-50 rounded-t-[2rem] border-t border-black/5 shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
       {navItems.map((item) => {
         const isActive = location.pathname === item.path;
         const Icon = item.icon;
@@ -22,8 +22,8 @@ export default function BottomNav() {
             to={item.path}
             className={`flex flex-col items-center justify-center transition-all duration-200 active:scale-90 ${
               isActive
-                ? 'bg-[#8C7A6B]/10 text-[#8C7A6B] rounded-full px-4 py-1'
-                : 'text-gray-400 hover:text-[#8C7A6B]'
+                ? 'bg-[#3D2B1F]/10 text-[#3D2B1F] rounded-full px-4 py-1'
+                : 'text-gray-400 hover:text-[#3D2B1F]'
             }`}
           >
             <Icon className={`w-5 h-5 ${isActive ? '' : 'mb-1'}`} strokeWidth={isActive ? 2.5 : 2} />
@@ -36,3 +36,7 @@ export default function BottomNav() {
     </nav>
   );
 }
+
+
+
+
