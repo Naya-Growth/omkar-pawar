@@ -1,141 +1,153 @@
+import type { FormEvent } from 'react';
 import { motion } from 'motion/react';
-import { Mail, MessageCircle, MapPin, ArrowRight } from 'lucide-react';
+import { ArrowRight, Instagram, Linkedin, Mail, MessageCircle, ShieldCheck } from 'lucide-react';
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] } }
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
+const contactEmail = 'hello@omkarpawar.com';
 
 export default function Contact() {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const name = String(form.get('name') ?? '').trim();
+    const email = String(form.get('email') ?? '').trim();
+    const phone = String(form.get('phone') ?? '').trim();
+    const concern = String(form.get('concern') ?? '').trim();
+    const message = String(form.get('message') ?? '').trim();
+
+    const subject = encodeURIComponent(`Clarity call enquiry from ${name || 'website visitor'}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nPrimary concern: ${concern}\n\nWhat I am experiencing:\n${message}`,
+    );
+
+    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+  };
+
   return (
-    <div className="overflow-x-hidden bg-[#FAF9F6] text-[#2A2A2A]">
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-20 px-6 md:px-12 max-w-[1400px] mx-auto text-center">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="max-w-4xl mx-auto"
-        >
-          <motion.span variants={fadeUp} className="text-[10px] uppercase tracking-[0.3em] text-[#8C7A6B] font-bold mb-6 block">
-            Connect
-          </motion.span>
-          <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-8">
-            Start Your <span className="italic text-[#8C7A6B]">Healing Journey</span>
-          </motion.h1>
-          <motion.p variants={fadeUp} className="text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto text-gray-600">
-            Whether you're ready to apply for a program or just have a question, I'm here to help you take the next step.
-          </motion.p>
+    <div className="overflow-hidden bg-[#FFF8EF] text-[#18131B]">
+      <section className="relative overflow-hidden bg-[#AEE4DF] px-5 py-20 md:px-10 md:py-28 lg:px-14 lg:py-32">
+        <div className="absolute -left-64 -top-72 h-[590px] w-[590px] rounded-full border-[98px] border-[#64266F]" />
+        <div className="absolute -bottom-64 -right-40 h-[520px] w-[520px] rounded-full border-[88px] border-[#FF6333]" />
+        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="relative z-10 mx-auto max-w-5xl text-center">
+          <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#087F79]">Start here</span>
+          <h1 className="mt-6 text-balance text-6xl font-bold leading-[0.92] tracking-[-0.065em] md:text-8xl lg:text-[7.2rem]">
+            You do not need the perfect words to ask for
+            <span className="display-serif ml-3 block font-medium italic text-[#64266F]">support.</span>
+          </h1>
+          <p className="mx-auto mt-8 max-w-2xl text-base leading-8 text-[#405D59] md:text-lg">
+            Share what has been difficult, what you have tried and what you hope could change. The first conversation is for clarity and fit.
+          </p>
         </motion.div>
       </section>
 
-      <section className="py-20 px-6 md:px-12 max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          
-          {/* Direct Contact Info - Emphasizing WhatsApp */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="lg:col-span-5 flex flex-col gap-8"
-          >
-            {/* WhatsApp Card (Primary) */}
-            <motion.div variants={fadeUp} className="bg-[#25D366] p-10 md:p-12 rounded-[3rem] text-white shadow-lg shadow-[#25D366]/20 relative overflow-hidden group">
-              <div className="absolute right-0 top-0 w-64 h-64 bg-gradient-to-bl from-white/20 to-transparent rounded-bl-full opacity-50 transition-transform group-hover:scale-110 duration-700"></div>
-              <div className="relative z-10">
-                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-white mb-8">
-                  <MessageCircle className="w-6 h-6" />
-                </div>
-                <h3 className="font-serif text-3xl mb-4">Chat on WhatsApp</h3>
-                <p className="text-white/90 font-light mb-8 text-lg">
-                  Have a quick question before applying? Send me a direct message on WhatsApp for the fastest response.
-                </p>
-                <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" className="bg-white text-[#128C7E] px-8 py-4 rounded-full text-sm font-bold tracking-wide hover:bg-gray-100 transition-colors inline-flex items-center gap-2">
-                  Message Now <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            </motion.div>
+      <section className="px-5 py-24 md:px-10 md:py-32 lg:px-14">
+        <div className="mx-auto grid max-w-[1360px] gap-8 lg:grid-cols-[.78fr_1.22fr]">
+          <div className="grid content-start gap-5">
+            <motion.article initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="rounded-[2.2rem] bg-[#FF6333] p-7 text-white md:p-9">
+              <span className="flex h-13 w-13 items-center justify-center rounded-full bg-white/15"><MessageCircle className="h-6 w-6" /></span>
+              <h2 className="mt-16 text-4xl font-bold leading-[1] tracking-[-0.05em]">Book a clarity call</h2>
+              <p className="mt-5 text-sm leading-7 text-white/72">A focused introductory conversation to understand what you are facing and whether one of Omkar’s pathways is appropriate.</p>
+              <a href={`mailto:${contactEmail}?subject=${encodeURIComponent('Clarity call enquiry')}`} className="group mt-8 inline-flex items-center gap-3 rounded-full bg-white px-5 py-3.5 text-sm font-bold text-[#18131B]">
+                Request a call
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
+            </motion.article>
 
-            {/* Book Session Card */}
-            <motion.div variants={fadeUp} className="bg-[#2A2A2A] p-10 md:p-12 rounded-[3rem] text-white shadow-sm relative overflow-hidden group">
-              <div className="relative z-10">
-                <h3 className="font-serif text-3xl mb-4">Apply to Join</h3>
-                <p className="text-white/80 font-light mb-8">
-                  Ready to dive in? Schedule your free 45-minute discovery call to see if we're a fit for a 1:1 container.
-                </p>
-                <button className="bg-[#8C7A6B] text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide hover:bg-[#7A6A5B] transition-colors inline-flex items-center gap-2">
-                  Open Calendar <ArrowRight className="w-4 h-4" />
+            <motion.article initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }} className="rounded-[2.2rem] bg-[#64266F] p-7 text-white md:p-9">
+              <span className="flex h-13 w-13 items-center justify-center rounded-full bg-white/12"><ShieldCheck className="h-6 w-6 text-[#AEE4DF]" /></span>
+              <h2 className="mt-12 text-3xl font-bold tracking-[-0.04em]">What to expect</h2>
+              <div className="mt-6 grid gap-4 text-sm leading-6 text-white/66">
+                <p>• A private online conversation.</p>
+                <p>• No pressure to enrol during the call.</p>
+                <p>• An honest discussion about fit and next steps.</p>
+                <p>• Referral elsewhere when the need falls outside this scope.</p>
+              </div>
+            </motion.article>
+
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <a href="https://instagram.com/lifecoachomkar" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-2xl border border-black/8 bg-white p-4 text-sm font-bold transition-colors hover:border-[#FF6333] hover:text-[#FF6333]">
+                <Instagram className="h-5 w-5" /> Instagram
+              </a>
+              <a href="https://www.linkedin.com/in/coach-omkarpawar/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-2xl border border-black/8 bg-white p-4 text-sm font-bold transition-colors hover:border-[#64266F] hover:text-[#64266F]">
+                <Linkedin className="h-5 w-5" /> LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="rounded-[2.5rem] border border-black/8 bg-white p-7 card-shadow md:p-12"
+          >
+            <div className="flex flex-col gap-5 border-b border-black/8 pb-8 md:flex-row md:items-end md:justify-between">
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#FF6333]">Send an enquiry</span>
+                <h2 className="mt-3 text-4xl font-bold tracking-[-0.05em] md:text-5xl">Tell me what is going on.</h2>
+              </div>
+              <a href={`mailto:${contactEmail}`} className="inline-flex items-center gap-2 text-sm font-bold text-[#64266F]">
+                <Mail className="h-4 w-4" /> {contactEmail}
+              </a>
+            </div>
+
+            <form onSubmit={handleSubmit} className="mt-8 grid gap-6">
+              <div className="grid gap-6 md:grid-cols-2">
+                <label className="grid gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-[#786C71]">
+                  Your name
+                  <input name="name" required type="text" autoComplete="name" className="rounded-2xl border border-black/10 bg-[#FFF8EF] px-5 py-4 text-sm font-medium normal-case tracking-normal text-[#18131B] outline-none transition-shadow focus:border-[#64266F] focus:ring-4 focus:ring-[#64266F]/10" placeholder="What should I call you?" />
+                </label>
+                <label className="grid gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-[#786C71]">
+                  Email address
+                  <input name="email" required type="email" autoComplete="email" className="rounded-2xl border border-black/10 bg-[#FFF8EF] px-5 py-4 text-sm font-medium normal-case tracking-normal text-[#18131B] outline-none transition-shadow focus:border-[#64266F] focus:ring-4 focus:ring-[#64266F]/10" placeholder="you@example.com" />
+                </label>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-2">
+                <label className="grid gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-[#786C71]">
+                  Phone number
+                  <input name="phone" type="tel" autoComplete="tel" className="rounded-2xl border border-black/10 bg-[#FFF8EF] px-5 py-4 text-sm font-medium normal-case tracking-normal text-[#18131B] outline-none transition-shadow focus:border-[#64266F] focus:ring-4 focus:ring-[#64266F]/10" placeholder="Include country code" />
+                </label>
+                <label className="grid gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-[#786C71]">
+                  Primary concern
+                  <select name="concern" className="rounded-2xl border border-black/10 bg-[#FFF8EF] px-5 py-4 text-sm font-medium normal-case tracking-normal text-[#18131B] outline-none transition-shadow focus:border-[#64266F] focus:ring-4 focus:ring-[#64266F]/10" defaultValue="">
+                    <option value="" disabled>Select one</option>
+                    <option>Anxiety and overthinking</option>
+                    <option>Emotional triggers</option>
+                    <option>Inner-child wounds</option>
+                    <option>Relationship patterns</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </label>
+              </div>
+
+              <label className="grid gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-[#786C71]">
+                What would you like support with?
+                <textarea name="message" required rows={7} className="resize-none rounded-[1.5rem] border border-black/10 bg-[#FFF8EF] px-5 py-4 text-sm font-medium normal-case leading-7 tracking-normal text-[#18131B] outline-none transition-shadow focus:border-[#64266F] focus:ring-4 focus:ring-[#64266F]/10" placeholder="You can be brief. Share what has been difficult, how long it has been happening and what you hope might change." />
+              </label>
+
+              <div className="flex flex-col gap-4 pt-2 md:flex-row md:items-center md:justify-between">
+                <p className="max-w-lg text-xs leading-5 text-[#7B7074]">Submitting opens your email application with the enquiry pre-filled. No sensitive information is stored by this website.</p>
+                <button type="submit" className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#18131B] px-7 py-4 text-sm font-bold text-white transition-colors hover:bg-[#64266F]">
+                  Prepare enquiry
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </button>
               </div>
-            </motion.div>
-
-            <motion.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-[#8C7A6B] shrink-0">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#8C7A6B] mb-1">Email</p>
-                  <p className="text-[#2A2A2A] font-medium">hello@omkarpawar.com</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-white border border-black/5 flex items-center justify-center text-[#8C7A6B] shrink-0">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#8C7A6B] mb-1">Location</p>
-                  <p className="text-[#2A2A2A] font-medium">Global (Online via Meet)</p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, filter: 'blur(10px)' }}
-            whileInView={{ opacity: 1, filter: 'blur(0px)' }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-7 bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-black/5"
-          >
-            <h3 className="font-serif text-3xl text-[#2A2A2A] mb-8">Send an Inquiry</h3>
-            <form className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-3">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#8C7A6B]">First Name</label>
-                  <input type="text" className="w-full bg-[#FAF9F6] border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-[#8C7A6B] outline-none transition-shadow" placeholder="Jane" />
-                </div>
-                <div className="space-y-3">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-[#8C7A6B]">Last Name</label>
-                  <input type="text" className="w-full bg-[#FAF9F6] border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-[#8C7A6B] outline-none transition-shadow" placeholder="Doe" />
-                </div>
-              </div>
-              <div className="space-y-3">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-[#8C7A6B]">Email Address</label>
-                <input type="email" className="w-full bg-[#FAF9F6] border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-[#8C7A6B] outline-none transition-shadow" placeholder="jane@example.com" />
-              </div>
-              <div className="space-y-3">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-[#8C7A6B]">How can I help you?</label>
-                <textarea rows={6} className="w-full bg-[#FAF9F6] border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-[#8C7A6B] outline-none resize-none transition-shadow" placeholder="Tell me a bit about what you're looking for..."></textarea>
-              </div>
-              <button type="button" className="w-full bg-[#2A2A2A] text-white px-8 py-5 rounded-full text-sm font-bold tracking-wide hover:bg-[#8C7A6B] transition-colors mt-4">
-                Send Message
-              </button>
             </form>
           </motion.div>
+        </div>
+      </section>
 
+      <section className="bg-[#24172A] px-5 py-20 text-white md:px-10 md:py-24 lg:px-14">
+        <div className="mx-auto grid max-w-[1260px] gap-10 md:grid-cols-3">
+          {[
+            ['Is this emergency support?', 'No. This website and the offered programmes are not a crisis or emergency service. Contact local emergency support when immediate help is required.'],
+            ['Are sessions online?', 'The current website describes the work as online, allowing conversations across locations through video calls.'],
+            ['Do I need to choose a programme first?', 'No. The clarity call exists to understand the concern and discuss whether any available pathway is suitable.'],
+          ].map(([question, answer]) => (
+            <article key={question} className="border-t border-white/16 pt-6">
+              <h3 className="text-xl font-bold tracking-[-0.025em]">{question}</h3>
+              <p className="mt-4 text-sm leading-7 text-white/55">{answer}</p>
+            </article>
+          ))}
         </div>
       </section>
     </div>
